@@ -12,6 +12,8 @@ using Gadgeteer.Networking;
 using GT = Gadgeteer;
 using GTM = Gadgeteer.Modules;
 
+using Robot_P16.Actions;
+
 namespace Robot_P16
 {
     public partial class Program
@@ -35,6 +37,9 @@ namespace Robot_P16
 
             // Use Debug.Print to show messages in Visual Studio's "Output" window during debugging.
             Debug.Print("Program Started");
+
+            Action a = new ActionEnSerie(null);
+            a
         }
     }
 }

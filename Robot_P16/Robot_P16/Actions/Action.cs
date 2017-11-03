@@ -42,11 +42,15 @@ namespace Robot_P16.Actions
         public event ActionListenerDelegate SuccessEvent;
         public event ActionListenerDelegate FailureEvent;
         public event ActionListenerDelegate ResetEvent;
+        public event ActionListenerDelegate StatusChangeEvent;
 
         /// <summary>
         /// Action suivante à exécuter après succès.
         /// </summary>
         public Action ActionSuivante { get; protected set; }
+
+
+        public Action(Action actionSuivante) { ActionSuivante = actionSuivante; }
 
 
         /// <summary>
@@ -73,10 +77,12 @@ namespace Robot_P16.Actions
             {
                 case ActionStatus.SUCCESS:
                     postSuccessCode();
-                    if (SuccessEvent != null)
-                        SuccessEvent(this);
+
                     if (ActionSuivante != null)
                         ActionSuivante.execute();
+
+                    if (SuccessEvent != null)
+                        SuccessEvent(this);
                     break;
 
                 case ActionStatus.FAILURE:
@@ -90,11 +96,13 @@ namespace Robot_P16.Actions
                     if (ResetEvent != null)
                         ResetEvent(this);
                     break;
+
             }
+            StatusChangeEvent(this);
         }
 
 
-        protected void ResetStatus()
+        public void ResetStatus()
         {
             Status = ActionStatus.UNDETERMINED;
             postResetCode();
