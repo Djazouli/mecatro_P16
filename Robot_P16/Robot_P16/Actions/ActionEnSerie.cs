@@ -24,7 +24,7 @@ namespace Robot_P16.Actions
             return this;
         }
 
-        public ActionEnSerie build()
+        public ActionEnSerie Build()
         {
             Action[] listeActions = new Action[liste.Count];
             int i = 0;
@@ -83,6 +83,7 @@ namespace Robot_P16.Actions
 
         public override void execute()
         {
+            FirstUnsucessfulAction().StatusChangeEvent += this.feedback;
             FirstUnsucessfulAction().execute();
         }
 
@@ -100,8 +101,10 @@ namespace Robot_P16.Actions
                         a.StatusChangeEvent -= this.feedback; // On arrête d'écoûter l'action
 
                         Action actionSuivante = this.GetNextAction(a);
+                        Debug.Print("Next action...");
                         if (actionSuivante != null)
                         {
+                            Debug.Print("executing...");
                             actionSuivante.StatusChangeEvent += this.feedback;
                             actionSuivante.execute();
                         }
@@ -125,11 +128,13 @@ namespace Robot_P16.Actions
         protected override void postSuccessCode()
         {
             //throw new NotImplementedException();
+            Debug.Print("ActionEnSerie successful !");
         }
 
         protected override void postFailureCode()
         {
             //throw new NotImplementedException();
+            Debug.Print("ActionEnSerie failed !");
         }
 
         protected override void postResetCode()

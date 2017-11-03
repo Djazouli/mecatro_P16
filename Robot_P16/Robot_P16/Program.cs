@@ -13,6 +13,8 @@ using GT = Gadgeteer;
 using GTM = Gadgeteer.Modules;
 
 using Robot_P16.Actions;
+using Robot_P16.Actions.ActionsIHM;
+using Gadgeteer.Modules.GHIElectronics;
 
 namespace Robot_P16
 {
@@ -38,8 +40,13 @@ namespace Robot_P16
             // Use Debug.Print to show messages in Visual Studio's "Output" window during debugging.
             Debug.Print("Program Started");
 
-            Action a = new ActionEnSerie(null);
-            a
+            Action a = new ActionEnSerieBuilder(null)
+                .Add(new ActionBouton(null, button))
+                .Add(new ActionBouton(null, button2))
+                .Build();
+
+            a.execute();
+            
         }
     }
 }

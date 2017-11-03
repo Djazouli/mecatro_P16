@@ -98,7 +98,9 @@ namespace Robot_P16.Actions
                     break;
 
             }
-            StatusChangeEvent(this);
+            if(StatusChangeEvent != null)
+                StatusChangeEvent(this);
+            
         }
 
 
