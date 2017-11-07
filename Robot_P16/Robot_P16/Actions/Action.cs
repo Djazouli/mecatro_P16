@@ -32,16 +32,16 @@ namespace Robot_P16.Actions
         public ActionStatus Status
         {
             get { return status; }
-            protected set { 
-                status = value; 
-                OnStatusChange();
+            protected set
+            {
+                ActionStatus oldStatus = status;
+                status = value;
+                OnStatusChange(oldStatus);
             }
         }
 
+        public readonly String description;
 
-        public event ActionListenerDelegate SuccessEvent;
-        public event ActionListenerDelegate FailureEvent;
-        public event ActionListenerDelegate ResetEvent;
         public event ActionListenerDelegate StatusChangeEvent;
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace Robot_P16.Actions
         public Action ActionSuivante { get; protected set; }
 
 
-        public Action(Action actionSuivante) { ActionSuivante = actionSuivante; }
+        public Action(String description) { this.description = description; }
 
 
         /// <summary>
@@ -59,56 +59,26 @@ namespace Robot_P16.Actions
         public abstract void execute();
 
         /// <summary>
-        /// Code à lancer après un succès avant de fire l'événement de succès
+        /// Code à lancer après changement d'état.
+        /// Si renvoit false, annule le triggering de l'événement StatusChangeEvent
         /// </summary>
-        protected abstract void postSuccessCode();
-        /// <summary>
-        /// Code à lancer après un succès avant de fire l'événement d'échec
-        /// </summary>
-        protected abstract void postFailureCode();
-        /// <summary>
-        /// Code à lancer après un reset avant de fire l'événement d'échec
-        /// </summary>
-        protected abstract void postResetCode();
+        protected abstract bool postStatusChangeCheck(ActionStatus previousStatus);
 
-        protected void OnStatusChange() // Rajouter un check du statut précédent ?
+        protected void OnStatusChange(ActionStatus previousStatus) // Rajouter un check du statut précédent ?
         {
-            switch (Status)
-            {
-                case ActionStatus.SUCCESS:
-                    postSuccessCode();
-
-                    if (ActionSuivante != null)
-                        ActionSuivante.execute();
-
-                    if (SuccessEvent != null)
-                        SuccessEvent(this);
-                    break;
-
-                case ActionStatus.FAILURE:
-                    postFailureCode();
-                    if (FailureEvent != null)
-                        FailureEvent(this);
-                    break;
-
-                case ActionStatus.UNDETERMINED:
-                    postResetCode();
-                    if (ResetEvent != null)
-                        ResetEvent(this);
-                    break;
-
-            }
-            if(StatusChangeEvent != null)
-                StatusChangeEvent(this);
+            if(postStatusChangeCheck(previousStatus))
+                if(StatusChangeEvent != null)
+                    StatusChangeEvent(this);
             
         }
 
-
+        /// <summary>
+        /// Permet de reset le statut de l'action depuis l'extérieur
+        /// ResetStatus est public, contrairement au setter de status, protected
+        /// </summary>
         public void ResetStatus()
         {
             Status = ActionStatus.UNDETERMINED;
-            postResetCode();
-            OnStatusChange();
         }
 
     }

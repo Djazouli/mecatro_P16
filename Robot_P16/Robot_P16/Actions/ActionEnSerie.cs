@@ -11,10 +11,11 @@ namespace Robot_P16.Actions
     {
         public Action actionSuivante;
         public ArrayList liste = new ArrayList();
+        public String description;
 
-        public ActionEnSerieBuilder(Action actionSuivante)
+        public ActionEnSerieBuilder(String description)
         {
-            this.actionSuivante = actionSuivante;
+            this.description = description;
         }
         public ActionEnSerieBuilder() : this(null) { }
 
@@ -30,7 +31,7 @@ namespace Robot_P16.Actions
             int i = 0;
             foreach (Object o in liste)
                 listeActions[i++] = (Action)o;
-            return new ActionEnSerie(actionSuivante, listeActions);
+            return new ActionEnSerie(listeActions, description);
         }
     }
 
@@ -39,11 +40,11 @@ namespace Robot_P16.Actions
 
         public readonly Action[] listeActions;
 
-        public ActionEnSerie(Action actionSuivante, Action[] listeActions) : base (actionSuivante)
+        public ActionEnSerie( Action[] listeActions, String description)
+            : base(description)
         {
             this.listeActions = listeActions;
         }
-        public ActionEnSerie(Action[] listeActions) : this(null, listeActions) {}
 
         private int IndexOfFirstUnsucessfulAction()
         {
@@ -87,6 +88,29 @@ namespace Robot_P16.Actions
             FirstUnsucessfulAction().execute();
         }
 
+
+
+        protected override bool postStatusChangeCheck(ActionStatus oldpreviousStatus)
+        {
+            switch (this.Status)
+            {
+                /*case ActionStatus.UNDETERMINED:
+                    foreach (Action a in listeActions)
+                        a.ResetStatus();
+                    break;*/
+
+            }
+            return true;
+        }
+
+        public override void ResetStatus()
+        {
+            foreach (Action a in listeActions)
+                a.ResetStatus();
+            base.ResetStatus();
+        }
+
+
         /// <summary>
         /// Feedback est apppelé quand une action de la liste d'action change de statut.
         /// </summary>
@@ -125,22 +149,5 @@ namespace Robot_P16.Actions
             }
         }
 
-        protected override void postSuccessCode()
-        {
-            //throw new NotImplementedException();
-            Debug.Print("ActionEnSerie successful !");
-        }
-
-        protected override void postFailureCode()
-        {
-            //throw new NotImplementedException();
-            Debug.Print("ActionEnSerie failed !");
-        }
-
-        protected override void postResetCode()
-        {
-            foreach(Action a in listeActions)
-                a.ResetStatus();
-        }
     }
 }
