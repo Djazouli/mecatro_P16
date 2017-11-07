@@ -45,7 +45,7 @@ namespace Robot_P16
                 .Add(new ActionBouton(null, button2))
                 .Build();
 
-            a.execute();
+            a.Execute();
             
         }
     }

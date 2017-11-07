@@ -15,6 +15,15 @@ namespace Robot_P16.Actions
         UNDETERMINED
     }
 
+    /// <summary>
+    /// Sert à définir les différents types d'actions.
+    /// Pratique pour réagir au feedback d'une action
+    /// </summary>
+    public enum ActionType
+    {
+        QUELCONQUE
+    }
+
 
     /// <summary>
     /// Delegate de base pour écouter les événements liés aux actions
@@ -39,6 +48,15 @@ namespace Robot_P16.Actions
                 OnStatusChange(oldStatus);
             }
         }
+        private ActionType type = ActionType.QUELCONQUE;
+        public ActionType Type
+        {
+            get { return type; }
+            set
+            {
+                type = value;
+            }
+        }
 
         public readonly String description;
 
@@ -56,19 +74,27 @@ namespace Robot_P16.Actions
         /// <summary>
         /// Lance l'exécution de l'action, spécifiée par les classes filles.
         /// </summary>
-        public abstract void execute();
+        public abstract void Execute();
 
         /// <summary>
         /// Code à lancer après changement d'état.
         /// Si renvoit false, annule le triggering de l'événement StatusChangeEvent
         /// </summary>
-        protected abstract bool postStatusChangeCheck(ActionStatus previousStatus);
+        protected abstract bool PostStatusChangeCheck(ActionStatus previousStatus);
+
+
+        /// <summary>
+        /// Feedback réagit lorsqu'une action renvoit son feedback
+        /// </summary>
+        /// <param name="a">L'action qui renvoie son feedback</param>
+        public abstract void Feedback(Action a);
+
 
         protected void OnStatusChange(ActionStatus previousStatus) // Rajouter un check du statut précédent ?
         {
-            if(postStatusChangeCheck(previousStatus))
+            if(PostStatusChangeCheck(previousStatus))
                 if(StatusChangeEvent != null)
-                    StatusChangeEvent(this);
+                    StatusChangeEvent(this); 
             
         }
 

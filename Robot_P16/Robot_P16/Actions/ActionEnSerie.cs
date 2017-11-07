@@ -82,15 +82,15 @@ namespace Robot_P16.Actions
             return listeActions[index];
         }
 
-        public override void execute()
+        public override void Execute()
         {
-            FirstUnsucessfulAction().StatusChangeEvent += this.feedback;
-            FirstUnsucessfulAction().execute();
+            FirstUnsucessfulAction().StatusChangeEvent += this.Feedback;
+            FirstUnsucessfulAction().Execute();
         }
 
 
 
-        protected override bool postStatusChangeCheck(ActionStatus oldpreviousStatus)
+        protected override bool PostStatusChangeCheck(ActionStatus oldpreviousStatus)
         {
             switch (this.Status)
             {
@@ -115,22 +115,22 @@ namespace Robot_P16.Actions
         /// Feedback est apppelé quand une action de la liste d'action change de statut.
         /// </summary>
         /// <param name="a">Action qui a changé de statut</param>
-        private void feedback(Action a)
+        protected override void Feedback(Action a)
         {
             int index = IndexOfAction(a);
             if (index >= 0) // L'action est bien dans la liste d'actions
             {
                 switch (a.Status) {
                     case ActionStatus.SUCCESS:
-                        a.StatusChangeEvent -= this.feedback; // On arrête d'écoûter l'action
+                        a.StatusChangeEvent -= this.Feedback; // On arrête d'écoûter l'action
 
                         Action actionSuivante = this.GetNextAction(a);
                         Debug.Print("Next action...");
                         if (actionSuivante != null)
                         {
                             Debug.Print("executing...");
-                            actionSuivante.StatusChangeEvent += this.feedback;
-                            actionSuivante.execute();
+                            actionSuivante.StatusChangeEvent += this.Feedback;
+                            actionSuivante.Execute();
                         }
                         else
                         {

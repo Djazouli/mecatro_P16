@@ -15,7 +15,7 @@ namespace Robot_P16.Actions.ActionsIHM
 
 
 
-        public override void execute()
+        public override void Execute()
         {
             bouton.ButtonPressed += (a,b) => Status = ActionStatus.SUCCESS;
             bouton.ButtonReleased += (a, b) => Status = ActionStatus.UNDETERMINED;
