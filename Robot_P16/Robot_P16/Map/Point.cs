@@ -35,10 +35,10 @@ namespace Robot_P16.Map
 
             public bool Appartient(PointOriente p)
             {
-                rel_x = p.x - origine.x;
-                rel_y = p.y - origine.y;
-                proj_rel_1 = Math.Cos(origine.theta) * rel_x + Math.Sin(origine.theta) * rel_y;
-                proj_rel_2 = -Math.Sin(origine.theta) * rel_x + Math.Cos(origine.theta) * rel_y;
+                double rel_x = p.x - origine.x;
+                double rel_y = p.y - origine.y;
+                double proj_rel_1 = System.Math.Cos(origine.theta) * rel_x + System.Math.Sin(origine.theta) * rel_y;
+                double proj_rel_2 = -System.Math.Sin(origine.theta) * rel_x + System.Math.Cos(origine.theta) * rel_y;
                 if ((0 <= proj_rel_1 && proj_rel_1 <= longueur) && (-largeur/2 <= proj_rel_2 && proj_rel_2 <= largeur/2))
                 {
                     return true;
@@ -50,6 +50,36 @@ namespace Robot_P16.Map
             }
 
 
+            class Arc
+            {
+            private PointOriente centre; // centre du cercle dont on veut extraire l'arc
+            private double distance;
+            private double largeur;
+            private double angle;
+
+            public Arc(PointOriente p, double l, double d, double a)
+            {
+                centre = p;
+                largeur = l;
+                distance = d;
+                angle = a;
+            }
+
+            public bool Appartient(PointOriente p)
+            {
+                double rel_x = p.x - centre.x;
+                double rel_y = p.y - centre.y;
+                double proj_rel_1 = System.Math.Cos(origine.theta) * rel_x + System.Math.Sin(origine.theta) * rel_y;
+                double proj_rel_2 = -System.Math.Sin(origine.theta) * rel_x + System.Math.Cos(origine.theta) * rel_y;
+                if ((0 <= proj_rel_1 && proj_rel_1 <= longueur) && (-largeur/2 <= proj_rel_2 && proj_rel_2 <= largeur/2))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
         }
     }
 
