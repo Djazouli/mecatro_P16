@@ -62,12 +62,6 @@ namespace Robot_P16.Actions
 
         public event ActionListenerDelegate StatusChangeEvent;
 
-        /// <summary>
-        /// Action suivante à exécuter après succès.
-        /// </summary>
-        public Action ActionSuivante { get; protected set; }
-
-
         public Action(String description) { this.description = description; }
 
 
@@ -102,10 +96,21 @@ namespace Robot_P16.Actions
         /// Permet de reset le statut de l'action depuis l'extérieur
         /// ResetStatus est public, contrairement au setter de status, protected
         /// </summary>
-        public void ResetStatus()
+        public virtual void ResetStatus()
         {
             Status = ActionStatus.UNDETERMINED;
         }
+
+        protected static bool TestActionStatus(Action[] actions, ActionStatus status) {
+            if (actions == null || actions.Length == 0) return false;
+             foreach(Action a in actions) {
+                 if (a.Status != status)
+                     return false;
+             }
+             return true;
+        }
+
+        public abstract Action Clone();
 
     }
 }

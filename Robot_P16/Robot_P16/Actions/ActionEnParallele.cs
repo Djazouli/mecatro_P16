@@ -54,7 +54,7 @@ namespace Robot_P16.Actions
 
         protected override bool PostStatusChangeCheck(ActionStatus previousStatus)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         /// <summary>
@@ -63,15 +63,41 @@ namespace Robot_P16.Actions
         /// <param name="a"></param>
         public override void Feedback(Action a)
         {
-            int index = IndexOfAction(a);
-            if (index > 0) // Si l'action fait bien parti de notre liste d'action
-            {
-                for (int i = 0; i < listeActions.Length; i++)
+            //Debug.Print("Feedback sur parallele 0");    
+            if(this.Status != ActionStatus.SUCCESS) { // On bloque les feedbacks si l'action est réalisée avec succès
+
+                //Debug.Print("Feedback sur parallele 1 ");    
+                int index = IndexOfAction(a);
+                if (index >= 0) // Si l'action fait bien parti de notre liste d'action
                 {
-                    if (i != index)
-                        listeActions[i].Feedback(a);
+                    //Debug.Print("Feedback sur parallele 2 ");    
+                    for (int i = 0; i < listeActions.Length; i++)
+                    {
+                        //Debug.Print("Feedback sur parallele 3 ");   
+                        if (i != index)
+                            listeActions[i].Feedback(a);
+                    }
+                }
+                if (a.Status == ActionStatus.SUCCESS && this.Status != ActionStatus.SUCCESS) // Redondant mais utile en cas de suppression de la condition englobante
+                {
+                    if (TestActionStatus(listeActions, ActionStatus.SUCCESS))
+                    {
+                        Status = ActionStatus.SUCCESS;
+                        //Debug.Print("success de l'action en parallèle !");
+                    }
                 }
             }
+        }
+
+        public override Action Clone()
+        {
+            Action[] newListeAction = new Action[this.listeActions.Length];
+            for (int i = 0; i < this.listeActions.Length; i++)
+            {
+                newListeAction[i] = (Action)this.listeActions[i].Clone();
+            }
+            return new ActionEnParallele(newListeAction, description);
+
         }
     }
 }

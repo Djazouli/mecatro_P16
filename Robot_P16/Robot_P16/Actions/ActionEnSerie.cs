@@ -53,7 +53,7 @@ namespace Robot_P16.Actions
             return i;
         }
 
-        public Action FirstUnsucessfulAction()
+        public Action GetFirstUnsucessfulAction()
         {
             int index = IndexOfFirstUnsucessfulAction();
             if (index < listeActions.Length)
@@ -84,22 +84,22 @@ namespace Robot_P16.Actions
 
         public override void Execute()
         {
-            FirstUnsucessfulAction().StatusChangeEvent += this.Feedback;
-            FirstUnsucessfulAction().Execute();
+            GetFirstUnsucessfulAction().StatusChangeEvent += this.Feedback;
+            GetFirstUnsucessfulAction().Execute();
         }
 
 
 
         protected override bool PostStatusChangeCheck(ActionStatus oldpreviousStatus)
         {
-            switch (this.Status)
+            /*switch (this.Status)
             {
-                /*case ActionStatus.UNDETERMINED:
+                case ActionStatus.UNDETERMINED:
                     foreach (Action a in listeActions)
                         a.ResetStatus();
-                    break;*/
+                    break;
 
-            }
+            }*/
             return true;
         }
 
@@ -115,7 +115,7 @@ namespace Robot_P16.Actions
         /// Feedback est apppelé quand une action de la liste d'action change de statut.
         /// </summary>
         /// <param name="a">Action qui a changé de statut</param>
-        protected override void Feedback(Action a)
+        public override void Feedback(Action a)
         {
             int index = IndexOfAction(a);
             if (index >= 0) // L'action est bien dans la liste d'actions
@@ -148,6 +148,18 @@ namespace Robot_P16.Actions
                 }
             }
         }
+
+        public override Action Clone()
+        {
+            Action[] newListeAction = new Action[this.listeActions.Length];
+            for (int i = 0; i < this.listeActions.Length; i++)
+            {
+                newListeAction[i] = (Action)this.listeActions[i].Clone();
+            }
+            return new ActionEnSerie(newListeAction, description);
+
+        }
+
 
     }
 }

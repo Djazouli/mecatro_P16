@@ -25,9 +25,9 @@ namespace Robot_P16 {
         private Gadgeteer.Modules.GHIElectronics.USBClientDP usbClientDP;
         
         /// <summary>This property provides access to the Mainboard API. This is normally not necessary for an end user program.</summary>
-        protected new static GHIElectronics.Gadgeteer.FEZSpiderII Mainboard {
+        protected new static GHIElectronics.Gadgeteer.FEZSpider Mainboard {
             get {
-                return ((GHIElectronics.Gadgeteer.FEZSpiderII)(Gadgeteer.Program.Mainboard));
+                return ((GHIElectronics.Gadgeteer.FEZSpider)(Gadgeteer.Program.Mainboard));
             }
             set {
                 Gadgeteer.Program.Mainboard = value;
@@ -37,7 +37,7 @@ namespace Robot_P16 {
         /// <summary>This method runs automatically when the device is powered, and calls ProgramStarted.</summary>
         public static void Main() {
             // Important to initialize the Mainboard first
-            Program.Mainboard = new GHIElectronics.Gadgeteer.FEZSpiderII();
+            Program.Mainboard = new GHIElectronics.Gadgeteer.FEZSpider();
             Program p = new Program();
             p.InitializeModules();
             p.ProgramStarted();

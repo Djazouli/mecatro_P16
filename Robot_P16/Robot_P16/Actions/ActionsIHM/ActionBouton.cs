@@ -7,8 +7,8 @@ namespace Robot_P16.Actions.ActionsIHM
     public class ActionBouton : Action
     {
         public readonly Button bouton;
-        public ActionBouton(Action actionSuivante, Button bouton)
-            : base(actionSuivante)
+        public ActionBouton(Button bouton)
+            : base("Action de bouton")
         {
             this.bouton = bouton;
         }
@@ -18,24 +18,27 @@ namespace Robot_P16.Actions.ActionsIHM
         public override void Execute()
         {
             bouton.ButtonPressed += (a,b) => Status = ActionStatus.SUCCESS;
-            bouton.ButtonReleased += (a, b) => Status = ActionStatus.UNDETERMINED;
+            //bouton.ButtonReleased += (a, b) => Status = ActionStatus.UNDETERMINED;
         }
 
-        protected override void postSuccessCode()
+
+        protected override bool PostStatusChangeCheck(ActionStatus previousStatus)
         {
-            Debug.Print("ActionBouton successful !");
-            bouton.TurnLedOn();
+            switch (Status)
+            {
+                case ActionStatus.SUCCESS:
+                    Debug.Print("ActionBouton successful !");
+                    bouton.TurnLedOn();
+                    break;
+                case ActionStatus.UNDETERMINED:
+                     Debug.Print("ActionBouton reset !");
+                    bouton.TurnLedOff();
+                    break;
+                
+            }
+            return true;
         }
 
-        protected override void postFailureCode()
-        {
-            throw new NotImplementedException();
-        }
-
-        protected override void postResetCode()
-        {
-            Debug.Print("ActionBouton reset !");
-            bouton.TurnLedOff();
-        }
+        public override void Feedback(Action a) {}
     }
 }
