@@ -11,10 +11,11 @@ namespace Robot_P16.Actions
     {
         public Action actionSuivante;
         public ArrayList liste = new ArrayList();
+        public String description;
 
-        public ActionEnSerieBuilder(Action actionSuivante)
+        public ActionEnSerieBuilder(String description)
         {
-            this.actionSuivante = actionSuivante;
+            this.description = description;
         }
         public ActionEnSerieBuilder() : this(null) { }
 
@@ -30,7 +31,7 @@ namespace Robot_P16.Actions
             int i = 0;
             foreach (Object o in liste)
                 listeActions[i++] = (Action)o;
-            return new ActionEnSerie(actionSuivante, listeActions);
+            return new ActionEnSerie(listeActions, description);
         }
     }
 
@@ -39,11 +40,11 @@ namespace Robot_P16.Actions
 
         public readonly Action[] listeActions;
 
-        public ActionEnSerie(Action actionSuivante, Action[] listeActions) : base (actionSuivante)
+        public ActionEnSerie( Action[] listeActions, String description)
+            : base(description)
         {
             this.listeActions = listeActions;
         }
-        public ActionEnSerie(Action[] listeActions) : this(null, listeActions) {}
 
         private int IndexOfFirstUnsucessfulAction()
         {
@@ -52,7 +53,7 @@ namespace Robot_P16.Actions
             return i;
         }
 
-        public Action FirstUnsucessfulAction()
+        public Action GetFirstUnsucessfulAction()
         {
             int index = IndexOfFirstUnsucessfulAction();
             if (index < listeActions.Length)
@@ -81,32 +82,55 @@ namespace Robot_P16.Actions
             return listeActions[index];
         }
 
-        public override void execute()
+        public override void Execute()
         {
-            FirstUnsucessfulAction().StatusChangeEvent += this.feedback;
-            FirstUnsucessfulAction().execute();
+            GetFirstUnsucessfulAction().StatusChangeEvent += this.Feedback;
+            GetFirstUnsucessfulAction().Execute();
         }
+
+
+
+        protected override bool PostStatusChangeCheck(ActionStatus oldpreviousStatus)
+        {
+            /*switch (this.Status)
+            {
+                case ActionStatus.UNDETERMINED:
+                    foreach (Action a in listeActions)
+                        a.ResetStatus();
+                    break;
+
+            }*/
+            return true;
+        }
+
+        public override void ResetStatus()
+        {
+            foreach (Action a in listeActions)
+                a.ResetStatus();
+            base.ResetStatus();
+        }
+
 
         /// <summary>
         /// Feedback est apppelé quand une action de la liste d'action change de statut.
         /// </summary>
         /// <param name="a">Action qui a changé de statut</param>
-        private void feedback(Action a)
+        public override void Feedback(Action a)
         {
             int index = IndexOfAction(a);
             if (index >= 0) // L'action est bien dans la liste d'actions
             {
                 switch (a.Status) {
                     case ActionStatus.SUCCESS:
-                        a.StatusChangeEvent -= this.feedback; // On arrête d'écoûter l'action
+                        a.StatusChangeEvent -= this.Feedback; // On arrête d'écoûter l'action
 
                         Action actionSuivante = this.GetNextAction(a);
                         Debug.Print("Next action...");
                         if (actionSuivante != null)
                         {
                             Debug.Print("executing...");
-                            actionSuivante.StatusChangeEvent += this.feedback;
-                            actionSuivante.execute();
+                            actionSuivante.StatusChangeEvent += this.Feedback;
+                            actionSuivante.Execute();
                         }
                         else
                         {
@@ -125,22 +149,17 @@ namespace Robot_P16.Actions
             }
         }
 
-        protected override void postSuccessCode()
+        public override Action Clone()
         {
-            //throw new NotImplementedException();
-            Debug.Print("ActionEnSerie successful !");
+            Action[] newListeAction = new Action[this.listeActions.Length];
+            for (int i = 0; i < this.listeActions.Length; i++)
+            {
+                newListeAction[i] = (Action)this.listeActions[i].Clone();
+            }
+            return new ActionEnSerie(newListeAction, description);
+
         }
 
-        protected override void postFailureCode()
-        {
-            //throw new NotImplementedException();
-            Debug.Print("ActionEnSerie failed !");
-        }
 
-        protected override void postResetCode()
-        {
-            foreach(Action a in listeActions)
-                a.ResetStatus();
-        }
     }
 }

@@ -15,6 +15,15 @@ namespace Robot_P16.Actions
         UNDETERMINED
     }
 
+    /// <summary>
+    /// Sert à définir les différents types d'actions.
+    /// Pratique pour réagir au feedback d'une action
+    /// </summary>
+    public enum ActionType
+    {
+        QUELCONQUE
+    }
+
 
     /// <summary>
     /// Delegate de base pour écouter les événements liés aux actions
@@ -32,84 +41,76 @@ namespace Robot_P16.Actions
         public ActionStatus Status
         {
             get { return status; }
-            protected set { 
-                status = value; 
-                OnStatusChange();
+            protected set
+            {
+                ActionStatus oldStatus = status;
+                status = value;
+                OnStatusChange(oldStatus);
+            }
+        }
+        private ActionType type = ActionType.QUELCONQUE;
+        public ActionType Type
+        {
+            get { return type; }
+            set
+            {
+                type = value;
             }
         }
 
+        public readonly String description;
 
-        public event ActionListenerDelegate SuccessEvent;
-        public event ActionListenerDelegate FailureEvent;
-        public event ActionListenerDelegate ResetEvent;
         public event ActionListenerDelegate StatusChangeEvent;
 
-        /// <summary>
-        /// Action suivante à exécuter après succès.
-        /// </summary>
-        public Action ActionSuivante { get; protected set; }
-
-
-        public Action(Action actionSuivante) { ActionSuivante = actionSuivante; }
+        public Action(String description) { this.description = description; }
 
 
         /// <summary>
         /// Lance l'exécution de l'action, spécifiée par les classes filles.
         /// </summary>
-        public abstract void execute();
+        public abstract void Execute();
 
         /// <summary>
-        /// Code à lancer après un succès avant de fire l'événement de succès
+        /// Code à lancer après changement d'état.
+        /// Si renvoit false, annule le triggering de l'événement StatusChangeEvent
         /// </summary>
-        protected abstract void postSuccessCode();
-        /// <summary>
-        /// Code à lancer après un succès avant de fire l'événement d'échec
-        /// </summary>
-        protected abstract void postFailureCode();
-        /// <summary>
-        /// Code à lancer après un reset avant de fire l'événement d'échec
-        /// </summary>
-        protected abstract void postResetCode();
+        protected abstract bool PostStatusChangeCheck(ActionStatus previousStatus);
 
-        protected void OnStatusChange() // Rajouter un check du statut précédent ?
+
+        /// <summary>
+        /// Feedback réagit lorsqu'une action renvoit son feedback
+        /// </summary>
+        /// <param name="a">L'action qui renvoie son feedback</param>
+        public abstract void Feedback(Action a);
+
+
+        protected void OnStatusChange(ActionStatus previousStatus) // Rajouter un check du statut précédent ?
         {
-            switch (Status)
-            {
-                case ActionStatus.SUCCESS:
-                    postSuccessCode();
-
-                    if (ActionSuivante != null)
-                        ActionSuivante.execute();
-
-                    if (SuccessEvent != null)
-                        SuccessEvent(this);
-                    break;
-
-                case ActionStatus.FAILURE:
-                    postFailureCode();
-                    if (FailureEvent != null)
-                        FailureEvent(this);
-                    break;
-
-                case ActionStatus.UNDETERMINED:
-                    postResetCode();
-                    if (ResetEvent != null)
-                        ResetEvent(this);
-                    break;
-
-            }
-            if(StatusChangeEvent != null)
-                StatusChangeEvent(this);
+            if(PostStatusChangeCheck(previousStatus))
+                if(StatusChangeEvent != null)
+                    StatusChangeEvent(this); 
             
         }
 
-
-        public void ResetStatus()
+        /// <summary>
+        /// Permet de reset le statut de l'action depuis l'extérieur
+        /// ResetStatus est public, contrairement au setter de status, protected
+        /// </summary>
+        public virtual void ResetStatus()
         {
             Status = ActionStatus.UNDETERMINED;
-            postResetCode();
-            OnStatusChange();
         }
+
+        protected static bool TestActionStatus(Action[] actions, ActionStatus status) {
+            if (actions == null || actions.Length == 0) return false;
+             foreach(Action a in actions) {
+                 if (a.Status != status)
+                     return false;
+             }
+             return true;
+        }
+
+        public abstract Action Clone();
 
     }
 }
