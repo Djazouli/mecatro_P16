@@ -68,6 +68,7 @@
     <Compile Include="Robot\CouleurEquipe.cs" />
     <Compile Include="Robot\GestionnaireAction.cs" />
     <Compile Include="Robot\GestionnairePosition.cs" />
+    <Compile Include="Robot\ModeOperatoire.cs" />
     <Compile Include="Robot\Robot.cs" />
   </ItemGroup>
   <ItemGroup>
