@@ -39,6 +39,8 @@
   <!-- Everything below here is custom to .NET MF / Gadgeteer template-->
   <Import Project="$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets" />
   <ItemGroup>
+    <Compile Include="Actions\ActionRepeated.cs" />
+    <Compile Include="Actions\ActionWait.cs" />
     <Compile Include="Map\Lieux.cs" />
     <Compile Include="Map\Obstacle.cs" />
     <Compile Include="Map\Point.cs" />
@@ -64,7 +66,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Robot\CouleurEquipe.cs" />
+    <Compile Include="Robot\GestionnaireAction.cs" />
     <Compile Include="Robot\GestionnairePosition.cs" />
+    <Compile Include="Robot\ModeOperatoire.cs" />
     <Compile Include="Robot\Robot.cs" />
   </ItemGroup>
   <ItemGroup>

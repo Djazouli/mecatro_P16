@@ -37,5 +37,15 @@ namespace Robot_P16.Actions
                 listeActions[i++] = (Action)o;
             return new ActionEnParallele(listeActions, description);
         }
+
+        public ActionWait BuildActionWait(int duration)
+        {
+            return new ActionWait(description, duration);
+        }
+
+        public ActionRepeated BuildActionRepeated(Action a, int compteur)
+        {
+            return new ActionRepeated(description, a, compteur);
+        }
     }
 }
