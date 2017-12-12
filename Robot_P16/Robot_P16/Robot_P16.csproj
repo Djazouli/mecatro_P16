@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Map\Point.cs" />
     <Compile Include="Actions\Action.cs" />
+    <Compile Include="Actions\ActionBuilder.cs" />
     <Compile Include="Actions\ActionEnParallele.cs" />
     <Compile Include="Actions\ActionEnSerie.cs" />
     <Compile Include="Actions\ActionsIHM\ActionBouton.cs" />
@@ -58,6 +59,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Robot\CouleurEquipe.cs" />
+    <Compile Include="Robot\GestionnairePosition.cs" />
     <Compile Include="Robot\Robot.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -3,9 +3,8 @@ using Microsoft.SPOT;
 
 namespace Robot_P16.Robot
 {
-    class Robot
+    class GestionnairePosition
     {
-        public static readonly Robot robot;
         
     }
 }

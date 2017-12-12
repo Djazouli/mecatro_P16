@@ -110,7 +110,10 @@ namespace Robot_P16.Actions
              return true;
         }
 
-        public abstract Action Clone();
+        public virtual Action Clone()
+        {
+            return (Action) this.MemberwiseClone();
+        }
 
     }
 }
