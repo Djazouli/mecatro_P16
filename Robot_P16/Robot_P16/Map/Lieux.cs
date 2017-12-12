@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Microsoft.SPOT;
 using Robot_P16.Robot;
+using Robot_P16.Map.Surface;
 
 namespace Robot_P16.Map
 {
