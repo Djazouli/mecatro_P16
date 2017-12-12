@@ -40,6 +40,7 @@
   <Import Project="$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets" />
   <ItemGroup>
     <Compile Include="Actions\Action.cs" />
+    <Compile Include="Actions\ActionBuilder.cs" />
     <Compile Include="Actions\ActionEnParallele.cs" />
     <Compile Include="Actions\ActionEnSerie.cs" />
     <Compile Include="Actions\ActionsIHM\ActionBouton.cs" />

@@ -7,33 +7,7 @@ namespace Robot_P16.Actions
     /// <summary>
     /// Classe utilitaire pour builder plus facilement une action en série
     /// </summary>
-    public class ActionEnSerieBuilder
-    {
-        public Action actionSuivante;
-        public ArrayList liste = new ArrayList();
-        public String description;
-
-        public ActionEnSerieBuilder(String description)
-        {
-            this.description = description;
-        }
-        public ActionEnSerieBuilder() : this(null) { }
-
-        public ActionEnSerieBuilder Add(Action a)
-        {
-            liste.Add(a);
-            return this;
-        }
-
-        public ActionEnSerie Build()
-        {
-            Action[] listeActions = new Action[liste.Count];
-            int i = 0;
-            foreach (Object o in liste)
-                listeActions[i++] = (Action)o;
-            return new ActionEnSerie(listeActions, description);
-        }
-    }
+    
 
     public class ActionEnSerie : Action
     {

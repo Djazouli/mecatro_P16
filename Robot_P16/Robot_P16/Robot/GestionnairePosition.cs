@@ -5,6 +5,6 @@ namespace Robot_P16.Robot
 {
     class GestionnairePosition
     {
-
+        
     }
 }
