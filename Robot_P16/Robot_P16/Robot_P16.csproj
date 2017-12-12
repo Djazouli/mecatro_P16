@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Actions\ActionRepeated.cs" />
     <Compile Include="Map\Lieux.cs" />
+    <Compile Include="Map\Obstacle.cs" />
     <Compile Include="Map\Point.cs" />
     <Compile Include="Actions\Action.cs" />
     <Compile Include="Actions\ActionBuilder.cs" />
@@ -48,6 +49,9 @@
     <Compile Include="Actions\ActionEnSerie.cs" />
     <Compile Include="Actions\ActionsIHM\ActionBouton.cs" />
     <Compile Include="Actions\ActionsIHM\ActionPipot.cs" />
+    <Compile Include="Map\Surface\Arc.cs" />
+    <Compile Include="Map\Surface\ElementSurface.cs" />
+    <Compile Include="Map\Surface\Rectangle.cs" />
     <Compile Include="Program.generated.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
