@@ -6,5 +6,6 @@ namespace Robot_P16.Map.Surface
     abstract class ElementSurface
     {
         public abstract bool Appartient(PointOriente p);
+        public abstract void Translater(PointOriente p);
     }
 }

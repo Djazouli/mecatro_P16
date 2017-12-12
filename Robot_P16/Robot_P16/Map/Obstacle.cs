@@ -1,10 +1,11 @@
 using System;
 using Microsoft.SPOT;
+using Robot_P16.Map.Surface
 
 namespace Robot_P16.Map
 {
     /// <summary>
-    /// TypeDeLieu est une enum qui permet de récupérer un lieu clé en donnant le TypeDeLieu et la couleur de l'équipe.
+    /// TypeObstacle est une enum qui caractérise les différents obstacles.
     /// </summary>
     public enum TypeObstacle
     {
@@ -13,7 +14,17 @@ namespace Robot_P16.Map
         ROBOT_ALLIE_GRAND,
         ROBOT_ALLIE_PETIT
     }
+
     class Obstacle
     {
+        private ElementSurface surfaceInterdite;
+        private TypeObstacle typeObstacle;
+
+        public Obstacle(ElementSurface surface, TypeObstacle type)
+        {
+            surfaceInterdite = surface;
+            typeObstacle = type;
+        }
+
     }
 }

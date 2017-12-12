@@ -25,5 +25,11 @@ namespace Robot_P16.Map.Surface
 
             return (0 <= proj_rel_1 && proj_rel_1 <= longueur) && (-largeur / 2 <= proj_rel_2 && proj_rel_2 <= largeur / 2);
         }
+
+        public override void Translater(PointOriente p)
+        {
+            origine.x = p.x;
+            origine.y = p.y;
+        }
     }
 }
