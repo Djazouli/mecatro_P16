@@ -5,7 +5,6 @@ namespace Robot_P16.Map.Surface
 {
     class Rectangle : ElementSurface
     {
-        private PointOriente origine; // origine du rectangle
         private double largeur;
         private double longueur;
 
@@ -26,10 +25,10 @@ namespace Robot_P16.Map.Surface
             return (0 <= proj_rel_1 && proj_rel_1 <= longueur) && (-largeur / 2 <= proj_rel_2 && proj_rel_2 <= largeur / 2);
         }
 
-        public override void Translater(PointOriente p)
+
+        public override ElementSurface clone()
         {
-            origine.x = p.x;
-            origine.y = p.y;
+            return new Rectangle(origine, largeur, longueur);
         }
     }
 }

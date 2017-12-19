@@ -8,6 +8,12 @@ namespace Robot_P16.Actions
         public readonly Action actionToBeRepeated;
         private int compteur;
 
+        /// <summary>
+        /// Action répétée un certain nombre de fois. Compteur = -1 pour répétitions infinies
+        /// </summary>
+        /// <param name="description"></param>
+        /// <param name="actionToBeRepeated"></param>
+        /// <param name="compteur">Nombre de répétitions. -1 pour infini</param>
         public ActionRepeated(String description, Action actionToBeRepeated, int compteur)
             : base(description)
         {

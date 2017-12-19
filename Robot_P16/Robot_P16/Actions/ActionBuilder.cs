@@ -6,7 +6,7 @@ namespace Robot_P16.Actions
 {
     public class ActionBuilder
     {
-        public ArrayList liste = new ArrayList();
+        private ArrayList liste = new ArrayList();
         public String description;
 
         public ActionBuilder(String description)
@@ -43,9 +43,21 @@ namespace Robot_P16.Actions
             return new ActionWait(description, duration);
         }
 
-        public ActionRepeated BuildActionRepeated(Action a, int compteur)
+        public ActionRepeated BuildActionUniqueRepeated(Action a, int compteur)
         {
             return new ActionRepeated(description, a, compteur);
+        }
+
+        public ActionRepeated BuildActionEnSerieRepeated(int compteur)
+        {
+            return new ActionRepeated(description + " - mère", this.BuildActionEnSerie(), compteur);
+        }
+
+
+
+        public ActionGetPosition BuildActionGetPosition()
+        {
+            return new ActionGetPosition(description);
         }
     }
 }

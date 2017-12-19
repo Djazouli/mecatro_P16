@@ -5,14 +5,14 @@ namespace Robot_P16.Map.Surface
 {
     class Arc : ElementSurface
     {
-        private PointOriente centre; // centre du cercle dont on veut extraire l'arc
+        
         private double distance;
         private double largeur;
         private double angle;
 
         public Arc(PointOriente p, double l, double d, double a)
         {
-            centre = p;
+            origine = p;
             largeur = l;
             distance = d;
             angle = a;
@@ -20,8 +20,8 @@ namespace Robot_P16.Map.Surface
 
         public override bool Appartient(PointOriente p)
         {
-            double rel_x = p.x - centre.x;
-            double rel_y = p.y - centre.y;
+            double rel_x = p.x - origine.x;
+            double rel_y = p.y - origine.y;
 
             if (rel_x == 0 && rel_y == 0)
             {
@@ -34,6 +34,11 @@ namespace Robot_P16.Map.Surface
                 bool dansCadrant = (System.Math.Atan(rel_y / rel_x) >= p.theta && System.Math.Atan(rel_y / rel_x) <= p.theta + angle);
                 return horsCercle1 && dansCercle2 && dansCadrant;
             }
+        }
+
+        public override ElementSurface clone()
+        {
+            return new Arc(origine, largeur, distance, angle);
         }
     }
 }
