@@ -3,7 +3,7 @@ using Microsoft.SPOT;
 
 namespace Robot_P16.Map.Surface
 {
-    abstract class ElementSurface
+    public abstract class ElementSurface
     {
         protected PointOriente origine; // centre de la surface
 

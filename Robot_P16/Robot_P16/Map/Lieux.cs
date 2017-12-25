@@ -20,7 +20,7 @@ namespace Robot_P16.Map
         INTERRUPTEUR,
         BASSIN_RECUPERATEUR //...
     }
-    class LieuCle
+    public class LieuCle
     {
         public readonly ElementSurface surfaceDeControle;
         public readonly PointOriente pointDeReference;

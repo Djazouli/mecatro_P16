@@ -3,7 +3,7 @@ using Microsoft.SPOT;
 
 namespace Robot_P16.Actions
 {
-    class ActionRepeated : Action
+    public class ActionRepeated : Action
     {
         public readonly Action actionToBeRepeated;
         private int compteur;

@@ -11,7 +11,7 @@ namespace Robot_P16.Robot
     /// <param name="position">Position du robot</param>
     public delegate void PositionDelegateListener(PointOriente position);
 
-    class GestionnairePosition
+    public class GestionnairePosition
     {
 
         /// <summary>

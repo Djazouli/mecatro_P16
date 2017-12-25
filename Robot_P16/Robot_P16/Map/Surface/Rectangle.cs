@@ -3,7 +3,7 @@ using Microsoft.SPOT;
 
 namespace Robot_P16.Map.Surface
 {
-    class Rectangle : ElementSurface
+    public class Rectangle : ElementSurface
     {
         private double largeur;
         private double longueur;

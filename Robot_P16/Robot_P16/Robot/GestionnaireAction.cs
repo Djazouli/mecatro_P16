@@ -5,7 +5,7 @@ using Robot_P16.Actions;
 
 namespace Robot_P16.Robot
 {
-    class GestionnaireAction
+    public class GestionnaireAction
     {
 
         private static Hashtable ACTION_PER_TYPE = new Hashtable();

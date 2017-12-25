@@ -1,6 +1,6 @@
 using System;
 using Microsoft.SPOT;
-using Robot_P16.Map.Surface
+using Robot_P16.Map.Surface;
 
 namespace Robot_P16.Map
 {
@@ -15,7 +15,7 @@ namespace Robot_P16.Map
         ROBOT_ALLIE_PETIT
     }
 
-    class Obstacle
+    public class Obstacle
     {
         private ElementSurface surfaceInterdite;
         private TypeObstacle typeObstacle;

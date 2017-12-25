@@ -3,7 +3,7 @@ using Microsoft.SPOT;
 
 namespace Robot_P16.Map.Surface
 {
-    class Arc : ElementSurface
+    public class Arc : ElementSurface
     {
         
         private double distance;

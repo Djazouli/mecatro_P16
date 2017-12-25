@@ -4,7 +4,7 @@ using Microsoft.SPOT;
 
 namespace Robot_P16.Actions
 {
-    class ActionEnParallele : Action
+    public class ActionEnParallele : Action
     {
         public readonly Action[] listeActions;
         protected Thread[] threads;

@@ -3,7 +3,7 @@ using Microsoft.SPOT;
 
 namespace Robot_P16.Map
 {
-    class PointOriente
+    public class PointOriente
     {
         public readonly double x;
         public readonly double y;
