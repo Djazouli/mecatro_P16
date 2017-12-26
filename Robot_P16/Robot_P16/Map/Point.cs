@@ -31,5 +31,23 @@ namespace Robot_P16.Map
         {
             return (pt.x - this.x) * (pt.x - this.x) + (pt.y - this.y) * (pt.y - this.y);
         }
+
+        public PointOriente Clone()
+        {
+            return new PointOriente(x, y, theta);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+                return false;
+            PointOriente pt = (PointOriente)obj;
+            return pt.x == this.x && pt.y == this.y && pt.theta == this.theta;
+        }
+        
+        public override int GetHashCode()
+        {
+            return (int)x * (int)y;
+        }
     }
 }
