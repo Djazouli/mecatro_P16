@@ -35,11 +35,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.SPOT.CLR, Version=4.3.1.0, Culture=neutral, PublicKeyToken=2670f5f21e7f4192, processorArchitecture=x86" />
-    <Reference Include="Microsoft.SPOT.Debugger, Version=4.3.1.0, Culture=neutral, PublicKeyToken=2670f5f21e7f4192, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.SPOT.Emulator, Version=4.3.1.0, Culture=neutral, PublicKeyToken=2670f5f21e7f4192, processorArchitecture=x86" />
-    <Reference Include="Microsoft.SPOT.Emulator.Interface, Version=4.3.1.0, Culture=neutral, PublicKeyToken=2670f5f21e7f4192, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.SPOT.Tasks, Version=4.3.1.0, Culture=neutral, PublicKeyToken=2670f5f21e7f4192, processorArchitecture=MSIL" />
     <Reference Include="System" />
   </ItemGroup>
   <Choose>

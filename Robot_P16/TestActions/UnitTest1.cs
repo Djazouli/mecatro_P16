@@ -1,4 +1,14 @@
-﻿using System;
+﻿
+#region Assembly Microsoft.SPOT.Hardware.dll, v4.3.1.0
+// C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Hardware.dll
+#endregion
+
+#region Assembly Microsoft.SPOT.Native.dll, v4.3.1.0
+// C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Native.dll
+#endregion
+
+
+using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 using Robot_P16.Actions;
