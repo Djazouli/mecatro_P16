@@ -66,8 +66,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Robot\composants\BaseRoulante\BaseRoulante.cs" />
+    <Compile Include="Robot\composants\BaseRoulante\Kangaroo.cs" />
     <Compile Include="Robot\composants\Composant.cs" />
     <Compile Include="Robot\composants\Servomoteurs\AX12.cs" />
+    <Compile Include="Robot\composants\Servomoteurs\DonneesServo.cs" />
     <Compile Include="Robot\CouleurEquipe.cs" />
     <Compile Include="Robot\GestionnaireAction.cs" />
     <Compile Include="Robot\GestionnairePosition.cs" />
@@ -96,6 +99,7 @@
     <Reference Include="GTM.GHIElectronics.USBClientSP, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.SPOT.Graphics" />
     <Reference Include="Microsoft.SPOT.Hardware" />
+    <Reference Include="Microsoft.SPOT.Hardware.SerialPort" />
     <Reference Include="Microsoft.SPOT.Native" />
     <Reference Include="Microsoft.SPOT.Net" />
     <Reference Include="Microsoft.SPOT.TinyCore" />
@@ -123,7 +127,5 @@
     <None Include="Resources\NinaB.tinyfnt" />
     <None Include="Resources\small.tinyfnt" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Robot\composants\BaseRoulante\" />
-  </ItemGroup>
+  <ItemGroup />
 </Project>
