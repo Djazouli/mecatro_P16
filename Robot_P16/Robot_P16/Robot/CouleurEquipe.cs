@@ -6,6 +6,7 @@ namespace Robot_P16.Robot
     public enum CouleurEquipe
     {
         VERT,
-        ORANGE
+        ORANGE,
+        UNDEFINED
     }
 }

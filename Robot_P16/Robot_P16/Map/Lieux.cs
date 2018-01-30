@@ -55,17 +55,44 @@ namespace Robot_P16.Map
 
             // AJOUT DES LIEUX CLES ICI
 
+            // AJOUT COULEUR DE NOTRE ROBOT = ORANGE
+
+            buildAndAddLieuCle(TypeDeLieu.POINT_DEPART_GR, CouleurEquipe.ORANGE, new PointOriente(0, 0, 0));
+            buildAndAddLieuCle(TypeDeLieu.POINT_DEPART_PR, CouleurEquipe.ORANGE, new PointOriente(0, 0, 0));
+
+            // FIN ORANGE
+
+            // AJOUT COULEUR DE NOTRE ROBOT = VERT
+
+            buildAndAddLieuCle(TypeDeLieu.POINT_DEPART_GR, CouleurEquipe.VERT, new PointOriente(0, 0, 0));
+
+            // FIN VERT
+
             // FIN DE LAJOUT DES LIEUX CLES
 
         }
 
-        public Boolean IsAtTheRightPlace(PointOriente pt)
+        public Boolean IsAtTheRightAngle(PointOriente pt)
         {
             if (System.Math.Abs(pt.theta - pointDeReference.theta) > toleranceAngulaire)
                 return false;
+            return true;
+        }
+        public Boolean IsAtTheRightPlace(PointOriente pt)
+        {
             if(!surfaceDeControle.Appartient(pt))
                 return false;
             return true;
+        }
+        public Boolean IsAtTheRightPlaceAndAngle(PointOriente pt)
+        {
+            return IsAtTheRightAngle(pt) && IsAtTheRightPlace(pt);
+        }
+
+
+        public static LieuCle buildAndAddLieuCle(TypeDeLieu type, CouleurEquipe couleur, PointOriente pt)
+        {
+            return buildAndAddLieuCle(type, couleur, pt, SURFACE_DE_CONTROLE_STANDARD, TOLERANCE_ANGULAIRE_STANDARD);
         }
 
         public static LieuCle buildAndAddLieuCle(TypeDeLieu type, CouleurEquipe couleur, PointOriente pt, ElementSurface surfaceControle, double toleranceAngulaire) {

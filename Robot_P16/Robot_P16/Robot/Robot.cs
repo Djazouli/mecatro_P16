@@ -18,6 +18,15 @@ namespace Robot_P16.Robot
                 modeOperatoire = value;
             }
         }
+        private CouleurEquipe couleurEquipe = CouleurEquipe.UNDEFINED;
+        public CouleurEquipe Couleur
+        {
+            get { return couleurEquipe; }
+            protected set
+            {
+                couleurEquipe = value;
+            }
+        }
 
         /// <summary>
         /// Liste des composants
@@ -28,6 +37,10 @@ namespace Robot_P16.Robot
         public readonly int PR_PORT_SERVOS = 0;
 
         public readonly DisplayTE35 ecranTactile;
+
+        //public readonly GHIElectronics.Gadgeteer.FEZSpider GR_MAINBOARD;
+        //public readonly GHIElectronics.Gadgeteer.FEZSpider PR_MAINBOARD;
+
         public readonly Composants.Servomoteurs.AX12 GR_SERVO_1;
 
         /// <summary>
