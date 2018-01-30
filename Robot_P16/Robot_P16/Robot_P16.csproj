@@ -71,10 +71,9 @@
     <Compile Include="Robot\composants\Composant.cs" />
     <Compile Include="Robot\composants\Servomoteurs\AX12.cs" />
     <Compile Include="Robot\composants\Servomoteurs\DonneesServo.cs" />
-    <Compile Include="Robot\CouleurEquipe.cs" />
     <Compile Include="Robot\GestionnaireAction.cs" />
     <Compile Include="Robot\GestionnairePosition.cs" />
-    <Compile Include="Robot\ModeOperatoire.cs" />
+    <Compile Include="Robot\Parametres.cs" />
     <Compile Include="Robot\Robot.cs" />
   </ItemGroup>
   <ItemGroup>

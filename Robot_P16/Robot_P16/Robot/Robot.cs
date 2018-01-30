@@ -27,14 +27,23 @@ namespace Robot_P16.Robot
                 couleurEquipe = value;
             }
         }
+        private TypeRobot typeRobot = TypeRobot.UNDEFINED;
+        public TypeRobot TypeRobot
+        {
+            get { return typeRobot; }
+            protected set
+            {
+                typeRobot = value;
+            }
+        }
 
         /// <summary>
         /// Liste des composants
         /// Pas élégant mais efficace pour pas avoir à convertir les composants de tous les côtés...
         /// </summary>
 
-        public readonly int GR_PORT_SERVOS = 0;
-        public readonly int PR_PORT_SERVOS = 0;
+        public readonly int GR_SOCKET_SERVOS = 0;
+        public readonly int PR_SOCKET_SERVOS = 0;
 
         public readonly DisplayTE35 ecranTactile;
 
@@ -55,13 +64,13 @@ namespace Robot_P16.Robot
 
         public void loadComponents()
         {
-            switch (Mode)
+            switch (TypeRobot)
             {
-                case ModeOperatoire.GRAND_ROBOT:
+                case TypeRobot.GRAND_ROBOT:
 
                     break;
 
-                case ModeOperatoire.PETIT_ROBOT:
+                case TypeRobot.PETIT_ROBOT:
 
                     break;
             }

@@ -3,7 +3,7 @@ using Microsoft.SPOT;
 
 using Robot_P16.Map;
 
-namespace Robot_P16.Robot.composants.BaseRoulante
+namespace Robot_P16.Robot.Composants.BaseRoulante
 {
     class BaseRoulante
     {

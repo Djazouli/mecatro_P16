@@ -4,9 +4,11 @@ using System.IO.Ports;
 
 using GT = Gadgeteer;
 using Robot_P16.Map;
+using Robot_P16.Robot.Composants;
 
-namespace Robot_P16.Robot.composants.BaseRoulante
+namespace Robot_P16.Robot.Composants.BaseRoulante
 {
+    
         enum mode
         {
             #region
@@ -29,7 +31,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             mm = 1, cm = 10, m = 1000, degre = 1
         };
 
-        class Kangaroo
+        class Kangaroo : Composant
         {
             SerialPort m_port;
 
@@ -37,13 +39,13 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             PointOriente position = null;
             
 
-            public Kangaroo(int numPort)
+            public Kangaroo(int socket) : base(socket)
             {
                 /*
                  * Instanciation de la Kangaroo sur le socket de la Spider donn?en paramètre
                  * Utilit?de Read et Write TimeOut ?déterminer
                 */
-                string COMPort = GT.Socket.GetSocket(numPort, true, null, null).SerialPortName;
+                string COMPort = GT.Socket.GetSocket(socket, true, null, null).SerialPortName;
                 m_port = new SerialPort(COMPort, 9600, Parity.None, 8, StopBits.One);
                 m_port.ReadTimeout = 500;
                 m_port.WriteTimeout = 500;
