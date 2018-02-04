@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Actions\ActionGetPosition.cs" />
     <Compile Include="Actions\ActionRepeated.cs" />
+    <Compile Include="Actions\ActionServo.cs" />
     <Compile Include="Actions\ActionWait.cs" />
     <Compile Include="Map\Lieux.cs" />
     <Compile Include="Map\Obstacle.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Robot\composants\Composant.cs" />
     <Compile Include="Robot\composants\Servomoteurs\AX12.cs" />
     <Compile Include="Robot\composants\Servomoteurs\DonneesServo.cs" />
+    <Compile Include="Robot\composants\Servomoteurs\GestionnaireServos.cs" />
     <Compile Include="Robot\GestionnaireAction.cs" />
     <Compile Include="Robot\GestionnairePosition.cs" />
     <Compile Include="Robot\Parametres.cs" />
