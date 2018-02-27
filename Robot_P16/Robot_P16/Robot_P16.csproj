@@ -39,6 +39,7 @@
   <!-- Everything below here is custom to .NET MF / Gadgeteer template-->
   <Import Project="$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets" />
   <ItemGroup>
+    <Compile Include="Actions\ActionDelegate.cs" />
     <Compile Include="Actions\ActionGetPosition.cs" />
     <Compile Include="Actions\ActionRepeated.cs" />
     <Compile Include="Actions\ActionServo.cs" />

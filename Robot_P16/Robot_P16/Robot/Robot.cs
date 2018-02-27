@@ -50,6 +50,8 @@ namespace Robot_P16.Robot
         //public readonly GHIElectronics.Gadgeteer.FEZSpider GR_MAINBOARD;
         //public readonly GHIElectronics.Gadgeteer.FEZSpider PR_MAINBOARD;
 
+        public readonly Composants.Servomoteurs.AX12 GR_SERVO_CLAPET_RESERVOIR;
+
         public readonly Composants.Servomoteurs.AX12 GR_SERVO_PLATEAU_BALLES;
         public readonly Composants.Servomoteurs.AX12 GR_SERVO_PLATEAU_FILTRE;
 

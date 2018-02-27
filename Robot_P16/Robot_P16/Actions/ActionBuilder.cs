@@ -65,5 +65,10 @@ namespace Robot_P16.Actions
         {
             return new  ActionServo(description, servomoteur, commandType, angle);
         }
+
+        public ActionDelegate BuildActionDelegate(VoidFunc method) {
+            return new ActionDelegate(description, method);
+        }
+
     }
 }
