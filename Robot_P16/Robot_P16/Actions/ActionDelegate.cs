@@ -6,7 +6,7 @@ namespace Robot_P16.Actions
 
     public delegate void VoidFunc();
 
-    class ActionDelegate : Action
+    public class ActionDelegate : Action
     {
 
         public readonly VoidFunc method;

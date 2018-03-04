@@ -8,14 +8,14 @@ namespace Robot_P16.Robot.Composants.Servomoteurs
     public class GestionnaireServos
     {
 
-        public const ActionServo GR_CLAPET_RESERVOIR_OUVRIR =
+        public readonly ActionServo GR_CLAPET_RESERVOIR_OUVRIR =
             new ActionBuilder("ServoGR - ouvrir clapet reservoir").BuildActionServo(
                 Robot.robot.GR_SERVO_CLAPET_RESERVOIR,
                 ServoCommandTypes.ABSOLUTE_ROTATION,
                 DonneesServo.ANGLE_GR_CLAPET_RESERVOIR_OUVRIR);
 
         // Exemple d'action delegate
-        public const ActionDelegate GR_CLAPET_RESERVOIR_STOP = 
+        public readonly ActionDelegate GR_CLAPET_RESERVOIR_STOP = 
             new ActionBuilder("ServoGR - stop rotation clapet")
             .BuildActionDelegate(Robot.robot.GR_SERVO_CLAPET_RESERVOIR.Stop);
 
