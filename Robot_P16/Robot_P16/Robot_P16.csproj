@@ -68,9 +68,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="..\..\..\..\..\Documents\Mécatro\新建文件夹\BaseRoulante.cs">
-      <Link>Robot\composants\BaseRoulante\BaseRoulante.cs</Link>
-    </Compile>
+    <Compile Include="Robot\composants\BaseRoulante\BaseRoulante.cs" />
     <Compile Include="Robot\composants\BaseRoulante\Kangaroo.cs" />
     <Compile Include="Robot\composants\Composant.cs" />
     <Compile Include="Robot\composants\Servomoteurs\AX12.cs" />
