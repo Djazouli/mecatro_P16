@@ -18,9 +18,9 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         int PARAMETER_FOR_THETA = 100;
 
 
-        enum TYPESMOVE
+        enum MOVETYPES
         {
-            GoTo = 1, AdjustAngle = 2, GotoAndAdjustAngle = 3
+            GoTo = 1, AdjustAngle = 2, GoToAndAdjustAngle = 3
         };
 
         private int doubleToIntForXY(double X)
@@ -57,92 +57,94 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             Thread.Sleep(System.Math.Abs(distance / speedDrive * 1000));
         }
 
-        //TODO: to be continued...
         public Boolean GoToOrientedPoint(PointOriente pt)
-        {
-            PointOriente currentPosition = getPosition();
-            
-            //Calculer l'angle a tourner(TODO: a optimiser) 
-            double deltaX = pt.x - currentPosition.x;
-            double deltaY = pt.y - currentPosition.y;
+        {           
+            //Calculer l'angle a tourner 
+            double deltaX = pt.x - position.x;
+            double deltaY = pt.y - position.y;
             double result = deltaY / deltaX;
             double radians = System.Math.Atan(result);
             double angle = radians * (180 / System.Math.PI);
-            int deltaAngle = doubleToIntForTheta(angle - currentPosition.theta);
+            int deltaAngle = doubleToIntForTheta(angle - position.theta);
+            int sens = 1; //avance=1,recule=-1
+            
+            //Ameliorer l'angle a tourner
+            //[-360,-270],[270,360]->[0,90], [-90,0], sens=avance
+            if (System.Math.Abs(deltaAngle) >= 270) deltaAngle -= System.Math.Sign(deltaAngle) * 360;                
+            //[-270,-90],[90,270]->[-90,90], sens=recule
+            else if (System.Math.Abs(deltaAngle) >= 90) {
+                deltaAngle -= System.Math.Sign(deltaAngle) * 180;
+                sens = -1;
+                angle -= System.Math.Sign(angle) * 180; 
+            }
             
             //Faire orienter a la destination
             RotateAndSleep(deltaAngle);
-            //kangaroo.tourner(deltaAngle, speedTurn);
-            //Thread.Sleep(System.Math.Abs(deltaAngle / speedTurn * 1000));
-
+        
             //Aller tout droite
-            int distance = doubleToIntForXY(System.Math.Sqrt(pt.distanceSquared(currentPosition)));
-            AvanceAndSleep(distance);
-            //kangaroo.allerEn(distance, speedDrive);
-            //Thread.Sleep(System.Math.Abs(distance / speedDrive * 1000));
-
+            int distance = doubleToIntForXY(System.Math.Sqrt(pt.distanceSquared(position)));
+            AvanceAndSleep(distance*sens);
+       
             //Mise a jour la position
-            setPosition(pt);
+            position = new PointOriente(pt.x,pt.y,angle);
              
-            return false;
-        }
-
-        [Obsolete]
-        public Boolean GoToOrientedPoint(PointOriente pt) // ajuster position X,Y, mais pas theta => mode drive
-        {
-            PointOriente currentPosition = kangaroo.getPosition();            
-
-            int originTheta = doubleToIntForTheta(currentPosition.theta);
-            kangaroo.tourner(-originTheta,speedTurn);
-            Thread.Sleep(System.Math.Abs(originTheta / speedTurn * 1000));
-
-            int deltaX = doubleToIntForXY(pt.x - currentPosition.x);
-            int deltaY = doubleToIntForXY(pt.y - currentPosition.y);
-
-            kangaroo.allerEn(deltaX,speedDrive);
-            Thread.Sleep(System.Math.Abs(deltaX / speedDrive) * 1000);
-
-            kangaroo.tourner(doubleToIntForTheta(90),speedTurn);
-            Thread.Sleep(System.Math.Abs(doubleToIntForTheta(90) / speedTurn * 1000));
-
-            kangaroo.allerEn(deltaY, speedDrive);
-            Thread.Sleep(System.Math.Abs(deltaY / speedDrive) * 1000);
-
-            kangaroo.tourner(originTheta, speedTurn);
-            Thread.Sleep(System.Math.Abs(originTheta / speedTurn * 1000)); 
-          
-            //TODO:update kangaroo.pointOriente
-            PointOriente newPt = pt.translater(0, 0, currentPosition.theta);//theta = 0 -> theta de depart
-            kangaroo.setPosition(newPt);  
-
             return false;
         }
 
         public Boolean AdjustAngleToPoint(PointOriente pt) // ajuste theta, mais pas X,Y => mode turn
         {
             //Calculer l'angle a tourner
-            Double currentAngle = getPosition().theta;//[-180,180]
+            Double currentAngle = position.theta;//[-180,180]
             Double Angle = pt.theta;//[-180,180]
             int deltaAngle = doubleToIntForTheta((Angle - currentAngle));//[-360,360]
-            if (deltaAngle > 180) deltaAngle -= 360;
-            else if (deltaAngle < -180) deltaAngle += 360;
-            RotateAndSleep(deltaAngle);         
+            
+            //Amerliorer l'angle a tourner
+            if (deltaAngle > 180) deltaAngle -= 360; //[180,360]->[-180,0]
+            else if (deltaAngle < -180) deltaAngle += 360;//[-360,-180]->[-180,0]
+            
+            //Faire la rotation
+            RotateAndSleep(deltaAngle); 
+ 
+            //Mise a jour la position
+            position = new PointOriente(position.x, position.y, pt.theta);
             
             return false;
         }
 
+
         public Boolean GoToAndAdjustAngleToPoint(PointOriente pt)
         {
+            GoToOrientedPoint(pt); 
+            AdjustAngleToPoint(pt);
             return false;
         }
+
+        public Boolean Move(MOVETYPES type, PointOriente pt){
+            switch (type)
+            {
+                case MOVETYPES.GoTo:
+                    GoToOrientedPoint(pt);
+                    break;
+                case MOVETYPES.AdjustAngle:
+                    AdjustAngleToPoint(pt);
+                    break;
+                case MOVETYPES.GoToAndAdjustAngle:
+                    GoToAndAdjustAngleToPoint(pt);
+                    break;
+            }
+            return false;
+        }
+        
         public Boolean GoToLieuCle(LieuCle lieu)
         {
+            GoToOrientedPoint(lieu.pointDeReference);
             PointOriente positionDuRobotApresDeplacement = null;
             return lieu.IsAtTheRightPlace(positionDuRobotApresDeplacement);
         }
 
         public Boolean AdjustAngleToLieuCle(LieuCle lieu)
         {
+            AdjustAngleToPoint(lieu.pointDeReference);
             PointOriente positionDuRobotApresDeplacement = null;
             return lieu.IsAtTheRightAngle(positionDuRobotApresDeplacement);
         }

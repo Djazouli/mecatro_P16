@@ -35,20 +35,8 @@ namespace Robot_P16.Robot.Composants.BaseRoulante
         {
             SerialPort m_port;
 
-            // TO DO : sauvegarder coordonnées : position & angle 
-            // l'info des positions sera mieux dans BaseRoulante au lieu dans Kangaroo ???
-            PointOriente position = null;
-            public PointOriente getPosition()
-            {
-                return position;
-            }
-
-            public void setPosition(PointOriente pt)
-            {
-                position = pt;
-            }            
-
-            public Kangaroo(int socket) : base(socket)
+            public Kangaroo(int socket)
+                : base(socket)
             {
                 /*
                  * Instanciation de la Kangaroo sur le socket de la Spider donn?en paramètre
@@ -59,25 +47,51 @@ namespace Robot_P16.Robot.Composants.BaseRoulante
                 m_port.ReadTimeout = 500;
                 m_port.WriteTimeout = 500;
                 m_port.Open();
-
             }
 
+            // TO DO : sauvegarder coordonnées : position & angle 
+            // l'info des positions sera mieux dans BaseRoulante au lieu dans Kangaroo ???
+     
+            PointOriente position = new PointOriente(0,0,0);
 
-            private void updatePosition() {
-                int deplacementAngulaire = 0;
-                double newTheta = position.theta;
-                int erreurCodeAngulaire = getDataSinceLastReset(mode.turn, ref deplacementAngulaire); 
-                if(erreurCodeAngulaire == 0)
-                    newTheta += deplacementAngulaire;
+            public PointOriente getPosition()
+            {
+                return position;
+            }
 
-                // Même chose pour le déplacement du robot en X,Y
+            public void setPosition(PointOriente pt)
+            {
+                position = pt;
+            }           
 
-
+            private void updatePosition(mode m) {    
+                switch(m){
+                    case mode.turn:   
+                        int angleDeplacement = 0;
+                        double newTheta = position.theta;
+                        int errorCodeAngle=0;
+                        errorCodeAngle = getDataSinceLastReset(mode.turn, ref angleDeplacement); 
+                        if(errorCodeAngle == 0){
+                            newTheta += angleDeplacement;
+                            position = new PointOriente(position.x,position.y,newTheta);
+                        }
+                        break;
+                    case mode.drive:
+                        int deplacement = 0;
+                        double theta = position.theta;
+                        double X=position.x;
+                        double Y=position.y;
+                        int errorCode = getDataSinceLastReset(mode.drive, ref deplacement); 
+                        if(errorCode == 0){
+                            double angle = System.Math.PI * theta / 180.0;
+                            X += deplacement * System.Math.Cos(angle);
+                            Y += deplacement * System.Math.Sin(angle);
+                            position = new PointOriente(X,Y,theta);
+                        }                           
+                        break;
+                }
                 // reset les données de déplacements relatives
             }
-
- 
-
 
             public bool start(mode m)
             {
@@ -139,7 +153,7 @@ namespace Robot_P16.Robot.Composants.BaseRoulante
 
             //retourne un code erreur
             //0 pas d'erreur
-            private int getDataSinceLastReset(mode m, ref int position)
+            private int getDataSinceLastReset(mode m, ref int deplacement)
             {
                 //Détermine la position actuel du robot
                 String commande, sPosition, sErreur;
@@ -176,7 +190,7 @@ namespace Robot_P16.Robot.Composants.BaseRoulante
                             tempo[j++] = (char)reponse[i];
                         }
                         sPosition = new string(tempo);
-                        position = Convert.ToInt32(sPosition);
+                        deplacement = Convert.ToInt32(sPosition);
                     }
                     else
                     {
@@ -184,7 +198,6 @@ namespace Robot_P16.Robot.Composants.BaseRoulante
                         tempo[1] = (char)reponse[3];
                         sErreur = new string(tempo);
                         codeErreur = Convert.ToInt32(sErreur, 16);
-
                     }
                 }
                 return codeErreur;
@@ -203,7 +216,7 @@ namespace Robot_P16.Robot.Composants.BaseRoulante
                 //speed = speed * (int)unite.kmh;
 
                 //Initialisation obligatoire
-                //init();
+                init();
 
                 if (m_port.IsOpen)
                 {
@@ -213,9 +226,8 @@ namespace Robot_P16.Robot.Composants.BaseRoulante
                     buffer = System.Text.Encoding.UTF8.GetBytes(commande);
                     //Envoie de la commande sur la ligne TX
                     m_port.Write(buffer, 0, commande.Length);
-                }
-                
-                //updatePosition();
+                }                
+                updatePosition(mode.drive);
                 return retour;
             }
 
@@ -228,17 +240,16 @@ namespace Robot_P16.Robot.Composants.BaseRoulante
 
                 //angle = angle * (int)unite.degre;
                 //speed = speed * (int)unite.kmh;
-
-                //init();
+                init();
 
                 if (m_port.IsOpen)
                 {
                     commande = "T,pi" + angle.ToString() + "s" + speed.ToString() + "\r\n";
-                    // commande = "T,p" + angle.ToString() + "s15000\r\n";
                     buffer = System.Text.Encoding.UTF8.GetBytes(commande);
                     m_port.Write(buffer, 0, commande.Length);
                     retour = true;
                 }
+                updatePosition(mode.turn);
                 return retour;
             }
 
@@ -260,6 +271,7 @@ namespace Robot_P16.Robot.Composants.BaseRoulante
 
             }
 
+            [Obsolete]
             public bool resetCodeur()
             {
                 //Émission supplémentaire des paramètres initiales
