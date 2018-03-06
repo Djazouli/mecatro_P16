@@ -35,9 +35,18 @@ namespace Robot_P16.Robot.Composants.BaseRoulante
         {
             SerialPort m_port;
 
-            // TO DO : sauvegarder coordonnées : position & angle
+            // TO DO : sauvegarder coordonnées : position & angle 
+            // l'info des positions sera mieux dans BaseRoulante au lieu dans Kangaroo ???
             PointOriente position = null;
-            
+            public PointOriente getPosition()
+            {
+                return position;
+            }
+
+            public void setPosition(PointOriente pt)
+            {
+                position = pt;
+            }            
 
             public Kangaroo(int socket) : base(socket)
             {
@@ -67,10 +76,8 @@ namespace Robot_P16.Robot.Composants.BaseRoulante
                 // reset les données de déplacements relatives
             }
 
-            // TODO
-            public PointOriente getPosition() {
-                return null;
-            }
+ 
+
 
             public bool start(mode m)
             {
@@ -296,4 +303,4 @@ namespace Robot_P16.Robot.Composants.BaseRoulante
         }
 
     }
-}
+
