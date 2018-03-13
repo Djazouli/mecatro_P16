@@ -17,7 +17,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         int PARAMETER_FOR_THETA = 100;
 
 
-        enum MOVETYPES
+        public enum MOVETYPES
         {
             GoTo = 1, AdjustAngle = 2, GoToAndAdjustAngle = 3
         };

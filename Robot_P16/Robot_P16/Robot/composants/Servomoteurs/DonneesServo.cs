@@ -18,7 +18,7 @@ namespace Robot_P16.Robot.composants.Servomoteurs
         public const float ANGLE_GR_CLAPET_RESERVOIR_OUVRIR = 0;
          //////Petit Robot
 
- 	 public const float ANGLE_PR_POUSSOIRJOKER_POUSSER = 90; //en degré, valeur approximative, odg moins d'un tour
+ 	 /*public const float ANGLE_PR_POUSSOIRJOKER_POUSSER = 90; //en degré, valeur approximative, odg moins d'un tour
  	 public const float ANGLE_PR_POUSSOIRJOKER_RETOUR = 90;
  	 
  	 public const float ANGLE_PR_ASCENSEURGAUCHE_MONTERUNITE = 342.86; //pour monter de 60mm, monter un cube d'une hauteur de 60mm
@@ -56,7 +56,7 @@ namespace Robot_P16.Robot.composants.Servomoteurs
  	 public const float ANGLE_GR_PLATEAU_TAQUET = -54.00;
  	 
  	 public const float ANGLE_GR_TRAPPE_OUVRIR = ?;//still unknown so far
- 	 public const float ANGLE_GR_TRAPPE_FERMER = ?;
+ 	 public const float ANGLE_GR_TRAPPE_FERMER = ?;*/
 
 
     }

@@ -87,7 +87,6 @@ namespace Robot_P16.Robot
         public Robot(composants.IHM.Parametrization parametrization)
         {
             this.typeRobot = parametrization.GetTypeRobot();
-            autoreset.waitOne();
             this.modeOperatoire = parametrization.GetModeOperatoire();
             this.couleurEquipe = parametrization.GetCouleurEquipe();
              //ecranTactile = new DisplayTE35(14, 13, 12, 10); // L'écran tactile est présent sur chaque robot
