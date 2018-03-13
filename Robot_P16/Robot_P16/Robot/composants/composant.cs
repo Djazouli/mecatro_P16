@@ -4,7 +4,7 @@ using Microsoft.SPOT;
 using Gadgeteer;
 using Gadgeteer.Modules.GHIElectronics;
 
-namespace Robot_P16.Robot.Composants
+namespace Robot_P16.Robot.composants
 {
     public class Composant
     {

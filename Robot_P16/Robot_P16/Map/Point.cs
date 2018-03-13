@@ -13,9 +13,10 @@ namespace Robot_P16.Map
         {
             this.x = x;
             this.y = y;
-            this.theta = theta;
+            this.theta = theta;//-180 < theta < 180
         }
         public PointOriente(double x, double y) : this(x,y,0) {}
+        
 
         public PointOriente translater(double x, double y, double theta)
         {
@@ -45,6 +46,7 @@ namespace Robot_P16.Map
             return pt.x == this.x && pt.y == this.y && pt.theta == this.theta;
         }
         
+
         public override int GetHashCode()
         {
             return (int)x * (int)y;

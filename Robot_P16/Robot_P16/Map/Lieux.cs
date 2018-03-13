@@ -7,7 +7,7 @@ using Robot_P16.Map.Surface;
 namespace Robot_P16.Map
 {
     /// <summary>
-    /// TypeDeLieu est une enum qui permet de récupérer un lieu clé en donnant le TypeDeLieu et la couleur de l'équipe.
+    /// TypeDeLieu est une enum qui permet de récupérer un lieu cl?en donnant le TypeDeLieu et la couleur de l'équipe.
     /// </summary>
     public enum TypeDeLieu
     {
@@ -32,7 +32,7 @@ namespace Robot_P16.Map
         private static readonly double TOLERANCE_ANGULAIRE_STANDARD = 5; // A fixer, radian ou degrès ?
 
         /// <summary>
-        /// La surface de contrôle sert à valider la position du robot : cf IsAtTheRightPlace
+        /// La surface de contrôle sert ?valider la position du robot : cf IsAtTheRightPlace
         /// Attention : la surface doit avoir pour origine (0,0), elle est clonée puis translatée automatiquement.
         /// </summary>
         /// <param name="type"></param>
