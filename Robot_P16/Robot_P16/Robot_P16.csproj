@@ -86,9 +86,6 @@
     <Reference Include="GHIElectronics.Gadgeteer.FEZSpider, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="GTM.GHIElectronics.Accelerometer, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
     <Reference Include="GTM.GHIElectronics.Breakout, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="GTM.GHIElectronics.BreakoutTB10, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="GTM.GHIElectronics.Button, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL">
@@ -96,9 +93,6 @@
     </Reference>
     <Reference Include="GTM.GHIElectronics.ColorSense, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="GTM.GHIElectronics.DisplayT35, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="GTM.GHIElectronics.DisplayTE35, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
     <Reference Include="GTM.GHIElectronics.USBClientDP, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>

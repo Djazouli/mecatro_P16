@@ -12,8 +12,8 @@ namespace Robot_P16.Robot.composants.BaseRoulante
     {
         private PointOriente position;
         public Kangaroo kangaroo;
-        public int speedDrive;
-        public int speedTurn;
+        public int speedDrive=100;
+        public int speedTurn=100;
         int PARAMETER_FOR_XY = 1;//l'unite de la dist. = millimetre, on n'accepte que l'entier
         int PARAMETER_FOR_THETA = 100;//l'unite de l'angle = millidegree, on accepte l'entree de la forme X.XX degrees
 
