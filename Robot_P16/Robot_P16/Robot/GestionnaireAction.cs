@@ -3,6 +3,7 @@ using System.Collections;
 using Microsoft.SPOT;
 using Robot_P16.Actions;
 
+using Robot_P16.Map;
 namespace Robot_P16.Robot
 {
     public class GestionnaireAction
@@ -46,7 +47,7 @@ namespace Robot_P16.Robot
 
         private static void loadActionTest1()
         {
-            Action MOTHER_ACTION = new ActionBuilder("Action mère Test1").Add(
+            /*Action MOTHER_ACTION = new ActionBuilder("Action mère Test1").Add(
                     new Actions.ActionsIHM.ActionBouton(Robot.robot.TR1_BOUTON_1)
                 )
                 .Add(
@@ -58,8 +59,31 @@ namespace Robot_P16.Robot
                     new ActionBuilder("Eteindre LED").BuildActionDelegate(Robot.robot.TR1_BOUTON_1.TurnLedOff)
                 ).BuildActionEnSerieRepeated(-1); // Envois infinis
 
-            setMotherAction(ModeOperatoire.TEST1, MOTHER_ACTION);
+            setMotherAction(ModeOperatoire.TEST1, MOTHER_ACTION);*/
 
+            PointOriente pt1 = new PointOriente(10, 10, 50);
+            PointOriente pt2 = new PointOriente(10, 20, 50);
+            PointOriente pt3 = new PointOriente(20, 20, 50);
+
+            Action MOTHER_ACTION = new ActionBuilder("Action mère Test1").Add(
+                    new Actions.ActionsIHM.ActionBouton(Robot.robot.TR1_BOUTON_1)
+                )
+                .Add(
+                    new Actions.ActionBaseRoulante("Point1 ",pt1)
+                ).Add(
+                    new ActionBuilder("Wait a bit...").BuildActionWait(2000)
+                )
+                .Add(
+                   new Actions.ActionBaseRoulante("Point2 ", pt2)
+                ).Add(
+                    new ActionBuilder("Wait a bit...").BuildActionWait(2000)
+                )
+                .Add(
+                   new Actions.ActionBaseRoulante("Point3 ", pt3)
+                )
+                .BuildActionEnSerieRepeated(-1); // Envois infinis
+
+            setMotherAction(ModeOperatoire.TEST1, MOTHER_ACTION);
         }
 
         private static void setMotherAction(ModeOperatoire mode, Action a)

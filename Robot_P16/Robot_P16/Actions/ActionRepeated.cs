@@ -47,6 +47,11 @@ namespace Robot_P16.Actions
                     compteur--;
                     a.Execute();
                 }
+                else
+                {
+                    actionToBeRepeated.StatusChangeEvent -= this.Feedback
+                    this.Status = ActionStatus.SUCCESS;
+                }
                 
             }
         }

@@ -122,7 +122,7 @@ namespace Robot_P16.Robot
 
                 case TypeRobot.TEST_ROBOT_1:
                     TR1_BOUTON_1 = new Button(TR1_SOCKET_BOUTON1);
-                    TR1_BOUTON_1 = new Button(TR1_SOCKET_BOUTON2);
+                    TR1_BOUTON_2 = new Button(TR1_SOCKET_BOUTON2);
                     BASE_ROULANTE = new composants.BaseRoulante.BaseRoulante(GR_SOCKET_BASE_ROUlANTE);
                     break;
             }
