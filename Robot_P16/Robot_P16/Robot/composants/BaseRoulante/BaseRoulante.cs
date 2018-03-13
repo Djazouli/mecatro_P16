@@ -8,7 +8,7 @@ using System.Threading;
 
 namespace Robot_P16.Robot.composants.BaseRoulante
 {
-    class BaseRoulante
+    public class BaseRoulante : Composant
     {
         private PointOriente position;
         public Kangaroo kangaroo;
@@ -17,6 +17,12 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         int PARAMETER_FOR_XY = 1;//l'unite de la dist. = millimetre, on n'accepte que l'entier
         int PARAMETER_FOR_THETA = 100;//l'unite de l'angle = millidegree, on accepte l'entree de la forme X.XX degrees
 
+        public BaseRoulante(int socket)
+            : base(socket)
+        {
+            this.kangaroo = new Kangaroo(socket);
+            this.position = new PointOriente(0, 0, 0);
+        }
 
         enum MOVETYPES
         {
