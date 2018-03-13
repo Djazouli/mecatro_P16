@@ -77,6 +77,7 @@ namespace Robot_P16.Robot
 
                     break;
             }
+            Informations.printInformations(Priority.MEDIUM, "composés du robot chargés");
         }
 
     }
