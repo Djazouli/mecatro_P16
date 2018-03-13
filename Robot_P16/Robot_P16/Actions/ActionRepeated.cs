@@ -49,7 +49,7 @@ namespace Robot_P16.Actions
                 }
                 else
                 {
-                    actionToBeRepeated.StatusChangeEvent -= this.Feedback
+                    actionToBeRepeated.StatusChangeEvent -= this.Feedback;
                     this.Status = ActionStatus.SUCCESS;
                 }
                 

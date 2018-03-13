@@ -24,7 +24,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             this.position = new PointOriente(0, 0, 0);
         }
 
-        enum MOVETYPES
+        public enum MOVETYPES
         {
             GoTo = 1, AdjustAngle = 2, GoToAndAdjustAngle = 3
         };
