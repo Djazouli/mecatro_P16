@@ -4,9 +4,9 @@ using System.IO.Ports;
 
 using GT = Gadgeteer;
 using Robot_P16.Map;
-using Robot_P16.Robot.composants;
+using Robot_P16.Robot.Composants;
 
-namespace Robot_P16.Robot.composants.BaseRoulante
+namespace Robot_P16.Robot.Composants.BaseRoulante
 {
     
         enum mode
@@ -48,10 +48,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 m_port.WriteTimeout = 500;
                 m_port.Open();
             }
-
-            // TO DO : sauvegarder coordonnées : position & angle 
-            // l'info des positions sera mieux dans BaseRoulante au lieu dans Kangaroo ???
-     
+  
             PointOriente position = new PointOriente(0,0,0);
 
             public PointOriente getPosition()
@@ -64,6 +61,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 position = pt;
             }           
 
+            //on met a jour
             private void updatePosition(mode m) {    
                 switch(m){
                     case mode.turn:   
@@ -126,13 +124,13 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                     start(mode.drive);
 
                     //Preparation des parametres ?envoyer
-                    commande = "T, UNITS 360 degrees = 5032 lines\r\n"; //a modifier           
+                    commande = "T, UNITS 36000 millidegrees = 36084 lines\r\n"; //a modifier           
                     //Conversion des parametres en tableau d'octet
                     buffer = System.Text.Encoding.UTF8.GetBytes(commande);
                     //Ecriture du tableau d'octets sur la ligne TX
                     m_port.Write(buffer, 0, commande.Length);
 
-                    commande = "D, UNITS 1822 mm = 10240 lines\r\n"; //a modifier       
+                    commande = "D, UNITS 264 mm = 10240 lines\r\n"; //a modifier       
                     buffer = System.Text.Encoding.UTF8.GetBytes(commande);
                     m_port.Write(buffer, 0, commande.Length);
 

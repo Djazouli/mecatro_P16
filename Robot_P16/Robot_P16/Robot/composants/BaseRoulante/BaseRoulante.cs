@@ -2,6 +2,7 @@ using System;
 using Microsoft.SPOT;
 
 using Robot_P16.Map;
+using Robot_P16.Robot.Composants.BaseRoulante;
 using System.Threading;
 
 
@@ -13,11 +14,11 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         public Kangaroo kangaroo;
         public int speedDrive;
         public int speedTurn;
-        int PARAMETER_FOR_XY = 100;
-        int PARAMETER_FOR_THETA = 100;
+        int PARAMETER_FOR_XY = 1;//l'unite de la dist. = millimetre, on n'accepte que l'entier
+        int PARAMETER_FOR_THETA = 100;//l'unite de l'angle = millidegree, on accepte l'entree de la forme X.XX degrees
 
 
-        public enum MOVETYPES
+        enum MOVETYPES
         {
             GoTo = 1, AdjustAngle = 2, GoToAndAdjustAngle = 3
         };
@@ -109,7 +110,6 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             
             return false;
         }
-
 
         public Boolean GoToAndAdjustAngleToPoint(PointOriente pt)
         {
