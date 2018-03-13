@@ -13,8 +13,8 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         private PointOriente position;
         public Kangaroo kangaroo;
 
-        public int speedDrive = 200;// avance 20 cm par seconde
-        public int speedTurn = 4500; //tourne 45 degrees par seconde
+        public int speedDrive = 100;// avance 10 cm par seconde
+        public int speedTurn = 3000; //tourne 30 degrees par seconde
 
         int PARAMETER_FOR_XY = 1;//l'unite de la dist. = millimetre, on n'accepte que l'entier
         int PARAMETER_FOR_THETA = 100;//l'unite de l'angle = millidegree, on accepte l'entree de la forme X.XX degrees
@@ -57,12 +57,14 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         {
             kangaroo.tourner(angle, speedTurn);
             Thread.Sleep(System.Math.Abs(angle / speedTurn * 1000));
+            Thread.Sleep(1000);
         }
 
         private void AvanceAndSleep(int distance)
         {
             kangaroo.allerEn(distance, speedDrive);
             Thread.Sleep(System.Math.Abs(distance / speedDrive * 1000));
+            Thread.Sleep(1000);
         }
 
         public Boolean GoToOrientedPoint(PointOriente pt)

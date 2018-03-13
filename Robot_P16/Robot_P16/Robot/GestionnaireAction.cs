@@ -62,22 +62,22 @@ namespace Robot_P16.Robot
             setMotherAction(ModeOperatoire.TEST1, MOTHER_ACTION);*/
 
             PointOriente pt1 = new PointOriente(100, 100, 50);
-            //PointOriente pt2 = new PointOriente(110, 200, 50);
-            PointOriente pt3 = new PointOriente(200, 0, 50);
+            PointOriente pt2 = new PointOriente(100, 200, 50);
+            PointOriente pt3 = new PointOriente(100, 0, 50);
 
             Action MOTHER_ACTION = new ActionBuilder("Action mère Test1").Add(
                     new Actions.ActionsIHM.ActionBouton(Robot.robot.TR1_BOUTON_1)
                 )
                 .Add(
                     new Actions.ActionBaseRoulante("Point1 ",pt1)
-                )/*.Add(
+                ).Add(
                     new ActionBuilder("Wait a bit...").BuildActionWait(2000)
-                )*/
-               /* .Add(
+                )
+                .Add(
                    new Actions.ActionBaseRoulante("Point2 ", pt2)
                 ).Add(
                     new ActionBuilder("Wait a bit...").BuildActionWait(2000)
-                )*/
+                )
                 .Add(
                    new Actions.ActionBaseRoulante("Point3 ", pt3)
                 )

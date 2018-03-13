@@ -48,7 +48,6 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 m_port = new SerialPort(COMPort, 9600, Parity.None, 8, StopBits.One);
                 Debug.Print("Opening OK !");
 
-
                 m_port.ReadTimeout = 500;
                 m_port.WriteTimeout = 500;
                 m_port.Open();
@@ -129,7 +128,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                     start(mode.drive);
 
                     //Preparation des parametres ?envoyer
-                    commande = "T, UNITS 36000 millidegrees = 29501 lines\r\n"; //a modifier           
+                    commande = "T, UNITS 36000 millidegrees = 35840 lines\r\n"; //a modifier           
                     //Conversion des parametres en tableau d'octet
                     buffer = System.Text.Encoding.UTF8.GetBytes(commande);
                     //Ecriture du tableau d'octets sur la ligne TX
