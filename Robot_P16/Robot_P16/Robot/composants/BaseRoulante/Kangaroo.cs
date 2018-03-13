@@ -31,7 +31,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             mm = 1, cm = 10, m = 1000, degre = 1
         };
 
-        class Kangaroo : Composant
+        public class Kangaroo : Composant
         {
             SerialPort m_port;
 
