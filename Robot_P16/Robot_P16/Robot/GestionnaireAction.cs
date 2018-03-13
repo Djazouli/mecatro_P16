@@ -23,6 +23,7 @@ namespace Robot_P16.Robot
         {
             ACTION_PER_TYPE.Clear();
             loadActionHomologation();
+            Informations.printInformations(Priority.MEDIUM, "actions chargées");
         }
 
         public static void startActions(ModeOperatoire mode)
@@ -53,6 +54,7 @@ namespace Robot_P16.Robot
             {
                 ACTION_PER_TYPE.Add(mode, a);
             }
+            Informations.printInformations(Priority.MEDIUM, "actions mère redéfinie");
         }
 
 

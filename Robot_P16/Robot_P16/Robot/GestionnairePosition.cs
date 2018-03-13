@@ -23,6 +23,7 @@ namespace Robot_P16.Robot
         {
             if(GetRobotPositionEvent != null) {
                 GetRobotPositionEvent(getPosition());
+                Informations.printInformations(Priority.HIGH, "l'information sur la position du robot a été mise à jour");
             }
         }
 
