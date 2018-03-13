@@ -50,7 +50,12 @@ namespace Robot_P16.Robot
 
         public readonly int GR_SOCKET_LANCEUR = 0;
 
+        public readonly int GR_SOCKET_BASE_ROUlANTE = 0;
+        public readonly int PR_SOCKET_BASE_ROUlANTE = 0;
+
         //public readonly DisplayTE35 ecranTactile;
+
+        public composants.BaseRoulante.BaseRoulante BASE_ROULANTE;
 
         //public readonly GHIElectronics.Gadgeteer.FEZSpider GR_MAINBOARD;
         //public readonly GHIElectronics.Gadgeteer.FEZSpider PR_MAINBOARD;
@@ -118,6 +123,7 @@ namespace Robot_P16.Robot
                 case TypeRobot.TEST_ROBOT_1:
                     TR1_BOUTON_1 = new Button(TR1_SOCKET_BOUTON1);
                     TR1_BOUTON_1 = new Button(TR1_SOCKET_BOUTON2);
+                    BASE_ROULANTE = new composants.BaseRoulante.BaseRoulante(GR_SOCKET_BASE_ROUlANTE);
                     break;
             }
         }
