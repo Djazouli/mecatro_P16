@@ -23,6 +23,7 @@ namespace Robot_P16.Robot
         {
             ACTION_PER_TYPE.Clear();
             loadActionHomologation();
+            loadActionTest1();
         }
 
         public static void startActions(ModeOperatoire mode)
@@ -41,6 +42,24 @@ namespace Robot_P16.Robot
         private static void loadActionHomologation()
         {
             // Blablabla
+        }
+
+        private static void loadActionTest1()
+        {
+            Action MOTHER_ACTION = new ActionBuilder("Action mère Test1").Add(
+                    new Actions.ActionsIHM.ActionBouton(Robot.robot.TR1_BOUTON_1)
+                )
+                .Add(
+                    new ActionBuilder("Allumer LED").BuildActionDelegate(Robot.robot.TR1_BOUTON_1.TurnLedOn)
+                ).Add(
+                    new ActionBuilder("Wait a bit...").BuildActionWait(2000)
+                )
+                .Add(
+                    new ActionBuilder("Eteindre LED").BuildActionDelegate(Robot.robot.TR1_BOUTON_1.TurnLedOff)
+                ).BuildActionEnSerieRepeated(-1); // Envois infinis
+
+            setMotherAction(ModeOperatoire.TEST1, MOTHER_ACTION);
+
         }
 
         private static void setMotherAction(ModeOperatoire mode, Action a)

@@ -17,7 +17,9 @@ namespace Robot_P16.Actions.ActionsIHM
 
         public override void Execute()
         {
+            Debug.Print("ActionBouton executed");
             bouton.ButtonPressed += (a,b) => Status = ActionStatus.SUCCESS;
+            //System.Threading.Thread.Sleep(-1);
             //bouton.ButtonReleased += (a, b) => Status = ActionStatus.UNDETERMINED;
         }
 
@@ -27,12 +29,15 @@ namespace Robot_P16.Actions.ActionsIHM
             switch (Status)
             {
                 case ActionStatus.SUCCESS:
-                    Debug.Print("ActionBouton successful !");
-                    bouton.TurnLedOn();
+                    if( previousStatus == ActionStatus.SUCCESS) {
+                        Debug.Print("ActionBouton already successful.");
+                        return false;
+                    } else {
+                        Debug.Print("ActionBouton successful !");
+                    }
                     break;
                 case ActionStatus.UNDETERMINED:
                      Debug.Print("ActionBouton reset !");
-                    bouton.TurnLedOff();
                     break;
                 
             }

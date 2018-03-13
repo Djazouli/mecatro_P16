@@ -6,7 +6,7 @@ using GT = Gadgeteer;
 using Robot_P16.Map;
 using Robot_P16.Robot.Composants;
 
-namespace Robot_P16.Robot.Composants.BaseRoulante
+namespace Robot_P16.Robot.composants.BaseRoulante
 {
     
     enum mode

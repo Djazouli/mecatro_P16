@@ -3,7 +3,7 @@ using Microsoft.SPOT;
 
 using Robot_P16.Actions;
 
-namespace Robot_P16.Robot.Composants.Servomoteurs
+namespace Robot_P16.Robot.composants.Servomoteurs
 {
     public class GestionnaireServos
     {

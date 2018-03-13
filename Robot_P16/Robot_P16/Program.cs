@@ -15,6 +15,7 @@ using GTM = Gadgeteer.Modules;
 using Robot_P16.Actions;
 using Robot_P16.Actions.ActionsIHM;
 using Gadgeteer.Modules.GHIElectronics;
+using Robot_P16.Robot.composants.IHM;
 
 namespace Robot_P16
 {
@@ -40,7 +41,15 @@ namespace Robot_P16
             // Use Debug.Print to show messages in Visual Studio's "Output" window during debugging.
             Debug.Print("Program Started");
 
-            ActionBouton actionBouton1 = new ActionBouton(button);
+
+            Parametrization parameters = new CustomParametrization(Robot.TypeRobot.TEST_ROBOT_1, Robot.ModeOperatoire.TEST1, Robot.CouleurEquipe.UNDEFINED);
+            new Robot.Robot(parameters);
+
+            Robot.GestionnaireAction.loadActions();
+
+            parameters.startMethod();
+
+            /*ActionBouton actionBouton1 = new ActionBouton(button);
             ActionBouton actionBouton2 = new ActionBouton(button2);
             ActionPipot actionPipot = new ActionPipot(6);
             Action[] tab0 = {actionBouton2, actionPipot};
@@ -48,7 +57,7 @@ namespace Robot_P16
             Action[] tab1 = { actionBouton1, actionPara };
             ActionEnSerie actionSerie = new ActionEnSerie(tab1, "Test série");
 
-            new Thread(() => { actionSerie.Execute(); }).Start();
+            new Thread(() => { actionSerie.Execute(); }).Start();*/
             
             
         }

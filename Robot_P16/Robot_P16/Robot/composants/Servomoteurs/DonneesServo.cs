@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using Microsoft.SPOT;
 
-namespace Robot_P16.Robot.Composants.Servomoteurs
+namespace Robot_P16.Robot.composants.Servomoteurs
 {
 
     public static class DonneesServo

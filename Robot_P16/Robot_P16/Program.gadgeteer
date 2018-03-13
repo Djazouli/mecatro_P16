@@ -7,8 +7,8 @@
           <moduleHasSocketUses Id="e630c984-1783-4ef5-b978-ad0cb9ae3dc5">
             <socketUse Id="f54d0675-5d6a-4a48-9031-8373174f0f70" label="XY">
               <socket>
-                <socketUseReferencesSocket Id="75e92bad-77e7-459f-9bee-8e13be0925f8">
-                  <socketMoniker Id="13917604-e759-47b5-b2e5-2d746e78c486" />
+                <socketUseReferencesSocket Id="129e1296-3b32-428e-b682-e7ac9ab7da49">
+                  <socketMoniker Id="00ad5694-968f-4d4c-a0d7-431129fc4c7e" />
                 </socketUseReferencesSocket>
               </socket>
             </socketUse>
@@ -129,6 +129,21 @@
               <socket>
                 <socketUseReferencesSocket Id="32652ffd-96d3-48e4-90f5-62ef6df58f2c">
                   <socketMoniker Id="2a58fb92-a737-4da6-9ebf-139733b18fcc" />
+                </socketUseReferencesSocket>
+              </socket>
+            </socketUse>
+          </moduleHasSocketUses>
+        </socketUses>
+      </module>
+    </gadgeteerModelHasGadgeteerHardware>
+    <gadgeteerModelHasGadgeteerHardware Id="d680890b-76a6-4a36-a9c4-d47b9bf60929">
+      <module Id="47368efe-d726-405c-b9e9-739f23bfd04a" cachedDefinition="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&#xD;&#xA;&lt;ModuleDefinition xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; Name=&quot;Accelerometer&quot; Manufacturer=&quot;GHI Electronics&quot; Description=&quot;An Accelerometer module&quot; Type=&quot;Gadgeteer.Modules.GHIElectronics.Accelerometer&quot; HardwareVersion=&quot;1.0&quot; Image=&quot;C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Modules\Accelerometer\Image.jpg&quot; BoardWidth=&quot;17.2&quot; BoardHeight=&quot;32.2&quot; MinimumGadgeteerCoreVersion=&quot;2.43.800&quot; HelpUrl=&quot;http://www.ghielectronics.com/catalog/product/320&quot; UniqueId=&quot;09f4d2d9-6f61-4924-891f-37774c4bd0fc&quot; InstanceName=&quot;accelerometer&quot; ModuleSuppliesPower=&quot;false&quot;&gt;&#xD;&#xA;  &lt;Power&gt;&#xD;&#xA;    &lt;PowerRequirements Voltage=&quot;3.3&quot;&gt;&#xD;&#xA;      &lt;TypicalCurrent&gt;0&lt;/TypicalCurrent&gt;&#xD;&#xA;      &lt;MaximumCurrent&gt;0&lt;/MaximumCurrent&gt;&#xD;&#xA;    &lt;/PowerRequirements&gt;&#xD;&#xA;    &lt;PowerRequirements Voltage=&quot;5&quot;&gt;&#xD;&#xA;      &lt;TypicalCurrent&gt;0&lt;/TypicalCurrent&gt;&#xD;&#xA;      &lt;MaximumCurrent&gt;0&lt;/MaximumCurrent&gt;&#xD;&#xA;    &lt;/PowerRequirements&gt;&#xD;&#xA;  &lt;/Power&gt;&#xD;&#xA;  &lt;ProvidedSockets /&gt;&#xD;&#xA;  &lt;Assemblies&gt;&#xD;&#xA;    &lt;Assembly MFVersion=&quot;4.3&quot; Name=&quot;GTM.GHIElectronics.Accelerometer&quot; /&gt;&#xD;&#xA;  &lt;/Assemblies&gt;&#xD;&#xA;  &lt;LibrariesProvided /&gt;&#xD;&#xA;  &lt;Sockets&gt;&#xD;&#xA;    &lt;Socket Orientation=&quot;90&quot; Left=&quot;8.6&quot; Top=&quot;27.7&quot; TypesLabel=&quot;I&quot; ConstructorOrder=&quot;1&quot; Optional=&quot;false&quot;&gt;&#xD;&#xA;      &lt;Types&gt;&#xD;&#xA;        &lt;Type&gt;I&lt;/Type&gt;&#xD;&#xA;      &lt;/Types&gt;&#xD;&#xA;      &lt;Pins&gt;&#xD;&#xA;        &lt;Pin Shared=&quot;false&quot;&gt;3&lt;/Pin&gt;&#xD;&#xA;        &lt;Pin Shared=&quot;true&quot;&gt;8&lt;/Pin&gt;&#xD;&#xA;        &lt;Pin Shared=&quot;true&quot;&gt;9&lt;/Pin&gt;&#xD;&#xA;      &lt;/Pins&gt;&#xD;&#xA;    &lt;/Socket&gt;&#xD;&#xA;  &lt;/Sockets&gt;&#xD;&#xA;  &lt;ExtraLibrariesRequired /&gt;&#xD;&#xA;&lt;/ModuleDefinition&gt;" name="accelerometer" moduleType="Gadgeteer.Modules.GHIElectronics.Accelerometer" moduleDefinitionId="09f4d2d9-6f61-4924-891f-37774c4bd0fc">
+        <socketUses>
+          <moduleHasSocketUses Id="928edbfe-8d86-4beb-b602-4396df76074d">
+            <socketUse Id="e8f930d0-c7c4-456f-b8c4-8a851f6c90fa" label="I">
+              <socket>
+                <socketUseReferencesSocket Id="5be7b5ad-d092-49f5-990d-d940862ea415">
+                  <socketMoniker Id="11d1dc7d-62fa-49e4-b19f-7fe4479169fb" />
                 </socketUseReferencesSocket>
               </socket>
             </socketUse>

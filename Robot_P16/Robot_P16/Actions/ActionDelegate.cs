@@ -20,6 +20,7 @@ namespace Robot_P16.Actions
         public override void Execute()
         {
             this.method();
+            this.Status = ActionStatus.SUCCESS;
         }
 
         protected override bool PostStatusChangeCheck(ActionStatus previousStatus)

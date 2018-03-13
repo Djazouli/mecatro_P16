@@ -15,7 +15,8 @@ namespace Robot_P16.Robot
     {
         UNDEFINED,
         GRAND_ROBOT,
-        PETIT_ROBOT
+        PETIT_ROBOT,
+        TEST_ROBOT_1
     }
     public enum CouleurEquipe
     {

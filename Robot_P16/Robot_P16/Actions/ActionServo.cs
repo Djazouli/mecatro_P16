@@ -1,6 +1,6 @@
 using System;
 using Microsoft.SPOT;
-using Robot_P16.Robot.Composants.Servomoteurs;
+using Robot_P16.Robot.composants.Servomoteurs;
 using System.Threading;
 
 namespace Robot_P16.Actions
