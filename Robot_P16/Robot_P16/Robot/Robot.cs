@@ -76,8 +76,8 @@ namespace Robot_P16.Robot
 
         /* ********************************** TEST ROBOT 1 ****************************** */
 
-        public readonly int TR1_SOCKET_BOUTON1 = 4;
-        public readonly int TR1_SOCKET_BOUTON2 = 8;
+        public readonly int TR1_SOCKET_BOUTON1 = 8;
+        public readonly int TR1_SOCKET_BOUTON2 = 4;
 
         public Button TR1_BOUTON_1;
         public Button TR1_BOUTON_2;
