@@ -43,9 +43,12 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                  * Utilit?de Read et Write TimeOut ?déterminer
                 */
                 string COMPort = GT.Socket.GetSocket(socket, true, null, null).SerialPortName;
+
                 Debug.Print("Tring to open serial port on COMPORt :" + COMPort);
                 m_port = new SerialPort(COMPort, 9600, Parity.None, 8, StopBits.One);
                 Debug.Print("Opening OK !");
+
+
                 m_port.ReadTimeout = 500;
                 m_port.WriteTimeout = 500;
                 m_port.Open();

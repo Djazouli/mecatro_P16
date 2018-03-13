@@ -12,8 +12,10 @@ namespace Robot_P16.Robot.composants.BaseRoulante
     {
         private PointOriente position;
         public Kangaroo kangaroo;
-        public int speedDrive=100;
-        public int speedTurn=1000;
+
+        public int speedDrive = 200;// avance 20 cm par seconde
+        public int speedTurn = 4500; //tourne 45 degrees par seconde
+
         int PARAMETER_FOR_XY = 1;//l'unite de la dist. = millimetre, on n'accepte que l'entier
         int PARAMETER_FOR_THETA = 100;//l'unite de l'angle = millidegree, on accepte l'entree de la forme X.XX degrees
 
@@ -68,10 +70,21 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             //Calculer l'angle a tourner 
             double deltaX = pt.x - position.x;
             double deltaY = pt.y - position.y;
-            double result = deltaY / deltaX;
-            double radians = System.Math.Atan(result);
-            double angle = radians * (180 / System.Math.PI);
-            int deltaAngle = doubleToIntForTheta(angle - position.theta);
+            double result, radians, angle;
+            int deltaAngle;
+            if (deltaX != 0)
+            {
+                result = deltaY / deltaX;
+                radians = System.Math.Atan(result);
+                angle = radians * (180 / System.Math.PI);
+            }
+            else
+            {
+                if (deltaY > 0) angle = 90;
+                else angle = -90;
+            }
+            deltaAngle = doubleToIntForTheta(angle - position.theta);
+            
             int sens = 1; //avance=1,recule=-1
             
             //Ameliorer l'angle a tourner

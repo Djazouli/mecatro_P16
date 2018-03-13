@@ -39,7 +39,7 @@ namespace Robot_P16.Robot
 
         /// <summary>
         /// Liste des composants
-        /// Pas élégant mais efficace pour pas avoir à convertir les composants de tous les côtés...
+        /// Pas élégant mais efficace pour pas avoir ?convertir les composants de tous les côtés...
         /// </summary>
 
         public readonly int GR_SOCKET_SERVOS = 0;
