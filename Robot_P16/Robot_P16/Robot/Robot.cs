@@ -63,14 +63,20 @@ namespace Robot_P16.Robot
 
         /* ********************************** GRAND ROBOT ****************************** */
 
-        public composants.Servomoteurs.AX12 GR_SERVO_CLAPET_RESERVOIR;
-
-        public composants.Servomoteurs.AX12 GR_SERVO_PLATEAU_BALLES;
-        public composants.Servomoteurs.AX12 GR_SERVO_PLATEAU_FILTRE;
+        public composants.Servomoteurs.AX12 GR_SERVO_PLATEAU;
+        public composants.Servomoteurs.AX12 GR_SERVO_TRAPPE;
 
         /* ********************************** FIN GRAND ROBOT ****************************** */
 
         /* ********************************** PETIT ROBOT ****************************** */
+
+        public composants.Servomoteurs.AX12 PR_SERVO_ASCENSEUR_BRAS_DROIT;
+        public composants.Servomoteurs.AX12 PR_SERVO_ASCENSEUR_BRAS_GAUCHE;
+        public composants.Servomoteurs.AX12 PR_SERVO_ROTATION_BRAS_GAUCHE;
+        public composants.Servomoteurs.AX12 PR_SERVO_ROTATION_BRAS_DROIT;
+        public composants.Servomoteurs.AX12 PR_SERVO_DEPLOIEMENT_BRAS_GAUCHE;
+        public composants.Servomoteurs.AX12 PR_SERVO_POUSSOIRJOKER;
+        public composants.Servomoteurs.AX12 PR_SERVO_AIGUILLAGE;
 
         /* ********************************** FIN PETIT ROBOT ****************************** */
 
