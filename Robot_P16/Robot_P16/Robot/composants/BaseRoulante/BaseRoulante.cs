@@ -2,7 +2,7 @@ using System;
 using Microsoft.SPOT;
 
 using Robot_P16.Map;
-using Robot_P16.Robot.Composants.BaseRoulante;
+using Robot_P16.Robot.composants.BaseRoulante;
 using System.Threading;
 
 
