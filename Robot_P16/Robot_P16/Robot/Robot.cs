@@ -50,8 +50,8 @@ namespace Robot_P16.Robot
 
         public readonly int GR_SOCKET_LANCEUR = 0;
 
-        public readonly int GR_SOCKET_BASE_ROUlANTE = 0;
-        public readonly int PR_SOCKET_BASE_ROUlANTE = 0;
+        public readonly int GR_SOCKET_BASE_ROUlANTE = 4;
+        public readonly int PR_SOCKET_BASE_ROUlANTE = 4;
 
         //public readonly DisplayTE35 ecranTactile;
 
