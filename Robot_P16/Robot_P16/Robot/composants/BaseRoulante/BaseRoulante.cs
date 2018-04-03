@@ -16,7 +16,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         public int speedDrive = 100;// avance 10 cm par seconde
         public int speedTurn = 3000; //tourne 30 degrees par seconde
 
-        int PARAMETER_FOR_XY = 1;//l'unite de la dist. = millimetre, on n'accepte que l'entier
+        int PARAMETER_FOR_XY = 1;//l'unite de la dist. = millimetre, on n'accepte QUE l'entier
         int PARAMETER_FOR_THETA = 100;//l'unite de l'angle = millidegree, on accepte l'entree de la forme X.XX degrees
 
         public BaseRoulante(int socket)
@@ -90,7 +90,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             int sens = 1; //avance=1,recule=-1
             
             //Ameliorer l'angle a tourner
-            //[-360,-270],[270,360]->[0,90], [-90,0], sens=avance
+            //[-360,-270],[270,360] -> [0,90], [-90,0], sens=avance
             if (System.Math.Abs(deltaAngle) >= 270) deltaAngle -= System.Math.Sign(deltaAngle) * 360;                
             //[-270,-90],[90,270]->[-90,90], sens=recule
             else if (System.Math.Abs(deltaAngle) >= 90) {
@@ -103,7 +103,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             RotateAndSleep(deltaAngle);
         
             //Aller tout droite
-            int distance = doubleToIntForXY(System.Math.Sqrt(pt.distanceSquared(position)));
+            int distance = doubleToIntForXY(System.Math.Sqrt(deltaX * deltaX + deltaY * deltaY));
             AvanceAndSleep(distance*sens);
        
             //Mise a jour la position
@@ -158,14 +158,14 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         public Boolean GoToLieuCle(LieuCle lieu)
         {
             GoToOrientedPoint(lieu.pointDeReference);
-            PointOriente positionDuRobotApresDeplacement = null;
+            PointOriente positionDuRobotApresDeplacement = position;
             return lieu.IsAtTheRightPlace(positionDuRobotApresDeplacement);
         }
 
         public Boolean AdjustAngleToLieuCle(LieuCle lieu)
         {
             AdjustAngleToPoint(lieu.pointDeReference);
-            PointOriente positionDuRobotApresDeplacement = null;
+            PointOriente positionDuRobotApresDeplacement = position;
             return lieu.IsAtTheRightAngle(positionDuRobotApresDeplacement);
         }
 
@@ -173,9 +173,8 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         {
             GoToLieuCle(lieu);
             AdjustAngleToLieuCle(lieu);
-            PointOriente positionDuRobotApresDeplacement = null;
+            PointOriente positionDuRobotApresDeplacement = position;
             return lieu.IsAtTheRightPlaceAndAngle(positionDuRobotApresDeplacement);
         }
-
     }
 }
