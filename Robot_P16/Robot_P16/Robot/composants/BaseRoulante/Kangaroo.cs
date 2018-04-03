@@ -40,12 +40,14 @@ namespace Robot_P16.Robot.Composants.BaseRoulante
             PointOriente position = null;
             public PointOriente getPosition()
             {
+                Informations.printInformations(Priority.LOW, "la position orientée a été récupérée");
                 return position;
             }
 
             public void setPosition(PointOriente pt)
             {
                 position = pt;
+                Informations.printInformations(Priority.LOW, "la position a été redéfinie");
             }            
 
             public Kangaroo(int socket) : base(socket)
@@ -72,7 +74,7 @@ namespace Robot_P16.Robot.Composants.BaseRoulante
 
                 // Même chose pour le déplacement du robot en X,Y
 
-
+                Informations.printInformations(Priority.LOW, "l'information sur la position a été mise à jour");
                 // reset les données de déplacements relatives
             }
 

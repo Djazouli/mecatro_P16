@@ -68,6 +68,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Robot\Informations.cs" />
     <Compile Include="Robot\composants\BaseRoulante\BaseRoulante.cs" />
     <Compile Include="Robot\composants\BaseRoulante\Kangaroo.cs" />
     <Compile Include="Robot\composants\Composant.cs" />
