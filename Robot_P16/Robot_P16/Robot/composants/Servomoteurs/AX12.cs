@@ -27,6 +27,7 @@ namespace Robot_P16.Robot.composants.Servomoteurs
         /// <returns></returns>
         public int ExecuteCommand(ServoCommandTypes type, float angle)
         {
+            Informations.printInformations(Priority.LOW, "Robot.composants.Servomoteurs.AX12.ExecuteCommand : exécution de la commande");
             switch (type)
             {
                 case ServoCommandTypes.ABSOLUTE_ROTATION:
@@ -48,7 +49,7 @@ namespace Robot_P16.Robot.composants.Servomoteurs
         {
             // TODO
             string a = angle.ToString();
-            Informations.printInformations(Priority.HIGH, "rotation du servo de " + a + "degrés");
+            Informations.printInformations(Priority.HIGH, "Robot.composants.Servomoteurs.AX12.RotateOf : rotation du servo de " + a + "degrés");
             return 1;
         }
 
@@ -61,7 +62,7 @@ namespace Robot_P16.Robot.composants.Servomoteurs
         {
             // TODO
             string a = angle.ToString();
-            Informations.printInformations(Priority.HIGH, "l'angle absolu du robot est désormais de " + a + "degrés");
+            Informations.printInformations(Priority.HIGH, "Robot.composants.Servomoteurs.AX12.SetAngle : l'angle absolu du robot est désormais de " + a + "degrés");
             return 1;
         }
 
@@ -69,12 +70,13 @@ namespace Robot_P16.Robot.composants.Servomoteurs
         {
             // Récupère la vitesse (et le mode de fonctionnement ?) / dépend de la vitesse et du mode (à rajouter en param dans ce cas)
             // Pour renvoyer le nombre de ms à attendre pour effectuer la rotation
-            Informations.printInformations(Priority.LOW, "la durée de la rotation a été de _ secondes");
+            Informations.printInformations(Priority.LOW, "Robot.composants.Servomoteurs.AX12.GetDurationOfRotation : la durée de la rotation a été de _ secondes");
             return 0;
         }
 
         public void Stop()
         {
+            Informations.printInformations(Priority.HIGH, "Robot.composants.Servomoteurs.AX12.Stop : arrêt de la rotation en cours");
             // Stop simplement la rotation actuelle, quelqu'elle soit (wheel/Joint)
         }
 
