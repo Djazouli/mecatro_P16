@@ -106,6 +106,7 @@ namespace Robot_P16.Robot
             robot = this;
 
             loadComponents();
+            Informations.printInformations(Priority.LOW, "Robot.Robot : le robot est paramétré");
         }
 
         public void Start()
@@ -132,7 +133,7 @@ namespace Robot_P16.Robot
                     BASE_ROULANTE = new composants.BaseRoulante.BaseRoulante(GR_SOCKET_BASE_ROUlANTE);
                     break;
             }
-            Informations.printInformations(Priority.MEDIUM, "composés du robot chargés");
+            Informations.printInformations(Priority.MEDIUM, "Robot.Robot.loadComponents : composés du robot chargés");
         }
 
     }

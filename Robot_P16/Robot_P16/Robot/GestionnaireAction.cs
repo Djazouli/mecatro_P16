@@ -26,7 +26,7 @@ namespace Robot_P16.Robot
             loadActionHomologation();
             loadActionTest1();
           
-            Informations.printInformations(Priority.MEDIUM, "actions chargées");
+            Informations.printInformations(Priority.MEDIUM, "Robot.GestionnaireAction.loadActions : actions chargées");
         }
 
         public static void startActions(ModeOperatoire mode)
@@ -86,6 +86,7 @@ namespace Robot_P16.Robot
                 .BuildActionEnSerieRepeated(-1); // Envois infinis
 
             setMotherAction(ModeOperatoire.TEST1, MOTHER_ACTION);
+            Informations.printInformations(Priority.LOW, "Robot. GestionnaireAction.loadActionTest1 : l'action mère est définie à l'action test 1");
         }
 
         private static void setMotherAction(ModeOperatoire mode, Action a)
@@ -98,7 +99,7 @@ namespace Robot_P16.Robot
             {
                 ACTION_PER_TYPE.Add(mode, a);
             }
-            Informations.printInformations(Priority.MEDIUM, "actions mère redéfinie");
+            Informations.printInformations(Priority.MEDIUM, "Robot.GestionnaireAction.setMotherAction : action mère redéfinie");
         }
 
 
