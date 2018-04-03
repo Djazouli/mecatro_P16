@@ -1,8 +1,10 @@
 using System; // test
 using Microsoft.SPOT;
 using Gadgeteer;
-using Gadgeteer.Modules.GHIElectronics;
 using Robot_P16.Robot.composants;
+
+
+using Gadgeteer.Modules.GHIElectronics;
 
 namespace Robot_P16.Robot
 {
@@ -48,12 +50,13 @@ namespace Robot_P16.Robot
         public readonly int GR_SOCKET_INFRAROUGE = 0;
         public readonly int PR_SOCKET_INFRAROUGE = 0;
 
+
         public readonly int GR_SOCKET_LANCEUR = 0;
 
         public readonly int GR_SOCKET_BASE_ROUlANTE = 4;
-        public readonly int PR_SOCKET_BASE_ROUlANTE = 4;
+        public readonly int PR_SOCKET_BASE_ROUlANTE = 8;
 
-        //public readonly DisplayTE35 ecranTactile;
+        public readonly DisplayTE35 ecranTactile = new DisplayTE35(14, 13, 12, 10);
 
         public composants.BaseRoulante.BaseRoulante BASE_ROULANTE;
 
@@ -83,7 +86,7 @@ namespace Robot_P16.Robot
         /* ********************************** TEST ROBOT 1 ****************************** */
 
         public readonly int TR1_SOCKET_BOUTON1 = 8;
-        public readonly int TR1_SOCKET_BOUTON2 = 4;
+        public readonly int TR1_SOCKET_BOUTON2 = 8;
 
         public Button TR1_BOUTON_1;
         public Button TR1_BOUTON_2;
@@ -97,21 +100,35 @@ namespace Robot_P16.Robot
 
         public Robot(composants.IHM.Parametrization parametrization)
         {
+
+
+            Debug.Print("Querying type...");
             this.typeRobot = parametrization.GetTypeRobot();
+            Debug.Print("Got type : " + typeRobot.ToString());
+
+            Debug.Print("Querying mode operatoire...");
             this.modeOperatoire = parametrization.GetModeOperatoire();
+            Debug.Print("Got mode : " + modeOperatoire.ToString());
+
+            Debug.Print("Querying couleur...");
             this.couleurEquipe = parametrization.GetCouleurEquipe();
+            Debug.Print("Got couleur : " + Couleur.ToString());
              //ecranTactile = new DisplayTE35(14, 13, 12, 10); // L'écran tactile est présent sur chaque robot
 
             parametrization.startMethod += this.Start;
+
             robot = this;
 
             loadComponents();
+
+            Debug.Print("Starting ROBOT !!!");
+            parametrization.startMethod();
         }
 
         public void Start()
         {
-            Debug.Print("PICHE STARTED BIATCH");
-            GestionnaireAction.startActions(this.modeOperatoire);
+            Debug.Print("Called robot.Start()");
+            GestionnaireAction.startActions(this.modeOperatoire, this.typeRobot);
         }
 
         public void loadComponents()
@@ -123,6 +140,21 @@ namespace Robot_P16.Robot
                     break;
 
                 case TypeRobot.PETIT_ROBOT:
+                    // Port 5 Spider : Breakout => 4 = IR AVG, 5 = IR AVD, 8 = Jack
+                    // Port 6 Spider : Ultrason
+                    // Port 1 Spider : USB Client
+                    // Port 11 Spider : AX-12 => ID ?
+                    // Port 8 : Kangaroo
+                    /*
+                    PR_SERVO_ASCENSEUR_BRAS_DROIT;
+                    PR_SERVO_ASCENSEUR_BRAS_GAUCHE;
+                    PR_SERVO_ROTATION_BRAS_GAUCHE;
+                    PR_SERVO_ROTATION_BRAS_DROIT;
+                    PR_SERVO_DEPLOIEMENT_BRAS_GAUCHE;
+                    PR_SERVO_POUSSOIRJOKER;
+                    PR_SERVO_AIGUILLAGE;*/
+
+                    BASE_ROULANTE = new composants.BaseRoulante.BaseRoulante(PR_SOCKET_BASE_ROUlANTE);
 
                     break;
 

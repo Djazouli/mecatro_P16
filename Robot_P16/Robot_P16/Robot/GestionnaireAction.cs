@@ -25,26 +25,59 @@ namespace Robot_P16.Robot
             ACTION_PER_TYPE.Clear();
             loadActionHomologation();
             loadActionTest1();
-          
-            Informations.printInformations(Priority.MEDIUM, "actions charg√©es");
+            loadActionPRCompete();
+            Informations.printInformations(Priority.HIGH, "actions chargees");
         }
 
-        public static void startActions(ModeOperatoire mode)
+        public static void startActions(ModeOperatoire mode, TypeRobot type)
         {
+            Debug.Print("Starting actions with mod : " + mode.ToString() + " & type : " + type.ToString());
             if (ACTION_PER_TYPE.Contains(mode))
             {
-                Debug.Print("Lancement de l'action m√®re avec le mode " + mode.ToString());
-                ((Action)ACTION_PER_TYPE[mode]).Execute();
+                if (((Hashtable)ACTION_PER_TYPE[mode]).Contains(type))
+                {
+                    Debug.Print("Lancement de l'action mËre avec le mode " + mode.ToString() + " & type : " + type.ToString());
+                    ((Action)((Hashtable)ACTION_PER_TYPE[mode])[type]).Execute();
+                    return;
+                }
+                else
+                {
+                    Debug.Print("MODE INTROUVABLE : Impossible de lancer l'action mËre (introuvable) pour le mode : " + mode.ToString());
+                }
             }
             else
             {
-                Debug.Print("Impossible de lancer l'action m√®re (introuvable) pour le mode " + mode.ToString());
+                Debug.Print("TYPE INTROUVABLE : Impossible de lancer l'action mËre (introuvable) pour le type : " + type.ToString());
             }
         }
 
         private static void loadActionHomologation()
         {
             // Blablabla
+        }
+
+        private static void loadActionPRCompete()
+        {
+            PointOriente pt1 = new PointOriente(100, 100, 50);
+            PointOriente pt2 = new PointOriente(100, 200, 50);
+            PointOriente pt3 = new PointOriente(100, 0, 50);
+
+            Action MOTHER_ACTION = new ActionBuilder("Action mËre Test1").Add(
+                    new Actions.ActionBaseRoulante("Point1 ", pt1)
+                ).Add(
+                    new ActionBuilder("Wait a bit...").BuildActionWait(2000)
+                )
+                .Add(
+                   new Actions.ActionBaseRoulante("Point2 ", pt2)
+                ).Add(
+                    new ActionBuilder("Wait a bit...").BuildActionWait(2000)
+                )
+                .Add(
+                   new Actions.ActionBaseRoulante("Point3 ", pt3)
+                )
+                .BuildActionEnSerieRepeated(-1); // Envois infinis
+
+            setMotherAction(ModeOperatoire.TEST1,TypeRobot.PETIT_ROBOT, MOTHER_ACTION);
         }
 
         private static void loadActionTest1()
@@ -67,10 +100,7 @@ namespace Robot_P16.Robot
             PointOriente pt2 = new PointOriente(100, 200, 50);
             PointOriente pt3 = new PointOriente(100, 0, 50);
 
-            Action MOTHER_ACTION = new ActionBuilder("Action m√®re Test1").Add(
-                    new Actions.ActionsIHM.ActionBouton(Robot.robot.TR1_BOUTON_1)
-                )
-                .Add(
+            Action MOTHER_ACTION = new ActionBuilder("Action mËre Test1").Add(
                     new Actions.ActionBaseRoulante("Point1 ",pt1)
                 ).Add(
                     new ActionBuilder("Wait a bit...").BuildActionWait(2000)
@@ -85,20 +115,25 @@ namespace Robot_P16.Robot
                 )
                 .BuildActionEnSerieRepeated(-1); // Envois infinis
 
-            setMotherAction(ModeOperatoire.TEST1, MOTHER_ACTION);
+            setMotherAction(ModeOperatoire.TEST1, TypeRobot.TEST_ROBOT_1, MOTHER_ACTION);
         }
 
-        private static void setMotherAction(ModeOperatoire mode, Action a)
+        private static void setMotherAction(ModeOperatoire mode, TypeRobot type, Action a)
         {
-            if (ACTION_PER_TYPE.Contains(mode))
+            if (!ACTION_PER_TYPE.Contains(mode))
             {
-                ACTION_PER_TYPE[mode] = a;
+                ACTION_PER_TYPE.Add(mode, new Hashtable());
+            }
+            
+            if (((Hashtable)ACTION_PER_TYPE[mode]).Contains(type))
+            {
+                ((Hashtable)ACTION_PER_TYPE[mode])[type] = a;
             }
             else
             {
-                ACTION_PER_TYPE.Add(mode, a);
+                ((Hashtable)ACTION_PER_TYPE[mode]).Add(type, a);
             }
-            Informations.printInformations(Priority.MEDIUM, "actions m√®re red√©finie");
+            Informations.printInformations(Priority.MEDIUM, "actions mere set pour le type "+type+" & le mode "+mode);
         }
 
 

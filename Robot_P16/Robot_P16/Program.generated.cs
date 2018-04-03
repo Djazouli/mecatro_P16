@@ -15,16 +15,16 @@ namespace Robot_P16 {
     
     public partial class Program : Gadgeteer.Program {
         
-        /// <summary>The USB Client DP module using socket 1 of the mainboard.</summary>
-        private Gadgeteer.Modules.GHIElectronics.USBClientDP usbClientDP;
+        /// <summary>The Display TE35 module using sockets 14, 13, 12 and 10 of the mainboard.</summary>
+        private Gadgeteer.Modules.GHIElectronics.DisplayTE35 displayTE35;
         
-        /// <summary>The Button module using socket 8 of the mainboard.</summary>
+        /// <summary>The Button module using socket 11 of the mainboard.</summary>
         private Gadgeteer.Modules.GHIElectronics.Button button;
         
         /// <summary>This property provides access to the Mainboard API. This is normally not necessary for an end user program.</summary>
-        protected new static GHIElectronics.Gadgeteer.FEZSpider Mainboard {
+        protected new static GHIElectronics.Gadgeteer.FEZSpiderII Mainboard {
             get {
-                return ((GHIElectronics.Gadgeteer.FEZSpider)(Gadgeteer.Program.Mainboard));
+                return ((GHIElectronics.Gadgeteer.FEZSpiderII)(Gadgeteer.Program.Mainboard));
             }
             set {
                 Gadgeteer.Program.Mainboard = value;
@@ -34,7 +34,7 @@ namespace Robot_P16 {
         /// <summary>This method runs automatically when the device is powered, and calls ProgramStarted.</summary>
         public static void Main() {
             // Important to initialize the Mainboard first
-            Program.Mainboard = new GHIElectronics.Gadgeteer.FEZSpider();
+            Program.Mainboard = new GHIElectronics.Gadgeteer.FEZSpiderII();
             Program p = new Program();
             p.InitializeModules();
             p.ProgramStarted();
@@ -43,8 +43,8 @@ namespace Robot_P16 {
         }
         
         private void InitializeModules() {
-            this.usbClientDP = new GTM.GHIElectronics.USBClientDP(1);
-            //this.button = new GTM.GHIElectronics.Button(8);
+            this.displayTE35 = null;//new GTM.GHIElectronics.DisplayTE35(14, 13, 12, 10);
+            this.button = null;//new GTM.GHIElectronics.Button(11);
         }
     }
 }

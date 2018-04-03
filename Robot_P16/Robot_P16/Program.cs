@@ -14,8 +14,8 @@ using GTM = Gadgeteer.Modules;
 
 using Robot_P16.Actions;
 using Robot_P16.Actions.ActionsIHM;
-using Gadgeteer.Modules.GHIElectronics;
 using Robot_P16.Robot.composants.IHM;
+using Gadgeteer.Modules.GHIElectronics;
 
 namespace Robot_P16
 {
@@ -42,7 +42,8 @@ namespace Robot_P16
             Debug.Print("Program Started");
 
 
-            Parametrization parameters = new CustomParametrization(Robot.TypeRobot.TEST_ROBOT_1, Robot.ModeOperatoire.TEST1, Robot.CouleurEquipe.UNDEFINED);
+            //Parametrization parameters = new CustomParametrization(Robot.TypeRobot.TEST_ROBOT_1, Robot.ModeOperatoire.TEST1, Robot.CouleurEquipe.UNDEFINED);
+            Parametrization parameters = new C_IHM();
             new Robot.Robot(parameters);
 
             Robot.GestionnaireAction.loadActions();

@@ -7,7 +7,7 @@ namespace Robot_P16.Robot.composants.Servomoteurs
 {
     public class GestionnaireServos
     {
-
+        /*
         public readonly ActionServo GR_CLAPET_RESERVOIR_OUVRIR =
             new ActionBuilder("ServoGR - ouvrir clapet reservoir").BuildActionServo(
                 Robot.robot.GR_SERVO_CLAPET_RESERVOIR,
@@ -17,7 +17,7 @@ namespace Robot_P16.Robot.composants.Servomoteurs
         // Exemple d'action delegate
         public readonly ActionDelegate GR_CLAPET_RESERVOIR_STOP = 
             new ActionBuilder("ServoGR - stop rotation clapet")
-            .BuildActionDelegate(Robot.robot.GR_SERVO_CLAPET_RESERVOIR.Stop);
+            .BuildActionDelegate(Robot.robot.GR_SERVO_CLAPET_RESERVOIR.Stop);*/
 
 
         public void PRCubeRecolteDeplierBras(int numeroPRCube)

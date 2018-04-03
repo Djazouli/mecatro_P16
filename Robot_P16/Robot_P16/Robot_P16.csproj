@@ -73,6 +73,10 @@
     <Compile Include="Robot\composants\BaseRoulante\BaseRoulante.cs" />
     <Compile Include="Robot\composants\BaseRoulante\Kangaroo.cs" />
     <Compile Include="Robot\composants\Composant.cs" />
+    <Compile Include="Robot\composants\IHM\CFenetre.cs" />
+    <Compile Include="Robot\composants\IHM\C_IHM.cs" />
+    <Compile Include="Robot\composants\IHM\MonoFenetre.cs" />
+    <Compile Include="Robot\composants\IHM\MultiFenetre.cs" />
     <Compile Include="Robot\composants\IHM\Parametrization.cs" />
     <Compile Include="Robot\composants\Servomoteurs\AX12.cs" />
     <Compile Include="Robot\composants\Servomoteurs\DonneesServo.cs" />
@@ -86,7 +90,8 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Gadgeteer" />
-    <Reference Include="GHIElectronics.Gadgeteer.FEZSpider, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="GHI.Glide, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="GHIElectronics.Gadgeteer.FEZSpiderII, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="GTM.GHIElectronics.Breakout, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL" />
@@ -94,9 +99,8 @@
     <Reference Include="GTM.GHIElectronics.Button, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="GTM.GHIElectronics.ColorSense, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="GTM.GHIElectronics.DisplayT35, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="GTM.GHIElectronics.USBClientDP, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="GTM.GHIElectronics.DisplayTE35, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="GTM.GHIElectronics.USBClientEDP, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL" />
@@ -131,5 +135,10 @@
     <None Include="Resources\NinaB.tinyfnt" />
     <None Include="Resources\small.tinyfnt" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\exit.gif" />
+    <Content Include="Resources\logoCompetition.gif" />
+    <Content Include="Resources\logoHomologation.gif" />
+    <Content Include="Resources\logoTest.gif" />
+  </ItemGroup>
 </Project>
