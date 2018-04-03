@@ -10,7 +10,7 @@ namespace Robot_P16.Robot
 
         public void loadActionsPetitRobot()
         {
-            GestionnaireServos gestionnaireServo = null;
+            GestionnaireServosPR gestionnaireServo = null;
             Action MOTHER_ACTION = new ActionBuilder("Action mère Test1").Add(
                     new ActionBuilder("Action en série pipot").Add(
                         new Actions.ActionsIHM.ActionBouton(Robot.robot.TR1_BOUTON_1)
