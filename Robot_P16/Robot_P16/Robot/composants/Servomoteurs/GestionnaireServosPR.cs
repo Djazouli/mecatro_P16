@@ -8,13 +8,8 @@ namespace Robot_P16.Robot.composants.Servomoteurs
     class GestionnaireServosPR
     {
 
-<<<<<<< HEAD
         public  ActionServo PR_BRAS_DROIT_MONTER =
             new ActionBuilder("ServoPR- monter le bras droit").BuildActionServo(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT, ServoCommandTypes.ABSOLUTE_ROTATION, DonneesServo.ANGLE_PR_ASCENSEURDROIT_MONTERUNITE);
-=======
-        public ActionServo PR_BRAS_DROIT_MONTER =  new ActionBuilder("ServoPR- monter le bras droit").BuildActionServo(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT, ServoCommandTypes.ABSOLUTE_ROTATION, DonneesServo.ANGLE_PR_ASCENSEURDROIT_MONTERUNITE);
->>>>>>> Strategie petit robot
-
         //AJOUTER PR_SERVO_ASCENSEUR_BRAS_DROIT dans Robot.robot et ANGLE_PR_ASCENSEURDROIT_MONTERUNITE dans Donnees Servo
 
         public  ActionServo PR_BRAS_GAUCHE_MONTER =

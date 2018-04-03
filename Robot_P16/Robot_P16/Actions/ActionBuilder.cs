@@ -69,11 +69,5 @@ namespace Robot_P16.Actions
         public ActionDelegate BuildActionDelegate(VoidFunc method) {
             return new ActionDelegate(description, method);
         }
-
-
-        internal Action Add(PR_BRAS_DROIT_MONTER pR_BRAS_DROIT_MONTER)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
