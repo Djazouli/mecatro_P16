@@ -1,4 +1,4 @@
-using System; // test
+using System; /// test
 using Microsoft.SPOT;
 using Gadgeteer;
 using Gadgeteer.Modules.GHIElectronics;
