@@ -1,25 +1,23 @@
 using System;
 using Microsoft.SPOT;
-
+using Robot_P16.Map;
+using Robot_P16.Robot;
 namespace Robot_P16.Actions
 {
-
-    public delegate void VoidFunc();
-
-    public class ActionDelegate : Action
+    public class ActionBaseRoulante : Action
     {
 
-        public readonly VoidFunc method;
+        public readonly PointOriente destination;
 
-        public ActionDelegate(String description, VoidFunc method)
+        public ActionBaseRoulante(String description, PointOriente pt)
             : base(description)
-        {
-            this.method = method;
+        {            
+            this.destination = pt;
         }
 
         public override void Execute()
         {
-            this.method();
+            Robot.Robot.robot.BASE_ROULANTE.GoToOrientedPoint(this.destination);
             this.Status = ActionStatus.SUCCESS;
         }
 

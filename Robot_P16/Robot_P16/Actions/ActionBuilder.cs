@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using Microsoft.SPOT;
-using Robot_P16.Robot.Composants.Servomoteurs;
+using Robot_P16.Robot.composants.Servomoteurs;
 
 namespace Robot_P16.Actions
 {

@@ -39,6 +39,7 @@
   <!-- Everything below here is custom to .NET MF / Gadgeteer template-->
   <Import Project="$(NetMfTargetsBaseDir)$(TargetFrameworkVersion)\CSharp.Targets" />
   <ItemGroup>
+    <Compile Include="Actions\ActionBaseRoulante.cs" />
     <Compile Include="Actions\ActionDelegate.cs" />
     <Compile Include="Actions\ActionGetPosition.cs" />
     <Compile Include="Actions\ActionRepeated.cs" />
@@ -72,9 +73,12 @@
     <Compile Include="Robot\composants\BaseRoulante\BaseRoulante.cs" />
     <Compile Include="Robot\composants\BaseRoulante\Kangaroo.cs" />
     <Compile Include="Robot\composants\Composant.cs" />
+    <Compile Include="Robot\composants\IHM\Parametrization.cs" />
     <Compile Include="Robot\composants\Servomoteurs\AX12.cs" />
     <Compile Include="Robot\composants\Servomoteurs\DonneesServo.cs" />
     <Compile Include="Robot\composants\Servomoteurs\GestionnaireServos.cs" />
+    <Compile Include="Robot\composants\Servomoteurs\GestionnaireServosGR.cs" />
+    <Compile Include="Robot\composants\Servomoteurs\GestionnaireServosPR.cs" />
     <Compile Include="Robot\GestionnaireAction.cs" />
     <Compile Include="Robot\GestionnairePosition.cs" />
     <Compile Include="Robot\Parametres.cs" />
@@ -92,9 +96,6 @@
     </Reference>
     <Reference Include="GTM.GHIElectronics.ColorSense, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="GTM.GHIElectronics.DisplayT35, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="GTM.GHIElectronics.DisplayTE35, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
     <Reference Include="GTM.GHIElectronics.USBClientDP, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
