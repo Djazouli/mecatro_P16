@@ -143,13 +143,13 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                     start(mode.drive);
 
                     //Preparation des parametres ?envoyer
-                    commande = "T, UNITS 36000 millidegrees = 35840 lines\r\n"; //a modifier           
+                    commande = "T, UNITS 36000 millidegrees = 26453 lines\r\n"; //petit robot           
                     //Conversion des parametres en tableau d'octet
                     buffer = System.Text.Encoding.UTF8.GetBytes(commande);
                     //Ecriture du tableau d'octets sur la ligne TX
                     m_port.Write(buffer, 0, commande.Length);
 
-                    commande = "D, UNITS 264 mm = 10240 lines\r\n"; //a modifier       
+                    commande = "D, UNITS 1508 mm = 102400 lines\r\n";//petit robot      
                     buffer = System.Text.Encoding.UTF8.GetBytes(commande);
                     m_port.Write(buffer, 0, commande.Length);
 
