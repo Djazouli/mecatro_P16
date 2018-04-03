@@ -47,6 +47,8 @@ namespace Robot_P16.Robot.composants.Servomoteurs
         public int RotateOf(float angle)
         {
             // TODO
+            string a = angle.ToString();
+            Informations.printInformations(Priority.HIGH, "rotation du servo de " + a + "degrés");
             return 1;
         }
 
@@ -58,6 +60,8 @@ namespace Robot_P16.Robot.composants.Servomoteurs
         public int SetAngle(float angle)
         {
             // TODO
+            string a = angle.ToString();
+            Informations.printInformations(Priority.HIGH, "l'angle absolu du robot est désormais de " + a + "degrés");
             return 1;
         }
 
@@ -65,6 +69,7 @@ namespace Robot_P16.Robot.composants.Servomoteurs
         {
             // Récupère la vitesse (et le mode de fonctionnement ?) / dépend de la vitesse et du mode (à rajouter en param dans ce cas)
             // Pour renvoyer le nombre de ms à attendre pour effectuer la rotation
+            Informations.printInformations(Priority.LOW, "la durée de la rotation a été de _ secondes");
             return 0;
         }
 

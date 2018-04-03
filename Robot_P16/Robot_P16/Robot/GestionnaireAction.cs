@@ -13,11 +13,11 @@ namespace Robot_P16.Robot
 
         private static readonly int PERIOD_SEND_POSITION = 1000; // En ms
         private static readonly Action ACTION_SEND_POSITION =
-            new ActionBuilder("Action send Position mËre").Add(
+            new ActionBuilder("Action send Position m√®re").Add(
                     new ActionBuilder("Action send position - Action get position").BuildActionGetPosition()
                 )
                 .Add(
-                    new ActionBuilder("Action send position - PÈriode du signal").BuildActionWait(PERIOD_SEND_POSITION)
+                    new ActionBuilder("Action send position - P√©riode du signal").BuildActionWait(PERIOD_SEND_POSITION)
                 ).BuildActionEnSerieRepeated(-1); // Envois infinis
 
         public static void loadActions()
@@ -25,18 +25,20 @@ namespace Robot_P16.Robot
             ACTION_PER_TYPE.Clear();
             loadActionHomologation();
             loadActionTest1();
+          
+            Informations.printInformations(Priority.MEDIUM, "actions charg√©es");
         }
 
         public static void startActions(ModeOperatoire mode)
         {
             if (ACTION_PER_TYPE.Contains(mode))
             {
-                Debug.Print("Lancement de l'action mËre avec le mode " + mode.ToString());
+                Debug.Print("Lancement de l'action m√®re avec le mode " + mode.ToString());
                 ((Action)ACTION_PER_TYPE[mode]).Execute();
             }
             else
             {
-                Debug.Print("Impossible de lancer l'action mËre (introuvable) pour le mode " + mode.ToString());
+                Debug.Print("Impossible de lancer l'action m√®re (introuvable) pour le mode " + mode.ToString());
             }
         }
 
@@ -47,7 +49,7 @@ namespace Robot_P16.Robot
 
         private static void loadActionTest1()
         {
-            /*Action MOTHER_ACTION = new ActionBuilder("Action mËre Test1").Add(
+            /*Action MOTHER_ACTION = new ActionBuilder("Action m√®re Test1").Add(
                     new Actions.ActionsIHM.ActionBouton(Robot.robot.TR1_BOUTON_1)
                 )
                 .Add(
@@ -65,7 +67,7 @@ namespace Robot_P16.Robot
             PointOriente pt2 = new PointOriente(100, 200, 50);
             PointOriente pt3 = new PointOriente(100, 0, 50);
 
-            Action MOTHER_ACTION = new ActionBuilder("Action mËre Test1").Add(
+            Action MOTHER_ACTION = new ActionBuilder("Action m√®re Test1").Add(
                     new Actions.ActionsIHM.ActionBouton(Robot.robot.TR1_BOUTON_1)
                 )
                 .Add(
@@ -96,6 +98,7 @@ namespace Robot_P16.Robot
             {
                 ACTION_PER_TYPE.Add(mode, a);
             }
+            Informations.printInformations(Priority.MEDIUM, "actions m√®re red√©finie");
         }
 
 

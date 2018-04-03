@@ -132,6 +132,7 @@ namespace Robot_P16.Robot
                     BASE_ROULANTE = new composants.BaseRoulante.BaseRoulante(GR_SOCKET_BASE_ROUlANTE);
                     break;
             }
+            Informations.printInformations(Priority.MEDIUM, "composés du robot chargés");
         }
 
     }

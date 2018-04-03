@@ -13,13 +13,13 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         {
             #region
             /*
-         * Choix du mode ?sélectionner avec le switch du kangaroo
+         * Choix du mode ?sÃ©lectionner avec le switch du kangaroo
          * 
          * Mode mixte (drive[Avancer ou reculer] et turn[tourner ?droite/gauche]) :
-         * Controle des deux moteurs en même temps
+         * Controle des deux moteurs en mÃªme temps
          * 
          * Mode Independant :
-         * Le moteur est control?indépendament de l'autre (S1 = moteur 1 et S2 = moteur 2)
+         * Le moteur est control?indÃ©pendament de l'autre (S1 = moteur 1 et S2 = moteur 2)
         */
             #endregion
             moteur1 = 0x31, moteur2 = 0x32, drive = 0x44, turn = 0x54
@@ -27,7 +27,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
      
         public enum unite
         {
-            //Coefficient ?déterminer pour obtenir la bonne conversion d'unit?
+            //Coefficient ?dÃ©terminer pour obtenir la bonne conversion d'unit?
             mm = 1, cm = 10, m = 1000, degre = 1
         };
 
@@ -35,12 +35,26 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         {
             SerialPort m_port;
 
-            public Kangaroo(int socket)
-                : base(socket)
+            // TO DO : sauvegarder coordonnÃ©es : position & angle 
+            // l'info des positions sera mieux dans BaseRoulante au lieu dans Kangaroo ???
+            PointOriente position = null;
+            public PointOriente getPosition()
+            {
+                Informations.printInformations(Priority.LOW, "la position orientÃ©e a Ã©tÃ© rÃ©cupÃ©rÃ©e");
+                return position;
+            }
+
+            public void setPosition(PointOriente pt)
+            {
+                position = pt;
+                Informations.printInformations(Priority.LOW, "la position a Ã©tÃ© redÃ©finie");
+            }            
+
+            public Kangaroo(int socket) : base(socket)
             {
                 /*
-                 * Instanciation de la Kangaroo sur le socket de la Spider donn?en paramètre
-                 * Utilit?de Read et Write TimeOut ?déterminer
+                 * Instanciation de la Kangaroo sur le socket de la Spider donn?en paramÃ¨tre
+                 * Utilit?de Read et Write TimeOut ?dÃ©terminer
                 */
                 string COMPort = GT.Socket.GetSocket(socket, true, null, null).SerialPortName;
 
@@ -92,12 +106,13 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                         }                           
                         break;
                 }
-                // reset les données de déplacements relatives
+                
+                Informations.printInformations(Priority.LOW, "l'information sur la position a Ã©tÃ© mise Ã  jour");
             }
 
             public bool start(mode m)
             {
-                //Envoie de la commande Start précédée du mode (Drive ou Turn)
+                //Envoie de la commande Start prÃ©cÃ©dÃ©e du mode (Drive ou Turn)
                 //Obligatoire ?envoyer avant chaque commande !
                 String commande;
                 byte[] buffer = new byte[100];
@@ -157,7 +172,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             //0 pas d'erreur
             private int getDataSinceLastReset(mode m, ref int deplacement)
             {
-                //Détermine la position actuel du robot
+                //DÃ©termine la position actuel du robot
                 String commande, sPosition, sErreur;
                 byte[] reponse = new byte[100];
                 char[] tempo = new char[10];
@@ -207,14 +222,14 @@ namespace Robot_P16.Robot.composants.BaseRoulante
 
             public bool allerEn(int distance, int speed)//, unite u
             {
-                //Déplacer le robot ?une distance et une vitesse donnée
+                //DÃ©placer le robot ?une distance et une vitesse donnÃ©e
                 String commande;
                 bool retour = false;
                 byte[] buffer = new byte[100];
 
-                //Conversion de la distance avec les constantes données plus haut
+                //Conversion de la distance avec les constantes donnÃ©es plus haut
                 //distance = (int)u * distance;
-                //Conversion de la vitesse avec les constantes données plus haut
+                //Conversion de la vitesse avec les constantes donnÃ©es plus haut
                 //speed = speed * (int)unite.kmh;
 
                 //Initialisation obligatoire
@@ -222,7 +237,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
 
                 if (m_port.IsOpen)
                 {
-                    //Préparation de la commande ?envoyer
+                    //PrÃ©paration de la commande ?envoyer
                     commande = "D,pi" + distance.ToString() + "s" + speed.ToString() + "\r\n";
                     //Conversion de la commande
                     buffer = System.Text.Encoding.UTF8.GetBytes(commande);
@@ -235,7 +250,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
 
             public bool tourner(int angle, int speed)
             {
-                //Même principe que AllerEn sans la vitesse
+                //MÃªme principe que AllerEn sans la vitesse
                 String commande;
                 bool retour = false;
                 byte[] buffer = new byte[100];
@@ -257,7 +272,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
 
             public bool powerdown(mode m)
             {
-                //Envoie de la commande pour arrêter les moteurs en mode drive ou Turn
+                //Envoie de la commande pour arrÃªter les moteurs en mode drive ou Turn
                 String commande;
                 bool retour = false;
                 byte[] buffer = new byte[100];
@@ -276,8 +291,8 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             [Obsolete]
             public bool resetCodeur()
             {
-                //Émission supplémentaire des paramètres initiales
-                //Utilit??déterminer
+                //Ã‰mission supplÃ©mentaire des paramÃ¨tres initiales
+                //Utilit??dÃ©terminer
                 bool retour = false;
                 String commande;
                 byte[] buffer = new byte[100];
@@ -286,14 +301,14 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 {
                     //Envoie de la commande start
                     start(mode.drive);
-                    //Préparation des paramètres ?envoyer
+                    //PrÃ©paration des paramÃ¨tres ?envoyer
                     commande = "D, UNITS 1822 mm = 10240 lines\r\n";
                     Debug.Print("reset de Drive est fait.\r\n");
-                    //Conversion des paramètres en tableau d'octet
+                    //Conversion des paramÃ¨tres en tableau d'octet
                     buffer = System.Text.Encoding.UTF8.GetBytes(commande);
-                    //Écriture du tableau d'octets sur la ligne TX
+                    //Ã‰criture du tableau d'octets sur la ligne TX
                     m_port.Write(buffer, 0, commande.Length);
-                    //Réinitialiser la position et la vitesse ?0
+                    //RÃ©initialiser la position et la vitesse ?0
                     start(mode.drive);
                     commande = "D,p0s0\r\n";
                     //Conversion en tableau d'octets
@@ -301,7 +316,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                     //Envoie du tableau sur la ligne TX
                     m_port.Write(buffer, 0, commande.Length);
 
-                    //Même procédure que précédemment, cette fois-ci pour le mode Turn
+                    //MÃªme procÃ©dure que prÃ©cÃ©demment, cette fois-ci pour le mode Turn
                     start(mode.turn);
                     commande = "T, UNITS 360 degrees = 5032 lines\r\n";
                     Debug.Print("reset de Turn est fait.\r\n");
