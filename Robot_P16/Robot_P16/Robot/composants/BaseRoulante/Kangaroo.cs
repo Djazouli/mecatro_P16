@@ -59,25 +59,13 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 string COMPort = GT.Socket.GetSocket(socket, true, null, null).SerialPortName;
 
                 Debug.Print("Tring to open serial port on COMPORt :" + COMPort);
-                m_port = new SerialPort(COMPort, 9600, Parity.None, socket, StopBits.One);
+                m_port = new SerialPort(COMPort, 9600, Parity.None, /* 8 ???? */ socket, StopBits.One);
                 Debug.Print("Opening OK !");
 
                 m_port.ReadTimeout = 500;
                 m_port.WriteTimeout = 500;
                 m_port.Open();
             }
-  
-            PointOriente position = new PointOriente(0,0,0);
-
-            public PointOriente getPosition()
-            {
-                return position;
-            }
-
-            public void setPosition(PointOriente pt)
-            {
-                position = pt;
-            }           
 
             //on met a jour
             private void updatePosition(mode m) {    

@@ -38,7 +38,7 @@ namespace Robot_P16.Actions
 
         public override void Feedback(Action a)
         {
-            throw new NotImplementedException();
+
         }
     }
 }

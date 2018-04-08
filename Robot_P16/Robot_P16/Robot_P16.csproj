@@ -69,6 +69,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Robot\composants\CapteursObstacle\CapteurObstacle.cs" />
+    <Compile Include="Robot\composants\CapteursObstacle\Infrarouge.cs" />
+    <Compile Include="Robot\composants\CapteursObstacle\Ultrason.cs" />
+    <Compile Include="Robot\composants\Servomoteurs\CAX12.cs" />
     <Compile Include="Robot\Informations.cs" />
     <Compile Include="Robot\composants\BaseRoulante\BaseRoulante.cs" />
     <Compile Include="Robot\composants\BaseRoulante\Kangaroo.cs" />
@@ -91,6 +95,8 @@
   <ItemGroup>
     <Reference Include="Gadgeteer" />
     <Reference Include="GHI.Glide, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="GHI.Hardware, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="GHI.Pins, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="GHIElectronics.Gadgeteer.FEZSpiderII, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
@@ -101,6 +107,9 @@
     </Reference>
     <Reference Include="GTM.GHIElectronics.DisplayT35, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="GTM.GHIElectronics.DisplayTE35, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="GTM.GHIElectronics.DistanceUS3, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="GTM.GHIElectronics.USBClientEDP, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL" />

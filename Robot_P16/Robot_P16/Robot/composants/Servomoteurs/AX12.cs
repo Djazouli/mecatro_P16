@@ -1,5 +1,12 @@
 using System;
 using Microsoft.SPOT;
+using System.Collections;
+using System.IO.Ports;
+using GT = Gadgeteer;
+using Microsoft.SPOT.Hardware;
+using GHI.Pins;
+
+using System.Threading;
 
 namespace Robot_P16.Robot.composants.Servomoteurs
 {
@@ -18,6 +25,41 @@ namespace Robot_P16.Robot.composants.Servomoteurs
 
     public class AX12
     {
+
+        private static SerialPort serialPort = null;
+        private static OutputPort direction_TX = null;
+
+        private CAX_12 cax12;
+
+        public AX12(int socket, int id)
+        {
+            if (serialPort == null)
+            {
+                string COMSerie = GT.Socket.GetSocket(socket, true, null, null).SerialPortName; //permet d'associer le nom de communication série au socket (ici 'COMSerie' au socket11)
+                SerialPort PortCOM = new SerialPort(COMSerie, 1000000, Parity.None, 8, StopBits.One);
+                PortCOM.ReadTimeout = 500;     // temps de réception max limité à 500ms
+                PortCOM.WriteTimeout = 500;    // temps d'émission max limité à 500ms
+
+                PortCOM.Open();
+                if (PortCOM.IsOpen)
+                {
+                    PortCOM.Flush();
+                    Informations.printInformations(Priority.HIGH,"SERVOS : Port COM ouvert : "+COMSerie);
+                }
+                else
+                {
+                    Informations.printInformations(Priority.HIGH, "ERREUR : SERVOS : Port COM fermé !!!!!! Port : " + COMSerie);
+
+                }
+
+                //direction_TX = new OutputPort((Cpu.Pin)GT.Socket.GetSocket(socket, true, null, null).CpuPins[3], false);   // ligne de direction de data au NLB (Spider en réception de l'interface AX12) 
+                direction_TX = new OutputPort((Cpu.Pin)EMX.IO26, false);   // ligne de direction de data au NLB (Spider en réception de l'interface AX12) 
+                
+                serialPort = PortCOM;
+            }
+            this.cax12 = new CAX_12((byte)id, serialPort, direction_TX);
+            //GHI.Pins.FEZSpiderII.Socket11
+        }
 
         /// <summary>
         /// Sert simplement à exécuter la méthode associé au type de rotation demandé dans l'énum
@@ -59,10 +101,18 @@ namespace Robot_P16.Robot.composants.Servomoteurs
         /// <returns>Durée en ms estimée de la rotation</returns>
         public int SetAngle(float angle)
         {
-            // TODO
-            string a = angle.ToString();
-            Informations.printInformations(Priority.HIGH, "l'angle absolu du robot est désormais de " + a + "degrés");
-            return 1;
+            // http://folk.uio.no/matsh/inf4500/files/datasheets/Dynamixel%20-%20AX-12_files/dx_series_goal.png
+            // http://folk.uio.no/matsh/inf4500/files/datasheets/Dynamixel%20-%20AX-12.htm
+
+            Informations.printInformations(Priority.LOW, "l'angle absolu de l'AX-12 est désormais de " + angle + "degrés");
+
+            int steps = 512 + (int)(angle / 300.0 * 1024.0);
+
+            this.cax12.setMode(AX12Mode.joint);
+            Thread.Sleep(100);
+            this.cax12.move(steps);
+            Debug.Print("Steps : "+steps);
+            return 2000;
         }
 
         public int GetDurationOfRotation(float angle)

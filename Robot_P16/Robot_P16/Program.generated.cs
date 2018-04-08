@@ -21,6 +21,9 @@ namespace Robot_P16 {
         /// <summary>The Button module using socket 11 of the mainboard.</summary>
         private Gadgeteer.Modules.GHIElectronics.Button button;
         
+        /// <summary>The Distance US3 module using socket 9 of the mainboard.</summary>
+        private Gadgeteer.Modules.GHIElectronics.DistanceUS3 distanceUS3;
+        
         /// <summary>This property provides access to the Mainboard API. This is normally not necessary for an end user program.</summary>
         protected new static GHIElectronics.Gadgeteer.FEZSpiderII Mainboard {
             get {
@@ -43,8 +46,9 @@ namespace Robot_P16 {
         }
         
         private void InitializeModules() {
-            this.displayTE35 = null;//new GTM.GHIElectronics.DisplayTE35(14, 13, 12, 10);
-            this.button = null;//new GTM.GHIElectronics.Button(11);
+            this.displayTE35 = null;// new GTM.GHIElectronics.DisplayTE35(14, 13, 12, 10);
+            this.button = null; // new GTM.GHIElectronics.Button(11);
+            this.distanceUS3 = null; // new GTM.GHIElectronics.DistanceUS3(9);
         }
     }
 }

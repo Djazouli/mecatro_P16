@@ -25,7 +25,8 @@ namespace Robot_P16.Robot
             ACTION_PER_TYPE.Clear();
             loadActionHomologation();
             loadActionTest1();
-            loadActionPRCompete();
+            //loadActionPRCompete();
+            loadActionPRServos();
             Informations.printInformations(Priority.HIGH, "actions chargees");
         }
 
@@ -61,6 +62,7 @@ namespace Robot_P16.Robot
             PointOriente pt1 = new PointOriente(100, 100, 50);
             PointOriente pt2 = new PointOriente(100, 200, 50);
             PointOriente pt3 = new PointOriente(100, 0, 50);
+            PointOriente pt4 = new PointOriente(0, 0, 0);
 
             Action MOTHER_ACTION = new ActionBuilder("Action mère Test1").Add(
                     new Actions.ActionBaseRoulante("Point1 ", pt1)
@@ -75,9 +77,40 @@ namespace Robot_P16.Robot
                 .Add(
                    new Actions.ActionBaseRoulante("Point3 ", pt3)
                 )
+                .Add(
+                   new Actions.ActionBaseRoulante("Point4 ", pt4)
+                )
                 .BuildActionEnSerieRepeated(-1); // Envois infinis
 
             setMotherAction(ModeOperatoire.TEST1,TypeRobot.PETIT_ROBOT, MOTHER_ACTION);
+        }
+
+
+        private static void loadActionPRServos()
+        {
+
+            Action MOTHER_ACTION = new ActionBuilder("Action mère Test1").Add(
+                     new ActionBuilder("Action servo test").BuildActionServo(Robot.robot.PR_SERVO_ROTATION_BRAS_DROIT,
+                     Robot_P16.Robot.composants.Servomoteurs.ServoCommandTypes.ABSOLUTE_ROTATION, 45)
+                   ).Add(
+                     new ActionBuilder("Action servo test").BuildActionServo(Robot.robot.PR_SERVO_ROTATION_BRAS_GAUCHE,
+                     Robot_P16.Robot.composants.Servomoteurs.ServoCommandTypes.ABSOLUTE_ROTATION, -45)
+                   ).Add(
+                     new ActionBuilder("Action servo test").BuildActionServo(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT,
+                     Robot_P16.Robot.composants.Servomoteurs.ServoCommandTypes.ABSOLUTE_ROTATION, 0)
+                   ).Add(
+                     new ActionBuilder("Action servo test").BuildActionServo(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE,
+                     Robot_P16.Robot.composants.Servomoteurs.ServoCommandTypes.ABSOLUTE_ROTATION, -45)
+                   ).Add(
+                     new ActionBuilder("Action servo test").BuildActionServo(Robot.robot.PR_SERVO_AIGUILLAGE,
+                     Robot_P16.Robot.composants.Servomoteurs.ServoCommandTypes.ABSOLUTE_ROTATION, -45)
+                   ).Add(
+                     new ActionBuilder("Action servo test").BuildActionServo(Robot.robot.PR_SERVO_POUSSOIRJOKER,
+                     Robot_P16.Robot.composants.Servomoteurs.ServoCommandTypes.ABSOLUTE_ROTATION, -45)
+                   )
+                .BuildActionEnSerieRepeated(-1); // Envois infinis
+
+            setMotherAction(ModeOperatoire.COMPETITION, TypeRobot.PETIT_ROBOT, MOTHER_ACTION);
         }
 
         private static void loadActionTest1()
