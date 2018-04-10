@@ -9,10 +9,10 @@ namespace Robot_P16.Robot
     public class StrategiePetitRobot {
 
 
-        public void loadActionsPetitRobot()
+        public static Action loadActionsPetitRobot()
         {
             
-            GestionnaireServosPR gestionnaireServo = null;
+            GestionnaireServosPR gestionnaireServo = new GestionnaireServosPR();
 
             //mettre la position de base à bras sorti
             // ventouse aiguillee sur le bras droit en position de base
@@ -133,22 +133,7 @@ namespace Robot_P16.Robot
                 gestionnaireServo.PR_AIGUILLAGE_VENTOUSEDROITE
                 ).BuildActionEnSerie();
 
-            Action MOTHER_ACTION = new ActionBuilder("Action mère Test1").Add(
-                    new ActionBuilder("Action en série pipot").Add(
-                        new Actions.ActionsIHM.ActionBouton(Robot.robot.TR1_BOUTON_1)
-                    ).BuildActionEnSerie()
-               )
-               .Add(
-                   new ActionBuilder("Allumer LED").BuildActionDelegate(Robot.robot.TR1_BOUTON_1.TurnLedOn)
-               ).Add(
-                   new ActionBuilder("Wait a bit...").BuildActionWait(2000)
-               )
-               .Add(
-                   new ActionBuilder("Eteindre LED").BuildActionDelegate(Robot.robot.TR1_BOUTON_1.TurnLedOff)
-              )
-                /*   .Add(
-                        new ActionBuilder("allerAuCodeCouleur").
-                     ) */
+            Action MOTHER_ACTION = new ActionBuilder("Action mère Test1")
            .Add(new ActionBuilder("Creer la première pile de cube").Add( // cas équipe orange combinaison J-N-B
                      PR_MOUVEMENT_4
                       ).Add(
@@ -164,8 +149,8 @@ namespace Robot_P16.Robot
                       )*/
 
                         ).BuildActionEnSerie();
-                                   
-              
+
+            return MOTHER_ACTION;
 
                
         }

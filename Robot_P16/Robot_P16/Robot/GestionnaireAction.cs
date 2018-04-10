@@ -55,6 +55,9 @@ namespace Robot_P16.Robot
         private static void loadActionHomologation()
         {
             // Blablabla
+            Action MOTHER_ACTION = StrategiePetitRobot.loadActionsPetitRobot();
+
+            setMotherAction(ModeOperatoire.HOMOLOGATION, TypeRobot.PETIT_ROBOT, MOTHER_ACTION);
         }
 
         private static void loadActionPRCompete()
