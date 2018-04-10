@@ -24,6 +24,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         {
             this.kangaroo = new Kangaroo(socket);
             this.position = new PointOriente(0, 0, 0);
+            Informations.printInformations(Robot_P16.Robot.Priority.LOW, "Robot.composants.BaseRoulante.BaseRoulante : creation d’une BaseRoulante");
         }
 
         public enum MOVETYPES
@@ -34,12 +35,14 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         private int doubleToIntForXY(double X)
         {
             X = X * PARAMETER_FOR_XY;
+            Informations.printInformations(Robot_P16.Robot.Priority.MEDIUM, "Robot.composants.BaseRoulante.BaseRoulante.doubleToIntForXY : conversion coordonnee en entier");
             return (int)X;
         }
 
         private int doubleToIntForTheta(double theta)
         {
             theta = theta * PARAMETER_FOR_THETA;
+            Informations.printInformations(Robot_P16.Robot.Priority.MEDIUM, "Robot.composants.BaseRoulante.BaseRoulante.doubleToIntForTheta : conversion angle en entier");
             return (int)theta;
         }
 
@@ -51,11 +54,13 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         public void setPosition(PointOriente pt)
         {
             position = pt;
+            Informations.printInformations(Robot_P16.Robot.Priority.LOW, "Robot.composants.BaseRoulante.BaseRoulante.setPosition : positionnement du point orienté");
         }
 
         private void RotateAndSleep(int angle)
         {
             kangaroo.tourner(angle, speedTurn);
+            Informations.printInformations(Robot_P16.Robot.Priority.MEDIUM, "Robot.composants.BaseRoulante.BaseRoulante.RotateAndSleep : rotation de la base roulante d’un angle "+angle.ToString()+" et suspension du thread pendant 1000");
             Thread.Sleep(System.Math.Abs(angle / speedTurn * 1000));
             Thread.Sleep(1000);
         }
@@ -63,6 +68,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         private void AvanceAndSleep(int distance)
         {
             kangaroo.allerEn(distance, speedDrive);
+            Informations.printInformations(Robot_P16.Robot.Priority.MEDIUM, "Robot.composants.BaseRoulante.BaseRoulante.AdvanceAndSleep : la base roulante avance de " + distance.ToString() +" et suspension du thread pendant 1000");
             Thread.Sleep(System.Math.Abs(distance / speedDrive * 1000));
             Thread.Sleep(1000);
         }
@@ -86,6 +92,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 else angle = -90;
             }
             deltaAngle = doubleToIntForTheta(angle - position.theta);
+            Informations.printInformations(Robot_P16.Robot.Priority.MEDIUM, "Robot.composants.BaseRoulante.BaseRoulante.GoToOrientedPoint : calcul de l’angle a tourner = " + deltaAngle.ToString());
             
             int sens = 1; //avance=1,recule=-1
             
@@ -97,6 +104,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 deltaAngle -= System.Math.Sign(deltaAngle) * 180;
                 sens = -1;
                 angle -= System.Math.Sign(angle) * 180; 
+                Informations.printInformations(Robot_P16.Robot.Priority.MEDIUM, "Robot.composants.BaseRoulante.BaseRoulante.GoToOrientedPoint : amélioration de l’angle à tourner = " + deltaAngle.ToString());
             }
             
             //Faire orienter a la destination
@@ -118,10 +126,12 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             Double currentAngle = position.theta;//[-180,180]
             Double Angle = pt.theta;//[-180,180]
             int deltaAngle = doubleToIntForTheta((Angle - currentAngle));//[-360,360]
+            Informations.printInformations(Robot_P16.Robot.Priority.MEDIUM, "Robot.composants.BaseRoulante.BaseRoulante.AdjustAngleToPoint : calcul de l’angle a tourner = " + deltaAngle.ToString());
             
             //Amerliorer l'angle a tourner
             if (deltaAngle > 180) deltaAngle -= 360; //[180,360]->[-180,0]
             else if (deltaAngle < -180) deltaAngle += 360;//[-360,-180]->[-180,0]
+            Informations.printInformations(Robot_P16.Robot.Priority.MEDIUM, "Robot.composants.BaseRoulante.BaseRoulante.AdjustAngleToPoint : amélioration de l’angle à tourner = " + deltaAngle.ToString());
             
             //Faire la rotation
             RotateAndSleep(deltaAngle); 
