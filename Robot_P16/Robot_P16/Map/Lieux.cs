@@ -52,7 +52,7 @@ namespace Robot_P16.Map
         public static void LoadAllLieuxCles()
         {
             LIEUX_CLES.Clear();
-
+            Robot.Informations.printInformations(Robot.Priority.LOW, "Map.Lieux.LoadAllLieuxCles : chargement des points cles");
             // AJOUT DES LIEUX CLES ICI
 
             // AJOUT COULEUR DE NOTRE ROBOT = ORANGE
@@ -74,12 +74,14 @@ namespace Robot_P16.Map
 
         public Boolean IsAtTheRightAngle(PointOriente pt)
         {
+            Robot.Informations.printInformations(Robot.Priority.LOW, "Map.Lieux.IsAtTheRightAngle : verification que le point oriente est a un angle coherent");
             if (System.Math.Abs(pt.theta - pointDeReference.theta) > toleranceAngulaire)
                 return false;
             return true;
         }
         public Boolean IsAtTheRightPlace(PointOriente pt)
         {
+            Robot.Informations.printInformations(Robot.Priority.LOW, "Map.Lieux.IsAtTheRightPlace : verification que le point oriente est a une position coherente");
             if(!surfaceDeControle.Appartient(pt))
                 return false;
             return true;
@@ -98,10 +100,12 @@ namespace Robot_P16.Map
         public static LieuCle buildAndAddLieuCle(TypeDeLieu type, CouleurEquipe couleur, PointOriente pt, ElementSurface surfaceControle, double toleranceAngulaire) {
             LieuCle retour = new LieuCle(type, pt, surfaceControle, toleranceAngulaire);
             addLieuCle(type, couleur, retour);
+            Robot.Informations.printInformations(Robot.Priority.LOW, "Map.Lieux.buildAndAddLieuCle : construction et ajout d'un nouveau lieu cle");
             return retour;
         }
 
         private static void addLieuCle(TypeDeLieu type, CouleurEquipe couleur, LieuCle lieu) {
+            Robot.Informations.printInformations(Robot.Priority.LOW, "Map.Lieux.addLieuCle : ajout d'un lieu cle");
             if(!LIEUX_CLES.Contains(couleur)) {
                 LIEUX_CLES.Add(couleur, new Hashtable());
             }
@@ -111,6 +115,7 @@ namespace Robot_P16.Map
 
 
         public static LieuCle GetLieuCleFor(TypeDeLieu type, CouleurEquipe couleur) {
+            Robot.Informations.printInformations(Robot.Priority.LOW, "Map.Lieux.GetLieuCleFor : recuperation des lieux cles en fonction de la couleur de l equipe");
             if(LIEUX_CLES.Contains(couleur)) {
                 Hashtable lieux_associes = (Hashtable)LIEUX_CLES[couleur];
                 if(lieux_associes.Contains(type))
