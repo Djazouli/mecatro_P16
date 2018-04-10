@@ -84,7 +84,7 @@ namespace Robot_P16.Actions
                 }
                 if (a.Status == ActionStatus.SUCCESS && this.Status != ActionStatus.SUCCESS) // Redondant mais utile en cas de suppression de la condition englobante
                 {
-                    Robot.Informations.printInformations(Robot_P16.Robot.Priority.LOW, "Actions.ActionDelegate : re);
+                    Robot.Informations.printInformations(Robot_P16.Robot.Priority.LOW, "Actions.ActionEnParallele : verification du succes des actions en parallele");
                     if (TestActionStatus(listeActions, ActionStatus.SUCCESS))
                     {
                         Status = ActionStatus.SUCCESS;

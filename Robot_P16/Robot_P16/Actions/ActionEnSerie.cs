@@ -18,10 +18,12 @@ namespace Robot_P16.Actions
             : base(description)
         {
             this.listeActions = listeActions;
+            Robot.Informations.printInformations(Robot_P16.Robot.Priority.LOW, "Actions.ActionEnSerie : creation nouvelle action en serie avec description " + description + " et a partir d une liste d actions");
         }
 
         private int IndexOfFirstUnsucessfulAction()
         {
+            Robot.Informations.printInformations(Robot_P16.Robot.Priority.LOW, "Actions.ActionEnSerie.IndexOfFirstUnsucessfulAction : recherche de l index de la premiere action non successfull");
             int i = 0;
             while (i < listeActions.Length && listeActions[i].Status == ActionStatus.SUCCESS) i++;
             return i;
@@ -29,6 +31,7 @@ namespace Robot_P16.Actions
 
         public Action GetFirstUnsucessfulAction()
         {
+            Robot.Informations.printInformations(Robot_P16.Robot.Priority.LOW, "Actions.ActionEnSerie.GetFirstUnsuccessfulAction : recuperation de la premiere action non successfull");
             int index = IndexOfFirstUnsucessfulAction();
             if (index < listeActions.Length)
                 return listeActions[index];
@@ -37,6 +40,7 @@ namespace Robot_P16.Actions
 
         private int IndexOfAction(Action a)
         {
+            Robot.Informations.printInformations(Robot_P16.Robot.Priority.LOW, "Actions.ActionEnSerie.IndexOfAction : recherche de l index de l action " + a.description + "parmi la liste d actions en serie");
             for (int i = 0; i < listeActions.Length; i++)
             {
                 if (listeActions[i].Equals(a))
@@ -47,6 +51,7 @@ namespace Robot_P16.Actions
 
         private Action GetNextAction(Action a)
         {
+            Robot.Informations.printInformations(Robot_P16.Robot.Priority.LOW, "Actions.ActionEnSerie.GetNextAction : recuperation de l action suivant l action " + a.description );
             int index = IndexOfAction(a);
             if (index < 0)
                 return null;
@@ -58,6 +63,7 @@ namespace Robot_P16.Actions
 
         public override void Execute()
         {
+            Robot.Informations.printInformations(Robot_P16.Robot.Priority.LOW, "Actions.ActionEnSerie.Execute : execute les actions en serie");
             GetFirstUnsucessfulAction().StatusChangeEvent += this.Feedback;
             GetFirstUnsucessfulAction().Execute();
         }
@@ -79,6 +85,7 @@ namespace Robot_P16.Actions
 
         public override void ResetStatus()
         {
+            Robot.Informations.printInformations(Robot_P16.Robot.Priority.LOW, "Actions.ActionEnSerie.ResetStatus : reinitialisation du statut de toutes les actions en serie");
             foreach (Action a in listeActions)
                 a.ResetStatus();
             base.ResetStatus();
@@ -96,12 +103,14 @@ namespace Robot_P16.Actions
             {
                 switch (a.Status) {
                     case ActionStatus.SUCCESS:
+                        Robot.Informations.printInformations(Robot_P16.Robot.Priority.LOW, "Actions.ActionEnSerie.Feedback : on arrete d ecouter l action qui a reussi");
                         a.StatusChangeEvent -= this.Feedback; // On arrête d'écoûter l'action
 
                         Action actionSuivante = this.GetNextAction(a);
                         Debug.Print("Next action...");
                         if (actionSuivante != null)
                         {
+                            Robot.Informations.printInformations(Robot_P16.Robot.Priority.LOW, "Actions.ActionEnSerie.Feedback : on ecoute l action suivante et on l execute");
                             Debug.Print("executing...");
                             actionSuivante.StatusChangeEvent += this.Feedback;
                             actionSuivante.Execute();
@@ -115,6 +124,7 @@ namespace Robot_P16.Actions
                         break;
 
                     case ActionStatus.FAILURE:
+                        Robot.Informations.printInformations(Robot_P16.Robot.Priority.LOW, "Actions.ActionEnSerie.Feedback : echec de la realisation d une action");
                         this.Status = ActionStatus.FAILURE;
                         break;
 
@@ -125,6 +135,7 @@ namespace Robot_P16.Actions
 
         public override Action Clone()
         {
+            Robot.Informations.printInformations(Robot_P16.Robot.Priority.LOW, "Actions.ActionEnSerie.Clone : clonage des actions en serie");
             Action[] newListeAction = new Action[this.listeActions.Length];
             for (int i = 0; i < this.listeActions.Length; i++)
             {
