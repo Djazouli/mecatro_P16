@@ -8,7 +8,6 @@ namespace Robot_P16.Robot
 {
     public class StrategiePetitRobot {
 
-
         public static Action loadActionsPetitRobot()
         {
             
