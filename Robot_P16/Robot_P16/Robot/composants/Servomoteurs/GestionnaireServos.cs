@@ -27,43 +27,43 @@ namespace Robot_P16.Robot.composants.Servomoteurs
                 // PLACER LE BON BRAS EN FONCTION DU PRCube
             }
             string ncube = numeroPRCube.ToString();
-            Informations.printInformations(Priority.HIGH, "le bras pour le cube " + ncube + " a été déplié");
+            Informations.printInformations(Priority.HIGH, "Robot.composants.Servomoteurs.GestionnaireServos.PRCubeRecolteDeplierBras : le bras pour le cube " + ncube + " a été déplié");
         }
 
         public static void PRCubeRecolteReplierBras()
         {
-            Informations.printInformations(Priority.HIGH, "le bras a été replié");
+            Informations.printInformations(Priority.HIGH, "Robot.composants.Servomoteurs.GestionnaireServos.PRCubeRecolteReplierBras : le bras a été replié");
         }
 
         public void PRCubeRecolteActionnerVentouse(int numeroPRCube)
         {
             string ncube = numeroPRCube.ToString();
-            Informations.printInformations(Priority.HIGH, "la ventouse pour le cube " + ncube + " a été activée");
+            Informations.printInformations(Priority.HIGH, "Robot.composants.Servomoteurs.GestionnaireServos.PRCubeRecolteActionnerVentouse : la ventouse pour le cube " + ncube + " a été activée");
         }
 
         public void PRCubeRecolteLeverBras(int numeroPRCube)
         {
             string ncube = numeroPRCube.ToString();
-            Informations.printInformations(Priority.HIGH, "le bras pour le cube " + ncube + " a été relevé");
+            Informations.printInformations(Priority.HIGH, "Robot.composants.Servomoteurs.GestionnaireServos.PRCubeRecolteLeverBras : le bras pour le cube " + ncube + " a été relevé");
         }
         public void PRCubeRecolteDescendreBras()
         {
-            Informations.printInformations(Priority.HIGH, "le bras a été baissé");
+            Informations.printInformations(Priority.HIGH, "Robot.composants.Servomoteurs.GestionnaireServos.PRCubeRecolteDescendreBras : le bras a été baissé");
         }
 
         public void PRCubeRecolteRelacherVentouse()
         {
-            Informations.printInformations(Priority.HIGH, "la ventouse a été relâchée");
+            Informations.printInformations(Priority.HIGH, "Robot.composants.Servomoteurs.GestionnaireServos.PRCubeRecolteRelacherVentouse : la ventouse a été relâchée");
         }
 
         public void PRCubeRecolteSerrerPatins()
         {
-            Informations.printInformations(Priority.HIGH, "pantins serrés");
+            Informations.printInformations(Priority.HIGH, "Robot.composants.Servomoteurs.GestionnaireServos.PRCubeRecolteSerrerPatins : pantins serrés");
         }
 
         public void PRCubeBasculeJoker(Boolean actionner)
         {
-            Informations.printInformations(Priority.HIGH, "Joker bascule");
+            Informations.printInformations(Priority.HIGH, "Robot.composants.Servomoteurs.GestionnaireServos.PRCubeBasculeJoker : Joker bascule");
         }
         
         /*

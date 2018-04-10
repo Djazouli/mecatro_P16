@@ -40,14 +40,14 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             PointOriente position = null;
             public PointOriente getPosition()
             {
-                Informations.printInformations(Priority.LOW, "la position orientée a été récupérée");
+                Informations.printInformations(Priority.LOW, "Robot.composants.BaseRoulante.Kangaroo.getPosition : la position orientée a été récupérée");
                 return position;
             }
 
             public void setPosition(PointOriente pt)
             {
                 position = pt;
-                Informations.printInformations(Priority.LOW, "la position a été redéfinie");
+                Informations.printInformations(Priority.LOW, "Robot.composants.BaseRoulante.Kangaroo.setPosition : la position orientée a été redéfinie");
             }            
 
             public Kangaroo(int socket) : base(socket)
@@ -106,8 +106,8 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                         }                           
                         break;
                 }
-                
-                Informations.printInformations(Priority.LOW, "l'information sur la position a été mise à jour");
+
+                Informations.printInformations(Priority.LOW, "Robot.composants.BaseRoulante.Kangaroo.getPosition : l'information sur la position a été mise à jour");
             }
 
             public bool start(mode m)
