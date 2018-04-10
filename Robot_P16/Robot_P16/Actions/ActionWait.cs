@@ -13,12 +13,14 @@ namespace Robot_P16.Actions
             : base(description)
         {
             this.duration = duration;
+            Robot.Informations.printInformations(Robot_P16.Robot.Priority.LOW, "Actions.ActionWait : création ActionWait "+description+"Durée: "+duration.ToString());
         }
 
         public override void Execute()
         {
             Thread.Sleep(duration);
             this.Status = ActionStatus.SUCCESS;
+            Robot.Informations.printInformations(Robot_P16.Robot.Priority.LOW, "Actions.ActionWait.Execute : succès suspension thread pendant "+duration.ToString());
         }
 
         protected override bool PostStatusChangeCheck(ActionStatus previousStatus)

@@ -22,6 +22,7 @@ namespace Robot_P16.Actions
             this.servomoteur = servomoteur;
             this.angle = angle;
             this.commandType = commandType;
+            Robot.Informations.printInformations(Robot_P16.Robot.Priority.LOW, "Actions.ActionServo : création ActionServo "+ description);
         }
 
         public override void Execute()
@@ -29,6 +30,7 @@ namespace Robot_P16.Actions
             int delay = servomoteur.ExecuteCommand(commandType, angle);
             Thread.Sleep(delay);
             this.Status = ActionStatus.SUCCESS;
+            Robot.Informations.printInformations(Robot_P16.Robot.Priority.MEDIUM, "Actions.ActionServo.Execute : Suspension du thread pendant " + delay.ToString()+" et rotation du servomoteur d’un angle" + angle.ToString());
         }
 
         protected override bool PostStatusChangeCheck(ActionStatus previousStatus)
