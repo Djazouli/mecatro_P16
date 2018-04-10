@@ -250,7 +250,9 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 }                
                 updatePosition(mode.drive);
                 String d = distance.ToString();
-                String 
+                String s = speed.ToString();
+                Informations.printInformations(Priority.MEDIUM, "Robot.composants.BaseRoulante.Kangaroo.allerEn: deplacement d une distance "+ d + "a une vitesse" + s);
+
                 return retour;
             }
 
@@ -273,6 +275,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                     retour = true;
                 }
                 updatePosition(mode.turn);
+                Informations.printInformations(Priority.MEDIUM, "Robot.composants.BaseRoulante.Kangaroo.tourner: rotation d un angle " + angle.ToString() + "a une vitesse" + speed.ToString());
                 return retour;
             }
 
@@ -290,6 +293,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                     m_port.Write(buffer, 0, commande.Length);
                     retour = true;
                 }
+                Informations.printInformations(Priority.HIGH, "Robot.composants.BaseRoulante.Kangaroo.powerdown : arret des moteurs");
                 return retour;
 
             }
@@ -299,6 +303,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             {
                 //Émission supplémentaire des paramètres initiales
                 //Utilit??déterminer
+                Informations.printInformations(Priority.LOW, "Robot.composants.BaseRoulante.Kangaroo.resetCodeur: reinitialisation des modes turn et drive");
                 bool retour = false;
                 String commande;
                 byte[] buffer = new byte[100];
