@@ -19,14 +19,20 @@ namespace Robot_P16.Actions
         {
             this.actionToBeRepeated = actionToBeRepeated;
             this.compteur = compteur;
+            Robot.Informations.printInformations(Robot_P16.Robot.Priority.LOW, "Actions.ActionRepeated : creation ActionRepeated "+ description + " Nombre de repetitions: " + compteur.ToString());
         }
 
         public override void Execute()
         {
-            if(compteur == 0) return;
+            if (compteur == 0)
+            {
+                Robot.Informations.printInformations(Robot_P16.Robot.Priority.LOW, "Actions.ActionRepeated.Execute : compteur egal à 0, pas d’execution d’action");
+                return;
+            }
             if(compteur>0) compteur--;
             actionToBeRepeated.Execute();
             actionToBeRepeated.StatusChangeEvent += this.Feedback;
+            Robot.Informations.printInformations(Robot_P16.Robot.Priority.MEDIUM, "Actions.ActionRepeated.Execute : execution de l’action, diminution du compteur a "+ compteur.ToString());
         }
 
         protected override bool PostStatusChangeCheck(ActionStatus previousStatus)
