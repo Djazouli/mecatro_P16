@@ -36,7 +36,7 @@ namespace Robot_P16.Robot.composants.Servomoteurs
             if (serialPort == null)
             {
                 string COMSerie = GT.Socket.GetSocket(socket, true, null, null).SerialPortName; //permet d'associer le nom de communication série au socket (ici 'COMSerie' au socket11)
-                SerialPort PortCOM = new SerialPort(COMSerie, 1000000, Parity.None, 8, StopBits.One);
+                SerialPort PortCOM = new SerialPort(COMSerie, 937500, Parity.None, 8, StopBits.One);
                 PortCOM.ReadTimeout = 500;     // temps de réception max limité à 500ms
                 PortCOM.WriteTimeout = 500;    // temps d'émission max limité à 500ms
 
