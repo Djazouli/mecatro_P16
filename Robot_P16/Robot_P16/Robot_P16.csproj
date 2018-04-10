@@ -42,6 +42,7 @@
     <Compile Include="Actions\ActionBaseRoulante.cs" />
     <Compile Include="Actions\ActionDelegate.cs" />
     <Compile Include="Actions\ActionGetPosition.cs" />
+    <Compile Include="Actions\ActionJack.cs" />
     <Compile Include="Actions\ActionRepeated.cs" />
     <Compile Include="Actions\ActionServo.cs" />
     <Compile Include="Actions\ActionWait.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Robot\composants\CapteursObstacle\CapteurObstacle.cs" />
     <Compile Include="Robot\composants\CapteursObstacle\Infrarouge.cs" />
     <Compile Include="Robot\composants\CapteursObstacle\Ultrason.cs" />
+    <Compile Include="Robot\composants\Jack.cs" />
     <Compile Include="Robot\composants\Servomoteurs\CAX12.cs" />
     <Compile Include="Robot\Informations.cs" />
     <Compile Include="Robot\composants\BaseRoulante\BaseRoulante.cs" />

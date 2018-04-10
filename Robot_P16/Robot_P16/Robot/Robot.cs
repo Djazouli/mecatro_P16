@@ -52,8 +52,12 @@ namespace Robot_P16.Robot
         public readonly int PR_SOCKET_INFRAROUGE = 5;
         public readonly int PR_SOCKET_ULTRASON = 6;
 
+        public readonly int PR_SOCKET_JACK = 5;
+        public readonly int GR_SOCKET_JACK = 5;
+
         public readonly int PR_PORT_INFRAROUGE_1 = 6;
         public readonly int PR_PORT_INFRAROUGE_2 = 7;
+        public readonly int PR_PORT_JACK = 8;
 
 
         public readonly int GR_SOCKET_LANCEUR = 0;
@@ -61,12 +65,14 @@ namespace Robot_P16.Robot
         public readonly int GR_SOCKET_BASE_ROUlANTE = 4;
         public readonly int PR_SOCKET_BASE_ROUlANTE = 8;
 
+        /* ****** COMPOSANTS COMMUNS ****** */
+
         public readonly DisplayTE35 ecranTactile = new DisplayTE35(14, 13, 12, 10);
 
         public composants.BaseRoulante.BaseRoulante BASE_ROULANTE;
-
-        //public readonly GHIElectronics.Gadgeteer.FEZSpider GR_MAINBOARD;
-        //public readonly GHIElectronics.Gadgeteer.FEZSpider PR_MAINBOARD;
+        public composants.Jack JACK;
+        public composants.CapteursObstacle.CapteurObstacleManager OBSTACLE_MANAGER;
+        public composants.IHM.C_IHM IHM;
 
 
         /* ********************************** GRAND ROBOT ****************************** */
@@ -98,7 +104,6 @@ namespace Robot_P16.Robot
         public composants.CapteursObstacle.Infrarouge PR_INFRAROUGE_2;
         public composants.CapteursObstacle.Ultrason PR_ULTRASON;
 
-        public composants.CapteursObstacle.CapteurObstacleManager PR_OBSTACLE_MANAGER;
 
 
         /* ********************************** FIN PETIT ROBOT ****************************** */
@@ -118,9 +123,9 @@ namespace Robot_P16.Robot
         /// </summary>
 
 
-        public Robot(composants.IHM.Parametrization parametrization)
+        public Robot(composants.IHM.Parametrization parametrization, composants.IHM.C_IHM IHM)
         {
-
+            this.IHM = IHM;
 
             Debug.Print("Querying type...");
             this.typeRobot = parametrization.GetTypeRobot();
@@ -141,8 +146,8 @@ namespace Robot_P16.Robot
 
             loadComponents();
 
-            Debug.Print("Starting ROBOT !!!");
-            parametrization.startMethod();
+            /*Debug.Print("Starting ROBOT !!!");
+            parametrization.startMethod();*/
         }
 
         public void Start()
@@ -181,9 +186,11 @@ namespace Robot_P16.Robot
                     PR_INFRAROUGE_1 = new composants.CapteursObstacle.Infrarouge(PR_SOCKET_INFRAROUGE, PR_PORT_INFRAROUGE_1, composants.CapteursObstacle.OBSTACLE_DIRECTION.ARRIERE);
                     PR_INFRAROUGE_2 = new composants.CapteursObstacle.Infrarouge(PR_SOCKET_INFRAROUGE, PR_PORT_INFRAROUGE_2, composants.CapteursObstacle.OBSTACLE_DIRECTION.ARRIERE);
                     PR_ULTRASON = new composants.CapteursObstacle.Ultrason(PR_SOCKET_ULTRASON, composants.CapteursObstacle.OBSTACLE_DIRECTION.AVANT);
+                    
+                    JACK = new composants.Jack(PR_SOCKET_JACK, PR_PORT_JACK);
 
                     composants.CapteursObstacle.CapteurObstacle[] capteurs = {PR_INFRAROUGE_1, PR_INFRAROUGE_2, PR_ULTRASON};
-                    PR_OBSTACLE_MANAGER = new composants.CapteursObstacle.CapteurObstacleManager(capteurs);
+                    OBSTACLE_MANAGER = new composants.CapteursObstacle.CapteurObstacleManager(capteurs);
 
                     break;
 

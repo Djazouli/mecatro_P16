@@ -43,12 +43,12 @@ namespace Robot_P16
 
 
             //Parametrization parameters = new CustomParametrization(Robot.TypeRobot.TEST_ROBOT_1, Robot.ModeOperatoire.TEST1, Robot.CouleurEquipe.UNDEFINED);
-            Parametrization parameters = new C_IHM();
-            new Robot.Robot(parameters);
+            C_IHM IHM = new C_IHM();
+            new Robot.Robot(IHM, IHM);
 
             Robot.GestionnaireAction.loadActions();
 
-            parameters.startMethod();
+            IHM.startMethod();
 
             /*ActionBouton actionBouton1 = new ActionBouton(button);
             ActionBouton actionBouton2 = new ActionBouton(button2);

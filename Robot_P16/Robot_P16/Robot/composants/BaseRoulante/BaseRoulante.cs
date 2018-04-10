@@ -8,6 +8,11 @@ using System.Threading;
 
 namespace Robot_P16.Robot.composants.BaseRoulante
 {
+    public enum MOVETYPES
+    {
+        GoTo = 1, AdjustAngle = 2, GoToAndAdjustAngle = 3
+    };
+
     public class BaseRoulante : Composant
     {
         private PointOriente position;
@@ -25,11 +30,6 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             this.kangaroo = new Kangaroo(socket);
             this.position = new PointOriente(0, 0, 0);
         }
-
-        public enum MOVETYPES
-        {
-            GoTo = 1, AdjustAngle = 2, GoToAndAdjustAngle = 3
-        };
 
         private int doubleToIntForXY(double X)
         {

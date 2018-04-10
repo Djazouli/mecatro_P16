@@ -90,6 +90,8 @@ namespace Robot_P16.Robot
         {
 
             Action MOTHER_ACTION = new ActionBuilder("Action mère Test1").Add(
+                    new ActionJack()
+                    ).Add(
                      new ActionBuilder("Action servo test").BuildActionServo(Robot.robot.PR_SERVO_ROTATION_BRAS_DROIT,
                      Robot_P16.Robot.composants.Servomoteurs.ServoCommandTypes.ABSOLUTE_ROTATION, 45)
                    ).Add(
@@ -108,7 +110,7 @@ namespace Robot_P16.Robot
                      new ActionBuilder("Action servo test").BuildActionServo(Robot.robot.PR_SERVO_POUSSOIRJOKER,
                      Robot_P16.Robot.composants.Servomoteurs.ServoCommandTypes.ABSOLUTE_ROTATION, -45)
                    )
-                .BuildActionEnSerieRepeated(-1); // Envois infinis
+                .BuildActionEnSerieRepeated(1);
 
             setMotherAction(ModeOperatoire.COMPETITION, TypeRobot.PETIT_ROBOT, MOTHER_ACTION);
         }
