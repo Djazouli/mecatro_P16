@@ -23,7 +23,7 @@ namespace Robot_P16.Map
             string abs = x.ToString();
             string ord = y.ToString();
             string angle = theta.ToString();
-            Robot.Informations.printInformations(Robot.Priority.LOW, "Le point orienté est translaté de " + abs + " en abscisse, " + ord + " en ordonnée et " + theta + " degrés");
+            Robot.Informations.printInformations(Robot.Priority.LOW, "Map.Point.PointOriente.translater : Le point orienté est translaté de " + abs + " en abscisse, " + ord + " en ordonnée et " + theta + " degrés");
             return new PointOriente(this.x + x, this.y + y, this.theta + theta);
             
         }
@@ -38,7 +38,7 @@ namespace Robot_P16.Map
             string abs = pt.x.ToString();
             string ord = pt.y.ToString();
             string angle = pt.theta.ToString();
-            Robot.Informations.printInformations(Robot.Priority.LOW, " Calcul de la dustance carée au point orienté (" + abs + "," + ord + "," + theta + ")");
+            Robot.Informations.printInformations(Robot.Priority.LOW, "Map.Point.PointOriente.distanceSquared : Calcul de la dustance carée au point orienté (" + abs + "," + ord + "," + theta + ")");
             return (pt.x - this.x) * (pt.x - this.x) + (pt.y - this.y) * (pt.y - this.y);
         }
 
@@ -47,7 +47,7 @@ namespace Robot_P16.Map
             string abs = this.x.ToString();
             string ord = this.y.ToString();
             string angle = this.theta.ToString();
-            Robot.Informations.printInformations(Robot.Priority.LOW, " Copie du point orienté (" + abs + "," + ord + "," + theta + ")");
+            Robot.Informations.printInformations(Robot.Priority.LOW, "Map.Point.PointOriente.Clone : Copie du point orienté (" + abs + "," + ord + "," + theta + ")");
             return new PointOriente(x, y, theta);
         }
 
@@ -56,7 +56,7 @@ namespace Robot_P16.Map
             if (obj == null || GetType() != obj.GetType())
                 return false;
             PointOriente pt = (PointOriente)obj;
-            Robot.Informations.printInformations(Robot.Priority.LOW, "Les informations sur le point orienté ont été récupérées");
+            Robot.Informations.printInformations(Robot.Priority.LOW, "Map.Point.PointOriente.Equals : Les informations sur le point orienté ont été récupérées");
             return pt.x == this.x && pt.y == this.y && pt.theta == this.theta;
         }
         
@@ -66,7 +66,7 @@ namespace Robot_P16.Map
             string abs = this.x.ToString();
             string ord = this.y.ToString();
             string angle = this.theta.ToString();
-            Robot.Informations.printInformations(Robot.Priority.LOW, " Récupération du hascode du point orienté (" + abs + "," + ord + "," + theta + ")");
+            Robot.Informations.printInformations(Robot.Priority.LOW, "Map.Point.PointOriente.GetHashCode : Récupération du hascode du point orienté (" + abs + "," + ord + "," + theta + ")");
             return (int)x * (int)y;
         }
     }
