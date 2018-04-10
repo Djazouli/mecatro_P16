@@ -67,16 +67,18 @@ namespace Robot_P16.Actions
 
         public ActionGetPosition BuildActionGetPosition()
         {
-
+            Robot.Informations.printInformations(Robot_P16.Robot.Priority.LOW, "Actions.ActionBuilder.BuildActionGetPosition: creation nouvelle action de recuperation de position");
             return new ActionGetPosition(description);
         }
 
         public ActionServo BuildActionServo(AX12 servomoteur, ServoCommandTypes commandType, float angle)
         {
+            Robot.Informations.printInformations(Robot_P16.Robot.Priority.LOW, "Actions.ActionBuilder.BuildActionServo : construction d une action servo");
             return new  ActionServo(description, servomoteur, commandType, angle);
         }
 
         public ActionDelegate BuildActionDelegate(VoidFunc method) {
+            Robot.Informations.printInformations(Robot_P16.Robot.Priority.LOW, "Actions.ActionBuilder.BuildActionDelegate: construction d une actiondelegate");
             return new ActionDelegate(description, method);
         }
 
