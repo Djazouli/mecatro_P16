@@ -13,6 +13,7 @@ namespace Robot_P16.Actions
             : base(description)
         {            
             this.destination = pt;
+            Robot.Informations.printInformations(Robot_P16.Robot.Priority.LOW, "Actions.ActionBaseRoulante : creation nouvelle action avec description" + description + " et un point objectif");
         }
 
         public override void Execute()
