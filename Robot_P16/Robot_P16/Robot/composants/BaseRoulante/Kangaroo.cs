@@ -114,6 +114,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             {
                 //Envoie de la commande Start précédée du mode (Drive ou Turn)
                 //Obligatoire ?envoyer avant chaque commande !
+                Informations.printInformations(Priority.LOW, "Robot.composants.BaseRoulante.Kangaroo.start : Envoie de la commande Start precedee du mode (Drive ou Turn) ");
                 String commande;
                 byte[] buffer = new byte[100];
                 bool retour = false;
@@ -165,6 +166,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                     m_port.Write(buffer, 0, commande.Length);
 
                 }
+                Informations.printInformations(Priority.LOW, "Robot.composants.BaseRoulante.Kangaroo.start.init : Envoi des parametres");
                 return retour;
             }
 
@@ -172,7 +174,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             //0 pas d'erreur
             private int getDataSinceLastReset(mode m, ref int deplacement)
             {
-                //Détermine la position actuel du robot
+                //Détermine la position actuelle du robot
                 String commande, sPosition, sErreur;
                 byte[] reponse = new byte[100];
                 char[] tempo = new char[10];
@@ -208,6 +210,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                         }
                         sPosition = new string(tempo);
                         deplacement = Convert.ToInt32(sPosition);
+                        Informations.printInformations(Priority.LOW, "Robot.composants.BaseRoulante.Kangaroo.getDataSinceLastReset : information sur position du robot recuperee ");
                     }
                     else
                     {
@@ -215,6 +218,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                         tempo[1] = (char)reponse[3];
                         sErreur = new string(tempo);
                         codeErreur = Convert.ToInt32(sErreur, 16);
+                        Informations.printInformations(Priority.LOW, "Robot.composants.BaseRoulante.Kangaroo.getDataSinceLastReset : Erreur lors de la recuperation des information sur la position du robot");
                     }
                 }
                 return codeErreur;
@@ -245,6 +249,8 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                     m_port.Write(buffer, 0, commande.Length);
                 }                
                 updatePosition(mode.drive);
+                String d = distance.ToString();
+                String 
                 return retour;
             }
 

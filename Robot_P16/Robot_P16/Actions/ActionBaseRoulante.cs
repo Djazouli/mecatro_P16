@@ -20,10 +20,12 @@ namespace Robot_P16.Actions
         {
             Robot.Robot.robot.BASE_ROULANTE.GoToOrientedPoint(this.destination);
             this.Status = ActionStatus.SUCCESS;
+            Robot.Informations.printInformations(Robot_P16.Robot.Priority.MEDIUM, "Actions.Action.ActionBaseRoulante.Execute : execution de l action aller vers le point oriente");
         }
 
         protected override bool PostStatusChangeCheck(ActionStatus previousStatus)
         {
+            Robot.Informations.printInformations(Robot_P16.Robot.Priority.LOW, "Actions.Action.ActionBasePoulante.PostStatusChangeCheck : validation du changement de statut");
             return true;
         }
 
