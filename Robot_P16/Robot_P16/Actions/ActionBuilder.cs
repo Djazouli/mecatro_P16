@@ -70,5 +70,10 @@ namespace Robot_P16.Actions
             return new ActionDelegate(description, method);
         }
 
+
+        internal Action Add(PR_BRAS_DROIT_MONTER pR_BRAS_DROIT_MONTER)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

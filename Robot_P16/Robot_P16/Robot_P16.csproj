@@ -91,6 +91,7 @@
     <Compile Include="Robot\GestionnairePosition.cs" />
     <Compile Include="Robot\Parametres.cs" />
     <Compile Include="Robot\Robot.cs" />
+    <Compile Include="Robot\StrategiePetitRobot.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Gadgeteer" />

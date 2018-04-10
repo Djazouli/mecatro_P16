@@ -77,8 +77,6 @@ namespace Robot_P16.Robot.composants.Servomoteurs
          * declencherLanguetteAbeille
          * 
          * */
-        
-
 
 
 
