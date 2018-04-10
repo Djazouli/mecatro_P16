@@ -62,13 +62,19 @@ namespace Robot_P16.Actions
 
         public event ActionListenerDelegate StatusChangeEvent;
 
-        public Action(String description) { this.description = description; }
+        public Action(String description) { 
+            this.description = description;
+            Robot.Informations.printInformations(Robot_P16.Robot.Priority.LOW, "Actions.Action : creation nouvelle action avec description" + description);
+        }
 
 
         /// <summary>
         /// Lance l'exécution de l'action, spécifiée par les classes filles.
         /// </summary>
-        public abstract void Execute();
+        public abstract void Execute()
+        {
+            Robot.Informations.printInformations(Robot_P16.Robot.Priority.LOW, "Actions.Action.Execute : execution de action");
+        }
 
         /// <summary>
         /// Code à lancer après changement d'état.
@@ -87,8 +93,11 @@ namespace Robot_P16.Actions
         protected void OnStatusChange(ActionStatus previousStatus) // Rajouter un check du statut précédent ?
         {
             if(PostStatusChangeCheck(previousStatus))
-                if(StatusChangeEvent != null)
-                    StatusChangeEvent(this); 
+                if (StatusChangeEvent != null)
+                {
+                    StatusChangeEvent(this);
+                    Robot.Informations.printInformations(Robot_P16.Robot.Priority.LOW, "Actions.Action.OnStatusChange : changement du statut de l action");
+                }
             
         }
 
@@ -99,9 +108,11 @@ namespace Robot_P16.Actions
         public virtual void ResetStatus()
         {
             Status = ActionStatus.UNDETERMINED;
+            Robot.Informations.printInformations(Robot_P16.Robot.Priority.LOW, "Actions.Action.ResetStatus : statut reinitialise");
         }
 
         protected static bool TestActionStatus(Action[] actions, ActionStatus status) {
+            Robot.Informations.printInformations(Robot_P16.Robot.Priority.LOW, "Actions.Action.TestActionStatus : comparaison du statut des actions en parametre");
             if (actions == null || actions.Length == 0) return false;
              foreach(Action a in actions) {
                  if (a.Status != status)
@@ -112,6 +123,7 @@ namespace Robot_P16.Actions
 
         public virtual Action Clone()
         {
+            Robot.Informations.printInformations(Robot_P16.Robot.Priority.LOW, "Actions.Action.Clone : clonage de l action");
             return (Action) this.MemberwiseClone();
         }
 
