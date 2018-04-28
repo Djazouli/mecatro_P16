@@ -79,9 +79,13 @@ namespace Robot_P16.Robot
                 )
                 .Add(
                    new Actions.ActionBaseRoulante("Point3 ", pt3)
+                ).Add(
+                    new ActionBuilder("Wait a bit...").BuildActionWait(2000)
                 )
                 .Add(
                    new Actions.ActionBaseRoulante("Point4 ", pt4)
+                ).Add(
+                    new ActionBuilder("Wait a bit...").BuildActionWait(2000)
                 )
                 .BuildActionEnSerieRepeated(-1); // Envois infinis
 

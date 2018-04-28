@@ -12,7 +12,7 @@ namespace Robot_P16.Actions
     public class ActionRamasseCube : Action
     {
         private string codeCouleur;
-        public readonly GestionnaireServosPR gestionnaire;
+        private GestionnaireServosPR gestionnaire;
         private CouleurEquipe couleurEquipe;
         public ActionRamasseCube(string CodeCouleur)
             : base("Ramasse des cubes")
@@ -263,12 +263,22 @@ namespace Robot_P16.Actions
         }
 
 
-        private override void execute()
+        public override void Execute()
         {
             int[] sequence = getSequence();
             for(int i = 0; i<sequence.Length; i++){
                 makeMove(sequence[i]);
             }
+        }
+
+        public override void Feedback(Action a)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override bool PostStatusChangeCheck(ActionStatus previousStatus)
+        {
+            throw new NotImplementedException();
         }
     }
 }

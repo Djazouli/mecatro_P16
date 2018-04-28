@@ -20,8 +20,9 @@ namespace Robot_P16.Actions
             this.m_port = new SerialPort(COMPort, 9600, Parity.None, 8, StopBits.One);
         }
 
-        public override void execute()
+        public override void Execute()
         {
+            String commande;
             Debug.Print("Ouverture du port");
             string COMPort = GT.Socket.GetSocket(numPort, true, null, null).SerialPortName;
             m_port.ReadTimeout = 500;
@@ -36,6 +37,16 @@ namespace Robot_P16.Actions
                 m_port.Write(buffer, 0, commande.Length);
             }
             m_port.Close();
+        }
+
+        public override void Feedback(Action a)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override bool PostStatusChangeCheck(ActionStatus previousStatus)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -20,7 +20,7 @@ namespace Robot_P16.Actions
             this.m_port = new SerialPort(COMPort, 9600, Parity.None, 8, StopBits.One);
         }
 
-        public override void execute()
+        public override void Execute()
         {
             Debug.Print("Ouverture du port");
             m_port.ReadTimeout = 10000;
@@ -35,6 +35,16 @@ namespace Robot_P16.Actions
 
             }
             m_port.Close();
+        }
+
+        public override void Feedback(Action a)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override bool PostStatusChangeCheck(ActionStatus previousStatus)
+        {
+            throw new NotImplementedException();
         }
     }
 }
