@@ -41,9 +41,12 @@
   <ItemGroup>
     <Compile Include="Actions\ActionBaseRoulante.cs" />
     <Compile Include="Actions\ActionDelegate.cs" />
+    <Compile Include="Actions\ActionGetColor.cs" />
     <Compile Include="Actions\ActionGetPosition.cs" />
     <Compile Include="Actions\ActionJack.cs" />
+    <Compile Include="Actions\ActionRamasseCube.cs" />
     <Compile Include="Actions\ActionRepeated.cs" />
+    <Compile Include="Actions\ActionSendStart.cs" />
     <Compile Include="Actions\ActionServo.cs" />
     <Compile Include="Actions\ActionWait.cs" />
     <Compile Include="Map\Lieux.cs" />

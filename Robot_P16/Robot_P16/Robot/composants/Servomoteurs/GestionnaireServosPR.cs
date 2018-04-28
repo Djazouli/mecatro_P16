@@ -73,12 +73,12 @@ namespace Robot_P16.Robot.composants.Servomoteurs
 
         //AJOUTER ANGLE_PR_ROTATIONGAUCHE_DECOINCER dans Donnees Servo
 
-        public ActionServo PR_BRAS_GAUCHE_DEPLOIEMENT_SORTIR =
+        public ActionServo PR_BRAS_DROIT_DEPLOIEMENT_SORTIR =
         new ActionBuilder("ServoPR- deploiement du bras gauche").BuildActionServo(Robot.robot.PR_SERVO_DEPLOIEMENT_BRAS_GAUCHE, ServoCommandTypes.ABSOLUTE_ROTATION, DonneesServo.ANGLE_PR_DEPLOIEMENTGAUCHE_SORTIR);
 
         //AJOUTER PR_SERVO_DEPLOIEMENT_BRAS_GAUCHE dans Robot.robot et ANGLE_PR_DEPLOIEMENTGAUCHE_SORTIR dans Donnees Servo
 
-        public ActionServo PR_BRAS_GAUCHE_DEPLOIEMENT_RENTRER =
+        public ActionServo PR_BRAS_DROIT_DEPLOIEMENT_RENTRER =
         new ActionBuilder("ServoPR- rentrer le bras gauche deploye").BuildActionServo(Robot.robot.PR_SERVO_DEPLOIEMENT_BRAS_GAUCHE, ServoCommandTypes.ABSOLUTE_ROTATION, DonneesServo.ANGLE_PR_DEPLOIEMENTGAUCHE_RENTRER);
 
         //AJOUTER ANGLE_PR_DEPLOIEMENTGAUCHE_RENTRER dans Donnees Servo

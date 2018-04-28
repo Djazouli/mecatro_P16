@@ -2,7 +2,10 @@
 using Microsoft.SPOT;
 using Gadgeteer.Modules.GHIElectronics;
 using Robot_P16.Map;
+using Gadgeteer.Networking;
 using Robot_P16.Robot;
+using GT = Gadgeteer;
+using System.IO.Ports;
 namespace Robot_P16.Actions
 {
     public class ActionSendStart : Action
@@ -13,6 +16,7 @@ namespace Robot_P16.Actions
 
         public ActionSendStart() : base("Action de depart")
         {
+            string COMPort = GT.Socket.GetSocket(numPort, true, null, null).SerialPortName;
             this.m_port = new SerialPort(COMPort, 9600, Parity.None, 8, StopBits.One);
         }
 

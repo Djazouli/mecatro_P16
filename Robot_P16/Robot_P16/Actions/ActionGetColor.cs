@@ -9,8 +9,8 @@ namespace Robot_P16.Actions
 {
     public class ActionGetColor : Action
     {
-        public SerialPort m_port;
-        public int numPort = 11;//A changer quand on connaitra les branchements
+        public readonly SerialPort m_port;
+        public readonly int numPort = 4;
         public byte[] buffer = new byte[100];
 
         public ActionGetColor()
