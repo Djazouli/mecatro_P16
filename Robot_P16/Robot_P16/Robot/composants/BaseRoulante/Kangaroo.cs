@@ -37,7 +37,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
 
             // TO DO : sauvegarder coordonnées : position & angle 
             // l'info des positions sera mieux dans BaseRoulante au lieu dans Kangaroo ???
-            PointOriente position = null;
+            PointOriente position = new PointOriente(0,0,0);
             public PointOriente getPosition()
             {
                 Informations.printInformations(Priority.LOW, "la position orientée a été récupérée");
@@ -59,7 +59,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 string COMPort = GT.Socket.GetSocket(socket, true, null, null).SerialPortName;
 
                 Debug.Print("Tring to open serial port on COMPORt :" + COMPort);
-                m_port = new SerialPort(COMPort, 9600, Parity.None, /* 8 ???? */ socket, StopBits.One);
+                m_port = new SerialPort(COMPort, 9600, Parity.None, socket, StopBits.One);
                 Debug.Print("Opening OK !");
 
                 m_port.ReadTimeout = 500;
@@ -227,6 +227,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 {
                     //Préparation de la commande ?envoyer
                     commande = "D,pi" + distance.ToString() + "s" + speed.ToString() + "\r\n";
+                    Debug.Print(commande);
                     //Conversion de la commande
                     buffer = System.Text.Encoding.UTF8.GetBytes(commande);
                     //Envoie de la commande sur la ligne TX
@@ -251,7 +252,9 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 {
                     commande = "T,pi" + angle.ToString() + "s" + speed.ToString() + "\r\n";
                     buffer = System.Text.Encoding.UTF8.GetBytes(commande);
+                    Debug.Print(commande+"written");
                     m_port.Write(buffer, 0, commande.Length);
+                    Debug.Print(commande + "executed");
                     retour = true;
                 }
                 updatePosition(mode.turn);

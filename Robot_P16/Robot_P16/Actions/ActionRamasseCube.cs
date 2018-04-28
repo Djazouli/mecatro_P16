@@ -28,48 +28,68 @@ namespace Robot_P16.Actions
             if (couleurEquipe.Equals(CouleurEquipe.VERT)){
                 switch(this.codeCouleur){
                     case "J-N-B":
+                    case "B-N-J":
                         return new int[] {3,14,5};
                     case "B-V-O":
+                    case "O-V-B":
                         return new int[] {1,13,5};
                     case "V-O-J":
+                    case "J-O-V":
                         return new int[] {1,13,5};
                     case "O-N-V":
+                    case "V-N-O":
                         return new int[] {1,4,5};
                     case "V-J-B":
+                    case "B-J-V":
                         return new int[] {2,13,5};
                     case "N-J-O":
+                    case "O-J-N":
                         return new int[] {3,14,5};
                     case "B-O-N":
+                    case "N-O-B":
                         return new int[] {4,11,5};
                     case "J-V-N":
+                    case "N-V-J":
                         return new int[] {3,6,13};
                     case "N-B-V":
+                    case "V-B-N":
                         return new int[] {4,12,5};
                     case "O-B-J":
+                    case "J-B-O":
                         return new int[] {2,13,5};
                 }
             }
                if (couleurEquipe.Equals(CouleurEquipe.ORANGE)){
                        switch(this.codeCouleur){
                     case "J-N-B":
+                    case "B-N-J":
                         return new int[] {4,2,5};
                     case "B-V-O":
+                    case "O-V-B":
                         return new int[] {1,13,5};
                     case "V-O-J":
+                    case "J-O-V":
                         return new int[] {1,13,5};
                     case "O-N-V":
+                    case "V-N-O":
                         return new int[] {1,2,5};
                     case "V-J-B":
+                    case "B-J-V":
                         return new int[] {4,13,5};
                     case "N-J-O":
+                    case "O-J-N":
                         return new int[] {3,12,5};
                     case "B-O-N":
+                    case "N-O-B":
                         return new int[] {7,11,5};
                     case "J-V-N":
+                    case "N-V-J":
                         return new int[] {3,6,3};
                     case "N-B-V":
+                    case "V-B-N":
                         return new int[] {2,14,5};
                     case "O-B-J":
+                    case "J-B-O":
                         return new int[] {4,13,5};
                     default:
                         return new int[] {4,2,5}; // C'est juste histoire de faire une pile
