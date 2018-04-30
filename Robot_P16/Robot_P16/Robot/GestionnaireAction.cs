@@ -100,20 +100,20 @@ namespace Robot_P16.Robot
                      new ActionBuilder("Action servo test").BuildActionServo(Robot.robot.PR_SERVO_ROTATION_BRAS_DROIT,
                      Robot_P16.Robot.composants.Servomoteurs.ServoCommandTypes.ABSOLUTE_ROTATION, 45)
                    ).Add(
-                     new ActionBuilder("Action servo test").BuildActionServo(Robot.robot.PR_SERVO_ROTATION_BRAS_GAUCHE,
+                    new ActionBuilder("Wait a bit").BuildActionWait(5000)    
+                   ).Add(
+                     new ActionBuilder("Action servo test").BuildActionServo(Robot.robot.PR_SERVO_ROTATION_BRAS_DROIT,
                      Robot_P16.Robot.composants.Servomoteurs.ServoCommandTypes.ABSOLUTE_ROTATION, -45)
+                   ).Add(
+                    new ActionBuilder("Wait a bit").BuildActionWait(5000)
                    ).Add(
                      new ActionBuilder("Action servo test").BuildActionServo(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT,
-                     Robot_P16.Robot.composants.Servomoteurs.ServoCommandTypes.ABSOLUTE_ROTATION, 0)
+                     Robot_P16.Robot.composants.Servomoteurs.ServoCommandTypes.ABSOLUTE_ROTATION, 50)
                    ).Add(
-                     new ActionBuilder("Action servo test").BuildActionServo(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE,
-                     Robot_P16.Robot.composants.Servomoteurs.ServoCommandTypes.ABSOLUTE_ROTATION, -45)
+                    new ActionBuilder("Wait a bit").BuildActionWait(5000)
                    ).Add(
-                     new ActionBuilder("Action servo test").BuildActionServo(Robot.robot.PR_SERVO_AIGUILLAGE,
-                     Robot_P16.Robot.composants.Servomoteurs.ServoCommandTypes.ABSOLUTE_ROTATION, -45)
-                   ).Add(
-                     new ActionBuilder("Action servo test").BuildActionServo(Robot.robot.PR_SERVO_POUSSOIRJOKER,
-                     Robot_P16.Robot.composants.Servomoteurs.ServoCommandTypes.ABSOLUTE_ROTATION, -45)
+                     new ActionBuilder("Action servo test").BuildActionServo(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT,
+                     Robot_P16.Robot.composants.Servomoteurs.ServoCommandTypes.ABSOLUTE_ROTATION, -50)
                    )
                 .BuildActionEnSerieRepeated(-1);
 

@@ -47,6 +47,8 @@
     <Compile Include="Actions\ActionRamasseCube.cs" />
     <Compile Include="Actions\ActionRepeated.cs" />
     <Compile Include="Actions\ActionSendStart.cs" />
+    <Compile Include="Actions\ActionServoRotation.cs" />
+    <Compile Include="Actions\ActionServoAbsolue.cs" />
     <Compile Include="Actions\ActionServo.cs" />
     <Compile Include="Actions\ActionWait.cs" />
     <Compile Include="Map\Lieux.cs" />

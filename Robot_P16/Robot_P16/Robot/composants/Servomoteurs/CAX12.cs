@@ -11,14 +11,20 @@ using GT = Gadgeteer;
 using GTM = Gadgeteer.Modules;
 using GHI.Processor;  // assembly GHI.Hardware
 
+//https://old.ghielectronics.com/community/codeshare/entry/350
+// https://old.ghielectronics.com/community/forum/topic?id=8035&page=2
+// http://support.robotis.com/en/product/actuator/dynamixel/communication/dxl_instruction.htm
+// http://www.crustcrawler.com/products/bioloid/docs/AX-12.pdf
+// http://forums.trossenrobotics.com/tutorials/how-to-diy-128/controlling-ax-12-servos-3275/
+
 
 namespace Robot_P16.Robot.composants.Servomoteurs
 {
-    enum AX12Mode { joint, wheel };
+    public enum AX12Mode { joint, wheel };
 
-    enum speed { stop = 0, reverse = 1023, forward = 2047 }
+    public enum speed { stop = 0, reverse = 1023, forward = 2047 }
 
-    enum Instruction : byte
+    public enum Instruction : byte
     {
         AX_PING = 0x01,
         AX_READ_DATA = 0x02,
@@ -29,7 +35,7 @@ namespace Robot_P16.Robot.composants.Servomoteurs
         AX_SYNC_WRITE = 0x83,
     }
 
-    enum Address : byte
+    public enum Address : byte
     {
         AX_MODEL_NUMBER = 0x00,
         AX_VERSION_FIRMWARE = 0x02,
@@ -71,17 +77,18 @@ namespace Robot_P16.Robot.composants.Servomoteurs
 
     }
 
-    class CAX_12
+    public class CAX_12
     {
         OutputPort m_Direction;
         SerialPort m_serial;
         private byte[] m_commande = new byte[20];
-        byte m_ID = 0;
+        public byte m_ID = 0;
         AX12Mode m_mode = 0;
         uint m_posCourrante = 0, m_posPrecedente = 0;
         int m_nbTour = 0;
         speed m_speed = speed.stop;
 
+        int TEMPORAIRE_position = 0;
 
         public CAX_12(byte ID, SerialPort portserie, OutputPort direction)
         {
@@ -93,13 +100,13 @@ namespace Robot_P16.Robot.composants.Servomoteurs
 
             Register PINSEL0 = new Register(0xE002C000);
 
+            m_Direction.Write(true); // Servo en mode reception uniquement
+
         }
 
 
         public int setMode(AX12Mode modeAX)
         {
-            byte len, error = 1;
-            byte outID;
             m_mode = modeAX;
             if (m_mode == AX12Mode.joint)
             {
@@ -108,9 +115,7 @@ namespace Robot_P16.Robot.composants.Servomoteurs
                 byte[] limitsCW = { 0x06, (byte)CW, (byte)(CW >> 8) };
                 byte[] limitsCCW = { 0x08, (byte)CCW, (byte)(CCW >> 8) };
                 sendCommand(m_ID, Instruction.AX_WRITE_DATA, limitsCW);
-                getReponse(out outID, out len, out error, null);
                 sendCommand(m_ID, Instruction.AX_WRITE_DATA, limitsCCW);
-                getReponse(out outID, out len, out error, null);
             }
 
             else if (m_mode == AX12Mode.wheel)
@@ -120,12 +125,10 @@ namespace Robot_P16.Robot.composants.Servomoteurs
                 byte[] limitsCW = { 0x06, (byte)CW, (byte)(CW >> 8) };
                 byte[] limitsCCW = { 0x08, (byte)CCW, (byte)(CCW >> 8) };
                 sendCommand(m_ID, Instruction.AX_WRITE_DATA, limitsCW);
-                getReponse(out outID, out len, out error, null);
                 sendCommand(m_ID, Instruction.AX_WRITE_DATA, limitsCCW);
-                getReponse(out outID, out len, out error, null);
 
             }
-            return (int)error;
+            return -1;
 
         }
 
@@ -170,13 +173,14 @@ namespace Robot_P16.Robot.composants.Servomoteurs
                 // UART en transmission TX activé
                 m_Direction.Write(true);
                 //   m_serial.DiscardInBuffer();
+                Thread.Sleep(10);
                 //m_serial.DiscardOutBuffer();
-                Thread.Sleep(100);
                 m_serial.Write(m_commande, 0, length + 6);
                 //wait till all is sent
 
                 while (m_serial.BytesToWrite > 0) ;
 
+                m_serial.DiscardInBuffer();
                 // UART en transmission TX desactivé
                 m_Direction.Write(false);
                 // Thread.Sleep(100);
@@ -187,47 +191,8 @@ namespace Robot_P16.Robot.composants.Servomoteurs
         }
 
 
-        public bool getReponse(out byte ID, out byte taille, out byte error, byte[] parametres)
-        {
-            bool erreur = false;
-            for (int i = 0; i < m_commande.Length; i++)
-                m_commande[i] = 0;
-            int temp = 0;
-            int nbByte = m_serial.BytesToRead;
-            //     do
-            //   {
-            temp = m_serial.Read(m_commande, 0, 20);
-            // } while (temp==0);
-
-            if (temp < 5)
-            {
-                ID = 0;
-                taille = 0;
-                error = 0xff;
-            }
-            else
-            {
-
-                ID = m_commande[2];
-                taille = (byte)(m_commande[3] - 2);
-                error = m_commande[4]; // 16 = CRC error
-                if (error != 16)
-                    erreur = true;
-                if (parametres != null)
-                {
-                    for (int i = 0; i < taille; i++)
-                    {
-                        parametres[i] = m_commande[5 + i];
-                    }
-                }
-            }
-            return erreur;
-        }
-
         public bool move(int value)
         {
-            byte len, error = 1;
-            byte outID;
             bool erreur = false;
 
             if (m_mode == AX12Mode.joint)
@@ -236,8 +201,8 @@ namespace Robot_P16.Robot.composants.Servomoteurs
                 byte[] buf = { 0x1E, (byte)(value), (byte)(value >> 8) };
 
                 erreur = sendCommand(m_ID, Instruction.AX_WRITE_DATA, buf);
-                getReponse(out outID, out len, out error, null);
                 Informations.printInformations(Priority.LOW, "Servo move joint : status : "+erreur);
+                TEMPORAIRE_position = value;
             }
 
             Informations.printInformations(Priority.LOW, "Servo move : status : " + erreur);
@@ -245,201 +210,19 @@ namespace Robot_P16.Robot.composants.Servomoteurs
 
         }
 
-
-
         public int setMovingSpeed(speed vitesse)
         {
             m_speed = vitesse;
-            byte len, error = 1;
             int value = (int)vitesse;
             if (m_mode == AX12Mode.wheel)
             {
                 byte[] buf = { 0x20, (byte)(value), (byte)(value >> 8) };
                 sendCommand(m_ID, Instruction.AX_WRITE_DATA, buf);
-                Thread.Sleep(100);
-                getReponse(out m_ID, out len, out error, null);
             }
 
-            return (int)error;
+            return -1;
         }
 
-        public bool getPosition(out uint position)
-        {
-            bool erreur = false;
-            byte len, error;
-            byte[] pos = new byte[2];
-            byte[] buf = { 0x24, 0x02 };
-            sendCommand(m_ID, Instruction.AX_READ_DATA, buf);
-            Thread.Sleep(100);
-            m_posPrecedente = m_posCourrante;
-            if (getReponse(out m_ID, out len, out error, pos))
-                erreur = true;
-            m_posCourrante = (uint)pos[0] + (uint)(pos[1] << 8);
-
-            if (m_mode == AX12Mode.wheel)
-            {
-                if (m_speed == speed.reverse && m_posCourrante < m_posPrecedente && m_posCourrante >= 0 && m_posPrecedente <= 1023)
-                    m_nbTour--;
-                if (m_speed == speed.forward && m_posCourrante > m_posPrecedente && m_posCourrante <= 1023 && m_posPrecedente >= 0)
-                    m_nbTour++;
-            }
-            position = m_posCourrante;
-            return erreur;
-        }
-
-        public bool setLED(int LEDValue)
-        {
-            byte len, error = 1;
-            byte outID;
-            bool erreur = false;
-
-            if (m_mode == AX12Mode.joint)
-            {
-                byte[] buf = { 0x19, (byte)(LEDValue) };
-
-                erreur = sendCommand(m_ID, Instruction.AX_WRITE_DATA, buf);
-                getReponse(out outID, out len, out error, null);
-
-            }
-            return erreur;
-
-        }
-
-        public bool setTorque(int torqueValue)
-        {
-            byte len, error = 1;
-            byte outID;
-            bool erreur = false;
-
-            if (m_mode == AX12Mode.joint)
-            {
-                byte[] buf = { 0x18, (byte)(torqueValue) };
-
-                erreur = sendCommand(m_ID, Instruction.AX_WRITE_DATA, buf);
-                getReponse(out outID, out len, out error, null);
-
-            }
-            return erreur;
-        }
-
-        public bool movingSpeed(int speed)
-        {
-            byte len, error = 1;
-            byte outID;
-            bool erreur = false;
-
-            if (m_mode == AX12Mode.joint)
-            {
-                byte[] buf = { 0x20, (byte)(speed) };
-
-                erreur = sendCommand(m_ID, Instruction.AX_WRITE_DATA, buf);
-                getReponse(out outID, out len, out error, null);
-
-            }
-            return erreur;
-        }
-
-        public bool readPresentSpeed(int vitesse)
-        {
-            bool erreur = false;
-            byte len, error;
-            byte outID;
-
-
-            if (m_mode == AX12Mode.joint)
-            {
-                byte[] buf = { (byte)Address.AX_PRESENT_SPEED, 0x02 };
-                byte[] pos = new byte[2];
-                erreur = sendCommand(m_ID, Instruction.AX_WRITE_DATA, buf);
-                if (getReponse(out outID, out len, out error, null))
-                    erreur = true;
-                m_posPrecedente = m_posCourrante;
-                m_posCourrante = (uint)pos[0] + ((uint)pos[1] << 8);
-
-            }
-            return erreur;
-
-        }
-        public bool readPresentPosition(int position)
-        {
-            bool erreur = false;
-            byte len, error;
-            byte outID;
-
-
-            if (m_mode == AX12Mode.joint)
-            {
-                byte[] buf = { (byte)Address.AX_PRESENT_POSITION, 0x02 };
-                byte[] pos = new byte[2];
-                erreur = sendCommand(m_ID, Instruction.AX_WRITE_DATA, buf);
-                if (getReponse(out outID, out len, out error, null))
-                    erreur = true;
-                position = pos[0] + (pos[1] << 8);
-
-            }
-            return erreur;
-
-        }
-        public bool readPresentVoltage()
-        {
-            bool erreur = false;
-            byte len, error;
-            byte outID;
-
-
-            if (m_mode == AX12Mode.joint)
-            {
-                byte[] buf = { (byte)Address.AX_PRESENT_VOLTAGE, 0x02 };
-                byte[] pos = new byte[2];
-                erreur = sendCommand(m_ID, Instruction.AX_WRITE_DATA, buf);
-                if (getReponse(out outID, out len, out error, null))
-                    erreur = true;
-                m_posPrecedente = m_posCourrante;
-                m_posCourrante = (uint)pos[0] + ((uint)pos[1] << 8);
-
-            }
-            return erreur;
-
-        }
-        public bool BaudRate()
-        {
-            bool erreur = false;
-            byte len, error;
-            byte outID;
-
-
-            if (m_mode == AX12Mode.joint)
-            {
-                byte[] buf = { (byte)Address.AX_BAUD_RATE, 0x02 };
-                byte[] pos = new byte[2];
-                erreur = sendCommand(m_ID, Instruction.AX_WRITE_DATA, buf);
-                if (getReponse(out outID, out len, out error, null))
-                    erreur = true;
-                //  m_speed = 2000000 / ( + 1);
-
-            }
-            return erreur;
-
-        }
-        public bool ReturnLevel()
-        {
-            bool erreur = false;
-            byte len, error;
-            byte outID;
-
-
-            if (m_mode == AX12Mode.joint)
-            {
-                byte[] buf = { (byte)Address.AX_BAUD_RATE, 0x02 };
-                byte[] pos = new byte[2];
-                erreur = sendCommand(m_ID, Instruction.AX_WRITE_DATA, buf);
-                getReponse(out outID, out len, out error, null);
-
-
-            }
-            return erreur;
-
-        }
 
 
     }
