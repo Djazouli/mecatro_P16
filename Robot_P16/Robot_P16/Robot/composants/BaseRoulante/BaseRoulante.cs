@@ -13,10 +13,17 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         GoTo = 1, AdjustAngle = 2, GoToAndAdjustAngle = 3
     };
 
+
+    public delegate void BaseRoulanteMovingStatusChange(bool isMoving);
+
     public class BaseRoulante : Composant
     {
         private PointOriente position;
         public Kangaroo kangaroo;
+
+        public event BaseRoulanteMovingStatusChange MovingStatusChangeEvent;
+
+        private OBSTACLE_DIRECTION direction;
 
         public int speedDrive = 100;// avance 10 cm par seconde
         public int speedTurn = 3000; //tourne 30 degrees par seconde
@@ -65,6 +72,11 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             kangaroo.allerEn(distance, speedDrive);
             Thread.Sleep(System.Math.Abs(distance / speedDrive * 1000));
             Thread.Sleep(1000);
+        }
+
+        public Boolean Stop()
+        {
+            return true; // TODO
         }
 
         public Boolean GoToOrientedPoint(PointOriente pt)
@@ -175,6 +187,18 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             AdjustAngleToLieuCle(lieu);
             PointOriente positionDuRobotApresDeplacement = position;
             return lieu.IsAtTheRightPlaceAndAngle(positionDuRobotApresDeplacement);
+        }
+
+        public OBSTACLE_DIRECTION GetDirection()
+        {
+            return this.direction;
+        }
+
+        private void LaunchMovingStatusChangeEvent(bool isMoving)
+        {
+            if (this.MovingStatusChangeEvent != null ){
+                this.MovingStatusChangeEvent(isMoving);
+            }
         }
     }
 }

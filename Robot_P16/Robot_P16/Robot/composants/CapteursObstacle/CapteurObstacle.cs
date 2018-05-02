@@ -6,11 +6,6 @@ using Gadgeteer;
 namespace Robot_P16.Robot.composants.CapteursObstacle
 {
 
-    public enum OBSTACLE_DIRECTION {
-        AVANT,
-        ARRIERE
-    }
-
     public delegate void ObstacleListenerDelegate(OBSTACLE_DIRECTION direction, bool isThereAnObstacle);
 
     public class CapteurObstacleManager

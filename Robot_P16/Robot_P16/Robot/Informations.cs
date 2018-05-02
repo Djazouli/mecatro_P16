@@ -10,6 +10,14 @@ namespace Robot_P16.Robot
         MEDIUM,
         HIGH,
     }
+
+
+
+    public enum OBSTACLE_DIRECTION
+    {
+        AVANT,
+        ARRIERE
+    }
     public class Informations
     {
         static public Priority priorityLevel = Priority.LOW; /// 0=LOW, 1=MEDIUM, 2=HIGH
@@ -22,4 +30,6 @@ namespace Robot_P16.Robot
             }
         }
     }
+
+
 }
