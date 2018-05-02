@@ -170,8 +170,8 @@ namespace Robot_P16.Robot
             {
                 case TypeRobot.GRAND_ROBOT:
 
-
-                    GR_LANCEUR_BALLE = new LanceurBalle(GR_SOCKET_LANCEUR);
+                    BASE_ROULANTE = new composants.BaseRoulante.BaseRoulante(GR_SOCKET_BASE_ROUlANTE);
+                    //GR_LANCEUR_BALLE = new LanceurBalle(GR_SOCKET_LANCEUR);
                     
                     break;
 

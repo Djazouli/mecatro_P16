@@ -2,6 +2,7 @@ using System;
 using Microsoft.SPOT;
 using Robot_P16.Robot.composants.Servomoteurs;
 using System.Threading;
+using Robot_P16.Robot;
 
 namespace Robot_P16.Actions
 {
@@ -24,6 +25,7 @@ namespace Robot_P16.Actions
 
         public override void Execute()
         {
+            Informations.printInformations(Priority.MEDIUM, "Executing action servo absolue; angle : " + angle + "; description : " + description);
             int delay = servomoteur.SetAngle(angle);
             Thread.Sleep(delay);
             this.Status = ActionStatus.SUCCESS;
