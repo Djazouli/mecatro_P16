@@ -33,11 +33,11 @@ namespace Robot_P16.Robot
              gestionnaireServo.PR_BRAS_DROIT_ROTATIONANTIHORAIRE).Add(
                 //lancer la pompe
              gestionnaireServo.PR_BRAS_DROIT_MONTER).Add(
-             gestionnaireServo.PR_BRAS_DROIT_MONTER).Add(
+             gestionnaireServo.PR_BRAS_DROIT_MONTER_2).Add(
                 // robot avance d'un cran
                 // eteindre la pompe
              gestionnaireServo.PR_BRAS_DROIT_ROTATIONHORAIRE).Add(
-             gestionnaireServo.PR_BRAS_DROIT_DESCENDRE).Add(
+             gestionnaireServo.PR_BRAS_DROIT_DESCENDRE_2).Add(
              gestionnaireServo.PR_BRAS_DROIT_DESCENDRE
              ).BuildActionEnSerie();
 
@@ -58,13 +58,18 @@ namespace Robot_P16.Robot
                                gestionnaireServo.PR_AIGUILLAGE_VENTOUSEGAUCHE).Add(
                 //action qui lance la pompe 
                                gestionnaireServo.PR_BRAS_GAUCHE_MONTER).Add(
-                               gestionnaireServo.PR_BRAS_GAUCHE_MONTER).Add(
+                               //gestionnaireServo.ATT).Add(
+                               gestionnaireServo.PR_BRAS_GAUCHE_MONTER_2).Add(
+                               //gestionnaireServo.ATT).Add(
                                gestionnaireServo.PR_BRAS_GAUCHE_ROTATIONHORAIRE).Add(
+                               //gestionnaireServo.ATT).Add(
                 //action qui arrête la pompe
-                               gestionnaireServo.PR_BRAS_DROIT_ROTATIONANTIHORAIRE).Add(
-                               gestionnaireServo.PR_BRAS_DROIT_DESCENDRE).Add(
-                               gestionnaireServo.PR_BRAS_DROIT_DESCENDRE).Add(
-                               gestionnaireServo.PR_AIGUILLAGE_VENTOUSEDROITE
+                               gestionnaireServo.PR_BRAS_GAUCHE_ROTATIONANTIHORAIRE).Add(
+                               gestionnaireServo.PR_BRAS_GAUCHE_DESCENDRE).Add(
+                               //gestionnaireServo.ATT).Add(
+                               gestionnaireServo.PR_BRAS_GAUCHE_DESCENDRE_2
+                               //).Add(
+                               //gestionnaireServo.PR_AIGUILLAGE_VENTOUSEDROITE
                      ).BuildActionEnSerie();
 
             Action PR_MOUVEMENT_3 = new ActionBuilder("placer le cube du milieu sur la pile").Add(
@@ -143,13 +148,11 @@ namespace Robot_P16.Robot
                       PR_MOUVEMENT_2_BIS
                       ).Add(
                       PR_MOUVEMENT_5*/
-                     gestionnaireServo.PR_BRAS_GAUCHE_POSITION_BASE
+                     gestionnaireServo.PR_BRAS_DROIT_POSITION_BASE
                      ).Add(
-                     gestionnaireServo.ATT).Add(
-                     //PR_MOUVEMENT_2
-                     gestionnaireServo.PR_BRAS_GAUCHE_HAUTEUR_1
+                     gestionnaireServo.PR_BRAS_DROIT_HAUTEUR_1
                      ).Add(
-                     PR_MOUVEMENT_2
+                     PR_MOUVEMENT_1_BIS
                        ).BuildActionEnSerie()
                       
 
@@ -160,7 +163,8 @@ namespace Robot_P16.Robot
 
                         ).BuildActionEnSerie();
 
-            return MOTHER_ACTION;
+            return
+                MOTHER_ACTION;
 
                
         }

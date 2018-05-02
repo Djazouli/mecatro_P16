@@ -20,10 +20,10 @@ namespace Robot_P16.Robot.composants.Servomoteurs
  	 public const int ANGLE_PR_POUSSOIRJOKER_RETOUR=0;// = 90;
  	 
  	 public const int ANGLE_PR_ASCENSEURGAUCHE_MONTERUNITE=1300;// = 342.86; //pour monter de 60mm, monter un cube d'une hauteur de 60mm
- 	 public const int ANGLE_PR_ASCENSEURGAUCHE_DESCENDREUNITE=1230;// = -342.86;
+ 	 public const int ANGLE_PR_ASCENSEURGAUCHE_DESCENDREUNITE=1220;// = -342.86;
  	 
- 	 public const int ANGLE_PR_ASCENSEURDROIT_MONTERUNITE=1000;// = 202.32; //pour monter de 60mm, systeme different de l'autre ascenseur
- 	 public const int ANGLE_PR_ASCENSEURDROIT_DESCENDREUNITE=990;// = -202.32;
+ 	 public const int ANGLE_PR_ASCENSEURDROIT_MONTERUNITE=885;// = 202.32; //pour monter de 60mm, systeme different de l'autre ascenseur
+ 	 public const int ANGLE_PR_ASCENSEURDROIT_DESCENDREUNITE=710;// = -202.32;
 
      public const int ANGLE_PR_ROTATIONGAUCHE_HORAIRE = 165 * 1024 / 300;//stockage d'un cube sur la pile (90 ou -90)
      public const int ANGLE_PR_ROTATIONGAUCHE_ANTIHORAIRE =  70*1024/300;

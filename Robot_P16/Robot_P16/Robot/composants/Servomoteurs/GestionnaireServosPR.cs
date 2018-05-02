@@ -12,20 +12,28 @@ namespace Robot_P16.Robot.composants.Servomoteurs
             new ActionBuilder("Wait a bit...").BuildActionWait(5000);
 
         public ActionServoRotation PR_BRAS_DROIT_POSITION_BASE =
-            new ActionBuilder("ServoPR - mettre bras droit en position de base").BuildActionServoRotation(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT, Robot_P16.Robot.composants.Servomoteurs.speed.reverse,10 );
+            new ActionBuilder("ServoPR - mettre bras droit en position de base").BuildActionServoRotation(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT, Robot_P16.Robot.composants.Servomoteurs.speed.reverse,500 );
 
         public ActionServoRotation PR_BRAS_GAUCHE_POSITION_BASE =
             new ActionBuilder("ServoPR - mettre bras gauche en position de base").BuildActionServoRotation(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE, Robot_P16.Robot.composants.Servomoteurs.speed.forward, 500);
 
         public ActionServoRotation PR_BRAS_GAUCHE_HAUTEUR_1 =
-            new ActionBuilder("robot au niveau du cube du bas en partant de la position de base").BuildActionServoRotation(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE, Robot_P16.Robot.composants.Servomoteurs.speed.reverse, 300);
+            new ActionBuilder("bras gauche au niveau du cube du bas en partant de la position de base").BuildActionServoRotation(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE, Robot_P16.Robot.composants.Servomoteurs.speed.reverse, 300);
+
+        public ActionServoRotation PR_BRAS_DROIT_HAUTEUR_1 =
+            new ActionBuilder("bras droit au niveau du cube du bas en partant de la position de base").BuildActionServoRotation(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT, Robot_P16.Robot.composants.Servomoteurs.speed.forward, 270);
 
         public ActionServoRotation PR_BRAS_DROIT_MONTER =
             new ActionBuilder("ServoPR- monter le bras droit").BuildActionServoRotation(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT, Robot_P16.Robot.composants.Servomoteurs.speed.reverse, DonneesServo.ANGLE_PR_ASCENSEURDROIT_MONTERUNITE );
         //AJOUTER PR_SERVO_ASCENSEUR_BRAS_DROIT dans Robot.robot et ANGLE_PR_ASCENSEURDROIT_MONTERUNITE dans Donnees Servo
 
+         public ActionServoRotation PR_BRAS_DROIT_MONTER_2 =
+            new ActionBuilder("ServoPR- monter le bras droit").BuildActionServoRotation(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT, Robot_P16.Robot.composants.Servomoteurs.speed.reverse, DonneesServo.ANGLE_PR_ASCENSEURDROIT_MONTERUNITE );
+        
         public ActionServoRotation PR_BRAS_GAUCHE_MONTER =
             new ActionBuilder("ServoPR- monter le bras gauche").BuildActionServoRotation(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE,Robot_P16.Robot.composants.Servomoteurs.speed.forward ,DonneesServo.ANGLE_PR_ASCENSEURGAUCHE_MONTERUNITE );
+        public ActionServoRotation PR_BRAS_GAUCHE_MONTER_2 =
+            new ActionBuilder("ServoPR- monter le bras gauche").BuildActionServoRotation(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE, Robot_P16.Robot.composants.Servomoteurs.speed.forward, DonneesServo.ANGLE_PR_ASCENSEURGAUCHE_MONTERUNITE);
 
         //AJOUTER PR_SERVO_ASCENSEUR_BRAS_GAUCHE dans Robot.robot et ANGLE_PR_ASCENSEURGAUCHE_MONTERUNITE dans Donnees Servo
 
@@ -33,14 +41,15 @@ namespace Robot_P16.Robot.composants.Servomoteurs
         public ActionServoRotation PR_BRAS_DROIT_DESCENDRE =
             new ActionBuilder("ServoPR- descendre le bras droit").BuildActionServoRotation(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT, Robot_P16.Robot.composants.Servomoteurs.speed.forward, DonneesServo.ANGLE_PR_ASCENSEURDROIT_DESCENDREUNITE);
 
-        //AJOUTER ANGLE_PR_ASCENSEURDROIT_DESCENDREUNITE dans Donnees Servo
-
-
+        public ActionServoRotation PR_BRAS_DROIT_DESCENDRE_2 =
+            new ActionBuilder("ServoPR- descendre le bras droit").BuildActionServoRotation(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT, Robot_P16.Robot.composants.Servomoteurs.speed.forward, DonneesServo.ANGLE_PR_ASCENSEURDROIT_DESCENDREUNITE);
 
         public ActionServoRotation PR_BRAS_GAUCHE_DESCENDRE =
             new ActionBuilder("ServoPR- descendre le bras gauche").BuildActionServoRotation(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE, Robot_P16.Robot.composants.Servomoteurs.speed.reverse, DonneesServo.ANGLE_PR_ASCENSEURGAUCHE_DESCENDREUNITE);
 
         //AJOUTER ANGLE_PR_ASCENSEURGAUCHE_DESCENDREUNITE dans Donnees Servo
+        public ActionServoRotation PR_BRAS_GAUCHE_DESCENDRE_2 =
+            new ActionBuilder("ServoPR- descendre le bras gauche").BuildActionServoRotation(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE, Robot_P16.Robot.composants.Servomoteurs.speed.reverse, DonneesServo.ANGLE_PR_ASCENSEURGAUCHE_DESCENDREUNITE);
 
 
 
