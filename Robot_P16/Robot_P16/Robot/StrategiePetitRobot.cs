@@ -20,8 +20,7 @@ namespace Robot_P16.Robot
             Action PR_MOUVEMENT_1 = new ActionBuilder("empiler le cube de base sur le cube du milieu").Add(
                 //gestionnaireServo.PR_BRAS_DROIT_ROTATIONANTIHORAIRE).Add(
                 //lancer la pompe
-               gestionnaireServo.PR_BRAS_DROIT_MONTER).Add(
-               gestionnaireServo.ATT)
+               gestionnaireServo.PR_BRAS_DROIT_MONTER)
                .Add(
                 // robot avance d'un cran
                 // eteindre la pompe
@@ -42,21 +41,29 @@ namespace Robot_P16.Robot
              ).BuildActionEnSerie();
 
             Action PR_MOUVEMENT_2 = new ActionBuilder("empiler cube de gauche hauteur 1").Add(
-                               gestionnaireServo.PR_AIGUILLAGE_VENTOUSEGAUCHE).Add(
-                //action qui lance la pompe 
+                               new ActionBuilder("Actionner pompe gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true)
+                               ).Add(
+                               gestionnaireServo.PR_BRAS_GAUCHE_DESCENDREPOURPOSERVENTOUSE)
+                               .Add(
+                               
                                gestionnaireServo.PR_BRAS_GAUCHE_MONTER).Add(
-                               gestionnaireServo.ATT).Add(
-                               //.PR_BRAS_GAUCHE_ROTATIONHORAIRE).Add(
-                //action qui arrête la pompe
-                              // gestionnaireServo.PR_BRAS_GAUCHE_ROTATIONANTIHORAIRE).Add(
-                               gestionnaireServo.PR_BRAS_GAUCHE_DESCENDRE).Add(
-                               gestionnaireServo.PR_AIGUILLAGE_VENTOUSEDROITE
-                     ).BuildActionEnSerie();
+                               gestionnaireServo.PR_BRAS_GAUCHE_ROTATIONHORAIRE).Add(
+                
+                               new ActionBuilder("Desactiver pompe gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false)
+                               )
+                               .Add(new ActionBuilder("Attendre apres pose cube").BuildActionWait(100))
+                               .Add(
+                              gestionnaireServo.PR_BRAS_GAUCHE_ROTATIONANTIHORAIRE).Add(
+                               gestionnaireServo.PR_BRAS_GAUCHE_DESCENDRE)
+                               .BuildActionEnSerie();
                 
 
             Action PR_MOUVEMENT_2_BIS = new ActionBuilder("empiler cube de gauche hauteur 2").Add(
                                gestionnaireServo.PR_AIGUILLAGE_VENTOUSEGAUCHE).Add(
                 //action qui lance la pompe 
+                               new ActionBuilder("Actionner pompe gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true)).Add(
+                               gestionnaireServo.PR_BRAS_GAUCHE_DESCENDREPOURPOSERVENTOUSE)
+                               .Add(
                                gestionnaireServo.PR_BRAS_GAUCHE_MONTER).Add(
                                //gestionnaireServo.ATT).Add(
                                gestionnaireServo.PR_BRAS_GAUCHE_MONTER_2).Add(
@@ -64,6 +71,10 @@ namespace Robot_P16.Robot
                                gestionnaireServo.PR_BRAS_GAUCHE_ROTATIONHORAIRE).Add(
                                //gestionnaireServo.ATT).Add(
                 //action qui arrête la pompe
+                               new ActionBuilder("Desactiver pompe gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false)
+                               )
+                               .Add(new ActionBuilder("Attendre apres pose cube").BuildActionWait(100))
+                               .Add(
                                gestionnaireServo.PR_BRAS_GAUCHE_ROTATIONANTIHORAIRE).Add(
                                gestionnaireServo.PR_BRAS_GAUCHE_DESCENDRE).Add(
                                //gestionnaireServo.ATT).Add(
@@ -148,11 +159,15 @@ namespace Robot_P16.Robot
                       PR_MOUVEMENT_2_BIS
                       ).Add(
                       PR_MOUVEMENT_5*/
-                     gestionnaireServo.PR_BRAS_DROIT_POSITION_BASE
+                     PR_MOUVEMENT_2_BIS
+                     ).Add(
+                     PR_MOUVEMENT_5
+                     
+                     /*gestionnaireServo.PR_BRAS_DROIT_POSITION_BASE
                      ).Add(
                      gestionnaireServo.PR_BRAS_DROIT_HAUTEUR_1
                      ).Add(
-                     PR_MOUVEMENT_1_BIS
+                     PR_MOUVEMENT_1_BIS*/
                        ).BuildActionEnSerie()
                       
 

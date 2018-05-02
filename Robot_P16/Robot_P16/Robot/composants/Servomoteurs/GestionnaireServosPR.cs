@@ -8,9 +8,6 @@ namespace Robot_P16.Robot.composants.Servomoteurs
     class GestionnaireServosPR
     {
 
-        public ActionWait ATT =
-            new ActionBuilder("Wait a bit...").BuildActionWait(5000);
-
         public ActionServoRotation PR_BRAS_DROIT_POSITION_BASE =
             new ActionBuilder("ServoPR - mettre bras droit en position de base").BuildActionServoRotation(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT, Robot_P16.Robot.composants.Servomoteurs.speed.reverse,500 );
 
@@ -36,14 +33,18 @@ namespace Robot_P16.Robot.composants.Servomoteurs
             new ActionBuilder("ServoPR- monter le bras gauche").BuildActionServoRotation(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE, Robot_P16.Robot.composants.Servomoteurs.speed.forward, DonneesServo.ANGLE_PR_ASCENSEURGAUCHE_MONTERUNITE);
 
         //AJOUTER PR_SERVO_ASCENSEUR_BRAS_GAUCHE dans Robot.robot et ANGLE_PR_ASCENSEURGAUCHE_MONTERUNITE dans Donnees Servo
-
+        public ActionServoRotation PR_BRAS_DROIT_DESCENDREPOURPOSERVENTOUSE =
+           new ActionBuilder("ServoPR- descendre le bras gauche").BuildActionServoRotation(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT, Robot_P16.Robot.composants.Servomoteurs.speed.reverse, DonneesServo.TEMPS_PR_DESCENDREPOSERVENTOUSE);
 
         public ActionServoRotation PR_BRAS_DROIT_DESCENDRE =
             new ActionBuilder("ServoPR- descendre le bras droit").BuildActionServoRotation(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT, Robot_P16.Robot.composants.Servomoteurs.speed.forward, DonneesServo.ANGLE_PR_ASCENSEURDROIT_DESCENDREUNITE);
 
         public ActionServoRotation PR_BRAS_DROIT_DESCENDRE_2 =
             new ActionBuilder("ServoPR- descendre le bras droit").BuildActionServoRotation(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT, Robot_P16.Robot.composants.Servomoteurs.speed.forward, DonneesServo.ANGLE_PR_ASCENSEURDROIT_DESCENDREUNITE);
-
+       
+        public ActionServoRotation PR_BRAS_GAUCHE_DESCENDREPOURPOSERVENTOUSE=
+           new  ActionBuilder("ServoPR- descendre le bras gauche").BuildActionServoRotation(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE, Robot_P16.Robot.composants.Servomoteurs.speed.reverse, DonneesServo.TEMPS_PR_DESCENDREPOSERVENTOUSE);
+       
         public ActionServoRotation PR_BRAS_GAUCHE_DESCENDRE =
             new ActionBuilder("ServoPR- descendre le bras gauche").BuildActionServoRotation(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE, Robot_P16.Robot.composants.Servomoteurs.speed.reverse, DonneesServo.ANGLE_PR_ASCENSEURGAUCHE_DESCENDREUNITE);
 
