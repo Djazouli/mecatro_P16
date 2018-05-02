@@ -78,7 +78,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             return true; // TODO
         }
 
-        /*public Boolean GoToOrientedPoint(PointOriente pt)
+        public Boolean GoToOrientedPoint(PointOriente pt)
         {           
             //Calculer l'angle a tourner 
             double deltaX = pt.x - position.x;
@@ -121,18 +121,62 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             position = new PointOriente(pt.x,pt.y,angle);
              
             return false;
-        }*/
+        }
 
-        public Boolean GoToOrientedPoint(PointOriente pt, Boolean forceDir) // forceDir = true  means that we have to arrive in the right direction (turn before)
+        /*public Boolean GoToOrientedPoint(PointOriente pt, Boolean forceDir) // forceDir = true  means that we have to arrive in the right direction (turn before)
         { //We do not care about the angle in this function
             double angle;
-            double deltaX, deltaY;
+            double deltaX, deltaY, deltaTheta, alpha;
             deltaX = pt.x - position.x;
             deltaY = pt.y - position.y;
-            if (forceDir == AVANT) {
-               
+            if (deltaX > 0)
+            {
+                deltaTheta = System.Math.Atan(deltaY / deltaX);
+                if (deltaTheta < 0)
+                {
+                    deltaTheta = 360 + deltaTheta;
+                }
             }
-        }
+            if (deltaX < 0)
+            {
+                deltaTheta = 180 + System.Math.Atan(deltaY / deltaX);
+            }
+            else
+            {
+                if (deltaY > 0)
+                {
+                    deltaTheta = 90;
+                }
+                else deltaTheta = 270;
+            }
+            if (forceDir == AVANT) {
+                if (position.theta - deltaTheta > 180) // That means we have to turn atrigo
+                {
+                    RotateAndSleep((int)(360 - position.theta + deltaTheta));
+                }
+                else
+                {
+                    RotateAndSleep(-(int)(-position.theta + deltaTheta));
+                }
+                AvanceAndSleep((int)System.Math.Sqrt(deltaX * deltaX + deltaY * deltaY));
+            }
+            if (forceDir == ARRIERE)
+            {
+                
+            }
+            if (forceDir == null)//We have to check if it is faster with Arriere or Avant
+            {
+                angle = position.theta - deltaTheta;
+                if (angle > 270 || angle < 90)
+                {
+                    GoToOrientedPoint(pt, AVANT);
+                }
+                else
+                {
+                    GoToOrientedPoint(pt, ARRIERE);
+                }
+            }
+        }*/
 
         public Boolean AdjustAngleToPoint(PointOriente pt) // ajuste theta, mais pas X,Y => mode turn
         {

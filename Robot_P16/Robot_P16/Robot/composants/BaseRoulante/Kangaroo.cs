@@ -137,7 +137,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                     //Ecriture du tableau d'octets sur la ligne TX
                     m_port.Write(buffer, 0, commande.Length);
 
-                    commande = "D, UNITS 1508 mm = 102400 lines\r\n";//petit robot      
+                    commande = "D, UNITS 150 mm = 102400 lines\r\n";//petit robot      
                     buffer = System.Text.Encoding.UTF8.GetBytes(commande);
                     m_port.Write(buffer, 0, commande.Length);
 
