@@ -22,6 +22,7 @@ namespace Robot_P16.Actions
         public override void Execute()
         {
             this.stop_count = 0;
+            this.paused = false;
             Robot.Robot.robot.OBSTACLE_MANAGER.ObstacleChangeEvent += this.ObstacleListener;
 
             Robot.Robot.robot.BASE_ROULANTE.GoToOrientedPoint(this.destination);
@@ -41,6 +42,8 @@ namespace Robot_P16.Actions
 
         public void ObstacleListener(OBSTACLE_DIRECTION direction, bool isThereAnObstacle)
         {
+            if (!Map.MapInformation.isObstacleDetecteurOn()) return;
+
             if (direction == Robot.Robot.robot.BASE_ROULANTE.GetDirection())
             {
                 if (isThereAnObstacle)
