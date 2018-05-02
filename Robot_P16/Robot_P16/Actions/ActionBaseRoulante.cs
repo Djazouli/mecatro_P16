@@ -21,6 +21,7 @@ namespace Robot_P16.Actions
 
         public override void Execute()
         {
+            Informations.printInformations(Priority.MEDIUM, "ActionBaseRoulante - execute called. Desc : "+this.description);
             this.stop_count = 0;
             this.paused = false;
             Robot.Robot.robot.OBSTACLE_MANAGER.ObstacleChangeEvent += this.ObstacleListener;
@@ -34,15 +35,23 @@ namespace Robot_P16.Actions
         {
             if (!isMoving && !paused)
             {
+                Informations.printInformations(Priority.MEDIUM, "ActionBaseRoulante - BaseRoulanteListener - !moving && !paused : success. Desc : " + this.description);
                 this.Status = ActionStatus.SUCCESS; 
                 Robot.Robot.robot.BASE_ROULANTE.MovingStatusChangeEvent -= this.BaseRoulanteListener;
-
+            }
+            else
+            {
+                Informations.printInformations(Priority.MEDIUM, "ActionBaseRoulante - BaseRoulanteListener - !(!moving && !paused). No change to status. Desc : " + this.description);
             }
         }
 
         public void ObstacleListener(OBSTACLE_DIRECTION direction, bool isThereAnObstacle)
         {
-            if (!Map.MapInformation.isObstacleDetecteurOn()) return;
+            if (!Map.MapInformation.isObstacleDetecteurOn())
+            {
+                Informations.printInformations(Priority.MEDIUM, "ActionBaseRoulante - ObstacleListener - !Map.MapInformation.isObstacleDetecteurOn(), no change on trajectory. Desc : " + this.description);
+                return;
+            }
 
             if (direction == Robot.Robot.robot.BASE_ROULANTE.GetDirection())
             {
@@ -51,15 +60,25 @@ namespace Robot_P16.Actions
                     this.stop_count++;
                     if (this.stop_count <= MAX_STOP_COUNT)
                     {
+                        Informations.printInformations(Priority.MEDIUM, "ActionBaseRoulante - ObstacleListener - obstacle detected : pausing movement. Desc : " + this.description);
                         this.paused = true;
                         Robot.Robot.robot.BASE_ROULANTE.Stop();
+                    }
+                    else
+                    {
+                        Informations.printInformations(Priority.MEDIUM, "ActionBaseRoulante - ObstacleListener - obstacle detected BUT MAX STOP COUNT REACHED : NOT STOPPING ASSHOLE. Desc : " + this.description);
                     }
                 }
                 else
                 {
+                    Informations.printInformations(Priority.MEDIUM, "ActionBaseRoulante - ObstacleListener - obstacle removed : resuming movement. Desc : " + this.description);
                     this.paused = false;
                     Robot.Robot.robot.BASE_ROULANTE.GoToOrientedPoint(this.destination);
                 }
+            }
+            else
+            {
+                Informations.printInformations(Priority.MEDIUM, "ActionBaseRoulante - ObstacleListener - obstacle in other direction : ignored. Desc : " + this.description);
             }
         }
 
