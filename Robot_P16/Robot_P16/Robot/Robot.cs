@@ -193,9 +193,9 @@ namespace Robot_P16.Robot
 
                     BASE_ROULANTE = new composants.BaseRoulante.BaseRoulante(PR_SOCKET_BASE_ROUlANTE);
 
-                    PR_INFRAROUGE_1 = new composants.CapteursObstacle.Infrarouge(PR_SOCKET_INFRAROUGE, PR_PORT_INFRAROUGE_1, composants.CapteursObstacle.OBSTACLE_DIRECTION.ARRIERE);
-                    PR_INFRAROUGE_2 = new composants.CapteursObstacle.Infrarouge(PR_SOCKET_INFRAROUGE, PR_PORT_INFRAROUGE_2, composants.CapteursObstacle.OBSTACLE_DIRECTION.ARRIERE);
-                    PR_ULTRASON = new composants.CapteursObstacle.Ultrason(PR_SOCKET_ULTRASON, composants.CapteursObstacle.OBSTACLE_DIRECTION.AVANT);
+                    PR_INFRAROUGE_1 = new composants.CapteursObstacle.Infrarouge(PR_SOCKET_INFRAROUGE, PR_PORT_INFRAROUGE_1, OBSTACLE_DIRECTION.ARRIERE);
+                    PR_INFRAROUGE_2 = new composants.CapteursObstacle.Infrarouge(PR_SOCKET_INFRAROUGE, PR_PORT_INFRAROUGE_2, OBSTACLE_DIRECTION.ARRIERE);
+                    PR_ULTRASON = new composants.CapteursObstacle.Ultrason(PR_SOCKET_ULTRASON, OBSTACLE_DIRECTION.AVANT);
                     
                     //JACK = new composants.Jack(PR_SOCKET_JACK, PR_PORT_JACK);
                     JACK = new composants.JackInterrupt(PR_SOCKET_JACK, PR_PORT_JACK);
