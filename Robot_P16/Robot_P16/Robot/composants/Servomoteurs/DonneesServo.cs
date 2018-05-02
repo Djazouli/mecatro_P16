@@ -16,27 +16,27 @@ namespace Robot_P16.Robot.composants.Servomoteurs
          * ***************** FIN DES REGLES DE NOMMAGE ****************** */
 
 
- 	 public const int ANGLE_PR_POUSSOIRJOKER_POUSSER=-1;// = 90; //en degré, valeur approximative, odg moins d'un tour
- 	 public const int ANGLE_PR_POUSSOIRJOKER_RETOUR=-1;// = 90;
+ 	 public const int ANGLE_PR_POUSSOIRJOKER_POUSSER=90*1024/300;// = 90; //en degré, valeur approximative, odg moins d'un tour
+ 	 public const int ANGLE_PR_POUSSOIRJOKER_RETOUR=0;// = 90;
  	 
- 	 public const int ANGLE_PR_ASCENSEURGAUCHE_MONTERUNITE=-1;// = 342.86; //pour monter de 60mm, monter un cube d'une hauteur de 60mm
- 	 public const int ANGLE_PR_ASCENSEURGAUCHE_DESCENDREUNITE=-1;// = -342.86;
+ 	 public const int ANGLE_PR_ASCENSEURGAUCHE_MONTERUNITE=1300;// = 342.86; //pour monter de 60mm, monter un cube d'une hauteur de 60mm
+ 	 public const int ANGLE_PR_ASCENSEURGAUCHE_DESCENDREUNITE=1230;// = -342.86;
  	 
- 	 public const int ANGLE_PR_ASCENSEURDROIT_MONTERUNITE=-1;// = 202.32; //pour monter de 60mm, systeme different de l'autre ascenseur
- 	 public const int ANGLE_PR_ASCENSEURDROIT_DESCENDREUNITE=-1;// = -202.32;
- 	 
- 	 public const int ANGLE_PR_ROTATIONGAUCHE_HORAIRE=-1;// = 90=-1;//stockage d'un cube sur la pile (90 ou -90)
- 	 public const int ANGLE_PR_ROTATIONGAUCHE_ANTIHORAIRE=-1;// = -90;
+ 	 public const int ANGLE_PR_ASCENSEURDROIT_MONTERUNITE=1000;// = 202.32; //pour monter de 60mm, systeme different de l'autre ascenseur
+ 	 public const int ANGLE_PR_ASCENSEURDROIT_DESCENDREUNITE=990;// = -202.32;
+
+     public const int ANGLE_PR_ROTATIONGAUCHE_HORAIRE = 165 * 1024 / 300;//stockage d'un cube sur la pile (90 ou -90)
+     public const int ANGLE_PR_ROTATIONGAUCHE_ANTIHORAIRE =  70*1024/300;
      public const int ANGLE_PR_ROTATIONGAUHE_COINCER = -1; //15=-1;//utiliser les patins pour saisir un cube de la pile
  	 public const int ANGLE_PR_ROTATIONGAUCHE_DECOINCER= 15;
  	 
- 	 public const int ANGLE_PR_ROTATIONDROIT_ANTIHORAIRE=-1;// = -90;
- 	 public const int ANGLE_PR_ROTATIONDROIT_HORAIRE= 90;
+ 	 public const int ANGLE_PR_ROTATIONDROIT_ANTIHORAIRE=60*1024/300;// = -90;
+ 	 public const int ANGLE_PR_ROTATIONDROIT_HORAIRE= 150*1024/300 ;
  	 public const int ANGLE_PR_ROTATIONDROIT_COINCER= 90;
  	 public const int ANGLE_PR_ROTATIONDROIT_DECOINCER= 90;
  
- 	 public const int ANGLE_PR_DEPLOIEMENTGAUCHE_SORTIR=-1;// = 195,58=-1;//déployer le bras gauche d'une longueur d'un cube
- 	 public const int ANGLE_PR_DEPLOIEMENTGAUCHE_RENTRER=-1;// = -195.58;
+ 	 public const int ANGLE_PR_DEPLOIEMENTGAUCHE_SORTIR=773;// = 195,58=-1;//déployer le bras gauche d'une longueur d'un cube
+ 	 public const int ANGLE_PR_DEPLOIEMENTGAUCHE_RENTRER=773;// = -195.58;
  	 
  	 public const int ANGLE_PR_AIGUILLAGE_VENTOUSEDROITE=-1;// = 90=-1;//faire passer le flux d'air dans la ventouse droite
  	 public const int ANGLE_PR_AIGUILLAGE_VENTOUSEGAUCHE=-1;// = 90=-1;//faire passer le flux d'air dans la ventouse gauche

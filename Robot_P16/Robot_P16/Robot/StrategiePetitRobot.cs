@@ -15,14 +15,17 @@ namespace Robot_P16.Robot
 
             //mettre la position de base à bras sorti
             // ventouse aiguillee sur le bras droit en position de base
+            //mettre le bras gauche sur la butee du bas puis le monter de 500 avant de commencer la partie
 
             Action PR_MOUVEMENT_1 = new ActionBuilder("empiler le cube de base sur le cube du milieu").Add(
-                gestionnaireServo.PR_BRAS_DROIT_ROTATIONANTIHORAIRE).Add(
+                //gestionnaireServo.PR_BRAS_DROIT_ROTATIONANTIHORAIRE).Add(
                 //lancer la pompe
-                gestionnaireServo.PR_BRAS_DROIT_MONTER).Add(
+               gestionnaireServo.PR_BRAS_DROIT_MONTER).Add(
+               gestionnaireServo.ATT)
+               .Add(
                 // robot avance d'un cran
                 // eteindre la pompe
-                gestionnaireServo.PR_BRAS_DROIT_ROTATIONHORAIRE).Add(
+                //gestionnaireServo.PR_BRAS_DROIT_ROTATIONHORAIRE).Add(
                 gestionnaireServo.PR_BRAS_DROIT_DESCENDRE
                 ).BuildActionEnSerie();
 
@@ -42,10 +45,11 @@ namespace Robot_P16.Robot
                                gestionnaireServo.PR_AIGUILLAGE_VENTOUSEGAUCHE).Add(
                 //action qui lance la pompe 
                                gestionnaireServo.PR_BRAS_GAUCHE_MONTER).Add(
-                               gestionnaireServo.PR_BRAS_GAUCHE_ROTATIONHORAIRE).Add(
+                               gestionnaireServo.ATT).Add(
+                               //.PR_BRAS_GAUCHE_ROTATIONHORAIRE).Add(
                 //action qui arrête la pompe
-                               gestionnaireServo.PR_BRAS_DROIT_ROTATIONANTIHORAIRE).Add(
-                               gestionnaireServo.PR_BRAS_DROIT_DESCENDRE).Add(
+                              // gestionnaireServo.PR_BRAS_GAUCHE_ROTATIONANTIHORAIRE).Add(
+                               gestionnaireServo.PR_BRAS_GAUCHE_DESCENDRE).Add(
                                gestionnaireServo.PR_AIGUILLAGE_VENTOUSEDROITE
                      ).BuildActionEnSerie();
                 
@@ -64,12 +68,12 @@ namespace Robot_P16.Robot
                      ).BuildActionEnSerie();
 
             Action PR_MOUVEMENT_3 = new ActionBuilder("placer le cube du milieu sur la pile").Add(
-                gestionnaireServo.PR_BRAS_DROIT_DEPLOIEMENT_SORTIR).Add(
+                gestionnaireServo.PR_BRAS_GAUCHE_DEPLOIEMENT_SORTIR).Add(
                 gestionnaireServo.PR_BRAS_GAUCHE_ROTATIONHORAIRE).Add(
                 gestionnaireServo.PR_AIGUILLAGE_VENTOUSEGAUCHE).Add(
                 //lancer la pompe
                 gestionnaireServo.PR_BRAS_GAUCHE_MONTER).Add(
-                gestionnaireServo.PR_BRAS_DROIT_DEPLOIEMENT_RENTRER).Add(
+                gestionnaireServo.PR_BRAS_GAUCHE_DEPLOIEMENT_RENTRER).Add(
                 //arreter la pompe
                 gestionnaireServo.PR_BRAS_GAUCHE_ROTATIONANTIHORAIRE).Add(
                 gestionnaireServo.PR_BRAS_GAUCHE_DESCENDRE).Add(
@@ -77,13 +81,13 @@ namespace Robot_P16.Robot
                 ).BuildActionEnSerie();
 
             Action PR_MOUVEMENT_3_BIS = new ActionBuilder("placer le cube du milieu sur la pile hauteur 2").Add(
-                gestionnaireServo.PR_BRAS_DROIT_DEPLOIEMENT_SORTIR).Add(
+                gestionnaireServo.PR_BRAS_GAUCHE_DEPLOIEMENT_SORTIR).Add(
                 gestionnaireServo.PR_BRAS_GAUCHE_ROTATIONHORAIRE).Add(
                 gestionnaireServo.PR_AIGUILLAGE_VENTOUSEGAUCHE).Add(
                 //lancer la pompe
                 gestionnaireServo.PR_BRAS_GAUCHE_MONTER).Add(
                 gestionnaireServo.PR_BRAS_GAUCHE_MONTER).Add(
-                gestionnaireServo.PR_BRAS_DROIT_DEPLOIEMENT_RENTRER).Add(
+                gestionnaireServo.PR_BRAS_GAUCHE_DEPLOIEMENT_RENTRER).Add(
                 //arreter la pompe
                 gestionnaireServo.PR_BRAS_GAUCHE_ROTATIONANTIHORAIRE).Add(
                 gestionnaireServo.PR_BRAS_GAUCHE_DESCENDRE).Add(
@@ -123,26 +127,33 @@ namespace Robot_P16.Robot
                 gestionnaireServo.PR_AIGUILLAGE_VENTOUSEGAUCHE).Add(
                 //actionner la pompe
                 gestionnaireServo.PR_BRAS_GAUCHE_MONTER).Add(
-                gestionnaireServo.PR_BRAS_DROIT_DEPLOIEMENT_SORTIR).Add(
+                gestionnaireServo.PR_BRAS_GAUCHE_DEPLOIEMENT_SORTIR).Add(
                 gestionnaireServo.PR_BRAS_GAUCHE_ROTATIONHORAIRE).Add(
                 //eteindre la pompe
                 gestionnaireServo.PR_BRAS_GAUCHE_ROTATIONANTIHORAIRE).Add(
-                gestionnaireServo.PR_BRAS_DROIT_DEPLOIEMENT_RENTRER).Add(
+                gestionnaireServo.PR_BRAS_GAUCHE_DEPLOIEMENT_RENTRER).Add(
                 gestionnaireServo.PR_BRAS_GAUCHE_DESCENDRE).Add(
                 gestionnaireServo.PR_AIGUILLAGE_VENTOUSEDROITE
                 ).BuildActionEnSerie();
 
             Action MOTHER_ACTION = new ActionBuilder("Action mère Test1")
            .Add(new ActionBuilder("Creer la première pile de cube").Add( // cas équipe orange combinaison J-N-B
-                     PR_MOUVEMENT_4
+                     /*PR_MOUVEMENT_4
                       ).Add(
                       PR_MOUVEMENT_2_BIS
                       ).Add(
-                      PR_MOUVEMENT_5
+                      PR_MOUVEMENT_5*/
+                     gestionnaireServo.PR_BRAS_GAUCHE_POSITION_BASE
+                     ).Add(
+                     gestionnaireServo.ATT).Add(
+                     //PR_MOUVEMENT_2
+                     gestionnaireServo.PR_BRAS_GAUCHE_HAUTEUR_1
+                     ).Add(
+                     PR_MOUVEMENT_2
                        ).BuildActionEnSerie()
                       
 
-                    /*  .Add( new ActionBuilder ("Poser la pile 1")).Add(
+                   /*  .Add( new ActionBuilder ("Poser la pile 1")).Add(
                                 
                       
                       )*/

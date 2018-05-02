@@ -88,15 +88,15 @@ namespace Robot_P16.Robot
         public composants.Servomoteurs.AX12 PR_SERVO_ASCENSEUR_BRAS_GAUCHE; // ID = 4
         public composants.Servomoteurs.AX12 PR_SERVO_ROTATION_BRAS_GAUCHE; // ID = 1
         public composants.Servomoteurs.AX12 PR_SERVO_ROTATION_BRAS_DROIT; // ID = 2
-        public composants.Servomoteurs.AX12 PR_SERVO_DEPLOIEMENT_BRAS_DROIT; // ID = 3
+        public composants.Servomoteurs.AX12 PR_SERVO_DEPLOIEMENT_BRAS_GAUCHE; // ID = 3
         public composants.Servomoteurs.AX12 PR_SERVO_POUSSOIRJOKER; // ID = 7 ?
         public composants.Servomoteurs.AX12 PR_SERVO_AIGUILLAGE; // ID = 6 ?
 
-        private int PR_SERVO_ID_ASCENSEUR_BRAS_DROIT = 7;
-        private int PR_SERVO_ID_ASCENSEUR_BRAS_GAUCHE = 4;
-        private int PR_SERVO_ID_ROTATION_BRAS_GAUCHE = 1;
-        private int PR_SERVO_ID_ROTATION_BRAS_DROIT = 2;
-        private int PR_SERVO_ID_DEPLOIEMENT_BRAS_DROIT = 5;
+        private int PR_SERVO_ID_ASCENSEUR_BRAS_DROIT = 4;
+        private int PR_SERVO_ID_ASCENSEUR_BRAS_GAUCHE = 7;
+        private int PR_SERVO_ID_ROTATION_BRAS_GAUCHE = 2;
+        private int PR_SERVO_ID_ROTATION_BRAS_DROIT = 1;
+        private int PR_SERVO_ID_DEPLOIEMENT_BRAS_GAUCHE = 5;
         private int PR_SERVO_ID_POUSSOIRJOKER = 3;
         private int PR_SERVO_ID_AIGUILLAGE = 6;
 
@@ -177,7 +177,7 @@ namespace Robot_P16.Robot
                     PR_SERVO_ASCENSEUR_BRAS_GAUCHE = new composants.Servomoteurs.AX12(PR_SOCKET_SERVOS, PR_SERVO_ID_ASCENSEUR_BRAS_GAUCHE);
                     PR_SERVO_ROTATION_BRAS_GAUCHE = new composants.Servomoteurs.AX12(PR_SOCKET_SERVOS, PR_SERVO_ID_ROTATION_BRAS_GAUCHE);
                     PR_SERVO_ROTATION_BRAS_DROIT = new composants.Servomoteurs.AX12(PR_SOCKET_SERVOS, PR_SERVO_ID_ROTATION_BRAS_DROIT);
-                    PR_SERVO_DEPLOIEMENT_BRAS_DROIT = new composants.Servomoteurs.AX12(PR_SOCKET_SERVOS, PR_SERVO_ID_DEPLOIEMENT_BRAS_DROIT);
+                    PR_SERVO_DEPLOIEMENT_BRAS_GAUCHE = new composants.Servomoteurs.AX12(PR_SOCKET_SERVOS, PR_SERVO_ID_DEPLOIEMENT_BRAS_GAUCHE);
                     PR_SERVO_POUSSOIRJOKER = new composants.Servomoteurs.AX12(PR_SOCKET_SERVOS, PR_SERVO_ID_POUSSOIRJOKER);
                     PR_SERVO_AIGUILLAGE = new composants.Servomoteurs.AX12(PR_SOCKET_SERVOS, PR_SERVO_ID_AIGUILLAGE);
 

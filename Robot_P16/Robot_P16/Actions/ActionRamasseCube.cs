@@ -181,7 +181,7 @@ namespace Robot_P16.Actions
                 case 3:
                     gestionnaire.PR_BRAS_DROIT_MONTER.Execute();
                     gestionnaire.PR_BRAS_DROIT_MONTER.Execute();
-                    gestionnaire.PR_BRAS_DROIT_DEPLOIEMENT_SORTIR.Execute();
+                    gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_SORTIR.Execute();
                     gestionnaire.PR_BRAS_DROIT_ROTATIONHORAIRE.Execute();
                     gestionnaire.PR_BRAS_DROIT_ROTATIONHORAIRE.Execute();
                     gestionnaire.PR_BRAS_DROIT_DESCENDRE.Execute();
@@ -189,7 +189,7 @@ namespace Robot_P16.Actions
                     gestionnaire.PR_AIGUILLAGE_VENTOUSEDROITE.Execute();
                     gestionnaire.PR_BRAS_DROIT_MONTER.Execute();
                     gestionnaire.PR_BRAS_DROIT_MONTER.Execute();
-                    gestionnaire.PR_BRAS_DROIT_DEPLOIEMENT_RENTRER.Execute();
+                    gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_RENTRER.Execute();
                     gestionnaire.PR_AIGUILLAGE_VENTOUSEGAUCHE.Execute();
                     gestionnaire.PR_BRAS_DROIT_ROTATIONANTIHORAIRE.Execute();
                     gestionnaire.PR_BRAS_DROIT_ROTATIONANTIHORAIRE.Execute();
@@ -199,7 +199,7 @@ namespace Robot_P16.Actions
                 case 13:
                     gestionnaire.PR_BRAS_DROIT_MONTER.Execute();
                     gestionnaire.PR_BRAS_DROIT_MONTER.Execute();
-                    gestionnaire.PR_BRAS_DROIT_DEPLOIEMENT_SORTIR.Execute();
+                    gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_SORTIR.Execute();
                     gestionnaire.PR_BRAS_DROIT_ROTATIONHORAIRE.Execute();
                     gestionnaire.PR_BRAS_DROIT_ROTATIONHORAIRE.Execute();
                     gestionnaire.PR_BRAS_DROIT_DESCENDRE.Execute();
@@ -207,7 +207,7 @@ namespace Robot_P16.Actions
                     gestionnaire.PR_AIGUILLAGE_VENTOUSEDROITE.Execute();
                     gestionnaire.PR_BRAS_DROIT_MONTER.Execute();
                     gestionnaire.PR_BRAS_DROIT_MONTER.Execute();
-                    gestionnaire.PR_BRAS_DROIT_DEPLOIEMENT_RENTRER.Execute();
+                    gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_RENTRER.Execute();
                     gestionnaire.PR_AIGUILLAGE_VENTOUSEGAUCHE.Execute();
                     gestionnaire.PR_BRAS_DROIT_ROTATIONANTIHORAIRE.Execute();
                     gestionnaire.PR_BRAS_DROIT_ROTATIONANTIHORAIRE.Execute();
