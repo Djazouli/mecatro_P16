@@ -27,6 +27,8 @@ namespace Robot_P16.Robot
             loadActionTest1();
             //loadActionPRCompete();
             loadActionPRServos();
+
+            loadActionTestGR();
             Informations.printInformations(Priority.HIGH, "actions chargees");
         }
 
@@ -50,6 +52,21 @@ namespace Robot_P16.Robot
             {
                 Debug.Print("TYPE INTROUVABLE : Impossible de lancer l'action mère (introuvable) pour le type : " + type.ToString());
             }
+        }
+
+        private static void loadActionTestGR()
+        {
+            Action MOTHER_ACTION = new ActionBuilder("Action test GR").Add(
+                new ActionBuilder("Lanceur test 1").BuildActionDelegate(() => Robot.robot.GR_LANCEUR_BALLE.launchSpeed(0.5d))
+                ).Add(
+                new ActionBuilder("Wait a bit").BuildActionWait(3000)
+                ).Add(
+                new ActionBuilder("Lanceur test 1").BuildActionDelegate(() => Robot.robot.GR_LANCEUR_BALLE.stop())
+                ).BuildActionEnSerie();
+            setMotherAction(ModeOperatoire.COMPETITION, TypeRobot.GRAND_ROBOT, MOTHER_ACTION);
+
+            Action TEST_ACTION = new ActionJack();
+            setMotherAction(ModeOperatoire.COMPETITION, TypeRobot.PETIT_ROBOT, TEST_ACTION);
         }
 
         private static void loadActionHomologation()

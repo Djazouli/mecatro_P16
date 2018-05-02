@@ -79,6 +79,9 @@
     <Compile Include="Robot\composants\CapteursObstacle\Infrarouge.cs" />
     <Compile Include="Robot\composants\CapteursObstacle\Ultrason.cs" />
     <Compile Include="Robot\composants\Jack.cs" />
+    <Compile Include="Robot\composants\JackInterrupt.cs" />
+    <Compile Include="Robot\composants\LanceurBalle.cs" />
+    <Compile Include="Robot\composants\RelaisMoteur.cs" />
     <Compile Include="Robot\composants\Servomoteurs\CAX12.cs" />
     <Compile Include="Robot\Informations.cs" />
     <Compile Include="Robot\composants\BaseRoulante\BaseRoulante.cs" />
@@ -108,8 +111,6 @@
     <Reference Include="GHIElectronics.Gadgeteer.FEZSpiderII, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
-    <Reference Include="GTM.GHIElectronics.Breakout, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="GTM.GHIElectronics.BreakoutTB10, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="GTM.GHIElectronics.Button, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
@@ -118,6 +119,9 @@
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="GTM.GHIElectronics.DistanceUS3, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="GTM.GHIElectronics.MotorDriverL298, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
     <Reference Include="GTM.GHIElectronics.USBClientEDP, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL" />

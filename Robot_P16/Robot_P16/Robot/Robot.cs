@@ -49,18 +49,21 @@ namespace Robot_P16.Robot
         public readonly int PR_SOCKET_SERVOS = 11;
 
         public readonly int GR_SOCKET_INFRAROUGE = 5;
-        public readonly int PR_SOCKET_INFRAROUGE = 5;
+        public readonly int PR_SOCKET_INFRAROUGE = 9;
         public readonly int PR_SOCKET_ULTRASON = 6;
 
-        public readonly int PR_SOCKET_JACK = 5;
+        public readonly int PR_SOCKET_JACK = 9;
         public readonly int GR_SOCKET_JACK = 5;
 
-        public readonly int PR_PORT_INFRAROUGE_1 = 6;
+        public readonly int PR_PORT_INFRAROUGE_1 = 5;
         public readonly int PR_PORT_INFRAROUGE_2 = 7;
         public readonly int PR_PORT_JACK = 8;
 
 
-        public readonly int GR_SOCKET_LANCEUR = 0;
+        public readonly int GR_SOCKET_LANCEUR = 8;
+
+        public readonly int PR_SOCKET_VENTOUZES = 5;
+        public readonly int PR_PORT_VENTOUZES = 5;
 
         public readonly int GR_SOCKET_BASE_ROUlANTE = 4;
         public readonly int PR_SOCKET_BASE_ROUlANTE = 8;
@@ -70,7 +73,7 @@ namespace Robot_P16.Robot
         public readonly DisplayTE35 ecranTactile = new DisplayTE35(14, 13, 12, 10);
 
         public composants.BaseRoulante.BaseRoulante BASE_ROULANTE;
-        public composants.Jack JACK;
+        public composants.JackInterrupt JACK;
         public composants.CapteursObstacle.CapteurObstacleManager OBSTACLE_MANAGER;
         public composants.IHM.C_IHM IHM;
 
@@ -79,6 +82,8 @@ namespace Robot_P16.Robot
 
         public composants.Servomoteurs.AX12 GR_SERVO_PLATEAU;
         public composants.Servomoteurs.AX12 GR_SERVO_TRAPPE;
+
+        public composants.LanceurBalle GR_LANCEUR_BALLE;
 
         /* ********************************** FIN GRAND ROBOT ****************************** */
 
@@ -103,6 +108,8 @@ namespace Robot_P16.Robot
         public composants.CapteursObstacle.Infrarouge PR_INFRAROUGE_1;
         public composants.CapteursObstacle.Infrarouge PR_INFRAROUGE_2;
         public composants.CapteursObstacle.Ultrason PR_ULTRASON;
+
+        public composants.RelaisMoteur PR_RELAIS_VENTOUZES;
 
 
 
@@ -163,6 +170,9 @@ namespace Robot_P16.Robot
             {
                 case TypeRobot.GRAND_ROBOT:
 
+
+                    GR_LANCEUR_BALLE = new LanceurBalle(GR_SOCKET_LANCEUR);
+                    
                     break;
 
                 case TypeRobot.PETIT_ROBOT:
@@ -187,7 +197,10 @@ namespace Robot_P16.Robot
                     PR_INFRAROUGE_2 = new composants.CapteursObstacle.Infrarouge(PR_SOCKET_INFRAROUGE, PR_PORT_INFRAROUGE_2, composants.CapteursObstacle.OBSTACLE_DIRECTION.ARRIERE);
                     PR_ULTRASON = new composants.CapteursObstacle.Ultrason(PR_SOCKET_ULTRASON, composants.CapteursObstacle.OBSTACLE_DIRECTION.AVANT);
                     
-                    JACK = new composants.Jack(PR_SOCKET_JACK, PR_PORT_JACK);
+                    //JACK = new composants.Jack(PR_SOCKET_JACK, PR_PORT_JACK);
+                    JACK = new composants.JackInterrupt(PR_SOCKET_JACK, PR_PORT_JACK);
+
+                    PR_RELAIS_VENTOUZES = new composants.RelaisMoteur(PR_SOCKET_VENTOUZES, PR_PORT_VENTOUZES);
 
                     composants.CapteursObstacle.CapteurObstacle[] capteurs = {PR_INFRAROUGE_1, PR_INFRAROUGE_2, PR_ULTRASON};
                     OBSTACLE_MANAGER = new composants.CapteursObstacle.CapteurObstacleManager(capteurs);

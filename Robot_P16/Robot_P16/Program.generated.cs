@@ -24,6 +24,9 @@ namespace Robot_P16 {
         /// <summary>The Distance US3 module using socket 9 of the mainboard.</summary>
         private Gadgeteer.Modules.GHIElectronics.DistanceUS3 distanceUS3;
         
+        /// <summary>The Motor Driver L298 module (not connected).</summary>
+        private Gadgeteer.Modules.GHIElectronics.MotorDriverL298 motorDriverL298;
+        
         /// <summary>This property provides access to the Mainboard API. This is normally not necessary for an end user program.</summary>
         protected new static GHIElectronics.Gadgeteer.FEZSpiderII Mainboard {
             get {
@@ -46,9 +49,10 @@ namespace Robot_P16 {
         }
         
         private void InitializeModules() {
-            this.displayTE35 = null;// new GTM.GHIElectronics.DisplayTE35(14, 13, 12, 10);
-            this.button = null; // new GTM.GHIElectronics.Button(11);
-            this.distanceUS3 = null; // new GTM.GHIElectronics.DistanceUS3(9);
+            this.displayTE35 = null;
+            this.button = null;
+            this.distanceUS3 = null;
+            this.motorDriverL298 = null;
         }
     }
 }

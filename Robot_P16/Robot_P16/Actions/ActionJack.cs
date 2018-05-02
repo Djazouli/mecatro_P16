@@ -15,13 +15,13 @@ namespace Robot_P16.Actions
         {
             Informations.printInformations(Priority.MEDIUM, "JackAction : Executing jack action : adding listener");
             Robot.Robot.robot.JACK.JackChangeEvent += this.JackChange;
-            Robot.Robot.robot.JACK.StartTimer();
+            //Robot.Robot.robot.JACK.StartTimer();
             DisplayOnIHM();
         }
 
         private void JackChange(bool newStatus)
         {
-            Informations.printInformations(Priority.MEDIUM, "JackAction : Jack changed, status = success & stop listening to Jack");
+            Informations.printInformations(Priority.MEDIUM, "JackAction : Jack changed, status = success & stop listening to Jack, new Jack status : "+newStatus);
             //Robot.Robot.robot.JACK.JackChangeEvent -= this.JackChange;
             //Robot.Robot.robot.JACK.StopTimer();
             //this.Status = ActionStatus.SUCCESS;

@@ -6,7 +6,6 @@ using Gadgeteer;
 namespace Robot_P16.Robot.composants
 {
     
-    public delegate void JackListenerDelegate(bool isJackOn);
 
     public class Jack
     {
