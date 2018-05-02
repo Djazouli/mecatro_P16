@@ -20,7 +20,6 @@ namespace Robot_P16.Robot.composants.BaseRoulante
     {
         private PointOriente position;
         public Kangaroo kangaroo;
-
         public event BaseRoulanteMovingStatusChange MovingStatusChangeEvent;
 
         private OBSTACLE_DIRECTION direction;
@@ -79,7 +78,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             return true; // TODO
         }
 
-        public Boolean GoToOrientedPoint(PointOriente pt)
+        /*public Boolean GoToOrientedPoint(PointOriente pt)
         {           
             //Calculer l'angle a tourner 
             double deltaX = pt.x - position.x;
@@ -122,6 +121,17 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             position = new PointOriente(pt.x,pt.y,angle);
              
             return false;
+        }*/
+
+        public Boolean GoToOrientedPoint(PointOriente pt, Boolean forceDir) // forceDir = true  means that we have to arrive in the right direction (turn before)
+        { //We do not care about the angle in this function
+            double angle;
+            double deltaX, deltaY;
+            deltaX = pt.x - position.x;
+            deltaY = pt.y - position.y;
+            if (forceDir == AVANT) {
+               
+            }
         }
 
         public Boolean AdjustAngleToPoint(PointOriente pt) // ajuste theta, mais pas X,Y => mode turn
