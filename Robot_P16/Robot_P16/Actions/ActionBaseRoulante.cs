@@ -53,7 +53,7 @@ namespace Robot_P16.Actions
                 return;
             }
 
-            if (direction == Robot.Robot.robot.BASE_ROULANTE.GetDirection())
+            if (direction != Robot.Robot.robot.BASE_ROULANTE.GetDirection())
             {
                 if (isThereAnObstacle)
                 {

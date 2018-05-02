@@ -26,7 +26,7 @@ namespace Robot_P16.Robot
             ACTION_PER_TYPE.Clear();
             loadActionHomologation();
             loadActionTest1();
-            loadActionPRCompete();
+            //loadActionPRCompete();
             loadActionPRServos();
 
             loadActionTestGR();
@@ -223,9 +223,9 @@ namespace Robot_P16.Robot
 
             setMotherAction(ModeOperatoire.TEST1, MOTHER_ACTION);*/
 
-            PointOriente pt1 = new PointOriente(100, 100, 50);
-            PointOriente pt2 = new PointOriente(100, 200, 50);
-            PointOriente pt3 = new PointOriente(100, 0, 50);
+            PointOriente pt1 = new PointOriente(0, 100, 50);
+            PointOriente pt2 = new PointOriente(0, 200, 50);
+            PointOriente pt3 = new PointOriente(0, 300, 50);
 
             Action MOTHER_ACTION = new ActionBuilder("Action mère Test1").Add(
                     new Actions.ActionBaseRoulante("Point1 ",pt1)
@@ -242,7 +242,7 @@ namespace Robot_P16.Robot
                 )
                 .BuildActionEnSerieRepeated(-1); // Envois infinis
 
-            setMotherAction(ModeOperatoire.TEST1, TypeRobot.TEST_ROBOT_1, MOTHER_ACTION);
+            setMotherAction(ModeOperatoire.TEST1, TypeRobot.PETIT_ROBOT, MOTHER_ACTION);
         }
 
         private static void setMotherAction(ModeOperatoire mode, TypeRobot type, Action a)
