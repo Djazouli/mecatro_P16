@@ -7,7 +7,7 @@ namespace Robot_P16.Actions
     {
         public readonly Action actionToBeRepeated;
         private int compteur;
-
+        private readonly int base_compteur;
         /// <summary>
         /// Action répétée un certain nombre de fois. Compteur = -1 pour répétitions infinies
         /// </summary>
@@ -19,14 +19,16 @@ namespace Robot_P16.Actions
         {
             this.actionToBeRepeated = actionToBeRepeated;
             this.compteur = compteur;
+            this.base_compteur = compteur;
         }
 
         public override void Execute()
         {
+            this.compteur = this.base_compteur;
             if(compteur == 0) return;
-            if(compteur>0) compteur--;
-            actionToBeRepeated.Execute();
+            if (compteur > 0) compteur--;
             actionToBeRepeated.StatusChangeEvent += this.Feedback;
+            actionToBeRepeated.Execute();
         }
 
         protected override bool PostStatusChangeCheck(ActionStatus previousStatus)

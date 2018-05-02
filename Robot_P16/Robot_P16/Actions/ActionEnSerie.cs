@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Robot_P16.Robot;
 using Microsoft.SPOT;
 
 namespace Robot_P16.Actions
@@ -7,11 +8,11 @@ namespace Robot_P16.Actions
     /// <summary>
     /// Classe utilitaire pour builder plus facilement une action en série
     /// </summary>
-    
 
     public class ActionEnSerie : Action
     {
 
+        private int indexOfCurrentAction = 0;
         public readonly Action[] listeActions;
 
         public ActionEnSerie( Action[] listeActions, String description)
@@ -20,60 +21,25 @@ namespace Robot_P16.Actions
             this.listeActions = listeActions;
         }
 
-        private int IndexOfFirstUnsucessfulAction()
-        {
-            int i = 0;
-            while (i < listeActions.Length && listeActions[i].Status == ActionStatus.SUCCESS) i++;
-            return i;
-        }
-
-        public Action GetFirstUnsucessfulAction()
-        {
-            int index = IndexOfFirstUnsucessfulAction();
-            if (index < listeActions.Length)
-                return listeActions[index];
-            return null;
-        }
-
-        private int IndexOfAction(Action a)
-        {
-            for (int i = 0; i < listeActions.Length; i++)
-            {
-                if (listeActions[i].Equals(a))
-                    return i;
-            }
-            return -1;
-        }
-
-        private Action GetNextAction(Action a)
-        {
-            int index = IndexOfAction(a);
-            if (index < 0)
-                return null;
-            index++;
-            if (index >= listeActions.Length)
-                return null;
-            return listeActions[index];
-        }
-
         public override void Execute()
         {
-            GetFirstUnsucessfulAction().StatusChangeEvent += this.Feedback;
-            GetFirstUnsucessfulAction().Execute();
+            Informations.printInformations(Priority.MEDIUM, "ActionEnSerie - execute called. Desc : " + this.description);
+            //this.ResetStatus(); Not necessary for now
+            this.indexOfCurrentAction = 0;
+
+            if (listeActions.Length > this.indexOfCurrentAction)
+            {
+                this.listeActions[this.indexOfCurrentAction].StatusChangeEvent += this.Feedback;
+                this.listeActions[this.indexOfCurrentAction].Execute();
+            }
+            else // No actions, success
+            {
+                this.Status = ActionStatus.SUCCESS;
+            }
         }
-
-
 
         protected override bool PostStatusChangeCheck(ActionStatus oldpreviousStatus)
         {
-            /*switch (this.Status)
-            {
-                case ActionStatus.UNDETERMINED:
-                    foreach (Action a in listeActions)
-                        a.ResetStatus();
-                    break;
-
-            }*/
             return true;
         }
 
@@ -91,34 +57,20 @@ namespace Robot_P16.Actions
         /// <param name="a">Action qui a changé de statut</param>
         public override void Feedback(Action a)
         {
-            int index = IndexOfAction(a);
-            if (index >= 0) // L'action est bien dans la liste d'actions
+            if (a.Status == ActionStatus.SUCCESS)
             {
-                switch (a.Status) {
-                    case ActionStatus.SUCCESS:
-                        a.StatusChangeEvent -= this.Feedback; // On arrête d'écoûter l'action
-
-                        Action actionSuivante = this.GetNextAction(a);
-                        Debug.Print("Next action...");
-                        if (actionSuivante != null)
-                        {
-                            Debug.Print("executing...");
-                            actionSuivante.StatusChangeEvent += this.Feedback;
-                            actionSuivante.Execute();
-                        }
-                        else
-                        {
-                            this.Status = ActionStatus.SUCCESS;
-                        }
-                        
-
-                        break;
-
-                    case ActionStatus.FAILURE:
-                        this.Status = ActionStatus.FAILURE;
-                        break;
-
-                    // Attention, ne pas changer le Status à UNDETERMINED en écoutant un changement UNDERTERMINED : boucle infinie
+                this.listeActions[this.indexOfCurrentAction].StatusChangeEvent -= this.Feedback;
+                this.indexOfCurrentAction++;
+                if (listeActions.Length > this.indexOfCurrentAction)
+                {
+                    Informations.printInformations(Priority.VERY_LOW, "ActionEnSerie - executing next action. Desc of ActionEnSerie : "+this.description);
+                    this.listeActions[this.indexOfCurrentAction].StatusChangeEvent += this.Feedback;
+                    this.listeActions[this.indexOfCurrentAction].Execute();
+                }
+                else // No actions, success
+                {
+                    Informations.printInformations(Priority.LOW, "ActionEnSerie - After last action feedback, status = success. Desc : "+this.description );
+                    this.Status = ActionStatus.SUCCESS;
                 }
             }
         }

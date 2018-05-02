@@ -51,9 +51,8 @@ namespace Robot_P16.Actions
 
         public ActionRepeated BuildActionEnSerieRepeated(int compteur)
         {
-            return new ActionRepeated(description + " - mère", this.BuildActionEnSerie(), compteur);
+            return new ActionRepeated(description + " - serieRepeated "+compteur, this.BuildActionEnSerie(), compteur);
         }
-
 
 
         public ActionGetPosition BuildActionGetPosition()
