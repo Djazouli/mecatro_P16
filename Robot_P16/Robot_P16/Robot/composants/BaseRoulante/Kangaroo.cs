@@ -1,6 +1,7 @@
 using System;
 using Microsoft.SPOT;
 using System.IO.Ports;
+using System.Threading;
 
 using GT = Gadgeteer;
 using Robot_P16.Map;
@@ -68,6 +69,47 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             }
 
             //on met a jour
+
+            /*public void test()
+            {
+                Debug.Print("test is starteeeeeeeeed");
+                String commande;
+                byte[] buffer = new byte[100];
+                bool retour = false;
+                commande = "T,start\r\n";
+                buffer = System.Text.Encoding.UTF8.GetBytes(commande);
+                m_port.Write(buffer, 0, commande.Length);
+                commande = "D,start\r\n";
+                buffer = System.Text.Encoding.UTF8.GetBytes(commande);
+                m_port.Write(buffer, 0, commande.Length);
+                commande = "T,units 1000 thousandths = 1024 lines\r\n";
+                buffer = System.Text.Encoding.UTF8.GetBytes(commande);
+                m_port.Write(buffer, 0, commande.Length);               
+                commande = "D,units 1000 thousandths = 1024 lines\r\n";
+                buffer = System.Text.Encoding.UTF8.GetBytes(commande);
+                m_port.Write(buffer, 0, commande.Length);
+                commande = "T,home\r\n";
+                buffer = System.Text.Encoding.UTF8.GetBytes(commande);
+                m_port.Write(buffer, 0, commande.Length);
+                commande = "D,home\r\n";
+                Thread.Sleep(5000); 
+                buffer = System.Text.Encoding.UTF8.GetBytes(commande);
+                m_port.Write(buffer, 0, commande.Length);
+                commande = "D,p1000s5000\r\n";
+                buffer = System.Text.Encoding.UTF8.GetBytes(commande);
+                m_port.Write(buffer, 0, commande.Length);
+                commande = "T,p1000s5000\r\n";
+                buffer = System.Text.Encoding.UTF8.GetBytes(commande);
+                m_port.Write(buffer, 0, commande.Length);
+                commande = "D,p0s5000\r\n";
+                buffer = System.Text.Encoding.UTF8.GetBytes(commande);
+                m_port.Write(buffer, 0, commande.Length);
+                commande = "T,p0s5000\r\n";
+                buffer = System.Text.Encoding.UTF8.GetBytes(commande);
+                m_port.Write(buffer, 0, commande.Length);
+                }*/
+
+            
             private void updatePosition(mode m) {    
                 switch(m){
                     case mode.turn:   
@@ -118,6 +160,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
 
             public bool init()
             {
+                Debug.Print("On est dans le init()");
                 //emission des parametres
                 //Obligatoire avant chaque action demandee !
                 bool retour = false;
@@ -131,13 +174,15 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                     start(mode.drive);
 
                     //Preparation des parametres ?envoyer
-                    commande = "T, UNITS 36000 millidegrees = 26453 lines\r\n"; //petit robot           
+                    //commande = "T, UNITS 36000 millidegrees = 26453 lines\r\n"; //petit robot
+                    commande = "T, UNITS 36000 millidegrees = 388400 lines\r\n";
                     //Conversion des parametres en tableau d'octet
                     buffer = System.Text.Encoding.UTF8.GetBytes(commande);
                     //Ecriture du tableau d'octets sur la ligne TX
                     m_port.Write(buffer, 0, commande.Length);
 
-                    commande = "D, UNITS 150 mm = 102400 lines\r\n";//petit robot      
+                    //commande = "D, UNITS 1 mm = 102400 lines\r\n";//petit robot      
+                    commande = "D, UNITS 182 mm = 1024 lines\r\n";//petit robot
                     buffer = System.Text.Encoding.UTF8.GetBytes(commande);
                     m_port.Write(buffer, 0, commande.Length);
 
@@ -247,7 +292,10 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 //angle = angle * (int)unite.degre;
                 //speed = speed * (int)unite.kmh;
                 init();
-
+                if (Robot.robot.TypeRobot == TypeRobot.PETIT_ROBOT)
+                {
+                    angle = -angle;
+                }
                 if (m_port.IsOpen)
                 {
                     commande = "T,pi" + angle.ToString() + "s" + speed.ToString() + "\r\n";

@@ -25,7 +25,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         private OBSTACLE_DIRECTION direction;
 
         public int speedDrive = 100;// avance 10 cm par seconde
-        public int speedTurn = 3000; //tourne 30 degrees par seconde
+        public int speedTurn = 300; //tourne 3 degrees par seconde
 
         int PARAMETER_FOR_XY = 1;//l'unite de la dist. = millimetre, on n'accepte QUE l'entier
         int PARAMETER_FOR_THETA = 100;//l'unite de l'angle = millidegree, on accepte l'entree de la forme X.XX degrees
@@ -78,8 +78,9 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             return true; // TODO
         }
 
-        public Boolean GoToOrientedPoint(PointOriente pt)
-        {           
+        /*public Boolean GoToOrientedPoint(PointOriente pt)
+        {
+            //LaunchMovingStatusChangeEvent(true);
             //Calculer l'angle a tourner 
             double deltaX = pt.x - position.x;
             double deltaY = pt.y - position.y;
@@ -109,8 +110,8 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 sens = -1;
                 angle -= System.Math.Sign(angle) * 180; 
             }
-            
             //Faire orienter a la destination
+            Debug.Print("Rotation and sleep" + deltaAngle);
             RotateAndSleep(deltaAngle);
         
             //Aller tout droite
@@ -119,12 +120,13 @@ namespace Robot_P16.Robot.composants.BaseRoulante
        
             //Mise a jour la position
             position = new PointOriente(pt.x,pt.y,angle);
-             
-            return false;
-        }
 
-        /*public Boolean GoToOrientedPoint(PointOriente pt, Boolean forceDir) // forceDir = true  means that we have to arrive in the right direction (turn before)
-        { //We do not care about the angle in this function
+            Informations.printInformations(Priority.MEDIUM, "Done moving, calling launchMovingStatus");
+            LaunchMovingStatusChangeEvent(false);
+            return false;
+        }*/
+        public Boolean GoToOrientedPoint(PointOriente pt)
+        {
             double angle;
             double deltaX, deltaY, deltaTheta, alpha;
             deltaX = pt.x - position.x;
@@ -137,7 +139,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                     deltaTheta = 360 + deltaTheta;
                 }
             }
-            if (deltaX < 0)
+            else if (deltaX < 0)
             {
                 deltaTheta = 180 + System.Math.Atan(deltaY / deltaX);
             }
@@ -149,7 +151,45 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 }
                 else deltaTheta = 270;
             }
-            if (forceDir == AVANT) {
+                angle = position.theta - deltaTheta;
+                if (angle > 270 || angle < 90)
+                {
+                    return GoToOrientedPoint(pt, OBSTACLE_DIRECTION.AVANT);
+                }
+                else
+                {
+                    return GoToOrientedPoint(pt, OBSTACLE_DIRECTION.ARRIERE);
+                }
+        }
+        public Boolean GoToOrientedPoint(PointOriente pt, OBSTACLE_DIRECTION forceDir) // forceDir = AVANT or ARRIERE
+        { //We do not care about the angle in this function
+            double angle;
+            double deltaX, deltaY, deltaTheta, alpha;
+            deltaX = pt.x - position.x;
+            deltaY = pt.y - position.y;
+            direction = forceDir;
+            if (deltaX > 0)
+            {
+                deltaTheta = System.Math.Atan(deltaY / deltaX);
+                if (deltaTheta < 0)
+                {
+                    deltaTheta = 360 + deltaTheta;
+                }
+            }
+            else if (deltaX < 0)
+            {
+                deltaTheta = 180 + System.Math.Atan(deltaY / deltaX);
+            }
+            else
+            {
+                if (deltaY > 0)
+                {
+                    deltaTheta = 90;
+                }
+                else deltaTheta = 270;
+            }
+            if (forceDir == OBSTACLE_DIRECTION.AVANT) {
+                Debug.Print("avant");
                 if (position.theta - deltaTheta > 180) // That means we have to turn atrigo
                 {
                     RotateAndSleep((int)(360 - position.theta + deltaTheta));
@@ -160,23 +200,20 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 }
                 AvanceAndSleep((int)System.Math.Sqrt(deltaX * deltaX + deltaY * deltaY));
             }
-            if (forceDir == ARRIERE)
+            if (forceDir == OBSTACLE_DIRECTION.ARRIERE)
             {
-                
-            }
-            if (forceDir == null)//We have to check if it is faster with Arriere or Avant
-            {
-                angle = position.theta - deltaTheta;
-                if (angle > 270 || angle < 90)
-                {
-                    GoToOrientedPoint(pt, AVANT);
+                Debug.Print("Arriere");
+                if(position.theta < deltaTheta || 360 - position.theta > deltaTheta){//turn antitrigo
+                       RotateAndSleep(-(int)(position.theta + 180 - deltaTheta));
                 }
-                else
-                {
-                    GoToOrientedPoint(pt, ARRIERE);
-                }
+                else{
+                        RotateAndSleep((int) (180-position.theta+deltaTheta));
+                    }
             }
-        }*/
+            position = new PointOriente(pt.x, pt.y, deltaTheta);
+            LaunchMovingStatusChangeEvent(false);
+            return false;
+        }
 
         public Boolean AdjustAngleToPoint(PointOriente pt) // ajuste theta, mais pas X,Y => mode turn
         {

@@ -40,7 +40,7 @@ namespace Robot_P16.Actions
         {
             if (a.Status == ActionStatus.SUCCESS)
             {
-                a.ResetStatus();
+                //a.ResetStatus();
 
                 if(compteur < 0) // Boucle infinie
                     a.Execute();

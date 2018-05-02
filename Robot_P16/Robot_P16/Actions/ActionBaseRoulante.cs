@@ -26,9 +26,9 @@ namespace Robot_P16.Actions
             this.paused = false;
             Robot.Robot.robot.OBSTACLE_MANAGER.ObstacleChangeEvent += this.ObstacleListener;
 
+            Robot.Robot.robot.BASE_ROULANTE.MovingStatusChangeEvent += this.BaseRoulanteListener;
             Robot.Robot.robot.BASE_ROULANTE.GoToOrientedPoint(this.destination);
 
-            Robot.Robot.robot.BASE_ROULANTE.MovingStatusChangeEvent += this.BaseRoulanteListener;
         }
 
         public void BaseRoulanteListener(bool isMoving)

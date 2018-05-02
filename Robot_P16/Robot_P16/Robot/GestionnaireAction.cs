@@ -24,12 +24,16 @@ namespace Robot_P16.Robot
         public static void loadActions()
         {
             ACTION_PER_TYPE.Clear();
-            loadActionHomologation();
+            //loadActionHomologation();
             loadActionTest1();
             //loadActionPRCompete();
+<<<<<<< HEAD
             loadActionPRServos();
+=======
+            //loadActionPRServos();
+>>>>>>> Change GoToOrientedPoint
 
-            loadActionTestGR();
+            //loadActionTestGR();
             Informations.printInformations(Priority.HIGH, "actions chargees");
         }
 
@@ -223,7 +227,7 @@ namespace Robot_P16.Robot
 
             setMotherAction(ModeOperatoire.TEST1, MOTHER_ACTION);*/
 
-            PointOriente pt1 = new PointOriente(0, 100, 50);
+            PointOriente pt1 = new PointOriente(0, 1000, 50);
             PointOriente pt2 = new PointOriente(0, 200, 50);
             PointOriente pt3 = new PointOriente(0, 300, 50);
 
