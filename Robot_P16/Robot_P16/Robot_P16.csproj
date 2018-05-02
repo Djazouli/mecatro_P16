@@ -50,6 +50,7 @@
     <Compile Include="Actions\ActionServoRotation.cs" />
     <Compile Include="Actions\ActionServoAbsolue.cs" />
     <Compile Include="Actions\ActionServo.cs" />
+    <Compile Include="Actions\ActionVentouze.cs" />
     <Compile Include="Actions\ActionWait.cs" />
     <Compile Include="Map\Lieux.cs" />
     <Compile Include="Map\Obstacle.cs" />

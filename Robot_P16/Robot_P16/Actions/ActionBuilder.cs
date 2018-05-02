@@ -75,6 +75,10 @@ namespace Robot_P16.Actions
         {
             return new ActionServoRotation(description, servomoteur, direction, duration);
         }
+        public ActionVentouze BuildActionVentouze(VENTOUZES ventouze, bool activate)
+        {
+            return new ActionVentouze(description, ventouze, activate);
+        }
 
         public ActionDelegate BuildActionDelegate(VoidFunc method) {
             return new ActionDelegate(description, method);

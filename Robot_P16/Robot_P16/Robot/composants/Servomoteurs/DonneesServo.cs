@@ -37,9 +37,9 @@ namespace Robot_P16.Robot.composants.Servomoteurs
  
  	 public const int ANGLE_PR_DEPLOIEMENTGAUCHE_SORTIR=773;// = 195,58=-1;//déployer le bras gauche d'une longueur d'un cube
  	 public const int ANGLE_PR_DEPLOIEMENTGAUCHE_RENTRER=773;// = -195.58;
- 	 
- 	 public const int ANGLE_PR_AIGUILLAGE_VENTOUSEDROITE=-1;// = 90=-1;//faire passer le flux d'air dans la ventouse droite
- 	 public const int ANGLE_PR_AIGUILLAGE_VENTOUSEGAUCHE=-1;// = 90=-1;//faire passer le flux d'air dans la ventouse gauche
+
+     public const int ANGLE_PR_AIGUILLAGE_VENTOUSEDROITE = 299 * 1024 / 300;// = 90=-1;//faire passer le flux d'air dans la ventouse droite
+     public const int ANGLE_PR_AIGUILLAGE_VENTOUSEGAUCHE = 185 * 1024 / 300;// = 90=-1;//faire passer le flux d'air dans la ventouse gauche
  	 
  	 //////Grand Robot
  	 
