@@ -89,7 +89,7 @@ namespace Robot_P16.Robot
             Action MOTHER_ACTION = new ActionBuilder("Action mère Test1").Add(
                     new ActionBuilder("Wait a bit...").BuildActionWait(5000)
                 ).Add(
-                    new Actions.ActionBaseRoulante("Point1 ",)
+                    new Actions.ActionBaseRoulante("Point1 ")
                 ).Add(
                     new ActionBuilder("Wait a bit...").BuildActionWait(5000)
                 )

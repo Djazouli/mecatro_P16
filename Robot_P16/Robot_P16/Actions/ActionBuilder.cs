@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using Microsoft.SPOT;
 using Robot_P16.Robot.composants.Servomoteurs;
+using Robot_P16.Robot;
+using Robot_P16.Map;
 
 namespace Robot_P16.Actions
 {
@@ -82,5 +84,30 @@ namespace Robot_P16.Actions
         public ActionDelegate BuildActionDelegate(VoidFunc method) {
             return new ActionDelegate(description, method);
         }
+
+        public ActionBaseRoulante BuildActionBaseRoulante_GOTO_ONLY(PointOriente pt)
+        {
+            return new ActionBaseRoulante(this.description, new Robot.composants.BaseRoulante.Mouvement(pt));
+        }
+        public ActionBaseRoulante BuildActionBaseRoulante_GOTO_ANGLE(PointOriente pt)
+        {
+            return new ActionBaseRoulante(this.description, new Robot.composants.BaseRoulante.Mouvement(pt,true));
+        }
+        public ActionBaseRoulante BuildActionBaseRoulante_GOTO_ONLY(PointOriente pt, OBSTACLE_DIRECTION forcedDirection)
+        {
+            return new ActionBaseRoulante(this.description, new Robot.composants.BaseRoulante.Mouvement(pt, forcedDirection));
+        }
+        public ActionBaseRoulante BuildActionBaseRoulante_GOTO_ANGLE(PointOriente pt, OBSTACLE_DIRECTION forcedDirection)
+        {
+            return new ActionBaseRoulante(this.description, new Robot.composants.BaseRoulante.Mouvement(pt, true, forcedDirection));
+        }
+        /*public ActionBaseRoulante BuildActionBaseRoulante_GOTO_ONLY(TypeDeLieu typeDeLieu)
+        {
+            return new ActionBaseRoulante(this.description, new Robot.composants.BaseRoulante.Mouvement(pt, true));
+        }
+        public ActionBaseRoulante BuildActionBaseRoulante_GOTO_ONLY(TypeDeLieu typeDeLieu)
+        {
+            return new ActionBaseRoulante(this.description, new Robot.composants.BaseRoulante.Mouvement(pt, true));
+        }*/
     }
 }

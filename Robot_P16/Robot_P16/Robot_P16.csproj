@@ -76,6 +76,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Robot\composants\BaseRoulante\Mouvement.cs" />
     <Compile Include="Robot\composants\CapteursObstacle\CapteurObstacle.cs" />
     <Compile Include="Robot\composants\CapteursObstacle\Infrarouge.cs" />
     <Compile Include="Robot\composants\CapteursObstacle\Ultrason.cs" />
