@@ -14,18 +14,25 @@ namespace Robot_P16.Robot.composants.BaseRoulante
     };
 
 
-    public delegate void BaseRoulanteMovingStatusChange(bool isMoving);
+    public delegate void BaseRoulanteInstructionCompleted();
 
     public class BaseRoulante : Composant
     {
-        private PointOriente position;
         public Kangaroo kangaroo;
-        public event BaseRoulanteMovingStatusChange MovingStatusChangeEvent;
 
-        public OBSTACLE_DIRECTION direction;
+        private Mouvement CURRENT_MOUVEMENT = null;
+
+        public event BaseRoulanteInstructionCompleted InstructionCompletedEvent;
+
+        public AutoResetEvent MoveCompleted = new AutoResetEvent(false);
+        private bool lastMovingStatus = false;
+
+        public OBSTACLE_DIRECTION direction = OBSTACLE_DIRECTION.AVANT;
 
         public int speedDrive = 25;// avance 10 cm par seconde
         public int speedTurn = 70; //tourne 30 degrees par seconde
+
+        private static const int REFRESH_RATE_EVENT = 200;
 
 
         int PARAMETER_FOR_XY = 1;//l'unite de la dist. = millimetre, on n'accepte QUE l'entier
@@ -35,7 +42,28 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             : base(socket)
         {
             this.kangaroo = new Kangaroo(socket);
-            this.position = new PointOriente(0, 0, 0);
+
+            new Thread(() => {
+                while (true)
+                {
+                    Thread.Sleep(REFRESH_RATE_EVENT);
+                    checkIsMoving();
+                }
+            }).Start();
+
+        }
+
+        public void checkIsMoving()
+        {
+            bool currentlyMoving = this.kangaroo.isCurrentlyMoving();
+            if (currentlyMoving != this.lastMovingStatus)
+            {
+                this.lastMovingStatus = currentlyMoving;
+                if (currentlyMoving == false)
+                {
+                    MoveCompleted.Set();
+                }
+            }
         }
 
         private int doubleToIntForXY(double X)
@@ -48,16 +76,6 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         {
             theta = theta * PARAMETER_FOR_THETA;
             return (int)theta;
-        }
-
-        public PointOriente getPosition()
-        {
-            return position;
-        }
-
-        public void setPosition(PointOriente pt)
-        {
-            position = pt;
         }
 
         private void RotateAndSleep(int angle)
@@ -74,12 +92,9 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             Thread.Sleep(1000);
         }
 
-        public Boolean Stop()
+        public PointOriente GetPosition()
         {
-            Informations.printInformations(Priority.MEDIUM, "BaseRoulante - Stopping Movement");
-            kangaroo.powerdown(mode.drive);
-            LaunchMovingStatusChangeEvent(false);
-            return true; // TODO
+            return this.kangaroo.getPosition();
         }
 
         /*public Boolean GoToOrientedPoint(PointOriente pt)
@@ -133,8 +148,9 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         {
             double angle;
             double deltaX, deltaY, deltaTheta, alpha;
-            deltaX = pt.x - position.x;
-            deltaY = pt.y - position.y;
+
+            deltaX = pt.x - this.GetPosition().x;
+            deltaY = pt.y - this.GetPosition().y;
             Debug.Print("Going to " + pt.x.ToString() + "," + pt.y.ToString() + "\r\n");
             if (deltaX > 0)
             {
@@ -156,7 +172,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 }
                 else deltaTheta = 270;
             }
-                angle = position.theta - deltaTheta;
+            angle = this.GetPosition().theta - deltaTheta;
                 if (angle > 270 || angle < 90)
                 {
                     return GoToOrientedPoint(pt, OBSTACLE_DIRECTION.AVANT);
@@ -170,8 +186,8 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         { //We do not care about the angle in this function
             double angle;
             double deltaX, deltaY, deltaTheta, alpha;
-            deltaX = pt.x - position.x;
-            deltaY = pt.y - position.y;
+            deltaX = pt.x - this.GetPosition().x;
+            deltaY = pt.y - this.GetPosition().y;
             direction = forceDir;
             if (deltaX > 0)
             {
@@ -195,29 +211,30 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             }
             if (forceDir == OBSTACLE_DIRECTION.AVANT) {
                 Debug.Print("avant");
-                if (position.theta - deltaTheta > 180) // That means we have to turn atrigo
+                if (this.GetPosition().theta - deltaTheta > 180) // That means we have to turn atrigo
                 {
-                    RotateAndSleep((int)(360 - position.theta + deltaTheta));
+                    RotateAndSleep((int)(360 - this.GetPosition().theta + deltaTheta));
                 }
                 else
                 {
-                    RotateAndSleep(-(int)(-position.theta + deltaTheta));
+                    RotateAndSleep(-(int)(-this.GetPosition().theta + deltaTheta));
                 }
                 AvanceAndSleep((int)System.Math.Sqrt(deltaX * deltaX + deltaY * deltaY));
             }
             if (forceDir == OBSTACLE_DIRECTION.ARRIERE)
             {
                 Debug.Print("Arriere");
-                if(position.theta - deltaTheta > 180){//turn antitrigo
-                       RotateAndSleep(-(int)(position.theta - 180 - deltaTheta));
+                if (this.GetPosition().theta - deltaTheta > 180)
+                {//turn antitrigo
+                    RotateAndSleep(-(int)(this.GetPosition().theta - 180 - deltaTheta));
                 }
                 else{
-                        RotateAndSleep((int) (180-position.theta+deltaTheta));
+                    RotateAndSleep((int)(180 - this.GetPosition().theta + deltaTheta));
                     }
             AvanceAndSleep(-(int)System.Math.Sqrt(deltaX * deltaX + deltaY * deltaY));
             }
-            position = new PointOriente(pt.x, pt.y, deltaTheta);
-            //Thread.Sleep(20000);
+            //position = new PointOriente(pt.x, pt.y, deltaTheta);  NOT MY JOB TO DO THAT !!!!
+            Thread.Sleep(20000);
             LaunchMovingStatusChangeEvent(false);
             return false;
         }
@@ -225,7 +242,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         public Boolean AdjustAngleToPoint(PointOriente pt) // ajuste theta, mais pas X,Y => mode turn
         {
             //Calculer l'angle a tourner
-            Double currentAngle = position.theta;//[-180,180]
+            Double currentAngle = this.GetPosition().theta;//[-180,180]
             Double Angle = pt.theta;//[-180,180]
             int deltaAngle = doubleToIntForTheta((Angle - currentAngle));//[-360,360]
             
@@ -237,65 +254,21 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             RotateAndSleep(deltaAngle); 
  
             //Mise a jour la position
-            position = new PointOriente(position.x, position.y, pt.theta);
+            // position = new PointOriente(position.x, position.y, pt.theta); NOT MY JOB TO DO THAT
             
             return false;
         }
 
-        public Boolean GoToAndAdjustAngleToPoint(PointOriente pt)
-        {
-            GoToOrientedPoint(pt); 
-            AdjustAngleToPoint(pt);
-            return false;
-        }
-
-        public Boolean Move(MOVETYPES type, PointOriente pt){
-            switch (type)
-            {
-                case MOVETYPES.GoTo:
-                    GoToOrientedPoint(pt);
-                    break;
-                case MOVETYPES.AdjustAngle:
-                    AdjustAngleToPoint(pt);
-                    break;
-                case MOVETYPES.GoToAndAdjustAngle:
-                    GoToAndAdjustAngleToPoint(pt);
-                    break;
-            }
-            return false;
-        }
-        
-        public Boolean GoToLieuCle(LieuCle lieu)
-        {
-            GoToOrientedPoint(lieu.pointDeReference);
-            PointOriente positionDuRobotApresDeplacement = position;
-            return lieu.IsAtTheRightPlace(positionDuRobotApresDeplacement);
-        }
-
-        public Boolean AdjustAngleToLieuCle(LieuCle lieu)
-        {
-            AdjustAngleToPoint(lieu.pointDeReference);
-            PointOriente positionDuRobotApresDeplacement = position;
-            return lieu.IsAtTheRightAngle(positionDuRobotApresDeplacement);
-        }
-
-        public Boolean GoAndAdjustAngleToLieuCle(LieuCle lieu)
-        {
-            GoToLieuCle(lieu);
-            AdjustAngleToLieuCle(lieu);
-            PointOriente positionDuRobotApresDeplacement = position;
-            return lieu.IsAtTheRightPlaceAndAngle(positionDuRobotApresDeplacement);
-        }
 
         public OBSTACLE_DIRECTION GetDirection()
         {
             return this.direction;
         }
 
-        private void LaunchMovingStatusChangeEvent(bool isMoving)
+        private void LaunchMovingInstructionCompletedEvent()
         {
-            if (this.MovingStatusChangeEvent != null ){
-                this.MovingStatusChangeEvent(isMoving);
+            if (this.InstructionCompletedEvent != null ){
+                this.InstructionCompletedEvent();
             }
         }
     }

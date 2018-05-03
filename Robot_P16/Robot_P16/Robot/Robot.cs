@@ -160,12 +160,16 @@ namespace Robot_P16.Robot
         public void Start()
         {
             Debug.Print("Called robot.Start()");
+            
             //GestionnaireAction.startActions(this.modeOperatoire, this.typeRobot);
-            new Thread(() => GestionnaireAction.startActions(this.modeOperatoire, this.typeRobot)).Start();
 
-            Gadgeteer.Timer t = new Gadgeteer.Timer(300);
+
+            Gadgeteer.Timer t = new Gadgeteer.Timer(500);
             t.Tick += (piche) => Debug.Print("IsMoving : " + this.BASE_ROULANTE.kangaroo.isCurrentlyMoving());
             t.Start();
+
+            new Thread(() => GestionnaireAction.startActions(this.modeOperatoire, this.typeRobot)).Start();
+
         }
 
         public void loadComponents()

@@ -9,8 +9,40 @@ using Robot_P16.Robot.composants;
 
 namespace Robot_P16.Robot.composants.BaseRoulante
 {
-    
-        public enum mode
+
+
+    /*
+     * 
+
+IsMoving : False
+    #### Exception System.Exception - 0x00000000 (5) ####
+    #### Message: 
+    #### System.Convert::ToInt64 [IP: 00af] ####
+    #### System.Convert::ToInt32 [IP: 0011] ####
+    #### Robot_P16.Robot.composants.BaseRoulante.Kangaroo::getDataSinceLastReset [IP: 00fc] ####
+    #### Robot_P16.Robot.composants.BaseRoulante.Kangaroo::updatePosition [IP: 007a] ####
+    #### Robot_P16.Robot.composants.BaseRoulante.Kangaroo::allerEn [IP: 007a] ####
+    #### Robot_P16.Robot.composants.BaseRoulante.BaseRoulante::AvanceAndSleep [IP: 000d] ####
+    #### Robot_P16.Robot.composants.BaseRoulante.BaseRoulante::GoToOrientedPoint [IP: 0141] ####
+    #### Robot_P16.Robot.composants.BaseRoulante.BaseRoulante::GoToOrientedPoint [IP: 0143] ####
+    #### Robot_P16.Actions.ActionBaseRoulante::Execute [IP: 004b] ####
+    #### Robot_P16.Actions.Action::OnStatusChange [IP: 0020] ####
+    #### Robot_P16.Actions.ActionWait::Execute [IP: 000e] ####
+    #### Robot_P16.Actions.Action::OnStatusChange [IP: 0020] ####
+    #### Robot_P16.Actions.Action::set_Status [IP: 0010] ####
+    #### Robot_P16.Robot.composants.BaseRoulante.BaseRoulante::LaunchMovingStatusChangeEvent [IP: 0015] ####
+    #### Robot_P16.Robot.composants.BaseRoulante.BaseRoulante::GoToOrientedPoint [IP: 01df] ####
+    #### Robot_P16.Robot.composants.BaseRoulante.BaseRoulante::GoToOrientedPoint [IP: 0143] ####
+    #### Robot_P16.Actions.ActionBaseRoulante::Execute [IP: 004b] ####
+    #### Robot_P16.Actions.Action::OnStatusChange [IP: 0020] ####
+    #### Robot_P16.Actions.Action::set_Status [IP: 0010] ####
+    #### Robot_P16.Actions.ActionEnSerie::Execute [IP: 004b] ####
+    #### Robot_P16.Robot.Robot::<Start>b__1 [IP: 000b] ####
+A first chance exception of type 'System.Exception' occurred in mscorlib.dll
+An unhandled exception of type 'System.Exception' occurred in mscorlib.dll
+     * */
+
+    public enum mode
         {
             #region
             /*
@@ -44,7 +76,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
 
             public PointOriente getPosition()
             {
-                Informations.printInformations(Priority.LOW, "la position orientée a été récupérée");
+                Informations.printInformations(Priority.VERY_LOW, "la position orientée a été récupérée");
                 return position;
             }
 
@@ -177,25 +209,25 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                     case mode.turn:   
                         int angleDeplacement = 0;
                         double newTheta = position.theta;
-                        int errorCodeAngle=0;
+                        string errorCodeAngle=null;
                         errorCodeAngle = getDataSinceLastReset(mode.turn, ref angleDeplacement); 
-                        if(errorCodeAngle == 0){
+                        //if(errorCodeAngle == 0){
                             newTheta += angleDeplacement;
                             position = new PointOriente(position.x,position.y,newTheta);
-                        }
+                        //}
                         break;
                     case mode.drive:
                         int deplacement = 0;
                         double theta = position.theta;
                         double X=position.x;
                         double Y=position.y;
-                        int errorCode = getDataSinceLastReset(mode.drive, ref deplacement); 
-                        if(errorCode == 0){
+                        string errorCode = getDataSinceLastReset(mode.drive, ref deplacement); 
+                        //if(errorCode == null){
                             double angle = System.Math.PI * theta / 180.0;
                             X += deplacement * System.Math.Cos(angle);
                             Y += deplacement * System.Math.Sin(angle);
                             position = new PointOriente(X,Y,theta);
-                        }                           
+                        //}                           
                         break;
                 }
                 
@@ -265,13 +297,13 @@ namespace Robot_P16.Robot.composants.BaseRoulante
 
             //retourne un code erreur
             //0 pas d'erreur
-            private int getDataSinceLastReset(mode m, ref int deplacement)
+            private string getDataSinceLastReset(mode m, ref int deplacement)
             {
                 //Détermine la position actuel du robot
                 String commande, sPosition, sErreur;
                 byte[] reponse = new byte[100];
                 char[] tempo = new char[10];
-                int codeErreur = 0;
+                string codeErreur = null;
                 byte[] buffer = new byte[100];
 
                 if (m_port.IsOpen)
@@ -308,8 +340,8 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                     {
                         tempo[0] = (char)reponse[2];
                         tempo[1] = (char)reponse[3];
-                        sErreur = new string(tempo);
-                        codeErreur = Convert.ToInt32(sErreur, 16);
+                        codeErreur = new string(tempo);
+                        deplacement = 0;
                     }
                 }
                 return codeErreur;

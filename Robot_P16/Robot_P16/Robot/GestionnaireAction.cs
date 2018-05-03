@@ -82,14 +82,14 @@ namespace Robot_P16.Robot
         private static void loadActionPRCompete()
         {
             PointOriente pt1 = new PointOriente(0, 100, 50);
-            PointOriente pt2 = new PointOriente(100, 200, 50);
+            PointOriente pt2 = new PointOriente(0, 1000, 50);
             PointOriente pt3 = new PointOriente(100, 0, 50);
             PointOriente pt4 = new PointOriente(0, 0, 0);
 
             Action MOTHER_ACTION = new ActionBuilder("Action mère Test1").Add(
                     new ActionBuilder("Wait a bit...").BuildActionWait(5000)
                 ).Add(
-                    new Actions.ActionBaseRoulante("Point1 ", pt1)
+                    new Actions.ActionBaseRoulante("Point1 ",)
                 ).Add(
                     new ActionBuilder("Wait a bit...").BuildActionWait(5000)
                 )
