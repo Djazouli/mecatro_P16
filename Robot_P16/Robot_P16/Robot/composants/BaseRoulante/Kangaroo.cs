@@ -315,15 +315,17 @@ An unhandled exception of type 'System.Exception' occurred in mscorlib.dll
                 if (m_port.IsOpen)
                 {
                     buffer[0] = (byte)m;
-                    commande = BitConverter.ToChar(buffer, 0).ToString() + ",getp\r\n";
+                    commande = BitConverter.ToChar(buffer, 0).ToString() + ",getpi\r\n";
                     buffer = System.Text.Encoding.UTF8.GetBytes(commande);
                     int t = commande.Length;
                     m_port.Write(buffer, 0, commande.Length);
 
                     int i = 0;
+                    Informations.printInformations(Priority.LOW, "Bits recus depuis la Kangaroo");
                     do
                     {
                         reponse[i++] = (byte)m_port.ReadByte();
+                        Informations.printInformations(Priority.LOW, ((char)reponse[i-1]).ToString());
                     } while (reponse[i - 1] != '\n' && i < 99);
                     reponse[i] = (byte)'\0';
                     if (reponse[2] != 'E')
@@ -335,10 +337,10 @@ An unhandled exception of type 'System.Exception' occurred in mscorlib.dll
                         {
                         } while (reponse[taille++] != 0x00);
                         taille--;
-                        Informations.printInformations(Priority.LOW, "Bits recus depuis la Kangaroo");
+                        
                         for (i = 3; i < taille - 2; i++)
                         {
-                            Informations.printInformations(Priority.LOW, ((char)reponse[i]).ToString());
+                            
                             tempo[j++] = (char)reponse[i];
                         }
                         sPosition = new string(tempo);
@@ -385,7 +387,8 @@ An unhandled exception of type 'System.Exception' occurred in mscorlib.dll
                     buffer = System.Text.Encoding.UTF8.GetBytes(commande);
                     //Envoie de la commande sur la ligne TX
                     m_port.Write(buffer, 0, commande.Length);
-                }                
+                }
+                Thread.Sleep(2000); // C'est pour Update une fois que le robot a avancé un peu. 
                 updatePosition(mode.drive);
                 blockMoveCheck = false;
                 return retour;
