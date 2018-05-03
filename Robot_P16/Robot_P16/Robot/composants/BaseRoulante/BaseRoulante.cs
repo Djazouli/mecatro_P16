@@ -22,10 +22,10 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         public Kangaroo kangaroo;
         public event BaseRoulanteMovingStatusChange MovingStatusChangeEvent;
 
-        private OBSTACLE_DIRECTION direction;
+        public OBSTACLE_DIRECTION direction;
 
-        public int speedDrive = 100;// avance 10 cm par seconde
-        public int speedTurn = 300; //tourne 3 degrees par seconde
+        public int speedDrive = 200;// avance 20 cm par seconde
+        public int speedTurn = 50; //tourne 50 degrees par seconde
 
         int PARAMETER_FOR_XY = 1;//l'unite de la dist. = millimetre, on n'accepte QUE l'entier
         int PARAMETER_FOR_THETA = 100;//l'unite de l'angle = millidegree, on accepte l'entree de la forme X.XX degrees
@@ -75,6 +75,9 @@ namespace Robot_P16.Robot.composants.BaseRoulante
 
         public Boolean Stop()
         {
+            Informations.printInformations(Priority.MEDIUM, "BaseRoulante - Stopping Movement");
+            kangaroo.powerdown(mode.drive);
+            LaunchMovingStatusChangeEvent(false);
             return true; // TODO
         }
 
@@ -131,9 +134,10 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             double deltaX, deltaY, deltaTheta, alpha;
             deltaX = pt.x - position.x;
             deltaY = pt.y - position.y;
+            Debug.Print("Going to " + pt.x.ToString() + "," + pt.y.ToString() + "\r\n");
             if (deltaX > 0)
             {
-                deltaTheta = System.Math.Atan(deltaY / deltaX);
+                deltaTheta = 180/System.Math.PI * System.Math.Atan(deltaY / deltaX);
                 if (deltaTheta < 0)
                 {
                     deltaTheta = 360 + deltaTheta;
@@ -141,7 +145,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             }
             else if (deltaX < 0)
             {
-                deltaTheta = 180 + System.Math.Atan(deltaY / deltaX);
+                deltaTheta = 180 + 180 / System.Math.PI * System.Math.Atan(deltaY / deltaX);
             }
             else
             {
@@ -173,12 +177,12 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 deltaTheta = System.Math.Atan(deltaY / deltaX);
                 if (deltaTheta < 0)
                 {
-                    deltaTheta = 360 + deltaTheta;
+                    deltaTheta = 360 + 180 / System.Math.PI * deltaTheta;
                 }
             }
             else if (deltaX < 0)
             {
-                deltaTheta = 180 + System.Math.Atan(deltaY / deltaX);
+                deltaTheta = 180 + 180 / System.Math.PI * System.Math.Atan(deltaY / deltaX);
             }
             else
             {
@@ -203,14 +207,16 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             if (forceDir == OBSTACLE_DIRECTION.ARRIERE)
             {
                 Debug.Print("Arriere");
-                if(position.theta < deltaTheta || 360 - position.theta > deltaTheta){//turn antitrigo
-                       RotateAndSleep(-(int)(position.theta + 180 - deltaTheta));
+                if(position.theta - deltaTheta > 180){//turn antitrigo
+                       RotateAndSleep(-(int)(position.theta - 180 - deltaTheta));
                 }
                 else{
                         RotateAndSleep((int) (180-position.theta+deltaTheta));
                     }
+            AvanceAndSleep(-(int)System.Math.Sqrt(deltaX * deltaX + deltaY * deltaY));
             }
             position = new PointOriente(pt.x, pt.y, deltaTheta);
+            //Thread.Sleep(20000);
             LaunchMovingStatusChangeEvent(false);
             return false;
         }
