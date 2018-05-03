@@ -39,6 +39,9 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             // TO DO : sauvegarder coordonnées : position & angle 
             // l'info des positions sera mieux dans BaseRoulante au lieu dans Kangaroo ???
             PointOriente position = new PointOriente(0,0,0);
+
+            private mode current_mode = mode.drive;
+
             public PointOriente getPosition()
             {
                 Informations.printInformations(Priority.LOW, "la position orientée a été récupérée");
@@ -49,7 +52,66 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             {
                 position = pt;
                 Informations.printInformations(Priority.LOW, "la position a été redéfinie");
-            }            
+            }
+
+            public bool isCurrentlyMoving()
+            {
+                /*
+                 * 
+                 *  Dans baseRoulante : check des IR pour interromptre mouvement : PAS DANS ACTION_BASEROULANTE
+                 *  
+                 *  Dans baseRoulante : trigger d'un event "Done Doing movement" => pour le point de vue extérieur
+                 *  
+                 * 
+                 * */
+                String commande, sPosition, sErreur;
+                byte[] reponse = new byte[100];
+                char[] tempo = new char[10];
+                int codeErreur = 0;
+                byte[] buffer = new byte[100];
+
+                if (m_port.IsOpen)
+                {
+                    buffer[0] = (byte)this.current_mode;
+                    commande = BitConverter.ToChar(buffer, 0).ToString() + ",getp\r\n";
+                    buffer = System.Text.Encoding.UTF8.GetBytes(commande);
+                    int t = commande.Length;
+                    m_port.Write(buffer, 0, commande.Length);
+
+                    int i = 0;
+                    do
+                    {
+                        reponse[i++] = (byte)m_port.ReadByte();
+                    } while (reponse[i - 1] != '\n' && i < 99);
+                    reponse[i] = (byte)'\0';
+                    if (reponse[2] != 'E') // OK
+                    {
+                        Informations.printInformations(Priority.HIGH, Convert.ToChar(reponse[2]).ToString());
+
+                        char toChar = Convert.ToChar(reponse[2]);
+                        if (toChar.ToUpper() == toChar)
+                        {
+                            return false;
+                        }
+                        else
+                        {
+                            return true;
+                        }
+                        
+                    }
+                    else
+                    {
+                        tempo[0] = (char)reponse[2];
+                        tempo[1] = (char)reponse[3];
+                        sErreur = new string(tempo);
+                        codeErreur = Convert.ToInt32(sErreur, 16);
+
+                        Informations.printInformations(Priority.HIGH, "Kangaroo - isCurrentlyMoving - Error code : " + codeErreur);
+                    }
+                }
+                return false;
+
+            }
 
             public Kangaroo(int socket) : base(socket)
             {
@@ -255,6 +317,9 @@ namespace Robot_P16.Robot.composants.BaseRoulante
 
             public bool allerEn(int distance, int speed)//, unite u
             {
+
+                current_mode = mode.drive;
+
                 //Déplacer le robot ?une distance et une vitesse donnée
                 String commande;
                 bool retour = false;
@@ -284,6 +349,8 @@ namespace Robot_P16.Robot.composants.BaseRoulante
 
             public bool tourner(int angle, int speed)
             {
+                current_mode = mode.turn;
+
                 //Même principe que AllerEn sans la vitesse
                 String commande;
                 bool retour = false;
@@ -309,7 +376,20 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 return retour;
             }
 
-            public bool powerdown(mode m)
+
+            public bool stop()
+            {
+                Informations.printInformations(Priority.MEDIUM, "Kangaro - Called stop() method. Calling powerdowns D/T now;");
+                this.updatePosition(this.current_mode);
+
+                powerdown(mode.drive);
+                powerdown(mode.turn);
+
+                this.init(); // Resetting increment, position has been updated
+                return true;
+            }
+
+            private bool powerdown(mode m)
             {
                 //Envoie de la commande pour arrêter les moteurs en mode drive ou Turn
                 String commande;
