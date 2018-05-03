@@ -56,17 +56,139 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             // Movement completed
             Robot.robot.OBSTACLE_MANAGER.ObstacleChangeEvent -= this.ObstacleListener;
         }
+        public int getSpeedDrive()
+        {
+            return Robot.robot.BASE_ROULANTE.speedDrive;
+        }
+
+        public int getSpeedTurn()
+        {
+            return Robot.robot.BASE_ROULANTE.speedTurn;
+        }
+        public void Rotate(int angle)
+        {
+            Robot.robot.BASE_ROULANTE.kangaroo.tourner(angle, getSpeedTurn());
+        }
+
+        public void Avance(int distance)
+        {
+            Robot.robot.BASE_ROULANTE.kangaroo.allerEn(distance, getSpeedDrive());
+        }
 
         public Boolean GoToOrientedPoint(PointOriente pt, OBSTACLE_DIRECTION forceDir) // forceDir = AVANT or ARRIERE
         {
-            Robot.robot.BASE_ROULANTE.MoveCompleted.WaitOne();// waiting for the move to be completed
-            if (this.isPaused) return false; // MUST BE CHECKED AFTER EACH WaitOne!!!!
+
             // AdjustToAngle == True must be handled here
+            double angle=0;
+            double deltaX, deltaY, deltaTheta, alpha;
+            deltaX = pt.x - this.GetPosition().x;
+            deltaY = pt.y - this.GetPosition().y;
+            deltaTheta = 180 / System.Math.PI * System.Math.Atan2(deltaY, deltaX);
+            if (deltaY == 0)
+            {
+                if (deltaX > 0)
+                {
+                    deltaTheta = 0;
+                }
+                else
+                {
+                    deltaTheta = 180;
+                }
+            }
+            if (deltaTheta < 0)
+            {
+                deltaTheta = 360 + deltaTheta;
+            }
+            // We now have the good theta (between 0 and 360)
+            if (forceDir == OBSTACLE_DIRECTION.AVANT)
+            {
+                Debug.Print("Going en avant");
+                if (this.GetPosition().theta - deltaTheta > 180) // That means we have to turn atrigo
+                {
+                    Rotate((int)(360 - this.GetPosition().theta - deltaTheta));
+                    Robot.robot.BASE_ROULANTE.MoveCompleted.WaitOne();// waiting for the move to be completed
+                    if (this.isPaused) return false; // MUST BE CHECKED AFTER EACH WaitOne!!!!
+                }
+                else
+                {
+                    Rotate((int)(-this.GetPosition().theta + deltaTheta));
+                    Robot.robot.BASE_ROULANTE.MoveCompleted.WaitOne();// waiting for the move to be completed
+                    if (this.isPaused) return false; // MUST BE CHECKED AFTER EACH WaitOne!!!!
+                }
+                Avance((int)System.Math.Sqrt(deltaX * deltaX + deltaY * deltaY));
+                Robot.robot.BASE_ROULANTE.MoveCompleted.WaitOne();// waiting for the move to be completed
+                if (this.isPaused) return false; // MUST BE CHECKED AFTER EACH WaitOne!!!!
+                //position = new PointOriente(pt.x, pt.y, deltaTheta);
+                angle = deltaTheta;
+            }
+            if (forceDir == OBSTACLE_DIRECTION.ARRIERE)
+            {
+                Debug.Print("Going en arriere");
+                if (this.GetPosition().theta - deltaTheta > 180)
+                {//turn antitrigo
+                    Rotate((int)convertTo180(-this.GetPosition().theta + 180 - deltaTheta));
+                    Robot.robot.BASE_ROULANTE.MoveCompleted.WaitOne();// waiting for the move to be completed
+                    if (this.isPaused) return false; // MUST BE CHECKED AFTER EACH WaitOne!!!!
+                }
+                else
+                {
+                    Rotate((int)convertTo180(180 - this.GetPosition().theta + deltaTheta));
+                    Robot.robot.BASE_ROULANTE.MoveCompleted.WaitOne();// waiting for the move to be completed
+                    if (this.isPaused) return false; // MUST BE CHECKED AFTER EACH WaitOne!!!!
+                }
+                Avance(-(int)System.Math.Sqrt(deltaX * deltaX + deltaY * deltaY));
+                //position = new PointOriente(pt.x, pt.y, 180+deltaTheta%360); // check the angle
+                Robot.robot.BASE_ROULANTE.MoveCompleted.WaitOne();// waiting for the move to be completed
+                if (this.isPaused) return false; // MUST BE CHECKED AFTER EACH WaitOne!!!!
+                angle = (180 + deltaTheta) % 360;
+            }
+            if (adjustToAngle)
+            {
+                Informations.printInformations(Priority.LOW, "Starting to adjust angle");
+                Rotate((int)(convertTo180(-angle + pt.theta)));
+                Robot.robot.BASE_ROULANTE.MoveCompleted.WaitOne();// waiting for the move to be completed
+                if (this.isPaused) return false; // MUST BE CHECKED AFTER EACH WaitOne!!!!
+            }
+            Robot.robot.BASE_ROULANTE.LaunchMovingInstructionCompletedEvent();
             return true;
         }
         public Boolean GoToOrientedPoint(PointOriente pt) // Automatically find direction
         {
-            return true;
+            double angle;
+            double deltaX, deltaY, deltaTheta;
+            deltaX = pt.x - this.GetPosition().x;
+            deltaY = pt.y - this.GetPosition().y;
+
+            Debug.Print("Going to " + pt.x.ToString() + "," + pt.y.ToString() + "\r\n");
+            if (deltaX > 0)
+            {
+                deltaTheta = 180 / System.Math.PI * System.Math.Atan(deltaY / deltaX);
+                if (deltaTheta < 0)
+                {
+                    deltaTheta = 360 + deltaTheta;
+                }
+            }
+            else if (deltaX < 0)
+            {
+                deltaTheta = 180 + 180 / System.Math.PI * System.Math.Atan(deltaY / deltaX);
+            }
+            else
+            {
+                if (deltaY > 0)
+                {
+                    deltaTheta = 90;
+                }
+                else deltaTheta = 270;
+            }
+            angle = this.GetPosition().theta - deltaTheta;
+            if (angle > 270 || angle < 90)
+            {
+                return this.GoToOrientedPoint(pt, OBSTACLE_DIRECTION.AVANT);
+            }
+            else
+            {
+                return this.GoToOrientedPoint(pt, OBSTACLE_DIRECTION.ARRIERE);
+            }
         }
 
         public void Pause()
@@ -102,6 +224,21 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 Informations.printInformations(Priority.MEDIUM, "Mouvement - ObstacleListener - obstacle in other direction : ignored. ");
             }
         }
+        public PointOriente GetPosition()
+        {
+            return Robot.robot.BASE_ROULANTE.GetPosition();
+        }
+        public double convertTo180(double angle)
+        {
+            if (angle < 180)
+            {
+                return angle;
+            }
+            else
+            {
+                return (angle - 360);
+            }
 
+        }
     }
 }
