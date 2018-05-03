@@ -235,6 +235,7 @@ An unhandled exception of type 'System.Exception' occurred in mscorlib.dll
                 }
                 
                 Informations.printInformations(Priority.LOW, "l'information sur la position a été mise à jour");
+                Informations.printInformations(Priority.LOW,"Nouvelle position : " + position.x.ToString() + "," + position.y.ToString() + "," + position.theta.ToString());
             }
 
             public bool start(mode m)
@@ -334,11 +335,14 @@ An unhandled exception of type 'System.Exception' occurred in mscorlib.dll
                         {
                         } while (reponse[taille++] != 0x00);
                         taille--;
+                        Informations.printInformations(Priority.LOW, "Bits recus depuis la Kangaroo");
                         for (i = 3; i < taille - 2; i++)
                         {
+                            Informations.printInformations(Priority.LOW, ((char)reponse[i]).ToString());
                             tempo[j++] = (char)reponse[i];
                         }
                         sPosition = new string(tempo);
+                        Informations.printInformations(Priority.LOW, "sPosition = " + sPosition);
                         deplacement = Convert.ToInt32(sPosition);
                     }
                     else
@@ -347,6 +351,7 @@ An unhandled exception of type 'System.Exception' occurred in mscorlib.dll
                         tempo[1] = (char)reponse[3];
                         codeErreur = new string(tempo);
                         deplacement = 0;
+                        Informations.printInformations(Priority.MEDIUM,"Il y a eu une erreur dans la reponse de la Kangaroo");
                     }
                 }
                 blockMoveCheck = false;
