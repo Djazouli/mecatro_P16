@@ -41,7 +41,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         {
             this.isPaused = false;
             // Launch command
-
+            Informations.printInformations(Priority.MEDIUM, "Mouvement - Start() called");
             Robot.robot.OBSTACLE_MANAGER.ObstacleChangeEvent += this.ObstacleListener;
 
             if (this.isDirectionForced)
@@ -52,9 +52,10 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             
             // waiting for the move to be completed
             if (this.isPaused) return; // MUST BE CHECKED AFTER EACH WaitOne!!!!
-
+            Informations.printInformations(Priority.MEDIUM, "Mouvement completed, launching completed event");
             // Movement completed
             Robot.robot.OBSTACLE_MANAGER.ObstacleChangeEvent -= this.ObstacleListener;
+            Robot.robot.BASE_ROULANTE.LaunchMovingInstructionCompletedEvent();
         }
         public int getSpeedDrive()
         {
@@ -149,7 +150,6 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 Robot.robot.BASE_ROULANTE.MoveCompleted.WaitOne();// waiting for the move to be completed
                 if (this.isPaused) return false; // MUST BE CHECKED AFTER EACH WaitOne!!!!
             }
-            Robot.robot.BASE_ROULANTE.LaunchMovingInstructionCompletedEvent();
             return true;
         }
         public Boolean GoToOrientedPoint(PointOriente pt) // Automatically find direction

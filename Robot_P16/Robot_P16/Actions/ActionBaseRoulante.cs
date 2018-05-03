@@ -19,8 +19,14 @@ namespace Robot_P16.Actions
         public override void Execute()
         {
             Informations.printInformations(Priority.MEDIUM, "ActionBaseRoulante - execute called. Desc : "+this.description);
+
+            Robot.Robot.robot.BASE_ROULANTE.InstructionCompletedEvent += () =>
+            {
+
+                Informations.printInformations(Priority.MEDIUM, "ActionBaseRoulante : completed, status = success");
+                this.Status = ActionStatus.SUCCESS;
+            };
             this.mouvement.Start();
-            Robot.Robot.robot.BASE_ROULANTE.InstructionCompletedEvent += () => this.Status = ActionStatus.SUCCESS;
         }
 
         protected override bool PostStatusChangeCheck(ActionStatus previousStatus)

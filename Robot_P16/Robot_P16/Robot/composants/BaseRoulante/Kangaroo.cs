@@ -68,6 +68,8 @@ An unhandled exception of type 'System.Exception' occurred in mscorlib.dll
         {
             SerialPort m_port;
 
+            public bool blockMoveCheck = false;
+
             // TO DO : sauvegarder coordonnées : position & angle 
             // l'info des positions sera mieux dans BaseRoulante au lieu dans Kangaroo ???
             PointOriente position = new PointOriente(0,0,0);
@@ -118,7 +120,7 @@ An unhandled exception of type 'System.Exception' occurred in mscorlib.dll
                     reponse[i] = (byte)'\0';
                     if (reponse[2] != 'E') // OK
                     {
-                        Informations.printInformations(Priority.HIGH, Convert.ToChar(reponse[2]).ToString());
+                        //Informations.printInformations(Priority.HIGH, Convert.ToChar(reponse[2]).ToString());
 
                         char toChar = Convert.ToChar(reponse[2]);
                         if (toChar.ToUpper() == toChar)
@@ -160,6 +162,7 @@ An unhandled exception of type 'System.Exception' occurred in mscorlib.dll
                 m_port.ReadTimeout = 500;
                 m_port.WriteTimeout = 500;
                 m_port.Open();
+                init();
             }
 
             //on met a jour
@@ -248,6 +251,7 @@ An unhandled exception of type 'System.Exception' occurred in mscorlib.dll
                 {
                     m_port.Write(buffer, 0, commande.Length);
                     retour = true;
+                    Informations.printInformations(Priority.LOW, "Init written : " + commande);
                 }
                 return retour;
             }
@@ -299,6 +303,7 @@ An unhandled exception of type 'System.Exception' occurred in mscorlib.dll
             //0 pas d'erreur
             private string getDataSinceLastReset(mode m, ref int deplacement)
             {
+                blockMoveCheck = true;
                 //Détermine la position actuel du robot
                 String commande, sPosition, sErreur;
                 byte[] reponse = new byte[100];
@@ -344,12 +349,13 @@ An unhandled exception of type 'System.Exception' occurred in mscorlib.dll
                         deplacement = 0;
                     }
                 }
+                blockMoveCheck = false;
                 return codeErreur;
             }
 
             public bool allerEn(int distance, int speed)//, unite u
             {
-
+                blockMoveCheck = true;
                 current_mode = mode.drive;
 
                 //Déplacer le robot ?une distance et une vitesse donnée
@@ -376,11 +382,14 @@ An unhandled exception of type 'System.Exception' occurred in mscorlib.dll
                     m_port.Write(buffer, 0, commande.Length);
                 }                
                 updatePosition(mode.drive);
+                blockMoveCheck = false;
                 return retour;
             }
 
             public bool tourner(int angle, int speed)
             {
+                if (angle == 0) return true;
+                blockMoveCheck = true;
                 current_mode = mode.turn;
 
                 //Même principe que AllerEn sans la vitesse
@@ -405,12 +414,14 @@ An unhandled exception of type 'System.Exception' occurred in mscorlib.dll
                     retour = true;
                 }
                 updatePosition(mode.turn);
+                blockMoveCheck = false;
                 return retour;
             }
 
 
             public bool stop()
             {
+                blockMoveCheck = true;
                 Informations.printInformations(Priority.MEDIUM, "Kangaro - Called stop() method. Calling powerdowns D/T now;");
                 this.updatePosition(this.current_mode);
 
@@ -418,11 +429,13 @@ An unhandled exception of type 'System.Exception' occurred in mscorlib.dll
                 powerdown(mode.turn);
 
                 this.init(); // Resetting increment, position has been updated
+                blockMoveCheck = false;
                 return true;
             }
 
             private bool powerdown(mode m)
             {
+                blockMoveCheck = true;
                 //Envoie de la commande pour arrêter les moteurs en mode drive ou Turn
                 String commande;
                 bool retour = false;
@@ -435,6 +448,7 @@ An unhandled exception of type 'System.Exception' occurred in mscorlib.dll
                     m_port.Write(buffer, 0, commande.Length);
                     retour = true;
                 }
+                blockMoveCheck = false;
                 return retour;
 
             }

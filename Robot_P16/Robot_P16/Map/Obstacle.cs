@@ -7,7 +7,7 @@ namespace Robot_P16.Map
     public class MapInformation {
         public static bool isObstacleDetecteurOn()
         {
-            return true;
+            return false;
         }
     }
 

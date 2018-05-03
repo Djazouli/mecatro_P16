@@ -32,7 +32,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         public int speedDrive = 25;// avance 10 cm par seconde
         public int speedTurn = 70; //tourne 30 degrees par seconde
 
-        private static int REFRESH_RATE_EVENT = 200;
+        private static int REFRESH_RATE_EVENT = 500;
 
 
         int PARAMETER_FOR_XY = 1;//l'unite de la dist. = millimetre, on n'accepte QUE l'entier
@@ -43,11 +43,16 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         {
             this.kangaroo = new Kangaroo(socket);
 
-            new Thread(() => {
+            new Thread(() =>
+            {
+                Thread.Sleep(1000);
                 while (true)
                 {
                     Thread.Sleep(REFRESH_RATE_EVENT);
-                    checkIsMoving();
+                    if (!this.kangaroo.blockMoveCheck)
+                    {
+                       checkIsMoving();
+                    }
                 }
             }).Start();
 
@@ -61,6 +66,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 this.lastMovingStatus = currentlyMoving;
                 if (currentlyMoving == false)
                 {
+                    Informations.printInformations(Priority.MEDIUM, "CheckIsmoving : calls moveCompleted");
                     MoveCompleted.Set();
                 }
             }
@@ -79,8 +85,14 @@ namespace Robot_P16.Robot.composants.BaseRoulante
 
         public void LaunchMovingInstructionCompletedEvent()
         {
+            Informations.printInformations(Priority.MEDIUM, "BaseRoulante : LaunchMovingInstructionCompletedEvent called");
             if (this.InstructionCompletedEvent != null ){
+                Informations.printInformations(Priority.MEDIUM, "BaseRoulante - LaunchMovingInstructionCompletedEvent : listeners found !!!");
                 this.InstructionCompletedEvent();
+            }
+            else
+            {
+                Informations.printInformations(Priority.MEDIUM, "BaseRoulante - LaunchMovingInstructionCompletedEvent : no listeners found");
             }
         }
     }

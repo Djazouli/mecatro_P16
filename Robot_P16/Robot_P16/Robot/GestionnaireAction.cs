@@ -26,9 +26,9 @@ namespace Robot_P16.Robot
             ACTION_PER_TYPE.Clear();
             //loadActionHomologation();
             loadActionTest1();
-            loadActionPRCompete();
+            //loadActionPRCompete();
 
-            loadActionPRServos();
+            //loadActionPRServos();
 
             //loadActionTestGR();
             Informations.printInformations(Priority.HIGH, "actions chargees");
@@ -86,7 +86,7 @@ namespace Robot_P16.Robot
             PointOriente pt3 = new PointOriente(100, 0, 50);
             PointOriente pt4 = new PointOriente(0, 0, 0);
 
-            Action MOTHER_ACTION = new ActionBuilder("Action mère Test1").Add(
+            /*Action MOTHER_ACTION = new ActionBuilder("Action mère Test1").Add(
                     new ActionBuilder("Wait a bit...").BuildActionWait(5000)
                 ).Add(
                     new Actions.ActionBaseRoulante("Point1 ")
@@ -111,7 +111,7 @@ namespace Robot_P16.Robot
                 .BuildActionEnSerie(); // Envois infinis
 
             setMotherAction(ModeOperatoire.TEST1,TypeRobot.PETIT_ROBOT, MOTHER_ACTION);
-            setMotherAction(ModeOperatoire.TEST1, TypeRobot.GRAND_ROBOT, MOTHER_ACTION);
+            setMotherAction(ModeOperatoire.TEST1, TypeRobot.GRAND_ROBOT, MOTHER_ACTION);*/
         }
 
 
@@ -226,22 +226,22 @@ namespace Robot_P16.Robot
 
             setMotherAction(ModeOperatoire.TEST1, MOTHER_ACTION);*/
 
-            PointOriente pt1 = new PointOriente(0, 1000, 50);
-            PointOriente pt2 = new PointOriente(0, 200, 50);
-            PointOriente pt3 = new PointOriente(0, 300, 50);
+            PointOriente pt1 = new PointOriente(500, 10, 50);
+            PointOriente pt2 = new PointOriente(250, 250, 50);
+            PointOriente pt3 = new PointOriente(0, 0, 50);
 
             Action MOTHER_ACTION = new ActionBuilder("Action mère Test1").Add(
-                    new Actions.ActionBaseRoulante("Point1 ",pt1)
+                    new ActionBuilder("Pt1").BuildActionBaseRoulante_GOTO_ONLY(pt1)
                 ).Add(
                     new ActionBuilder("Wait a bit...").BuildActionWait(2000)
                 )
                 .Add(
-                   new Actions.ActionBaseRoulante("Point2 ", pt2)
+                   new ActionBuilder("Pt2").BuildActionBaseRoulante_GOTO_ONLY(pt2)
                 ).Add(
                     new ActionBuilder("Wait a bit...").BuildActionWait(2000)
                 )
                 .Add(
-                   new Actions.ActionBaseRoulante("Point3 ", pt3)
+                   new ActionBuilder("Pt3").BuildActionBaseRoulante_GOTO_ONLY(pt3)
                 )
                 .BuildActionEnSerieRepeated(-1); // Envois infinis
 
