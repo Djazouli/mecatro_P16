@@ -69,5 +69,10 @@ namespace Robot_P16.Map
             Robot.Informations.printInformations(Robot.Priority.LOW, " Récupération du hascode du point orienté (" + abs + "," + ord + "," + theta + ")");
             return (int)x * (int)y;
         }
+
+        public override string ToString()
+        {
+            return "PointOriente : X="+this.x+"; Y="+this.y+"; theta="+this.theta;
+        }
     }
 }

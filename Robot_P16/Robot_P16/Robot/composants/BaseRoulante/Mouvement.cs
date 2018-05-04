@@ -71,12 +71,12 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         }
         public void Rotate(int angle)
         {
-            Robot.robot.BASE_ROULANTE.kangaroo.tourner(angle, getSpeedTurn());
+            Robot.robot.BASE_ROULANTE.kangaroo.rotate(angle, getSpeedTurn());
         }
 
         public void Avance(int distance)
         {
-            Robot.robot.BASE_ROULANTE.kangaroo.allerEn(distance, getSpeedDrive());
+            Robot.robot.BASE_ROULANTE.kangaroo.drive(distance, getSpeedDrive());
         }
 
         public Boolean GoToOrientedPoint(PointOriente pt, OBSTACLE_DIRECTION forceDir) // forceDir = AVANT or ARRIERE
@@ -201,8 +201,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         public void Pause()
         {
             this.isPaused = true;
-            Robot.robot.BASE_ROULANTE.kangaroo.stop(); // This updates position automatically
-            //Robot.robot.BASE_ROULANTE.MoveCompleted.Set();
+            Robot.robot.BASE_ROULANTE.kangaroo.stop();
         }
 
         public void ObstacleListener(OBSTACLE_DIRECTION direction, bool isThereAnObstacle)

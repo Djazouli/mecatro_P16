@@ -16,9 +16,11 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         private float m_nombreLigneDrive;       // Nombre de ligne pour 1 mm
         private float m_nombreLigneRotation;    // Nombre de ligne pour 1 mm*/
         public AutoResetEvent MoveCompleted = new AutoResetEvent(false);
+        public bool blockRead = false;
+        public AutoResetEvent UnblockRead = new AutoResetEvent(false);
         PointOriente position = new PointOriente(0, 0, 0);
 
-        string currentMode = "D";
+        string currentMode = null;
 
         public Kangaroo(int socket) : base(socket)
         {
@@ -33,6 +35,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             m_portCOM.Open();
             
             Init();
+            Thread.Sleep(100);
 
             /*m_tailleRoues = 0;
             m_nombreLigneDrive = 0;
@@ -82,6 +85,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             if (this.currentMode == null) return;
             string feedback = sendAndReceiveUpdate(this.currentMode);
             Informations.printInformations(Priority.VERY_LOW, "Kangaroo - CheckMovingStatus - feedback : " + feedback);
+            if (feedback == null || feedback.Length < 4) return;
             char upperCased = feedback[2].ToUpper();
             if (upperCased == feedback[2])
             {
@@ -91,6 +95,8 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 this.currentMode = null;
                 this.MoveCompleted.Set();
             }
+
+            Informations.printInformations(Priority.MEDIUM, "Current position : " + this.PositionFromFeedback(feedback));
         }
 
         public PointOriente GetDynamicPosition()
@@ -102,12 +108,14 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         private PointOriente PositionFromFeedback(string feedback)
         {
 
-            Informations.printInformations(Priority.VERY_LOW, "Kangaroo - PositionFromFeedback - mode : " + this.currentMode + "; feedback : " + feedback);
+            Informations.printInformations(Priority.MEDIUM, "Kangaroo - PositionFromFeedback - mode : " + this.currentMode + "; feedback : " + feedback);
             //T,P100
+            if (this.currentMode == null || feedback == null || feedback.Length < 4) return this.position;
             char status = feedback[2];
             Debug.Print("Status : " + status);
-            Debug.Print("Deplacement read : " + feedback.Substring(3));
-            double deplacement = Int32.Parse(feedback.Substring(3));
+            string sub_str = feedback.Substring(3, feedback.Length - 3);
+            Debug.Print("Deplacement read : " + sub_str);
+            double deplacement = Int64.Parse(sub_str);
             if (this.currentMode == "D")
             {
                 double angle = System.Math.PI * position.theta / 180.0;
@@ -128,15 +136,35 @@ namespace Robot_P16.Robot.composants.BaseRoulante
 
         private string sendAndReceiveUpdate(string prefix)
         {
+            /*while (blockRead)
+            {
+                UnblockRead.WaitOne();
+            }*/
+            blockRead = true;
             string commande = prefix + ",getpi\r\n";
             EnvoyerCommande(commande);
 
-            Thread.Sleep(10);
+            Thread.Sleep(100);
             byte[] bytesRead = new byte[m_portCOM.BytesToRead];
             m_portCOM.Read(bytesRead, 0, m_portCOM.BytesToRead);
-            char[] feedback_chars = System.Text.Encoding.UTF8.GetChars(bytesRead);
-            return new string(feedback_chars);
 
+            blockRead = false;
+            UnblockRead.Set();
+
+            char[] feedback_chars = System.Text.Encoding.UTF8.GetChars(bytesRead);
+
+            foreach (char k in feedback_chars) {
+                Debug.Print(k.ToString());
+            }
+            
+            string feedback = new string(feedback_chars);
+            if (feedback != null && feedback.Length >= 2) {
+                //if(feedback.Substring(feedback.Length - 4) == "\r\n") {
+                    feedback = feedback.Substring(0, feedback.Length - 2);
+                //}
+
+            }
+            return feedback;
         }
 
         public bool drive(int distance, int vitesse)
@@ -149,6 +177,8 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             if (!EnvoyerCommande(commande)) return false;
             Informations.printInformations(Priority.MEDIUM, "Kangaroo - Drive : sent command, waiting for move completion");
             MoveCompleted.WaitOne();
+            currentMode = null;
+            Thread.Sleep(100);
             return true;
         }
 
@@ -162,6 +192,8 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             if (!EnvoyerCommande(commande)) return false;
             Informations.printInformations(Priority.MEDIUM, "Kangaroo - Turn : sent command, waiting for move completion");
             MoveCompleted.WaitOne();
+            currentMode = null;
+            Thread.Sleep(100);
             return true;
         }
 
