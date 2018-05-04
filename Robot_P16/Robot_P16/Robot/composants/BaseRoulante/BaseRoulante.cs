@@ -24,8 +24,6 @@ namespace Robot_P16.Robot.composants.BaseRoulante
 
         public event BaseRoulanteInstructionCompleted InstructionCompletedEvent;
 
-        public AutoResetEvent MoveCompleted = new AutoResetEvent(false);
-        private bool lastMovingStatus = false;
 
         public OBSTACLE_DIRECTION direction = OBSTACLE_DIRECTION.AVANT;
 
@@ -43,7 +41,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         {
             this.kangaroo = new Kangaroo(socket);
 
-            new Thread(() =>
+            /*new Thread(() =>
             {
                 Thread.Sleep(1000);
                 while (true)
@@ -54,22 +52,8 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                        checkIsMoving();
                     }
                 }
-            }).Start();
+            }).Start();*/
 
-        }
-
-        public void checkIsMoving()
-        {
-            bool currentlyMoving = this.kangaroo.isCurrentlyMoving();
-            if (currentlyMoving != this.lastMovingStatus)
-            {
-                this.lastMovingStatus = currentlyMoving;
-                if (currentlyMoving == false)
-                {
-                    Informations.printInformations(Priority.MEDIUM, "CheckIsmoving : calls moveCompleted");
-                    MoveCompleted.Set();
-                }
-            }
         }
 
         public PointOriente GetPosition()

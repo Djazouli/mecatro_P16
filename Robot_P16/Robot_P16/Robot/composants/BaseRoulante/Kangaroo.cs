@@ -66,15 +66,41 @@ An unhandled exception of type 'System.Exception' occurred in mscorlib.dll
 
         public class Kangaroo : Composant
         {
+            public AutoResetEvent MoveCompleted = new AutoResetEvent(false);
             SerialPort m_port;
+            public GT.Timer timerCheckMovingStatus = new GT.Timer(300);
 
             public bool blockMoveCheck = false;
+
+            private bool lastMovingStatus = false;
 
             // TO DO : sauvegarder coordonnées : position & angle 
             // l'info des positions sera mieux dans BaseRoulante au lieu dans Kangaroo ???
             PointOriente position = new PointOriente(0,0,0);
 
             private mode current_mode = mode.drive;
+
+
+            public Kangaroo(int socket)
+                : base(socket)
+            {
+                /*
+                 * Instanciation de la Kangaroo sur le socket de la Spider donn?en paramètre
+                 * Utilit?de Read et Write TimeOut ?déterminer
+                */
+                string COMPort = GT.Socket.GetSocket(socket, true, null, null).SerialPortName;
+
+                Debug.Print("Tring to open serial port on COMPORt :" + COMPort);
+                m_port = new SerialPort(COMPort, 9600, Parity.None, socket, StopBits.One);
+                Debug.Print("Opening OK !");
+
+                m_port.ReadTimeout = 500;
+                m_port.WriteTimeout = 500;
+                m_port.Open();
+                init();
+
+                timerCheckMovingStatus.Tick += (t) => checkIsMoving();
+            }
 
             public PointOriente getPosition()
             {
@@ -86,6 +112,21 @@ An unhandled exception of type 'System.Exception' occurred in mscorlib.dll
             {
                 position = pt;
                 Informations.printInformations(Priority.LOW, "la position a été redéfinie");
+            }
+
+
+            public void checkIsMoving()
+            {
+                bool currentlyMoving = isCurrentlyMoving();
+                if (currentlyMoving != this.lastMovingStatus)
+                {
+                    this.lastMovingStatus = currentlyMoving;
+                    if (currentlyMoving == false)
+                    {
+                        Informations.printInformations(Priority.MEDIUM, "CheckIsmoving : calls moveCompleted");
+                        MoveCompleted.Set();
+                    }
+                }
             }
 
             public bool isCurrentlyMoving()
@@ -147,23 +188,6 @@ An unhandled exception of type 'System.Exception' occurred in mscorlib.dll
 
             }
 
-            public Kangaroo(int socket) : base(socket)
-            {
-                /*
-                 * Instanciation de la Kangaroo sur le socket de la Spider donn?en paramètre
-                 * Utilit?de Read et Write TimeOut ?déterminer
-                */
-                string COMPort = GT.Socket.GetSocket(socket, true, null, null).SerialPortName;
-
-                Debug.Print("Tring to open serial port on COMPORt :" + COMPort);
-                m_port = new SerialPort(COMPort, 9600, Parity.None, socket, StopBits.One);
-                Debug.Print("Opening OK !");
-
-                m_port.ReadTimeout = 500;
-                m_port.WriteTimeout = 500;
-                m_port.Open();
-                init();
-            }
 
             //on met a jour
 
@@ -388,7 +412,9 @@ An unhandled exception of type 'System.Exception' occurred in mscorlib.dll
                     //Envoie de la commande sur la ligne TX
                     m_port.Write(buffer, 0, commande.Length);
                 }
-                Thread.Sleep(2000); // C'est pour Update une fois que le robot a avancé un peu. 
+                timerCheckMovingStatus.Start();
+                MoveCompleted.WaitOne();
+                timerCheckMovingStatus.Stop();
                 updatePosition(mode.drive);
                 blockMoveCheck = false;
                 return retour;
@@ -421,6 +447,9 @@ An unhandled exception of type 'System.Exception' occurred in mscorlib.dll
                     Debug.Print(commande + "executed");
                     retour = true;
                 }
+                timerCheckMovingStatus.Start();
+                MoveCompleted.WaitOne();
+                timerCheckMovingStatus.Stop();
                 updatePosition(mode.turn);
                 blockMoveCheck = false;
                 return retour;
@@ -431,12 +460,12 @@ An unhandled exception of type 'System.Exception' occurred in mscorlib.dll
             {
                 blockMoveCheck = true;
                 Informations.printInformations(Priority.MEDIUM, "Kangaro - Called stop() method. Calling powerdowns D/T now;");
-                this.updatePosition(this.current_mode);
+                //this.updatePosition(this.current_mode);
 
                 powerdown(mode.drive);
                 powerdown(mode.turn);
 
-                this.init(); // Resetting increment, position has been updated
+                //this.init(); // Resetting increment, position has been updated
                 blockMoveCheck = false;
                 return true;
             }
