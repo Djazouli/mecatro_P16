@@ -38,13 +38,22 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         {
             string COMPort = GT.Socket.GetSocket(socket, true, null, null).SerialPortName;
 
-            Debug.Print("Tring to open serial port on COMPORt :" + COMPort);
+            Debug.Print("Tring to open serial port on COMPORt :" + COMPort +", socket : "+socket);
             m_portCOM = new SerialPort(COMPort, 9600, Parity.None, socket, StopBits.One);
             Debug.Print("Opening OK !");
 
             m_portCOM.ReadTimeout = 500;
             m_portCOM.WriteTimeout = 500;
-            m_portCOM.Open();
+
+            if (!m_portCOM.IsOpen)
+            {
+                Informations.printInformations(Priority.HIGH, "New Kangaroo, port com not opened, opening.");
+                m_portCOM.Open();
+            }
+            else
+            {
+                Informations.printInformations(Priority.HIGH, "New Kangaroo, port com ALREADY OPENED !!!!!");
+            }
             
             Init();
             Thread.Sleep(100);

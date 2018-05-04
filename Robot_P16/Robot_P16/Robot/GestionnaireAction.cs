@@ -226,22 +226,25 @@ namespace Robot_P16.Robot
 
             setMotherAction(ModeOperatoire.TEST1, MOTHER_ACTION);*/
 
-            PointOriente pt1 = new PointOriente(-300, 0, 50);
-            PointOriente pt2 = new PointOriente(0, 0, 50);
-            PointOriente pt3 = new PointOriente(0, 0, 50);
+            PointOriente pt1 = new PointOriente(-1000, 0, 50);
+            PointOriente pt2 = new PointOriente(-1000, 800, 50);
+            PointOriente pt3 = new PointOriente(0, 800, 50);
+            PointOriente pt4 = new PointOriente(0, 0, 50);
             Action MOTHER_ACTION = new ActionBuilder("Action mère Test1").Add(
                     new ActionBuilder("Pt1").BuildActionBaseRoulante_GOTO_ONLY(pt1)
                 ).Add(
-                    new ActionBuilder("Wait a bit...").BuildActionWait(2000)
+                    new ActionBuilder("Wait a bit...").BuildActionWait(1)
                 )
                 .Add(
                    new ActionBuilder("Pt2").BuildActionBaseRoulante_GOTO_ONLY(pt2)
                 ).Add(
-                    new ActionBuilder("Wait a bit...").BuildActionWait(2000)
+                    new ActionBuilder("Wait a bit...").BuildActionWait(1)
                 )
-                /*.Add(
+                .Add(
                    new ActionBuilder("Pt3").BuildActionBaseRoulante_GOTO_ONLY(pt3)
-                )*/
+                ).Add(
+                   new ActionBuilder("Pt3").BuildActionBaseRoulante_GOTO_ONLY(pt4)
+                )
                 .BuildActionEnSerieRepeated(-1); // Envois infinis
 
             setMotherAction(ModeOperatoire.TEST1, TypeRobot.PETIT_ROBOT, MOTHER_ACTION);
