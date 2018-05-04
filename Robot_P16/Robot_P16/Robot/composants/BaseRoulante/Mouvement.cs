@@ -71,11 +71,19 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         }
         public void Rotate(double angle)
         {
+            if (Robot.robot.TypeRobot == TypeRobot.PETIT_ROBOT)
+            {
+                //angle = -angle;
+            }
             Robot.robot.BASE_ROULANTE.kangaroo.rotate(angle, getSpeedTurn());
         }
 
         public void Avance(int distance)
         {
+            if (Robot.robot.TypeRobot == TypeRobot.PETIT_ROBOT)
+            {
+                distance = -distance;
+            }
             Robot.robot.BASE_ROULANTE.kangaroo.drive(distance, getSpeedDrive());
         }
 
@@ -109,7 +117,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 Debug.Print("Going en avant");
                 if (this.GetPosition().theta%360 - deltaTheta%360 > 180) // That means we have to turn atrigo
                 {
-                    Rotate((convertTo180(360 - this.GetPosition().theta%360 - deltaTheta%360)));
+                    Rotate(convertTo180(360 - this.GetPosition().theta%360 - deltaTheta%360));
                    // waiting for the move to be completed
                     if (this.isPaused) return false; // MUST BE CHECKED AFTER EACH WaitOne!!!!
                 }
@@ -236,19 +244,16 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         }
         public double convertTo180(double angle)
         {
-            if (System.Math.Abs(angle) <= 180)
+            angle = angle % 360; //angle in [0,360]
+            if (angle <= 180)
             {
                 return angle;
             }
-            else if (angle > 180)
+            else
             {   
              
                 return (angle - 360);
             }
-            else if (angle<-180){
-                return (angle + 360);
-            }
-            return (angle);
 
         }
 

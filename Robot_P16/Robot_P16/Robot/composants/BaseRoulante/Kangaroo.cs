@@ -170,7 +170,10 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 double deplacement = deplacementFromFeedback - distanceIncrementale;
                 distanceIncrementale = deplacementFromFeedback;
                 deplacement *= RAPPORT_DISTANCE_CODEUR_VERS_MM;
-
+                if (Robot.robot.TypeRobot == TypeRobot.PETIT_ROBOT)
+                {
+                    deplacement = -deplacement;
+                }
                 double angle = System.Math.PI * position.theta / 180.0;
                 position = new PointOriente(
                     position.x + deplacement * System.Math.Cos(angle),
@@ -182,6 +185,10 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 double deplacement = deplacementFromFeedback - angleIncremental;
                 angleIncremental = deplacementFromFeedback;
                 deplacement /= RAPPORT_ANGLE_DEGRE_VERS_CODEUR;
+                if (Robot.robot.TypeRobot == TypeRobot.PETIT_ROBOT)
+                {
+                    //deplacement = -deplacement;
+                }
                 position = new PointOriente(
                     position.x,
                     position.y,
