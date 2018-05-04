@@ -65,10 +65,8 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             commande = "T, UNITS 36000 millidegrees = 388400 lines\r\n";
             EnvoyerCommande(commande);
 
-
             commande = "D, UNITS 182 mm = 1024 lines\r\n";
             EnvoyerCommande(commande);
-
 
             commande = "T,p0s0\r\n";
             EnvoyerCommande(commande);
@@ -79,7 +77,6 @@ namespace Robot_P16.Robot.composants.BaseRoulante
 
             return true;
         }
-
         public void CheckMovingStatus()
         {
             if (this.currentMode == null) return;
@@ -104,7 +101,6 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             if (this.currentMode == null) return position;
             return PositionFromFeedback(sendAndReceiveUpdate(this.currentMode));
         }
-
         private PointOriente PositionFromFeedback(string feedback)
         {
 
@@ -202,6 +198,19 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             this.EnvoyerCommande("T,powerdown\r\n");
             this.EnvoyerCommande("D,powerdown\r\n");
         }
+
+        public double RecallageX(double newY, int timeSleep, int speed, int distance, double angle){
+            drive(distance, speed);
+            position = new PointOriente(position.x, newY, angle);
+            return newY;
+        }
+        public double RecallageY(double newX, int timeSleep, int speed, int distance, double angle)
+        {
+            drive(distance, speed);
+            position = new PointOriente(newX, position.y, angle);
+            return newX;
+        }
+           
     }
 }
 
