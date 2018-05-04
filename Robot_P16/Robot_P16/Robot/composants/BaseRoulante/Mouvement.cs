@@ -118,7 +118,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                     if (this.isPaused) return false; // MUST BE CHECKED AFTER EACH WaitOne!!!!
                 }
                 Avance((int)System.Math.Sqrt(deltaX * deltaX + deltaY * deltaY));
-                Robot.robot.BASE_ROULANTE.MoveCompleted.WaitOne();// waiting for the move to be completed
+                //Robot.robot.BASE_ROULANTE.MoveCompleted.WaitOne();// waiting for the move to be completed
                 if (this.isPaused) return false; // MUST BE CHECKED AFTER EACH WaitOne!!!!
                 //position = new PointOriente(pt.x, pt.y, deltaTheta);
                 angle = deltaTheta;
@@ -129,18 +129,18 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 if (this.GetPosition().theta - deltaTheta > 180)
                 {//turn antitrigo
                     Rotate((int)convertTo180(-this.GetPosition().theta + 180 - deltaTheta));
-                    Robot.robot.BASE_ROULANTE.MoveCompleted.WaitOne();// waiting for the move to be completed
+                    //Robot.robot.BASE_ROULANTE.MoveCompleted.WaitOne();// waiting for the move to be completed
                     if (this.isPaused) return false; // MUST BE CHECKED AFTER EACH WaitOne!!!!
                 }
                 else
                 {
                     Rotate((int)convertTo180(180 - this.GetPosition().theta + deltaTheta));
-                    Robot.robot.BASE_ROULANTE.MoveCompleted.WaitOne();// waiting for the move to be completed
+                    //Robot.robot.BASE_ROULANTE.MoveCompleted.WaitOne();// waiting for the move to be completed
                     if (this.isPaused) return false; // MUST BE CHECKED AFTER EACH WaitOne!!!!
                 }
                 Avance(-(int)System.Math.Sqrt(deltaX * deltaX + deltaY * deltaY));
                 //position = new PointOriente(pt.x, pt.y, 180+deltaTheta%360); // check the angle
-                Robot.robot.BASE_ROULANTE.MoveCompleted.WaitOne();// waiting for the move to be completed
+                //Robot.robot.BASE_ROULANTE.MoveCompleted.WaitOne();// waiting for the move to be completed
                 if (this.isPaused) return false; // MUST BE CHECKED AFTER EACH WaitOne!!!!
                 angle = (180 + deltaTheta) % 360;
             }
@@ -148,7 +148,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             {
                 Informations.printInformations(Priority.LOW, "Starting to adjust angle");
                 Rotate((int)(convertTo180(-angle + pt.theta)));
-                Robot.robot.BASE_ROULANTE.MoveCompleted.WaitOne();// waiting for the move to be completed
+                //Robot.robot.BASE_ROULANTE.MoveCompleted.WaitOne();// waiting for the move to be completed
                 if (this.isPaused) return false; // MUST BE CHECKED AFTER EACH WaitOne!!!!
             }
             return true;

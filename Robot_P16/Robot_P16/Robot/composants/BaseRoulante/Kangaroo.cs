@@ -415,6 +415,7 @@ An unhandled exception of type 'System.Exception' occurred in mscorlib.dll
                 timerCheckMovingStatus.Start();
                 MoveCompleted.WaitOne();
                 timerCheckMovingStatus.Stop();
+
                 updatePosition(mode.drive);
                 blockMoveCheck = false;
                 return retour;
@@ -444,12 +445,12 @@ An unhandled exception of type 'System.Exception' occurred in mscorlib.dll
                     buffer = System.Text.Encoding.UTF8.GetBytes(commande);
                     Debug.Print(commande+"written");
                     m_port.Write(buffer, 0, commande.Length);
-                    Debug.Print(commande + "executed");
                     retour = true;
                 }
                 timerCheckMovingStatus.Start();
                 MoveCompleted.WaitOne();
                 timerCheckMovingStatus.Stop();
+                Debug.Print(" done waiting");
                 updatePosition(mode.turn);
                 blockMoveCheck = false;
                 return retour;
