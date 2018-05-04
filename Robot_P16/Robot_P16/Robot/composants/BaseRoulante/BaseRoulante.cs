@@ -41,25 +41,21 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         {
             this.kangaroo = new Kangaroo(socket);
 
-            /*new Thread(() =>
+            new Thread(() =>
             {
-                Thread.Sleep(1000);
                 while (true)
                 {
                     Thread.Sleep(REFRESH_RATE_EVENT);
-                    if (!this.kangaroo.blockMoveCheck)
-                    {
-                       checkIsMoving();
-                    }
+                    kangaroo.CheckMovingStatus();
                 }
-            }).Start();*/
+            }).Start();
 
         }
 
 
         public PointOriente GetPosition()
         {
-            return this.kangaroo.getPosition();
+            return this.kangaroo.GetDynamicPosition();
         }
 
 
