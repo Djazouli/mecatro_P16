@@ -20,6 +20,18 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         public AutoResetEvent UnblockRead = new AutoResetEvent(false);
         PointOriente position = new PointOriente(0, 0, 0);
 
+        private int distanceIncrementale = 0;
+        private int angleIncremental = 0;
+
+        private const int RAPPORT_ANGLE_DEGRE_VERS_CODEUR = 10;
+        private const int RAPPORT_DISTANCE_CODEUR_VERS_MM = 2;
+
+        private const int CODEUR_LINES_ANGLE_360_DEGRES = 424100;
+        private const int CODEUR_VAL_ANGLE_360_DEGRES = 36000;
+
+        private const int CODEUR_LINES_DISTANCE_1MM = 102400;
+        private const int CODEUR_VAL_DISTANCE_1MM = 15550;
+
         string currentMode = null;
 
         public Kangaroo(int socket) : base(socket)
@@ -62,10 +74,10 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             EnvoyerCommande(commande);
 
 
-            commande = "T, UNITS 36000 millidegrees = 388400 lines\r\n";
+            commande = "T, UNITS "+ CODEUR_VAL_ANGLE_360_DEGRES * RAPPORT_ANGLE_DEGRE_VERS_CODEUR+"  millidegrees = "+CODEUR_LINES_ANGLE_360_DEGRES+" lines\r\n";
             EnvoyerCommande(commande);
 
-            commande = "D, UNITS 182 mm = 1024 lines\r\n";
+            commande = "D, UNITS "+CODEUR_VAL_DISTANCE_1MM+" mm = "+CODEUR_LINES_DISTANCE_1MM * RAPPORT_DISTANCE_CODEUR_VERS_MM+"\r\n";
             EnvoyerCommande(commande);
 
             commande = "T,p0s0\r\n";
@@ -75,54 +87,93 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             commande = "D,p0s0\r\n";
             EnvoyerCommande(commande);
 
+            angleIncremental = 0;
+            distanceIncrementale = 0;
+
             return true;
         }
         public void CheckMovingStatus()
         {
             if (this.currentMode == null) return;
-            string feedback = sendAndReceiveUpdate(this.currentMode);
-            Informations.printInformations(Priority.VERY_LOW, "Kangaroo - CheckMovingStatus - feedback : " + feedback);
+
+
+            Informations.printInformations(Priority.HIGH, sendAndReceiveUpdate("T"));
+
+            Thread.Sleep(100);
+
+
+            string feedback;
+            if (this.currentMode == "T")
+            {
+                feedback = sendAndReceiveUpdate(this.currentMode);
+                UpdatePositionFromFeedback(feedback);
+                UpdatePositionFromFeedback(sendAndReceiveUpdate("D"));
+            }
+            else
+            {
+                feedback = sendAndReceiveUpdate(this.currentMode);
+                UpdatePositionFromFeedback(sendAndReceiveUpdate("T"));
+                UpdatePositionFromFeedback(feedback);
+            }
+
+            //string feedback = sendAndReceiveUpdate(this.currentMode);
+            Informations.printInformations(Priority.LOW, "Kangaroo - CheckMovingStatus - feedback : " + feedback);
             if (feedback == null || feedback.Length < 4) return;
+
+            //this.position = PositionFromFeedback(feedback);
+
             char upperCased = feedback[2].ToUpper();
             if (upperCased == feedback[2])
             {
-                Informations.printInformations(Priority.MEDIUM, "Kangaroo - CheckMovingStatus detected end of move, updating position");
+                Informations.printInformations(Priority.MEDIUM, "Kangaroo - CheckMovingStatus detected end of move");
                 // isMoving = false, done moving
-                this.position = PositionFromFeedback(feedback);
                 this.currentMode = null;
                 this.MoveCompleted.Set();
             }
 
-            Informations.printInformations(Priority.MEDIUM, "Current position : " + this.PositionFromFeedback(feedback));
+
+            Informations.printInformations(Priority.MEDIUM, "Current position : " + this.position);
         }
 
         public PointOriente GetDynamicPosition()
         {
             if (this.currentMode == null) return position;
-            return PositionFromFeedback(sendAndReceiveUpdate(this.currentMode));
+            UpdatePositionFromFeedback(sendAndReceiveUpdate("T"));
+            UpdatePositionFromFeedback(sendAndReceiveUpdate("D"));
+            //return PositionFromFeedback(sendAndReceiveUpdate(this.currentMode));
+            return this.position;
         }
-        private PointOriente PositionFromFeedback(string feedback)
+
+
+        private void UpdatePositionFromFeedback(string feedback)
         {
 
             Informations.printInformations(Priority.MEDIUM, "Kangaroo - PositionFromFeedback - mode : " + this.currentMode + "; feedback : " + feedback);
             //T,P100
-            if (this.currentMode == null || feedback == null || feedback.Length < 4) return this.position;
+            if (/*this.currentMode == null || */ feedback == null || feedback.Length < 4) return;// this.position;
             char status = feedback[2];
             Debug.Print("Status : " + status);
             string sub_str = feedback.Substring(3, feedback.Length - 3);
             Debug.Print("Deplacement read : " + sub_str);
-            double deplacement = Int64.Parse(sub_str);
-            if (this.currentMode == "D")
+            int deplacementFromFeedback = Int32.Parse(sub_str);
+            if (feedback[0] == 'D')
             {
+                double deplacement = deplacementFromFeedback - distanceIncrementale;
+                distanceIncrementale = deplacementFromFeedback;
+                deplacement *= RAPPORT_DISTANCE_CODEUR_VERS_MM;
+
                 double angle = System.Math.PI * position.theta / 180.0;
-                return new PointOriente(
+                position = new PointOriente(
                     position.x + deplacement * System.Math.Cos(angle),
                     position.y + deplacement * System.Math.Sin(angle),
                     position.theta);
             }
             else
             {
-                return new PointOriente(
+                double deplacement = deplacementFromFeedback - angleIncremental;
+                angleIncremental = deplacementFromFeedback;
+                deplacement /= RAPPORT_ANGLE_DEGRE_VERS_CODEUR;
+                position = new PointOriente(
                     position.x,
                     position.y,
                     position.theta + deplacement);
@@ -137,7 +188,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 UnblockRead.WaitOne();
             }*/
             blockRead = true;
-            string commande = prefix + ",getpi\r\n";
+            string commande = prefix + ",getp\r\n";
             EnvoyerCommande(commande);
 
             Thread.Sleep(100);
@@ -166,10 +217,10 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         public bool drive(int distance, int vitesse)
         {
             string commande;
-
+            distance = distance / RAPPORT_DISTANCE_CODEUR_VERS_MM;
             Init();
             currentMode = "D";
-            commande = "D,pi" + distance + "s" + vitesse + "\r\n";
+            commande = "D,p" + distance + "s" + vitesse + "\r\n";
             if (!EnvoyerCommande(commande)) return false;
             Informations.printInformations(Priority.MEDIUM, "Kangaroo - Drive : sent command, waiting for move completion");
             MoveCompleted.WaitOne();
@@ -178,13 +229,13 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             return true;
         }
 
-        public bool rotate(int angle, int vitesse)
+        public bool rotate(double angle, int vitesse)
         {
             string commande;
-
+            angle = RAPPORT_ANGLE_DEGRE_VERS_CODEUR * angle;
             Init();
             currentMode = "T";
-            commande = "T,pi" + angle + "s" + vitesse + "\r\n";
+            commande = "T,p" + (int)(angle) + "s" + vitesse + "\r\n";
             if (!EnvoyerCommande(commande)) return false;
             Informations.printInformations(Priority.MEDIUM, "Kangaroo - Turn : sent command, waiting for move completion");
             MoveCompleted.WaitOne();
