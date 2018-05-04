@@ -250,9 +250,17 @@ An unhandled exception of type 'System.Exception' occurred in mscorlib.dll
                         double Y=position.y;
                         string errorCode = getDataSinceLastReset(mode.drive, ref deplacement); 
                         //if(errorCode == null){
-                            double angle = System.Math.PI * theta / 180.0;
+                        double angle = System.Math.PI * theta / 180.0;
+                        if (Robot.robot.TypeRobot == TypeRobot.PETIT_ROBOT)
+                        {
+                            X -= deplacement * System.Math.Cos(angle);
+                            Y -= deplacement * System.Math.Sin(angle);
+                        }
+                        else
+                        {
                             X += deplacement * System.Math.Cos(angle);
                             Y += deplacement * System.Math.Sin(angle);
+                        }
                             position = new PointOriente(X,Y,theta);
                         //}                           
                         break;
@@ -386,6 +394,10 @@ An unhandled exception of type 'System.Exception' occurred in mscorlib.dll
 
             public bool allerEn(int distance, int speed)//, unite u
             {
+                if (Robot.robot.TypeRobot == TypeRobot.PETIT_ROBOT)
+                {
+                    distance = -distance;
+                }
                 blockMoveCheck = true;
                 current_mode = mode.drive;
 
@@ -423,6 +435,10 @@ An unhandled exception of type 'System.Exception' occurred in mscorlib.dll
 
             public bool tourner(int angle, int speed)
             {
+                if (Robot.robot.TypeRobot == TypeRobot.PETIT_ROBOT)
+                {
+                    angle = -angle;
+                }
                 if (angle == 0) return true;
                 blockMoveCheck = true;
                 current_mode = mode.turn;
@@ -465,6 +481,8 @@ An unhandled exception of type 'System.Exception' occurred in mscorlib.dll
 
                 powerdown(mode.drive);
                 powerdown(mode.turn);
+
+                MoveCompleted.Set();
 
                 //this.init(); // Resetting increment, position has been updated
                 blockMoveCheck = false;

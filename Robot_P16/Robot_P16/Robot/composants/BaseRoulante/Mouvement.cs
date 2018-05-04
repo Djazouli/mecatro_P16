@@ -29,11 +29,13 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         {
             this.adjustToAngle = adjustToAngle;
             this.destination = destination;
+            this.isDirectionForced = true;
             this.forcedDirection = forcedDirection;
         }
         public Mouvement(PointOriente destination,  OBSTACLE_DIRECTION forcedDirection)
         {
             this.destination = destination;
+            this.isDirectionForced = true;
             this.forcedDirection = forcedDirection;
         }
 
@@ -108,13 +110,13 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 if (this.GetPosition().theta - deltaTheta > 180) // That means we have to turn atrigo
                 {
                     Rotate((int)(360 - this.GetPosition().theta - deltaTheta));
-                    Robot.robot.BASE_ROULANTE.MoveCompleted.WaitOne();// waiting for the move to be completed
+                   // waiting for the move to be completed
                     if (this.isPaused) return false; // MUST BE CHECKED AFTER EACH WaitOne!!!!
                 }
                 else
                 {
                     Rotate((int)(-this.GetPosition().theta + deltaTheta));
-                    Robot.robot.BASE_ROULANTE.MoveCompleted.WaitOne();// waiting for the move to be completed
+                   // waiting for the move to be completed
                     if (this.isPaused) return false; // MUST BE CHECKED AFTER EACH WaitOne!!!!
                 }
                 Avance((int)System.Math.Sqrt(deltaX * deltaX + deltaY * deltaY));
@@ -181,14 +183,18 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 }
                 else deltaTheta = 270;
             }
-            angle = this.GetPosition().theta - deltaTheta;
-            if (angle > 270 || angle < 90)
+            deltaTheta = convertTo180(deltaTheta);
+            angle = this.GetPosition().theta - (90+ deltaTheta);
+            angle = convertTo180(angle);
+            Informations.printInformations(Priority.LOW, "J'ai deltaTheta = " + deltaTheta.ToString());
+            Informations.printInformations(Priority.LOW, "Donc angle = " + angle.ToString());
+            if (angle > 0)
             {
-                return this.GoToOrientedPoint(pt, OBSTACLE_DIRECTION.AVANT);
+                return this.GoToOrientedPoint(pt, OBSTACLE_DIRECTION.ARRIERE);
             }
             else
             {
-                return this.GoToOrientedPoint(pt, OBSTACLE_DIRECTION.ARRIERE);
+                return this.GoToOrientedPoint(pt, OBSTACLE_DIRECTION.AVANT);
             }
         }
 
@@ -196,7 +202,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         {
             this.isPaused = true;
             Robot.robot.BASE_ROULANTE.kangaroo.stop(); // This updates position automatically
-            Robot.robot.BASE_ROULANTE.MoveCompleted.Set();
+            //Robot.robot.BASE_ROULANTE.MoveCompleted.Set();
         }
 
         public void ObstacleListener(OBSTACLE_DIRECTION direction, bool isThereAnObstacle)
@@ -231,14 +237,19 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         }
         public double convertTo180(double angle)
         {
-            if (angle < 180)
+            if (System.Math.Abs(angle) <= 180)
             {
                 return angle;
             }
-            else
-            {
+            else if (angle > 180)
+            {   
+             
                 return (angle - 360);
             }
+            else if (angle<-180){
+                return (angle + 360);
+            }
+            return (angle);
 
         }
     }

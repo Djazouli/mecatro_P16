@@ -56,25 +56,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
 
         }
 
-<<<<<<< HEAD
-=======
-        public void checkIsMoving()
-        {
-            bool currentlyMoving = this.kangaroo.isCurrentlyMoving();
-            if (currentlyMoving != this.lastMovingStatus)
-            {
-                Informations.printInformations(Priority.LOW, "Changement de statut de mouvement");
-                this.lastMovingStatus = currentlyMoving;
-                if (currentlyMoving == false)
-                {
 
-                    Informations.printInformations(Priority.MEDIUM, "CheckIsmoving : calls moveCompleted");
-                    MoveCompleted.Set();
-                }
-            }
-        }
-
->>>>>>> Ajout debug
         public PointOriente GetPosition()
         {
             return this.kangaroo.getPosition();
