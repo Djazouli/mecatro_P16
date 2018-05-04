@@ -1,9 +1,10 @@
 using System;
 using Microsoft.SPOT;
-using System.IO.Ports;
 using System.Threading;
 
-using GT = Gadgeteer;
+using System.IO.Ports;
+using Microsoft.SPOT.Hardware;
+using Gadgeteer;
 using Robot_P16.Map;
 using Robot_P16.Robot.composants;
 
@@ -36,11 +37,10 @@ namespace Robot_P16.Robot.composants.BaseRoulante
 
         public Kangaroo(int socket) : base(socket)
         {
-            string COMPort = GT.Socket.GetSocket(socket, true, null, null).SerialPortName;
+            string COMPort = Socket.GetSocket(socket, true, null, null).SerialPortName;
 
-            Debug.Print("Tring to open serial port on COMPORt :" + COMPort +", socket : "+socket);
-            m_portCOM = new SerialPort(COMPort, 9600, Parity.None, socket, StopBits.One);
-            Debug.Print("Opening OK !");
+            Informations.printInformations(Priority.HIGH, "Tring to open serial port on COMPORt :" + COMPort +", socket : "+socket);
+            m_portCOM = new SerialPort(COMPort, 9600, Parity.None, 8, StopBits.One);
 
             m_portCOM.ReadTimeout = 500;
             m_portCOM.WriteTimeout = 500;
@@ -49,6 +49,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             {
                 Informations.printInformations(Priority.HIGH, "New Kangaroo, port com not opened, opening.");
                 m_portCOM.Open();
+                Informations.printInformations(Priority.HIGH, "New Kangaroo, port com Opening OK !");
             }
             else
             {
@@ -157,13 +158,13 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         private void UpdatePositionFromFeedback(string feedback)
         {
 
-            Informations.printInformations(Priority.MEDIUM, "Kangaroo - PositionFromFeedback - mode : " + this.currentMode + "; feedback : " + feedback);
+            Informations.printInformations(Priority.VERY_LOW, "Kangaroo - UpdatePositionFromFeedback - mode : " + this.currentMode + "; feedback : " + feedback);
             //T,P100
             if (/*this.currentMode == null || */ feedback == null || feedback.Length < 4) return;// this.position;
             char status = feedback[2];
-            Debug.Print("Status : " + status);
+            //Debug.Print("Status : " + status);
             string sub_str = feedback.Substring(3, feedback.Length - 3);
-            Debug.Print("Deplacement read : " + sub_str);
+            //Debug.Print("Deplacement read : " + sub_str);
             int deplacementFromFeedback = Int32.Parse(sub_str);
             if (feedback[0] == 'D')
             {
@@ -215,10 +216,6 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             UnblockRead.Set();
 
             char[] feedback_chars = System.Text.Encoding.UTF8.GetChars(bytesRead);
-
-            foreach (char k in feedback_chars) {
-                Debug.Print(k.ToString());
-            }
             
             string feedback = new string(feedback_chars);
             if (feedback != null && feedback.Length >= 2) {

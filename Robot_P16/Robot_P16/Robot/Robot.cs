@@ -177,13 +177,14 @@ namespace Robot_P16.Robot
             switch (TypeRobot)
             {
                 case TypeRobot.GRAND_ROBOT:
-
+                    Informations.printInformations(Priority.HIGH, "Robot : loadComponents : GRAND Robot selected !");
                     BASE_ROULANTE = new composants.BaseRoulante.BaseRoulante(GR_SOCKET_BASE_ROUlANTE);
                     //GR_LANCEUR_BALLE = new LanceurBalle(GR_SOCKET_LANCEUR);
                     
                     break;
 
                 case TypeRobot.PETIT_ROBOT:
+                    Informations.printInformations(Priority.HIGH, "Robot : loadComponents : PETiT Robot selected !");
                     // Port 5 Spider : Breakout => 4 = IR AVG, 5 = IR AVD, 8 = Jack
                     // Port 6 Spider : Ultrason
                     // Port 1 Spider : USB Client
@@ -215,13 +216,13 @@ namespace Robot_P16.Robot
 
                     break;
 
-                case TypeRobot.TEST_ROBOT_1:
+                /*case TypeRobot.TEST_ROBOT_1:
                     TR1_BOUTON_1 = new Button(TR1_SOCKET_BOUTON1);
                     //TR1_BOUTON_2 = new Button(TR1_SOCKET_BOUTON2);
                     BASE_ROULANTE = new composants.BaseRoulante.BaseRoulante(GR_SOCKET_BASE_ROUlANTE);
-                    break;
+                    break;*/
             }
-            Informations.printInformations(Priority.MEDIUM, "composés du robot chargés");
+            Informations.printInformations(Priority.MEDIUM, "composants du robot chargés");
         }
 
     }

@@ -44,7 +44,8 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             this.isPaused = false;
             // Launch command
             Informations.printInformations(Priority.MEDIUM, "Mouvement - Start() called");
-            Robot.robot.OBSTACLE_MANAGER.ObstacleChangeEvent += this.ObstacleListener;
+            if (Robot.robot.OBSTACLE_MANAGER != null)
+                Robot.robot.OBSTACLE_MANAGER.ObstacleChangeEvent += this.ObstacleListener;
             Informations.printInformations(Priority.MEDIUM, "Started at" + GetPosition().x.ToString() + "," + GetPosition().y.ToString()+","+GetPosition().theta.ToString());
 
             if (this.isDirectionForced)
