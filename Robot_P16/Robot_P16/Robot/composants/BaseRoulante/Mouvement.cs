@@ -58,7 +58,8 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             if (this.isPaused) return; // MUST BE CHECKED AFTER EACH WaitOne!!!!
             Informations.printInformations(Priority.MEDIUM, "Mouvement completed, launching completed event");
             // Movement completed
-            Robot.robot.OBSTACLE_MANAGER.ObstacleChangeEvent -= this.ObstacleListener;
+            if (Robot.robot.OBSTACLE_MANAGER != null)
+                Robot.robot.OBSTACLE_MANAGER.ObstacleChangeEvent -= this.ObstacleListener;
             Robot.robot.BASE_ROULANTE.LaunchMovingInstructionCompletedEvent();
         }
         public int getSpeedDrive()

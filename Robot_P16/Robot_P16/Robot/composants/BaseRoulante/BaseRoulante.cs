@@ -30,7 +30,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         public int speedDrive = 100;// avance 10 cm par seconde
         public int speedTurn = 70; //tourne 30 degrees par seconde
 
-        private static int REFRESH_RATE_EVENT = 100;
+        private static int REFRESH_RATE_EVENT = 300;
 
 
         int PARAMETER_FOR_XY = 1;//l'unite de la dist. = millimetre, on n'accepte QUE l'entier

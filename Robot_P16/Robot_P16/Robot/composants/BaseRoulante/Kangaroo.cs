@@ -24,9 +24,9 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         private int distanceIncrementale = 0;
         private int angleIncremental = 0;
 
-        private const int RAPPORT_ANGLE_DEGRE_VERS_CODEUR = 100; // * 720 / 550
+        private const int RAPPORT_ANGLE_DEGRE_VERS_CODEUR = 100; //100; // * 720 / 550
         private const int RAPPORT_DISTANCE_CODEUR_VERS_MM = 1;
-        private const int RAPPORT_DISTANCE_MM_VERS_CODEUR = 100;
+        private const int RAPPORT_DISTANCE_MM_VERS_CODEUR = 100; //100;
 
         private const int CODEUR_LINES_ANGLE_360_DEGRES = 4017;
         //private const int CODEUR_LINES_ANGLE_360_DEGRES = 54250;
@@ -35,8 +35,10 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         private const int CODEUR_LINES_DISTANCE_1MM = 10240; //79 / 100
         private const int CODEUR_VAL_DISTANCE_1MM = 1634;// * 1000 / 688;
 
-        private const double ratioPointOrienteVersKangarooANGLE = 1.0 / 2.66; //125.0 / 360.0;//617.0 / 360.0 / 5.0;//550.0 / 720.0;
-        private const double ratioPointOrienteVersKangarooDIST = 1.0 * 0.67; //57.0/10.0;//688.0 / 1000.0;
+        private const double ratioPointOrienteVersKangarooANGLE = 1.0 * 0.957;// / 2.66; //125.0 / 360.0;//617.0 / 360.0 / 5.0;//550.0 / 720.0;
+        private const double ratioPointOrienteVersKangarooDIST = 1.0 * 170.0 / 179.0;// * 0.67; //57.0/10.0;//688.0 / 1000.0;
+
+        private const bool ROUE_LIBRE = false;
 
         string currentMode = null;
 
@@ -62,6 +64,17 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             }
             
             Init();
+
+            if (ROUE_LIBRE)
+            {
+
+                string commande = "T,p0s0\r\n";
+                EnvoyerCommande(commande);
+
+
+                commande = "D,p0s0\r\n";
+                EnvoyerCommande(commande);
+            }
             Thread.Sleep(100);
 
             /*m_tailleRoues = 0;
@@ -99,15 +112,20 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             EnvoyerCommande(commande);
             //Debug.Print(commande);
 
-            commande = "T,p0s0\r\n";
-            EnvoyerCommande(commande);
+            if (!ROUE_LIBRE)
+            {
+
+                commande = "T,p0s0\r\n";
+                EnvoyerCommande(commande);
 
 
-            commande = "D,p0s0\r\n";
-            EnvoyerCommande(commande);
+                commande = "D,p0s0\r\n";
+                EnvoyerCommande(commande);
+                angleIncremental = 0;
+                distanceIncrementale = 0;
 
-            angleIncremental = 0;
-            distanceIncrementale = 0;
+            }
+
 
             return true;
         }
@@ -163,8 +181,10 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         {
             //if (this.currentMode == null) return position;
             UpdatePositionFromFeedback(sendAndReceiveUpdate("T"));
+            Thread.Sleep(100);
             UpdatePositionFromFeedback(sendAndReceiveUpdate("D"));
-            Init(); // TODO : remove this shit
+            if (ROUE_LIBRE)
+                stop(); // TODO : remove this shit
             //return PositionFromFeedback(sendAndReceiveUpdate(this.currentMode));
             return this.position;
         }
@@ -177,6 +197,12 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             //T,P100
             if (/*this.currentMode == null || */ feedback == null || feedback.Length < 4) return;// this.position;
             char status = feedback[2];
+            Debug.Print("FEED : "+feedback);
+
+            if (feedback[2] == 'E')
+            {
+                return;
+            }
             //Debug.Print("Status : " + status);
             string sub_str = feedback.Substring(3, feedback.Length - 3);
             //Debug.Print("Deplacement read : " + sub_str);
@@ -220,10 +246,10 @@ namespace Robot_P16.Robot.composants.BaseRoulante
 
         private string sendAndReceiveUpdate(string prefix)
         {
-            /*while (blockRead)
+            while (blockRead)
             {
                 UnblockRead.WaitOne();
-            }*/
+            }
             blockRead = true;
             string commande = prefix + ",getp\r\n";
             EnvoyerCommande(commande);
@@ -251,7 +277,9 @@ namespace Robot_P16.Robot.composants.BaseRoulante
 
         public bool drive(int distance, int vitesse)
         {
+            Debug.Print("Drivee, Distance demande : " + distance );
             string commande;
+            vitesse *= RAPPORT_DISTANCE_MM_VERS_CODEUR;
             distance = (int)((double)(distance) / (double)(RAPPORT_DISTANCE_CODEUR_VERS_MM) * (double)(RAPPORT_DISTANCE_MM_VERS_CODEUR) * ratioPointOrienteVersKangarooDIST);
             Init();
             currentMode = "D";
@@ -268,6 +296,8 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         public bool rotate(double angle, int vitesse)
         {
             string commande;
+            Debug.Print("Rotate, Angle demande : " + angle);
+            vitesse *= RAPPORT_ANGLE_DEGRE_VERS_CODEUR;
             angle = RAPPORT_ANGLE_DEGRE_VERS_CODEUR * angle * ratioPointOrienteVersKangarooANGLE;
             Init();
             currentMode = "T";
