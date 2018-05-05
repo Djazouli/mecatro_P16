@@ -111,6 +111,14 @@ namespace Robot_P16.Actions
             return new ActionDelegate(this.description, () => Robot.Robot.robot.GR_LANCEUR_BALLE.stop());
         }
 
+        public ActionDelegate BuildActionRecallageAxeX(double newY, int timeSleep, int speed, int distance, double angle)
+        {
+            return new ActionDelegate(this.description, () => Robot.Robot.robot.BASE_ROULANTE.kangaroo.RecallageX(newY, timeSleep, speed, distance, angle));
+        }
+        public ActionDelegate BuildActionRecallageAxeY(double newX, int timeSleep, int speed, int distance, double angle)
+        {
+            return new ActionDelegate(this.description, () => Robot.Robot.robot.BASE_ROULANTE.kangaroo.RecallageY(newX, timeSleep, speed, distance,angle));
+        }
         /*public ActionBaseRoulante BuildActionBaseRoulante_GOTO_ONLY(TypeDeLieu typeDeLieu)
         {
             return new ActionBaseRoulante(this.description, new Robot.composants.BaseRoulante.Mouvement(pt, true));

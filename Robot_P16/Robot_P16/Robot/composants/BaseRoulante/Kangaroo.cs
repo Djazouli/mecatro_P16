@@ -319,12 +319,16 @@ namespace Robot_P16.Robot.composants.BaseRoulante
 
         public double RecallageX(double newY, int timeSleep, int speed, int distance, double angle){
             drive(distance, speed);
+            Thread.Sleep(timeSleep);
+            stop();
             position = new PointOriente(position.x, newY, angle);
             return newY;
         }
         public double RecallageY(double newX, int timeSleep, int speed, int distance, double angle)
         {
             drive(distance, speed);
+            Thread.Sleep(timeSleep);
+            stop();
             position = new PointOriente(newX, position.y, angle);
             return newX;
         }

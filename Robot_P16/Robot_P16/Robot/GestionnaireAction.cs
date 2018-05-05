@@ -228,7 +228,7 @@ namespace Robot_P16.Robot
 
             PointOriente pt1 = new PointOriente(1500, 0, 50);
             PointOriente pt2 = new PointOriente(1500, 500, 50);
-            PointOriente pt3 = new PointOriente(0, 500, 50);
+            PointOriente pt3 = new PointOriente(0, 500, 0);
             PointOriente pt4 = new PointOriente(0, 0, 50);
 
             Action MOTHER_ACTION = new ActionBuilder("Action mère Test1").Add(
@@ -242,9 +242,12 @@ namespace Robot_P16.Robot
                     new ActionBuilder("Wait a bit...").BuildActionWait(1)
                 )
                 .Add(
-                   new ActionBuilder("Pt3").BuildActionBaseRoulante_GOTO_ONLY(pt3)
+                   new ActionBuilder("Pt3").BuildActionBaseRoulante_GOTO_ANGLE(pt3)
                 ).Add(
-                new ActionBuilder("Wait a bit...").BuildActionWait(1)
+                    new ActionBuilder("Recallage").BuildActionRecallageAxeY(0, 1000, 100*100, 100*50, 0)
+                )
+                .Add(
+                new ActionBuilder("Wait a bit...").BuildActionWait(2000)
                 ).Add(
                 new ActionBuilder("pt4").BuildActionBaseRoulante_GOTO_ONLY(pt4))
                 .BuildActionEnSerieRepeated(-1); // Envois infinis*/
