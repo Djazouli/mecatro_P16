@@ -24,14 +24,19 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         private int distanceIncrementale = 0;
         private int angleIncremental = 0;
 
-        private const int RAPPORT_ANGLE_DEGRE_VERS_CODEUR = 10;
-        private const int RAPPORT_DISTANCE_CODEUR_VERS_MM = 2;
+        private const int RAPPORT_ANGLE_DEGRE_VERS_CODEUR = 100; // * 720 / 550
+        private const int RAPPORT_DISTANCE_CODEUR_VERS_MM = 1;
+        private const int RAPPORT_DISTANCE_MM_VERS_CODEUR = 100;
 
-        private const int CODEUR_LINES_ANGLE_360_DEGRES = 424100;
-        private const int CODEUR_VAL_ANGLE_360_DEGRES = 36000;
+        private const int CODEUR_LINES_ANGLE_360_DEGRES = 4017;
+        //private const int CODEUR_LINES_ANGLE_360_DEGRES = 54250;
+        private const int CODEUR_VAL_ANGLE_360_DEGRES = 360;
 
-        private const int CODEUR_LINES_DISTANCE_1MM = 102400;
-        private const int CODEUR_VAL_DISTANCE_1MM = 15550;
+        private const int CODEUR_LINES_DISTANCE_1MM = 10240; //79 / 100
+        private const int CODEUR_VAL_DISTANCE_1MM = 1634;// * 1000 / 688;
+
+        private const double ratioPointOrienteVersKangarooANGLE = 1.0 / 2.66; //125.0 / 360.0;//617.0 / 360.0 / 5.0;//550.0 / 720.0;
+        private const double ratioPointOrienteVersKangarooDIST = 1.0 * 0.67; //57.0/10.0;//688.0 / 1000.0;
 
         string currentMode = null;
 
@@ -85,12 +90,14 @@ namespace Robot_P16.Robot.composants.BaseRoulante
 
 
             commande = "T, UNITS "+ CODEUR_VAL_ANGLE_360_DEGRES * RAPPORT_ANGLE_DEGRE_VERS_CODEUR+"  millidegrees = "+CODEUR_LINES_ANGLE_360_DEGRES+" lines\r\n";
+            //commande = "T, UNITS 1 mm ,1 lines\r\n";
             EnvoyerCommande(commande);
-            Debug.Print(commande);
+            //Debug.Print(commande);
 
-            commande = "D, UNITS "+CODEUR_VAL_DISTANCE_1MM+" mm = "+CODEUR_LINES_DISTANCE_1MM * RAPPORT_DISTANCE_CODEUR_VERS_MM+"\r\n";
+            commande = "D, UNITS " + CODEUR_VAL_DISTANCE_1MM * RAPPORT_DISTANCE_MM_VERS_CODEUR + " mm = " + CODEUR_LINES_DISTANCE_1MM * RAPPORT_DISTANCE_CODEUR_VERS_MM + "\r\n";
+            //commande = "D, UNITS 1 mm ,1 lines\r\n";
             EnvoyerCommande(commande);
-            Debug.Print(commande);
+            //Debug.Print(commande);
 
             commande = "T,p0s0\r\n";
             EnvoyerCommande(commande);
@@ -149,7 +156,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             }
 
 
-            Informations.printInformations(Priority.VERY_LOW, "Current position : " + this.position);
+            Informations.printInformations(Priority.HIGH, "Current position : " + this.position);
         }
 
         public PointOriente GetDynamicPosition()
@@ -157,7 +164,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             //if (this.currentMode == null) return position;
             UpdatePositionFromFeedback(sendAndReceiveUpdate("T"));
             UpdatePositionFromFeedback(sendAndReceiveUpdate("D"));
-            Init();
+            Init(); // TODO : remove this shit
             //return PositionFromFeedback(sendAndReceiveUpdate(this.currentMode));
             return this.position;
         }
@@ -179,6 +186,8 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 double deplacement = deplacementFromFeedback - distanceIncrementale;
                 distanceIncrementale = deplacementFromFeedback;
                 deplacement *= RAPPORT_DISTANCE_CODEUR_VERS_MM;
+                deplacement /= RAPPORT_DISTANCE_MM_VERS_CODEUR;
+                deplacement = deplacement / ratioPointOrienteVersKangarooDIST;
                 if (Robot.robot.TypeRobot == TypeRobot.PETIT_ROBOT)
                 {
                     deplacement = -deplacement;
@@ -188,13 +197,14 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                     position.x + deplacement * System.Math.Cos(angle),
                     position.y + deplacement * System.Math.Sin(angle),
                     position.theta);
-                Debug.Print("MAJ Position = " + position.x + "," + position.y + "," + position.theta);
+                //Debug.Print("MAJ Position = " + position.x + "," + position.y + "," + position.theta);
             }
             else
             {
                 double deplacement = deplacementFromFeedback - angleIncremental;
                 angleIncremental = deplacementFromFeedback;
                 deplacement /= RAPPORT_ANGLE_DEGRE_VERS_CODEUR;
+                deplacement = deplacement / ratioPointOrienteVersKangarooANGLE;
                 if (Robot.robot.TypeRobot == TypeRobot.PETIT_ROBOT)
                 {
                     //deplacement = -deplacement;
@@ -203,7 +213,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                     position.x,
                     position.y,
                     position.theta + deplacement);
-                Debug.Print("MAJ Position = " + position.x + "," + position.y + "," + position.theta);
+                //Debug.Print("MAJ Position = " + position.x + "," + position.y + "," + position.theta);
             }
         }
 
@@ -234,13 +244,15 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 //}
 
             }
+
+            //Debug.Print(feedback);
             return feedback;
         }
 
         public bool drive(int distance, int vitesse)
         {
             string commande;
-            distance = distance / RAPPORT_DISTANCE_CODEUR_VERS_MM;
+            distance = (int)((double)(distance) / (double)(RAPPORT_DISTANCE_CODEUR_VERS_MM) * (double)(RAPPORT_DISTANCE_MM_VERS_CODEUR) * ratioPointOrienteVersKangarooDIST);
             Init();
             currentMode = "D";
             commande = "D,p" + distance + "s" + vitesse + "\r\n";
@@ -256,7 +268,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         public bool rotate(double angle, int vitesse)
         {
             string commande;
-            angle = RAPPORT_ANGLE_DEGRE_VERS_CODEUR * angle;
+            angle = RAPPORT_ANGLE_DEGRE_VERS_CODEUR * angle * ratioPointOrienteVersKangarooANGLE;
             Init();
             currentMode = "T";
             commande = "T,p" + (int)(angle) + "s" + vitesse + "\r\n";
