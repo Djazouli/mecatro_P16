@@ -54,8 +54,8 @@ namespace Robot_P16.Robot.composants.Servomoteurs
  	 public const int ANGLE_GR_PLATEAU_CRANANTIHORAIRE=-1;// = -36.00;
  	 public const int ANGLE_GR_PLATEAU_TAQUET=-1;// = -54.00;
  	 
- 	 public const int ANGLE_GR_TRAPPE_OUVRIR=-1;// = ?=-1;//still unknown so far
- 	 public const int ANGLE_GR_TRAPPE_FERMER=-1;// = ?;
+ 	 public const int ANGLE_GR_TRAPPE_OUVRIR=495;
+ 	 public const int ANGLE_GR_TRAPPE_FERMER=580;
 
 
         public const int ANGLE_PR_ROTATIONDROITE_COINCER=-1;// = -36.00;

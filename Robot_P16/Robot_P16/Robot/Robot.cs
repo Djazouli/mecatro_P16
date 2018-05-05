@@ -57,6 +57,12 @@ namespace Robot_P16.Robot
 
         public readonly int PR_PORT_INFRAROUGE_1 = 5;
         public readonly int PR_PORT_INFRAROUGE_2 = 7;
+
+        public readonly int GR_PORT_INFRAROUGE_1 = 3;
+        public readonly int GR_PORT_INFRAROUGE_2 = 4;
+        public readonly int GR_PORT_INFRAROUGE_3 = 5;
+        public readonly int GR_PORT_INFRAROUGE_4 = 7;
+
         public readonly int PR_PORT_JACK = 8;
 
 
@@ -82,8 +88,18 @@ namespace Robot_P16.Robot
 
         public composants.Servomoteurs.AX12 GR_SERVO_PLATEAU;
         public composants.Servomoteurs.AX12 GR_SERVO_TRAPPE;
+        public composants.Servomoteurs.AX12 GR_SERVO_ABEILLE;
+
+        private int GR_SERVO_ID_PLATEAU = 1;
+        private int GR_SERVO_ID_TRAPPE = 2;
+        private int GR_SERVO_ID_ABEILLE = 3;
 
         public composants.LanceurBalle GR_LANCEUR_BALLE;
+
+        public composants.CapteursObstacle.Infrarouge GR_INFRAROUGE_1; // AVANT
+        public composants.CapteursObstacle.Infrarouge GR_INFRAROUGE_2; // AVANT
+        public composants.CapteursObstacle.Infrarouge GR_INFRAROUGE_3; // ARRIERE
+        public composants.CapteursObstacle.Infrarouge GR_INFRAROUGE_4; // ARRIERE
 
         /* ********************************** FIN GRAND ROBOT ****************************** */
 
@@ -179,7 +195,21 @@ namespace Robot_P16.Robot
                 case TypeRobot.GRAND_ROBOT:
                     Informations.printInformations(Priority.HIGH, "Robot : loadComponents : GRAND Robot selected !");
                     BASE_ROULANTE = new composants.BaseRoulante.BaseRoulante(GR_SOCKET_BASE_ROUlANTE);
-                    //GR_LANCEUR_BALLE = new LanceurBalle(GR_SOCKET_LANCEUR);
+                    
+                    GR_SERVO_PLATEAU= new composants.Servomoteurs.AX12(GR_SOCKET_SERVOS, GR_SERVO_ID_PLATEAU);
+                    GR_SERVO_TRAPPE = new composants.Servomoteurs.AX12(GR_SOCKET_SERVOS, GR_SERVO_ID_TRAPPE);
+                    GR_SERVO_ABEILLE = new composants.Servomoteurs.AX12(GR_SOCKET_SERVOS, GR_SERVO_ID_ABEILLE);
+                    
+                    GR_LANCEUR_BALLE = new LanceurBalle(GR_SOCKET_LANCEUR);
+
+                     
+                    GR_INFRAROUGE_1 = new composants.CapteursObstacle.Infrarouge(GR_SOCKET_INFRAROUGE, GR_PORT_INFRAROUGE_1, OBSTACLE_DIRECTION.AVANT);
+                    GR_INFRAROUGE_2 = new composants.CapteursObstacle.Infrarouge(GR_SOCKET_INFRAROUGE, GR_PORT_INFRAROUGE_2, OBSTACLE_DIRECTION.AVANT);
+                    GR_INFRAROUGE_3 = new composants.CapteursObstacle.Infrarouge(GR_SOCKET_INFRAROUGE, GR_PORT_INFRAROUGE_3, OBSTACLE_DIRECTION.ARRIERE);
+                    GR_INFRAROUGE_4 = new composants.CapteursObstacle.Infrarouge(GR_SOCKET_INFRAROUGE, GR_PORT_INFRAROUGE_4, OBSTACLE_DIRECTION.ARRIERE);
+
+                    composants.CapteursObstacle.CapteurObstacle[] capteurs_GR = { GR_INFRAROUGE_1, PR_INFRAROUGE_2, GR_INFRAROUGE_3, GR_INFRAROUGE_4 };
+                    OBSTACLE_MANAGER = new composants.CapteursObstacle.CapteurObstacleManager(capteurs_GR);
                     
                     break;
 
@@ -211,8 +241,8 @@ namespace Robot_P16.Robot
 
                     PR_RELAIS_VENTOUZES = new composants.RelaisMoteur(PR_SOCKET_VENTOUZES, PR_PORT_VENTOUZES);
 
-                    composants.CapteursObstacle.CapteurObstacle[] capteurs = {PR_INFRAROUGE_1, PR_INFRAROUGE_2, PR_ULTRASON};
-                    OBSTACLE_MANAGER = new composants.CapteursObstacle.CapteurObstacleManager(capteurs);
+                    composants.CapteursObstacle.CapteurObstacle[] capteurs_PR = {PR_INFRAROUGE_1, PR_INFRAROUGE_2, PR_ULTRASON};
+                    OBSTACLE_MANAGER = new composants.CapteursObstacle.CapteurObstacleManager(capteurs_PR);
 
                     break;
 

@@ -101,6 +101,16 @@ namespace Robot_P16.Actions
         {
             return new ActionBaseRoulante(this.description, new Robot.composants.BaseRoulante.Mouvement(pt, true, forcedDirection));
         }
+
+        public ActionDelegate BuildActionLanceurBalle(double speed)
+        {
+            return new ActionDelegate(this.description, () => Robot.Robot.robot.GR_LANCEUR_BALLE.launchSpeed(speed));
+        }
+        public ActionDelegate BuildActionLanceurBalleStop()
+        {
+            return new ActionDelegate(this.description, () => Robot.Robot.robot.GR_LANCEUR_BALLE.stop());
+        }
+
         /*public ActionBaseRoulante BuildActionBaseRoulante_GOTO_ONLY(TypeDeLieu typeDeLieu)
         {
             return new ActionBaseRoulante(this.description, new Robot.composants.BaseRoulante.Mouvement(pt, true));

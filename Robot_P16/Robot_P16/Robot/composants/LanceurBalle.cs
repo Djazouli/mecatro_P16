@@ -22,7 +22,7 @@ namespace Robot_P16.Robot.composants
             if (speed >= -1.0f && speed <= 1.0f)
             {
                 moteur.SetSpeed(MotorDriverL298.Motor.Motor1, speed);
-                Informations.printInformations(Priority.LOW, "LanceurBalle : launched motor 1 with speed "+speed);
+                Informations.printInformations(Priority.MEDIUM, "LanceurBalle : launched motor 1 with speed "+speed);
             }
             else
             {
@@ -32,8 +32,9 @@ namespace Robot_P16.Robot.composants
 
         public void stop()
         {
+            moteur.SetSpeed(MotorDriverL298.Motor.Motor1, 0.001);
             moteur.StopAll();
-            Informations.printInformations(Priority.LOW, "LanceurBalle : stopped all motors");
+            Informations.printInformations(Priority.MEDIUM, "LanceurBalle : stopped all motors");
         }
     }
 }
