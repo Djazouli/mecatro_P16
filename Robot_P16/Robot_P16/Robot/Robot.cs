@@ -48,12 +48,12 @@ namespace Robot_P16.Robot
         public readonly int GR_SOCKET_SERVOS = 11;
         public readonly int PR_SOCKET_SERVOS = 11;
 
-        public readonly int GR_SOCKET_INFRAROUGE = 5;
+        public readonly int GR_SOCKET_INFRAROUGE = 9;
         public readonly int PR_SOCKET_INFRAROUGE = 9;
         public readonly int PR_SOCKET_ULTRASON = 6;
 
         public readonly int PR_SOCKET_JACK = 9;
-        public readonly int GR_SOCKET_JACK = 5;
+        public readonly int GR_SOCKET_JACK = 9;
 
         public readonly int PR_PORT_INFRAROUGE_1 = 5;
         public readonly int PR_PORT_INFRAROUGE_2 = 7;
@@ -64,6 +64,7 @@ namespace Robot_P16.Robot
         public readonly int GR_PORT_INFRAROUGE_4 = 7;
 
         public readonly int PR_PORT_JACK = 8;
+        public readonly int GR_PORT_JACK = 8;
 
 
         public readonly int GR_SOCKET_LANCEUR = 8;
@@ -208,7 +209,10 @@ namespace Robot_P16.Robot
                     GR_INFRAROUGE_3 = new composants.CapteursObstacle.Infrarouge(GR_SOCKET_INFRAROUGE, GR_PORT_INFRAROUGE_3, OBSTACLE_DIRECTION.ARRIERE);
                     GR_INFRAROUGE_4 = new composants.CapteursObstacle.Infrarouge(GR_SOCKET_INFRAROUGE, GR_PORT_INFRAROUGE_4, OBSTACLE_DIRECTION.ARRIERE);
 
-                    composants.CapteursObstacle.CapteurObstacle[] capteurs_GR = { GR_INFRAROUGE_1, PR_INFRAROUGE_2, GR_INFRAROUGE_3, GR_INFRAROUGE_4 };
+
+                    JACK = new composants.JackInterrupt(GR_SOCKET_JACK, GR_PORT_JACK);
+
+                    composants.CapteursObstacle.CapteurObstacle[] capteurs_GR = { GR_INFRAROUGE_1, GR_INFRAROUGE_2, GR_INFRAROUGE_3, GR_INFRAROUGE_4 };
                     OBSTACLE_MANAGER = new composants.CapteursObstacle.CapteurObstacleManager(capteurs_GR);
                     
                     break;
@@ -241,8 +245,8 @@ namespace Robot_P16.Robot
 
                     PR_RELAIS_VENTOUZES = new composants.RelaisMoteur(PR_SOCKET_VENTOUZES, PR_PORT_VENTOUZES);
 
-                    /*composants.CapteursObstacle.CapteurObstacle[] capteurs_PR = {PR_INFRAROUGE_1, PR_INFRAROUGE_2, PR_ULTRASON};
-                    OBSTACLE_MANAGER = new composants.CapteursObstacle.CapteurObstacleManager(capteurs_PR);*/
+                    composants.CapteursObstacle.CapteurObstacle[] capteurs_PR = {PR_INFRAROUGE_1, PR_INFRAROUGE_2, PR_ULTRASON};
+                    OBSTACLE_MANAGER = new composants.CapteursObstacle.CapteurObstacleManager(capteurs_PR);
 
                     break;
 

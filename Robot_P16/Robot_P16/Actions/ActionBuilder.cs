@@ -76,6 +76,10 @@ namespace Robot_P16.Actions
         {
             return new ActionServoRotation(description, servomoteur, direction, duration);
         }
+        public ActionServoRotation BuildActionServoRotation(AX12 servomoteur, int vitesse, int duration)
+        {
+            return new ActionServoRotation(description, servomoteur, vitesse, duration);
+        }
         public ActionVentouze BuildActionVentouze(VENTOUZES ventouze, bool activate)
         {
             return new ActionVentouze(description, ventouze, activate);

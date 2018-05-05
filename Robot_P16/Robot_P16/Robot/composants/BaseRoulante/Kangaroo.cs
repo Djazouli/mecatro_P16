@@ -28,15 +28,33 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         private const int RAPPORT_DISTANCE_CODEUR_VERS_MM = 1;
         private const int RAPPORT_DISTANCE_MM_VERS_CODEUR = 100; //100;
 
-        private const int CODEUR_LINES_ANGLE_360_DEGRES = 4017;
-        //private const int CODEUR_LINES_ANGLE_360_DEGRES = 54250;
-        private const int CODEUR_VAL_ANGLE_360_DEGRES = 360;
+        private int CODEUR_LINES_ANGLE_360_DEGRES;// = 4017;
+        private int CODEUR_VAL_ANGLE_360_DEGRES;// = 360;
 
-        private const int CODEUR_LINES_DISTANCE_1MM = 10240; //79 / 100
-        private const int CODEUR_VAL_DISTANCE_1MM = 1634;// * 1000 / 688;
+        private int CODEUR_LINES_DISTANCE_1MM;// = 10240;
+        private int CODEUR_VAL_DISTANCE_1MM;// = 1634;
 
-        private const double ratioPointOrienteVersKangarooANGLE = 1.0 * 0.957;// / 2.66; //125.0 / 360.0;//617.0 / 360.0 / 5.0;//550.0 / 720.0;
-        private const double ratioPointOrienteVersKangarooDIST = 1.0 * 170.0 / 179.0;// * 0.67; //57.0/10.0;//688.0 / 1000.0;
+        
+        private const int CODEUR_LINES_ANGLE_360_DEGRES_PR = 4017;
+        private const int CODEUR_VAL_ANGLE_360_DEGRES_PR = 360;
+
+        private const int CODEUR_LINES_DISTANCE_1MM_PR = 10240;
+        private const int CODEUR_VAL_DISTANCE_1MM_PR = 1634;
+
+        private const int CODEUR_LINES_ANGLE_360_DEGRES_GR = 5122;
+        private const int CODEUR_VAL_ANGLE_360_DEGRES_GR = 360;
+
+        private const int CODEUR_LINES_DISTANCE_1MM_GR = 1024;
+        private const int CODEUR_VAL_DISTANCE_1MM_GR = 176;
+
+        private double ratioPointOrienteVersKangarooANGLE;// = 1.0 * 0.957;// / 2.66; //125.0 / 360.0;//617.0 / 360.0 / 5.0;//550.0 / 720.0;
+        private double ratioPointOrienteVersKangarooDIST;// = 1.0 * 170.0 / 179.0;// * 0.67; //57.0/10.0;//688.0 / 1000.0;
+
+        private const double ratioPointOrienteVersKangarooANGLE_PR = 1.0 * 0.957;// / 2.66; //125.0 / 360.0;//617.0 / 360.0 / 5.0;//550.0 / 720.0;
+        private const double ratioPointOrienteVersKangarooDIST_PR = 1.0 * 170.0 / 179.0;// * 0.67; //57.0/10.0;//688.0 / 1000.0;
+
+        private const double ratioPointOrienteVersKangarooANGLE_GR = 1.0 * 0.977;// * 0.957;// / 2.66; //125.0 / 360.0;//617.0 / 360.0 / 5.0;//550.0 / 720.0;
+        private const double ratioPointOrienteVersKangarooDIST_GR = 1.0 * 0.9743;// * 170.0 / 179.0;// * 0.67; //57.0/10.0;//688.0 / 1000.0;
 
         private const bool ROUE_LIBRE = false;
 
@@ -62,8 +80,35 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             {
                 Informations.printInformations(Priority.HIGH, "New Kangaroo, port com ALREADY OPENED !!!!!");
             }
-            
+
+            if (Robot.robot.TypeRobot == TypeRobot.GRAND_ROBOT)
+            {
+                Informations.printInformations(Priority.HIGH, "New Kangaroo, grand robot deteted.");
+                CODEUR_LINES_ANGLE_360_DEGRES = CODEUR_LINES_ANGLE_360_DEGRES_GR;
+                CODEUR_VAL_ANGLE_360_DEGRES = CODEUR_VAL_ANGLE_360_DEGRES_GR;
+
+                CODEUR_LINES_DISTANCE_1MM = CODEUR_LINES_DISTANCE_1MM_GR;
+                CODEUR_VAL_DISTANCE_1MM = CODEUR_VAL_DISTANCE_1MM_GR;
+
+                ratioPointOrienteVersKangarooANGLE = ratioPointOrienteVersKangarooANGLE_GR;
+                ratioPointOrienteVersKangarooDIST = ratioPointOrienteVersKangarooDIST_GR;
+            }
+            else
+            {
+                Informations.printInformations(Priority.HIGH, "New Kangaroo, petit robot deteted.");
+                CODEUR_LINES_ANGLE_360_DEGRES = CODEUR_LINES_ANGLE_360_DEGRES_PR;
+                CODEUR_VAL_ANGLE_360_DEGRES = CODEUR_VAL_ANGLE_360_DEGRES_PR;
+                
+                CODEUR_LINES_DISTANCE_1MM = CODEUR_LINES_DISTANCE_1MM_PR;
+                CODEUR_VAL_DISTANCE_1MM = CODEUR_VAL_DISTANCE_1MM_PR;
+
+                ratioPointOrienteVersKangarooANGLE = ratioPointOrienteVersKangarooANGLE_PR;
+                ratioPointOrienteVersKangarooDIST = ratioPointOrienteVersKangarooDIST_PR;
+            }
+
+            Thread.Sleep(500);
             Init();
+            Thread.Sleep(500);
 
             if (ROUE_LIBRE)
             {
@@ -73,7 +118,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
 
 
                 commande = "D,p0s0\r\n";
-                EnvoyerCommande(commande);
+                //EnvoyerCommande(commande);
             }
             Thread.Sleep(100);
 
@@ -231,9 +276,9 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 angleIncremental = deplacementFromFeedback;
                 deplacement /= RAPPORT_ANGLE_DEGRE_VERS_CODEUR;
                 deplacement = deplacement / ratioPointOrienteVersKangarooANGLE;
-                if (Robot.robot.TypeRobot == TypeRobot.PETIT_ROBOT)
+                if (Robot.robot.TypeRobot == TypeRobot.GRAND_ROBOT)
                 {
-                    //deplacement = -deplacement;
+                    deplacement = -deplacement;
                 }
                 position = new PointOriente(
                     position.x,

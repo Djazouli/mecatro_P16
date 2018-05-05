@@ -106,10 +106,14 @@ namespace Robot_P16.Robot.composants.Servomoteurs
         /// </summary>
         /// <param name="angle">En degrès</param>
         /// <returns>Durée en ms estimée de la rotation</returns>
-        public void Rotate(speed speed, int duration)
+        public void Rotate(speed vitesse, int duration)
+        {
+            Rotate((int)vitesse, duration);
+        }
+        public void Rotate(int vitesse, int duration)
         {
             this.cax12.setMode(AX12Mode.wheel);
-            this.cax12.setMovingSpeed(speed);
+            this.cax12.setMovingSpeed(vitesse);
             Thread.Sleep(duration);
             this.cax12.setMovingSpeed(speed.stop);
         }

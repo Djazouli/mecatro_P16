@@ -226,26 +226,26 @@ namespace Robot_P16.Robot
 
             setMotherAction(ModeOperatoire.TEST1, MOTHER_ACTION);*/
 
-            PointOriente pt1 = new PointOriente(1500, 0, 50);
-            PointOriente pt2 = new PointOriente(1500, 500, 50);
-            PointOriente pt3 = new PointOriente(0, 500, 0);
+            PointOriente pt1 = new PointOriente(1000, 0, 50);
+            PointOriente pt2 = new PointOriente(1000, 500, 50);
+            PointOriente pt3 = new PointOriente(0, 500, -50);
             PointOriente pt4 = new PointOriente(0, 0, 50);
 
-            /*Action MOTHER_ACTION = new ActionBuilder("Action mère Test1").Add(
-                    new ActionBuilder("Pt1").BuildActionBaseRoulante_GOTO_ONLY(pt1)
+            Action MOTHER_ACTION = new ActionBuilder("Action mere Test1").Add(
+                    new ActionBuilder("Pt1").BuildActionBaseRoulante_GOTO_ONLY(pt1, OBSTACLE_DIRECTION.AVANT)
                 ).Add(
                     new ActionBuilder("Wait a bit...").BuildActionWait(1)
                 )
                 .Add(
-                   new ActionBuilder("Pt2").BuildActionBaseRoulante_GOTO_ONLY(pt2)
+                   new ActionBuilder("Pt2").BuildActionBaseRoulante_GOTO_ANGLE(pt2, OBSTACLE_DIRECTION.AVANT)
                 ).Add(
                     new ActionBuilder("Wait a bit...").BuildActionWait(1)
                 )
                 .Add(
-                   new ActionBuilder("Pt3").BuildActionBaseRoulante_GOTO_ANGLE(pt3)
-                ).Add(
+                   new ActionBuilder("Pt3").BuildActionBaseRoulante_GOTO_ANGLE(pt3, OBSTACLE_DIRECTION.AVANT)
+                )/*.Add(
                     new ActionBuilder("Recallage").BuildActionRecallageAxeY(0, 1000, 100*100, 100*50, 0)
-                )
+                )*/
                 .Add(
                 new ActionBuilder("Wait a bit...").BuildActionWait(2000)
                 ).Add(

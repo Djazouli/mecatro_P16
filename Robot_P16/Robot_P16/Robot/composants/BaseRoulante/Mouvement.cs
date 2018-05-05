@@ -240,7 +240,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         }
         public double convertTo180(double angle)
         {
-            angle = angle % 360; //angle in [0,360]
+            angle = convertTo360(angle); ; //angle in [0,360]
             if (angle <= 180)
             {
                 return angle;

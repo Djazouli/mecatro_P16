@@ -84,9 +84,6 @@ namespace Robot_P16.Robot.composants.Servomoteurs
         private byte[] m_commande = new byte[20];
         public byte m_ID = 0;
         AX12Mode m_mode = 0;
-        uint m_posCourrante = 0, m_posPrecedente = 0;
-        int m_nbTour = 0;
-        speed m_speed = speed.stop;
 
         int TEMPORAIRE_position = 0;
 
@@ -212,8 +209,12 @@ namespace Robot_P16.Robot.composants.Servomoteurs
 
         public int setMovingSpeed(speed vitesse)
         {
-            m_speed = vitesse;
             int value = (int)vitesse;
+            return setMovingSpeed(value);
+        }
+
+        public int setMovingSpeed(int value)
+        {
             if (m_mode == AX12Mode.wheel)
             {
                 byte[] buf = { 0x20, (byte)(value), (byte)(value >> 8) };
