@@ -16,18 +16,18 @@ namespace Robot_P16.Robot.composants.Servomoteurs
          * ***************** FIN DES REGLES DE NOMMAGE ****************** */
 
 
-        public const int ANGLE_PR_ASCENSEURDROIT_PARTIE_BASSE_MINIMUM = 65; // PRET A RAMASSER VENTOUSE 
-        public const int ANGLE_PR_ASCENSEURDROIT_PARTIE_BASSE_HAUTEUR_2_CUBE = 882; // Depose le 3eme cube
+        public const int ANGLE_PR_ASCENSEURDROIT_PARTIE_BASSE_MINIMUM = 11; // PRET A RAMASSER VENTOUSE 
+        public const int ANGLE_PR_ASCENSEURDROIT_PARTIE_BASSE_HAUTEUR_2_CUBE = 900; // Depose le 3eme cube
         public const int ANGLE_PR_ASCENSEURDROIT_PARTIE_BASSE_MAXIMUM = 1023;
         public const int ANGLE_PR_ASCENSEURDROIT_PARTIE_HAUTE_MINIMUM = 0;
-        public const int ANGLE_PR_ASCENSEURDROIT_PARTIE_HAUTE_MAXIMUM = 394;
+        public const int ANGLE_PR_ASCENSEURDROIT_PARTIE_HAUTE_MAXIMUM = 320;
         public const int ANGLE_PR_ASCENSEURDROIT_COINCER = 494;
 
-        public const int DELAI_PR_ASCENSEURDROIT_PARTIE_BASSE_VERS_HAUTE = 329; // TODO
-        public const int VITESSE_PR_ASCENSEURDROIT_PARTIE_BASSE_VERS_HAUTE = 329; // TODO
+        public const int DELAI_PR_ASCENSEURDROIT_PARTIE_BASSE_VERS_HAUTE = 900; // TODO
+        public const int VITESSE_PR_ASCENSEURDROIT_PARTIE_BASSE_VERS_HAUTE = 400; // TODO
 
-        public const int DELAI_PR_ASCENSEURDROIT_PARTIE_HAUTE_VERS_BASSE = 329; // TODO
-        public const int VITESSE_PR_ASCENSEURDROIT_PARTIE_HAUTE_VERS_BASSE = 329; // TODO
+        public const int DELAI_PR_ASCENSEURDROIT_PARTIE_HAUTE_VERS_BASSE = 900; // TODO
+        public const int VITESSE_PR_ASCENSEURDROIT_PARTIE_HAUTE_VERS_BASSE = 1400; // TODO
 
  	 public const int ANGLE_PR_POUSSOIRJOKER_POUSSER=160*1024/300;// = 90; //en degré, valeur approximative, odg moins d'un tour
  	 public const int ANGLE_PR_POUSSOIRJOKER_RETOUR=0;// = 90;
@@ -39,14 +39,14 @@ namespace Robot_P16.Robot.composants.Servomoteurs
 
      //public const int ANGLE_PR_ASCENSEURGAUCHE_PARTIE_BASSE_MINIMUM = 770;// = -342.86;
 
- 	 public const int ANGLE_PR_ASCENSEURDROIT_MONTERUNITE=885;// = 202.32; //pour monter de 60mm, systeme different de l'autre ascenseur
- 	 public const int ANGLE_PR_ASCENSEURDROIT_DESCENDREUNITE=710;// = -202.32;
+ 	 //public const int ANGLE_PR_ASCENSEURDROIT_MONTERUNITE=885;// = 202.32; //pour monter de 60mm, systeme different de l'autre ascenseur
+ 	 //public const int ANGLE_PR_ASCENSEURDROIT_DESCENDREUNITE=710;// = -202.32;
 
      public const int ANGLE_PR_ROTATIONGAUCHE_INTERIEUR = 170 * 1024 / 300;//stockage d'un cube sur la pile (90 ou -90)
      public const int ANGLE_PR_ROTATIONGAUCHE_MILIEU =  80*1024/300;
      public const int ANGLE_PR_ROTATIONGAUCHE_CUBE_CENTRAL = 533;
      public const int ANGLE_PR_ROTATIONGAUCHE_CUBE_GAUCHE = 533;
-     public const int ANGLE_PR_ROTATIONGAUHE_COINCER = 552; //15=-1;//utiliser les patins pour saisir un cube de la pile
+     public const int ANGLE_PR_ROTATIONGAUCHE_COINCER = 552; //15=-1;//utiliser les patins pour saisir un cube de la pile
 
      public const int ANGLE_PR_ROTATIONDROIT_INTERIEUR = 200;// a peu pres 60*1024/300
  	 public const int ANGLE_PR_ROTATIONDROIT_MILIEU= 150*1024/300 ;
@@ -78,10 +78,6 @@ namespace Robot_P16.Robot.composants.Servomoteurs
  	 public const int ANGLE_GR_TRAPPE_OUVRIR=495;
  	 public const int ANGLE_GR_TRAPPE_FERMER=580;
 
-
-        public const int ANGLE_PR_ROTATIONDROITE_COINCER=-1;// = -36.00;
-        public const int ANGLE_PR_ROTATIONDROITE_DECOINCER=-1;// = -36.00;
-        public const int ANGLE_PR_ROTATIONGAUCHE_COINCER=-1;// = -36.00;
 
 
     }

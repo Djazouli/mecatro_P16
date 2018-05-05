@@ -36,12 +36,13 @@ namespace Robot_P16.Robot.composants.Servomoteurs
         public ActionServoRotation PR_BRAS_DROIT_DESCENDREPOURPOSERVENTOUSE =
            new ActionBuilder("ServoPR- descendre le bras gauche").BuildActionServoRotation(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT, Robot_P16.Robot.composants.Servomoteurs.speed.reverse, DonneesServo.TEMPS_PR_DESCENDREPOSERVENTOUSE);
 
-        public ActionServoRotation PR_BRAS_DROIT_DESCENDRE =
+        /*public ActionServoRotation PR_BRAS_DROIT_DESCENDRE =
             new ActionBuilder("ServoPR- descendre le bras droit").BuildActionServoRotation(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT, Robot_P16.Robot.composants.Servomoteurs.speed.forward, DonneesServo.ANGLE_PR_ASCENSEURDROIT_DESCENDREUNITE);
 
         public ActionServoRotation PR_BRAS_DROIT_DESCENDRE_2 =
             new ActionBuilder("ServoPR- descendre le bras droit").BuildActionServoRotation(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT, Robot_P16.Robot.composants.Servomoteurs.speed.forward, DonneesServo.ANGLE_PR_ASCENSEURDROIT_DESCENDREUNITE);
-       
+       */
+
         public ActionServoRotation PR_BRAS_GAUCHE_DESCENDREPOURPOSERVENTOUSE=
            new  ActionBuilder("ServoPR- descendre le bras gauche").BuildActionServoRotation(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE, Robot_P16.Robot.composants.Servomoteurs.speed.reverse, DonneesServo.TEMPS_PR_DESCENDREPOSERVENTOUSE);
        
@@ -76,12 +77,12 @@ namespace Robot_P16.Robot.composants.Servomoteurs
         //AJOUTER PR_SERVO_ROTATION_BRAS_GAUCHE dans Robot.robot et ANGLE_PR_ROTATIONGAUCHE_HORAIRE dans Donnees Servo
 
         public ActionServoAbsolue PR_BRAS_DROIT_ROTATION_COINCER =
-            new ActionBuilder("ServoPR- rotation bras droit pour coincer cube").BuildActionServoAbsolue(Robot.robot.PR_SERVO_ROTATION_BRAS_DROIT,  DonneesServo.ANGLE_PR_ROTATIONDROITE_COINCER);
+            new ActionBuilder("ServoPR- rotation bras droit pour coincer cube").BuildActionServoAbsolue(Robot.robot.PR_SERVO_ROTATION_BRAS_DROIT, DonneesServo.ANGLE_PR_ROTATIONDROIT_COINCER);
 
         //AJOUTER ANGLE_PR_ROTATIONDROITE_COINCER dans Donnees Servo
 
-        public ActionServoAbsolue PR_BRAS_DROIT_ROTATION_DECOINCER =
-            new ActionBuilder("ServoPR- rotation bras droit pour decoincer cube").BuildActionServoAbsolue(Robot.robot.PR_SERVO_ROTATION_BRAS_DROIT,  DonneesServo.ANGLE_PR_ROTATIONDROITE_DECOINCER);
+        //public ActionServoAbsolue PR_BRAS_DROIT_ROTATION_DECOINCER =
+        //    new ActionBuilder("ServoPR- rotation bras droit pour decoincer cube").BuildActionServoAbsolue(Robot.robot.PR_SERVO_ROTATION_BRAS_DROIT,  DonneesServo.ANGLE_PR_ROTATIONDROITE_DECOINCER);
 
         //AJOUTER ANGLE_PR_ROTATIONDROITE_DECOINCER dans Donnees Servo
 
@@ -89,13 +90,15 @@ namespace Robot_P16.Robot.composants.Servomoteurs
         new ActionBuilder("ServoPR- rotation bras gauche pour coincer cube").BuildActionServoAbsolue(Robot.robot.PR_SERVO_ROTATION_BRAS_GAUCHE,  DonneesServo.ANGLE_PR_ROTATIONGAUCHE_COINCER);
 
 
-        public ActionServoRotation PR_BRAS_GAUCHE_DEPLOIEMENT_SORTIR =
-        new ActionBuilder("ServoPR- deploiement du bras gauche").BuildActionServoRotation(Robot.robot.PR_SERVO_DEPLOIEMENT_BRAS_GAUCHE, Robot_P16.Robot.composants.Servomoteurs.speed.forward, DonneesServo.TEMPS_PR_DEPLOIEMENTGAUCHE_SORTIR);
+        public ActionServoAbsolue PR_BRAS_GAUCHE_DEPLOIEMENT_SORTIR_CUBE_CENTRAL =
+        new ActionBuilder("ServoPR- deploiement du bras gauche pour attraper le cube central").BuildActionServoAbsolue(Robot.robot.PR_SERVO_DEPLOIEMENT_BRAS_GAUCHE, DonneesServo.ANGLE_PR_DEPLOIEMENTGAUCHE_DEPLOIEMENT_CUBE_CENTRAL);
 
+        public ActionServoAbsolue PR_BRAS_GAUCHE_DEPLOIMENT_SORTIR_CUBE_GAUCHE =
+            new ActionBuilder("ServoPR - deploiement bras gauche pour attraper le cube devant lui").BuildActionServoAbsolue(Robot.robot.PR_SERVO_DEPLOIEMENT_BRAS_GAUCHE, DonneesServo.ANGLE_PR_DEPLOIEMENTGAUCHE_DEPLOIEMENT_CUBE_GAUCHE);
         //AJOUTER PR_SERVO_DEPLOIEMENT_BRAS_GAUCHE dans Robot.robot et ANGLE_PR_DEPLOIEMENTGAUCHE_SORTIR dans Donnees Servo
 
-        public ActionServoRotation PR_BRAS_GAUCHE_DEPLOIEMENT_RENTRER =
-        new ActionBuilder("ServoPR- rentrer le bras gauche deploye").BuildActionServoRotation(Robot.robot.PR_SERVO_DEPLOIEMENT_BRAS_GAUCHE, Robot_P16.Robot.composants.Servomoteurs.speed.reverse, DonneesServo.TEMPS_PR_DEPLOIEMENTGAUCHE_RENTRER);
+        public ActionServoAbsolue PR_BRAS_GAUCHE_DEPLOIEMENT_RENTRER =
+        new ActionBuilder("ServoPR- rentrer le bras gauche deploye").BuildActionServoAbsolue(Robot.robot.PR_SERVO_DEPLOIEMENT_BRAS_GAUCHE, DonneesServo.ANGLE_PR_DEPLOIEMENTGAUCHE_DEPLOIEMENT_MIN);
 
         //AJOUTER ANGLE_PR_DEPLOIEMENTGAUCHE_RENTRER dans Donnees Servo
 
