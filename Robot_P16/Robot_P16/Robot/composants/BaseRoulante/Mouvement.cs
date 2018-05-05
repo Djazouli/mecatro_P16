@@ -129,6 +129,8 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                    // waiting for the move to be completed
                     if (this.isPaused) return false; // MUST BE CHECKED AFTER EACH WaitOne!!!!
                 }
+                deltaX = pt.x - this.GetPosition().x;
+                deltaY = pt.y - this.GetPosition().y;
                 Avance((int)System.Math.Sqrt(deltaX * deltaX + deltaY * deltaY));
                 //Robot.robot.BASE_ROULANTE.MoveCompleted.WaitOne();// waiting for the move to be completed
                 if (this.isPaused) return false; // MUST BE CHECKED AFTER EACH WaitOne!!!!
@@ -150,6 +152,8 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                     //Robot.robot.BASE_ROULANTE.MoveCompleted.WaitOne();// waiting for the move to be completed
                     if (this.isPaused) return false; // MUST BE CHECKED AFTER EACH WaitOne!!!!
                 }
+                deltaX = pt.x - this.GetPosition().x;
+                deltaY = pt.y - this.GetPosition().y;
                 Avance(-(int)System.Math.Sqrt(deltaX * deltaX + deltaY * deltaY));
                 //position = new PointOriente(pt.x, pt.y, 180+deltaTheta%360); // check the angle
                 //Robot.robot.BASE_ROULANTE.MoveCompleted.WaitOne();// waiting for the move to be completed
