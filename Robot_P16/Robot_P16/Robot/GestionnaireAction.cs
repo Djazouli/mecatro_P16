@@ -226,13 +226,13 @@ namespace Robot_P16.Robot
 
             setMotherAction(ModeOperatoire.TEST1, MOTHER_ACTION);*/
 
-            PointOriente pt1 = new PointOriente(1511, 0, 50);
-            PointOriente pt2 = new PointOriente(1511, -1355, 50);
-            PointOriente pt3 = new PointOriente(0, -1355, 50);
+            PointOriente pt1 = new PointOriente(1500, 0, 50);
+            PointOriente pt2 = new PointOriente(1500, 1500, 50);
+            PointOriente pt3 = new PointOriente(0, 1500, 50);
             PointOriente pt4 = new PointOriente(0, 0, 50);
 
-            /*Action MOTHER_ACTION = new ActionBuilder("Action mère Test1").Add(
-                    new ActionBuilder("Pt1").BuildActionBaseRoulante_GOTO_ANGLE(pt1)
+            Action MOTHER_ACTION = new ActionBuilder("Action mère Test1").Add(
+                    new ActionBuilder("Pt1").BuildActionBaseRoulante_GOTO_ONLY(pt1,OBSTACLE_DIRECTION.ARRIERE)
                 ).Add(
                     new ActionBuilder("Wait a bit...").BuildActionWait(1)
                 )
@@ -242,13 +242,13 @@ namespace Robot_P16.Robot
                     new ActionBuilder("Wait a bit...").BuildActionWait(1)
                 )
                 .Add(
-                   new ActionBuilder("Pt3").BuildActionBaseRoulante_GOTO_ANGLE(pt3)
+                   new ActionBuilder("Pt3").BuildActionBaseRoulante_GOTO_ONLY(pt3)
                 ).Add(
                 new ActionBuilder("Wait a bit...").BuildActionWait(1)
                 ).Add(
                 new ActionBuilder("pt4").BuildActionBaseRoulante_GOTO_ONLY(pt4))
-                .BuildActionEnSerieRepeated(-1); // Envois infinis*/
-            Action MOTHER_ACTION = new ActionBuilder("test").BuildActionWait(10000);
+                .BuildActionEnSerieRepeated(-1); // Envois infinis
+            //Action MOTHER_ACTION = new ActionBuilder("test").BuildActionWait(10000);
             setMotherAction(ModeOperatoire.TEST1, TypeRobot.PETIT_ROBOT, MOTHER_ACTION);
             setMotherAction(ModeOperatoire.TEST1, TypeRobot.GRAND_ROBOT, MOTHER_ACTION);
         }

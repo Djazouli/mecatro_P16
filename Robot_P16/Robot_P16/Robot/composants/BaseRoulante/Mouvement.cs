@@ -72,9 +72,9 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         }
         public void Rotate(double angle)
         {
-            if (Robot.robot.TypeRobot == TypeRobot.PETIT_ROBOT)
+            if (Robot.robot.TypeRobot == TypeRobot.GRAND_ROBOT)
             {
-                //angle = -angle;
+                angle = -angle;
             }
             Robot.robot.BASE_ROULANTE.kangaroo.rotate(angle, getSpeedTurn());
         }
