@@ -69,7 +69,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             if (!m_portCOM.IsOpen) return false;
             byte[] buffer = System.Text.Encoding.UTF8.GetBytes(commande);
             m_portCOM.Write(buffer, 0, buffer.Length);
-            Debug.Print(commande);
+            //Debug.Print(commande);
             return true;
         }
 
@@ -86,9 +86,11 @@ namespace Robot_P16.Robot.composants.BaseRoulante
 
             commande = "T, UNITS "+ CODEUR_VAL_ANGLE_360_DEGRES * RAPPORT_ANGLE_DEGRE_VERS_CODEUR+"  millidegrees = "+CODEUR_LINES_ANGLE_360_DEGRES+" lines\r\n";
             EnvoyerCommande(commande);
+            Debug.Print(commande);
 
             commande = "D, UNITS "+CODEUR_VAL_DISTANCE_1MM+" mm = "+CODEUR_LINES_DISTANCE_1MM * RAPPORT_DISTANCE_CODEUR_VERS_MM+"\r\n";
             EnvoyerCommande(commande);
+            Debug.Print(commande);
 
             commande = "T,p0s0\r\n";
             EnvoyerCommande(commande);
@@ -104,10 +106,15 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         }
         public void CheckMovingStatus()
         {
-            if (this.currentMode == null) return;
+            if (this.currentMode == null)
+            {
+                GetDynamicPosition();
+                Debug.Print("POSITION : "+this.position);
+                return;
+            }
 
 
-            Informations.printInformations(Priority.HIGH, sendAndReceiveUpdate("T"));
+            Informations.printInformations(Priority.VERY_LOW, "Received : "+sendAndReceiveUpdate("T"));
 
             Thread.Sleep(100);
 
@@ -135,21 +142,22 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             char upperCased = feedback[2].ToUpper();
             if (upperCased == feedback[2])
             {
-                Informations.printInformations(Priority.MEDIUM, "Kangaroo - CheckMovingStatus detected end of move");
+                Informations.printInformations(Priority.VERY_LOW, "Kangaroo - CheckMovingStatus detected end of move");
                 // isMoving = false, done moving
                 this.currentMode = null;
                 this.MoveCompleted.Set();
             }
 
 
-            Informations.printInformations(Priority.MEDIUM, "Current position : " + this.position);
+            Informations.printInformations(Priority.VERY_LOW, "Current position : " + this.position);
         }
 
         public PointOriente GetDynamicPosition()
         {
-            if (this.currentMode == null) return position;
+            //if (this.currentMode == null) return position;
             UpdatePositionFromFeedback(sendAndReceiveUpdate("T"));
             UpdatePositionFromFeedback(sendAndReceiveUpdate("D"));
+            Init();
             //return PositionFromFeedback(sendAndReceiveUpdate(this.currentMode));
             return this.position;
         }
@@ -180,6 +188,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                     position.x + deplacement * System.Math.Cos(angle),
                     position.y + deplacement * System.Math.Sin(angle),
                     position.theta);
+                Debug.Print("MAJ Position = " + position.x + "," + position.y + "," + position.theta);
             }
             else
             {
@@ -194,6 +203,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                     position.x,
                     position.y,
                     position.theta + deplacement);
+                Debug.Print("MAJ Position = " + position.x + "," + position.y + "," + position.theta);
             }
         }
 
@@ -235,6 +245,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             currentMode = "D";
             commande = "D,p" + distance + "s" + vitesse + "\r\n";
             if (!EnvoyerCommande(commande)) return false;
+            Informations.printInformations(Priority.MEDIUM, commande);
             Informations.printInformations(Priority.MEDIUM, "Kangaroo - Drive : sent command, waiting for move completion");
             MoveCompleted.WaitOne();
             currentMode = null;
@@ -249,6 +260,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             Init();
             currentMode = "T";
             commande = "T,p" + (int)(angle) + "s" + vitesse + "\r\n";
+            Informations.printInformations(Priority.MEDIUM, "Command sent: " + commande);
             if (!EnvoyerCommande(commande)) return false;
             Informations.printInformations(Priority.MEDIUM, "Kangaroo - Turn : sent command, waiting for move completion");
             MoveCompleted.WaitOne();

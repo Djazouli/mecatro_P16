@@ -139,13 +139,13 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 Debug.Print("Going en arriere");
                 if (this.GetPosition().theta%360 - deltaTheta > 180)
                 {//turn antitrigo
-                    Rotate(convertTo180(-this.GetPosition().theta%360 + 180 - deltaTheta%360));
+                    Rotate(convertTo180(-convertTo360(this.GetPosition().theta) + 180 - convertTo360(deltaTheta)));
                     //Robot.robot.BASE_ROULANTE.MoveCompleted.WaitOne();// waiting for the move to be completed
                     if (this.isPaused) return false; // MUST BE CHECKED AFTER EACH WaitOne!!!!
                 }
                 else
                 {
-                    Rotate(convertTo180(180 - this.GetPosition().theta%360 + deltaTheta%360));
+                    Rotate(convertTo180(180 - convertTo360(this.GetPosition().theta)+convertTo360(deltaTheta)));
                     //Robot.robot.BASE_ROULANTE.MoveCompleted.WaitOne();// waiting for the move to be completed
                     if (this.isPaused) return false; // MUST BE CHECKED AFTER EACH WaitOne!!!!
                 }
@@ -153,12 +153,11 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 //position = new PointOriente(pt.x, pt.y, 180+deltaTheta%360); // check the angle
                 //Robot.robot.BASE_ROULANTE.MoveCompleted.WaitOne();// waiting for the move to be completed
                 if (this.isPaused) return false; // MUST BE CHECKED AFTER EACH WaitOne!!!!
-                angle = (180 + deltaTheta) % 360;
             }
             if (adjustToAngle)
             {
                 Informations.printInformations(Priority.LOW, "Starting to adjust angle");
-                Rotate((convertTo180(-angle + pt.theta)));
+                Rotate((convertTo180(-GetPosition().theta + pt.theta)));
                 //Robot.robot.BASE_ROULANTE.MoveCompleted.WaitOne();// waiting for the move to be completed
                 if (this.isPaused) return false; // MUST BE CHECKED AFTER EACH WaitOne!!!!
             }
@@ -172,19 +171,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             deltaY = pt.y - this.GetPosition().y;
 
             Debug.Print("Going to " + pt.x.ToString() + "," + pt.y.ToString() + "\r\n");
-            if (deltaX > 0)
-            {
-                deltaTheta = 180 / System.Math.PI * System.Math.Atan(deltaY / deltaX);
-                if (deltaTheta < 0)
-                {
-                    deltaTheta = 360 + deltaTheta;
-                }
-            }
-            else if (deltaX < 0)
-            {
-                deltaTheta = 180 + 180 / System.Math.PI * System.Math.Atan(deltaY / deltaX);
-            }
-            else
+            if (deltaX == 0)
             {
                 if (deltaY > 0)
                 {
@@ -192,12 +179,15 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 }
                 else deltaTheta = 270;
             }
-            deltaTheta = convertTo180(deltaTheta);
-            angle = this.GetPosition().theta - (90+ deltaTheta);
-            angle = convertTo180(angle);
+            else{
+                deltaTheta = convertTo360(180 / System.Math.PI * System.Math.Atan2(deltaY , deltaX));
+            }
+            angle = (convertTo360(this.GetPosition().theta) -  convertTo360(deltaTheta)+90);
+            Debug.Print("Angle before modulo : " + angle.ToString());
+            angle = convertTo360(angle);
             Informations.printInformations(Priority.LOW, "J'ai deltaTheta = " + deltaTheta.ToString());
             Informations.printInformations(Priority.LOW, "Donc angle = " + angle.ToString());
-            if (angle > 0)
+            if (angle >180)
             {
                 return this.GoToOrientedPoint(pt, OBSTACLE_DIRECTION.ARRIERE);
             }
@@ -260,7 +250,8 @@ namespace Robot_P16.Robot.composants.BaseRoulante
 
         public double convertTo360(double angle)
         {
-            return angle % 360;
+            if (angle >= 0) return angle;
+            else return (360+angle);
         }
     }
 }
