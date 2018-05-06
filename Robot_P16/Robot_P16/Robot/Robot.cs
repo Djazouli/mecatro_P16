@@ -73,8 +73,9 @@ namespace Robot_P16.Robot
 
 
         public readonly int GR_SOCKET_LANCEUR = 8;
+        public readonly int PR_SOCKET_RECEPTEUR_CODE_COULEUR = 4;
 
-        public readonly int PR_SOCKET_VENTOUZES = 4;
+        public readonly int PR_SOCKET_VENTOUZES = 6;
         public readonly int PR_PORT_VENTOUZES = 3;
 
         public readonly int GR_SOCKET_BASE_ROUlANTE = 4;
@@ -132,6 +133,7 @@ namespace Robot_P16.Robot
         public composants.CapteursObstacle.Ultrason PR_ULTRASON;
 
         public composants.RelaisMoteur PR_RELAIS_VENTOUZES;
+        public composants.RecepteurCodeCouleur PR_RECEPTEUR_CODE_COULEUR;
 
 
         /* ********************************** FIN PETIT ROBOT ****************************** */
@@ -263,6 +265,8 @@ namespace Robot_P16.Robot
 
                     composants.CapteursObstacle.CapteurObstacle[] capteurs_PR = {PR_INFRAROUGE_1, PR_INFRAROUGE_2, PR_ULTRASON};
                     OBSTACLE_MANAGER = new composants.CapteursObstacle.CapteurObstacleManager(capteurs_PR);
+
+                    //PR_RECEPTEUR_CODE_COULEUR = new composants.RecepteurCodeCouleur(PR_SOCKET_RECEPTEUR_CODE_COULEUR); TODO
 
                     break;
 

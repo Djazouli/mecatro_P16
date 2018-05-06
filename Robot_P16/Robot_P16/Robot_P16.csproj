@@ -83,6 +83,7 @@
     <Compile Include="Robot\composants\Jack.cs" />
     <Compile Include="Robot\composants\JackInterrupt.cs" />
     <Compile Include="Robot\composants\LanceurBalle.cs" />
+    <Compile Include="Robot\composants\RecepteurCodeCouleur.cs" />
     <Compile Include="Robot\composants\RelaisMoteur.cs" />
     <Compile Include="Robot\composants\Servomoteurs\CAX12.cs" />
     <Compile Include="Robot\Informations.cs" />
@@ -120,6 +121,7 @@
     <Reference Include="GTM.GHIElectronics.MotorDriverL298, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="GTM.GHIElectronics.USBClientEDP, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="GTM.GHIElectronics.USBClientSP, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="GTM.GHIElectronics.XBeeAdapter, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.SPOT.Graphics" />
     <Reference Include="Microsoft.SPOT.Hardware" />
     <Reference Include="Microsoft.SPOT.Hardware.SerialPort" />
