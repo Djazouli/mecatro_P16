@@ -9,15 +9,19 @@ namespace Robot_P16.Actions
 {
     public class ActionGetColor : Action
     {
-        public readonly SerialPort m_port;
+
+        Gadgeteer.SocketInterfaces.Serial m_port;
+
+        //public readonly SerialPort m_port;
         public readonly int numPort = 4;
         public byte[] buffer = new byte[100];
-
+        //xBeeAdapter.Configure(9600, GT.SocketInterfaces.SerialParity.None, GT.SocketInterfaces.SerialStopBits.One, 8, GT.SocketInterfaces.HardwareFlowControl.NotRequired);
+        //m_port = xBeeAdapter.Port;
         public ActionGetColor()
             : base("Attente de la couleur")
         {
             string COMPort = GT.Socket.GetSocket(numPort, true, null, null).SerialPortName;
-            this.m_port = new SerialPort(COMPort, 9600, Parity.None, 8, StopBits.One);
+            //this.m_port = new SerialPort(COMPort, 9600, Parity.None, 8, StopBits.One);
         }
 
         public override void Execute()
@@ -45,6 +49,22 @@ namespace Robot_P16.Actions
         protected override bool PostStatusChangeCheck(ActionStatus previousStatus)
         {
             throw new NotImplementedException();
+        }
+
+        public void reception()
+        {
+            while (m_port.BytesToRead > 0)
+            {
+                byte[] buffer = new byte[m_port.BytesToRead];
+                int test = m_port.Read(buffer, 0, m_port.BytesToRead);
+                Debug.Print(test.ToString());
+                char[] chars = System.Text.Encoding.UTF8.GetChars(buffer);
+                for (int i = 0; i < chars.Length; i++)
+                {
+                    Debug.Print(chars[i].ToString());
+                }
+
+            }
         }
     }
 }
