@@ -6,6 +6,7 @@ using Gadgeteer.Networking;
 using Robot_P16.Robot;
 using GT = Gadgeteer;
 using System.IO.Ports;
+using System.Threading;
 namespace Robot_P16.Actions
 {
     public class ActionSendStart : Action
@@ -30,11 +31,17 @@ namespace Robot_P16.Actions
             m_port.Open();
             if (m_port.IsOpen)
             {
+
                 commande = "start\r\n";
                 Debug.Print("Envoi du signal");
                 buffer = System.Text.Encoding.UTF8.GetBytes(commande);
                 Debug.Print(commande);
                 m_port.Write(buffer, 0, commande.Length);
+                Thread.Sleep(200);
+                m_port.Write(buffer, 0, commande.Length);
+                Thread.Sleep(2000);
+                m_port.Write(buffer, 0, commande.Length);
+                
             }
             m_port.Close();
         }

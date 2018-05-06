@@ -220,10 +220,11 @@ namespace Robot_P16.Actions
                     gestionnaire.PR_BRAS_DROIT_ROTATION_INTERIEUR.Execute();
                     new ActionBuilder("Desactiver ventouze droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, false).Execute();
                     Thread.Sleep(300);
+                    gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU.Execute();
                     gestionnaire.PR_BRAS_DROIT_GOTO0.Execute();
                     gestionnaire.PR_BRAS_DROIT_ZONE_HAUT_VERS_BAS.Execute();
                     Thread.Sleep(200);
-                    gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU.Execute();
+
                     break;
                 case 5:
                     gestionnaire.PR_POUSSOIRJOKER_POUSSER.Execute();
