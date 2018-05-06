@@ -175,8 +175,9 @@ namespace Robot_P16.Robot.composants.Servomoteurs
                 m_serial.Write(m_commande, 0, length + 6);
                 //wait till all is sent
 
-                while (m_serial.BytesToWrite > 0) ;
+                //while (m_serial.BytesToWrite > 0) ;
 
+                Debug.Print("Bytes to read : "+m_serial.BytesToRead);
                 m_serial.DiscardInBuffer();
                 // UART en transmission TX desactivé
                 m_Direction.Write(false);

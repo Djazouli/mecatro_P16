@@ -71,6 +71,10 @@ namespace Robot_P16.Actions
         {
             return new ActionServoAbsolue(description, servomoteur, angle);
         }
+        public ActionServoAbsolue BuildActionServoAbsolue(AX12 servomoteur, int angle, int duration)
+        {
+            return new ActionServoAbsolue(description, servomoteur, angle, duration);
+        }
 
         public ActionServoRotation BuildActionServoRotation(AX12 servomoteur, speed direction, int duration)
         {

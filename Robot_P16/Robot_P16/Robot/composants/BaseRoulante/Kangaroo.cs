@@ -106,9 +106,8 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 ratioPointOrienteVersKangarooDIST = ratioPointOrienteVersKangarooDIST_PR;
             }
 
-            Thread.Sleep(500);
             Init();
-            Thread.Sleep(500);
+            Thread.Sleep(50);
 
             if (ROUE_LIBRE)
             {

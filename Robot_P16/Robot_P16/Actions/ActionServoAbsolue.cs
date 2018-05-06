@@ -11,6 +11,7 @@ namespace Robot_P16.Actions
 
         public readonly AX12 servomoteur;
         public readonly int angle;
+        public readonly int duration =  -1;
 
         /// <summary>
         /// Action concernant un servomoteur.
@@ -22,13 +23,29 @@ namespace Robot_P16.Actions
             this.servomoteur = servomoteur;
             this.angle = angle;
         }
+        public ActionServoAbsolue(String description, AX12 servomoteur, int angle, int duration)
+            : base(description)
+        {
+            this.servomoteur = servomoteur;
+            this.angle = angle;
+            this.duration = duration;
+        }
+
+        public void Execute(int delay)
+        {
+            Informations.printInformations(Priority.MEDIUM, "Executing action servo absolue; angle : " + angle + "; description : " + description);
+
+            if (delay >= 0)
+                delay = servomoteur.SetAngle(angle, duration);
+            else
+                delay = servomoteur.SetAngle(angle);
+            Thread.Sleep(delay);
+            this.Status = ActionStatus.SUCCESS;
+        }
 
         public override void Execute()
         {
-            Informations.printInformations(Priority.MEDIUM, "Executing action servo absolue; angle : " + angle + "; description : " + description);
-            int delay = servomoteur.SetAngle(angle);
-            Thread.Sleep(delay+500);
-            this.Status = ActionStatus.SUCCESS;
+            Execute(duration);
         }
 
         protected override bool PostStatusChangeCheck(ActionStatus previousStatus)

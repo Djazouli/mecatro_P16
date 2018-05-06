@@ -120,12 +120,12 @@ namespace Robot_P16.Robot.composants.Servomoteurs
         //III- ACTIONS POUR AIGUILLER LA POMPE
 
         public ActionServoAbsolue PR_AIGUILLAGE_VENTOUSEGAUCHE =
-            new ActionBuilder("ServoPR- aiguiller la pompe sur la ventouse gauche").BuildActionServoAbsolue(Robot.robot.PR_SERVO_AIGUILLAGE,  DonneesServo.ANGLE_PR_AIGUILLAGE_VENTOUSEGAUCHE);
+            new ActionBuilder("ServoPR- aiguiller la pompe sur la ventouse gauche").BuildActionServoAbsolue(Robot.robot.PR_SERVO_AIGUILLAGE,  DonneesServo.ANGLE_PR_AIGUILLAGE_VENTOUSEGAUCHE, 100);
 
         //AJOUTER PR_SERVO_AIGUILLAGE dans Robot.robot et ANGLE_PR_AIGUILLAGE_VENTOUSEGAUCHE dans Donnees Servo
 
         public ActionServoAbsolue PR_AIGUILLAGE_VENTOUSEDROITE =
-            new ActionBuilder("ServoPR- aiguiller la pompe sur la ventouse droite").BuildActionServoAbsolue(Robot.robot.PR_SERVO_AIGUILLAGE,  DonneesServo.ANGLE_PR_AIGUILLAGE_VENTOUSEDROITE);
+            new ActionBuilder("ServoPR- aiguiller la pompe sur la ventouse droite").BuildActionServoAbsolue(Robot.robot.PR_SERVO_AIGUILLAGE,  DonneesServo.ANGLE_PR_AIGUILLAGE_VENTOUSEDROITE, 100);
 
         //AJOUTER ANGLE_PR_AIGUILLAGE_VENTOUSEDROITE dans Donnees Servo
 

@@ -214,9 +214,10 @@ namespace Robot_P16.Actions
                     gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU.Execute();
                     break;
                 case 14:
-                    gestionnaire.PR_BRAS_DROIT_HAUTEUR_POSER_CUBE_2.Execute();
+                    //gestionnaire.PR_BRAS_DROIT_HAUTEUR_POSER_CUBE_2.Execute(50);
                     gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU.Execute();
                     new ActionBuilder("Activer ventouze droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, true).Execute();
+                    Thread.Sleep(500);
                     gestionnaire.PR_BRAS_DROIT_HAUTEUR_RAMASSER_CUBE_1.Execute();
                     gestionnaire.PR_BRAS_DROIT_GOTO1000.Execute();
                     gestionnaire.PR_BRAS_DROIT_ZONE_BAS_VERS_HAUT.Execute();
@@ -227,6 +228,7 @@ namespace Robot_P16.Actions
                     gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU.Execute();
                     gestionnaire.PR_BRAS_DROIT_GOTO0.Execute();
                     gestionnaire.PR_BRAS_DROIT_ZONE_HAUT_VERS_BAS.Execute();
+                    gestionnaire.PR_BRAS_DROIT_HAUTEUR_RAMASSER_CUBE_1.Execute();
                     Thread.Sleep(200);
 
                     break;
