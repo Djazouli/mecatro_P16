@@ -12,14 +12,12 @@ namespace Robot_P16.Actions
 {
     public class ActionRamasseCube : Action
     {
-        private string codeCouleur;
         private GestionnaireServosPR gestionnaire;
         private CouleurEquipe couleurEquipe;
 
         public ActionRamasseCube(string CodeCouleur)
             : base("Ramasse des cubes")
         {
-            this.codeCouleur = CodeCouleur;
             this.gestionnaire = new GestionnaireServosPR();
             this.couleurEquipe = Robot.Robot.robot.Couleur;
         }
@@ -28,9 +26,10 @@ namespace Robot_P16.Actions
 
         public int[] getSequence()
         {
+            string codeCouleur = Robot.Robot.robot.codeCouleur;
             if (couleurEquipe== CouleurEquipe.VERT){
                 Debug.Print("Vert" + codeCouleur);
-                switch(this.codeCouleur){
+                switch(codeCouleur){
                     case "J-N-B":
                     case "B-N-J":
                         return new int[] {3,14,5};
@@ -65,7 +64,7 @@ namespace Robot_P16.Actions
             }
                if (couleurEquipe==CouleurEquipe.ORANGE){
                    Debug.Print("Orange" + codeCouleur);
-                       switch(this.codeCouleur){
+                       switch(codeCouleur){
                     case "J-N-B":
                     case "B-N-J":
                         return new int[] {4,12,5};

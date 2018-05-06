@@ -155,7 +155,6 @@ namespace Robot_P16.Robot
         /// Fin de la liste des composants
         /// </summary>
 
-
         public Robot(composants.IHM.Parametrization parametrization, composants.IHM.C_IHM IHM)
         {
             this.IHM = IHM;
