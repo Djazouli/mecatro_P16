@@ -35,11 +35,11 @@ namespace Robot_P16.Actions
         {
             Informations.printInformations(Priority.MEDIUM, "Executing action servo absolue; angle : " + angle + "; description : " + description);
 
-            if (delay >= 0)
+            /*if (delay >= 0)
                 delay = servomoteur.SetAngle(angle, duration);
             else
-                delay = servomoteur.SetAngle(angle);
-            Thread.Sleep(delay);
+                delay = servomoteur.SetAngle(angle);*/
+            servomoteur.SetAngle(angle);
             this.Status = ActionStatus.SUCCESS;
         }
 

@@ -136,11 +136,11 @@ namespace Robot_P16.Robot.composants.Servomoteurs
         /// </summary>
         /// <param name="angle">En degrès</param>
         /// <returns>Durée en ms estimée de la rotation</returns>
-        public int SetAngle(int steps)
+        public bool SetAngle(int steps)
         {
             return SetAngle(steps, 2000);
         }
-        public int SetAngle(int steps, int sleepDuration)
+        public bool SetAngle(int steps, int sleepDuration)
         {
             // http://folk.uio.no/matsh/inf4500/files/datasheets/Dynamixel%20-%20AX-12_files/dx_series_goal.png
             // http://folk.uio.no/matsh/inf4500/files/datasheets/Dynamixel%20-%20AX-12.htm
@@ -150,8 +150,8 @@ namespace Robot_P16.Robot.composants.Servomoteurs
             this.cax12.setMode(AX12Mode.joint);
             //this.cax12.setMovingSpeed(speed.forward);
 
-            this.cax12.move(steps);
-            return sleepDuration; // TODO : change depending of the previous angle
+            return this.cax12.move(steps);
+            //return sleepDuration; // TODO : change depending of the previous angle
         }
 
         public int GetDurationOfRotation(float angle)

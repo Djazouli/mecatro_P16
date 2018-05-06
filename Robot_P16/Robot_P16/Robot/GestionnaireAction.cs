@@ -102,79 +102,22 @@ namespace Robot_P16.Robot
         private static void loadActionPRServos()
         {
 
-            Action MOTHER_ACTION = new ActionBuilder("Action mère Test1")/*
-                    .Add(new ActionBuilder("Action servo test").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, true))
-                     .Add(new ActionWait("wait a bit", 5000))
-                     .Add(new ActionBuilder("Action servo test").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, false))
-                     .Add(new ActionWait("wait a bit", 2000))
-                     .Add(new ActionBuilder("Action servo test").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true))
-                     .Add(new ActionWait("wait a bit", 2000))
-                     .Add(new ActionBuilder("Action servo test").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false))*/
-                   .Add(
-                    new ActionBuilder("ServoPR- aiguiller la pompe sur la ventouse droite").BuildActionServoAbsolue(Robot.robot.PR_SERVO_AIGUILLAGE, 819)
-                   )
-                   .Add(new ActionWait("wait a bit", 5000))
-                   .Add(
-                    new ActionBuilder("ServoPR- aiguiller la pompe sur la ventouse gauche").BuildActionServoAbsolue(Robot.robot.PR_SERVO_AIGUILLAGE, 477)
-                   ).Add(
-                    new ActionBuilder("Action servo descendre bras").BuildActionServoRotation(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE, speed.reverse, 1000)
-                   ).Add(
-                    new ActionBuilder("Wait a bit").BuildActionWait(1000)    
-                   ).Add(
-                    new ActionBuilder("ServoPR- aiguiller la pompe sur la ventouse droite").BuildActionServoAbsolue(Robot.robot.PR_SERVO_AIGUILLAGE, 0*1024/300)
-                   ).Add(
-                    new ActionBuilder("Wait a bit").BuildActionWait(1000)
-                   ).Add(
-                    new ActionBuilder("ServoPR- aiguiller la pompe sur la ventouse droite").BuildActionServoAbsolue(Robot.robot.PR_SERVO_AIGUILLAGE, 20 * 1024 / 300)
-                   ).Add(
-                    new ActionBuilder("Wait a bit").BuildActionWait(1000)
-                   ).Add(
-                    new ActionBuilder("ServoPR- aiguiller la pompe sur la ventouse droite").BuildActionServoAbsolue(Robot.robot.PR_SERVO_AIGUILLAGE, 40 * 1024 / 300)
-                   ).Add(
-                    new ActionBuilder("Wait a bit").BuildActionWait(1000)
-                   ).Add(
-                    new ActionBuilder("ServoPR- aiguiller la pompe sur la ventouse droite").BuildActionServoAbsolue(Robot.robot.PR_SERVO_AIGUILLAGE, 60 * 1024 / 300)
-                   ).Add(
-                    new ActionBuilder("Wait a bit").BuildActionWait(1000)
-                   ).Add(
-                    new ActionBuilder("ServoPR- aiguiller la pompe sur la ventouse droite").BuildActionServoAbsolue(Robot.robot.PR_SERVO_AIGUILLAGE, 80 * 1024 / 300)
-                   ).Add(
-                    new ActionBuilder("Wait a bit").BuildActionWait(1000)
-                   ).Add(
-                    new ActionBuilder("ServoPR- aiguiller la pompe sur la ventouse droite").BuildActionServoAbsolue(Robot.robot.PR_SERVO_AIGUILLAGE, 100 * 1024 / 300)
-                   ).Add(
-                    new ActionBuilder("Wait a bit").BuildActionWait(1000)
-                   ).Add(
-                    new ActionBuilder("ServoPR- aiguiller la pompe sur la ventouse droite").BuildActionServoAbsolue(Robot.robot.PR_SERVO_AIGUILLAGE, 120 * 1024 / 300)
-                   ).Add(
-                    new ActionBuilder("Wait a bit").BuildActionWait(1000)
-                   ).Add(
-                    new ActionBuilder("ServoPR- aiguiller la pompe sur la ventouse droite").BuildActionServoAbsolue(Robot.robot.PR_SERVO_AIGUILLAGE, 140 * 1024 / 300)
-                   ).Add(
-                    new ActionBuilder("Wait a bit").BuildActionWait(1000)
-                   ).Add(
-                    new ActionBuilder("ServoPR- aiguiller la pompe sur la ventouse droite").BuildActionServoAbsolue(Robot.robot.PR_SERVO_AIGUILLAGE, 160 * 1024 / 300)
-                   ).Add(
-                    new ActionBuilder("Wait a bit").BuildActionWait(1000)
-                   ).Add(
-                    new ActionBuilder("ServoPR- aiguiller la pompe sur la ventouse droite").BuildActionServoAbsolue(Robot.robot.PR_SERVO_AIGUILLAGE, 180 * 1024 / 300)
-                   ).Add(
-                    new ActionBuilder("Wait a bit").BuildActionWait(1000)
-                   ).Add(
-                    new ActionBuilder("ServoPR- aiguiller la pompe sur la ventouse droite").BuildActionServoAbsolue(Robot.robot.PR_SERVO_AIGUILLAGE, 200 * 1024 / 300)
-                   ).Add(
-                    new ActionBuilder("Wait a bit").BuildActionWait(1000)
-                   ).Add(
-                    new ActionBuilder("ServoPR- aiguiller la pompe sur la ventouse droite").BuildActionServoAbsolue(Robot.robot.PR_SERVO_AIGUILLAGE, 220 * 1024 / 300)
-                   ).Add(
-                    new ActionBuilder("Wait a bit").BuildActionWait(1000)
-                   ).Add(
-                    new ActionBuilder("ServoPR- aiguiller la pompe sur la ventouse droite").BuildActionServoAbsolue(Robot.robot.PR_SERVO_AIGUILLAGE, 240 * 1024 / 300)
-                   ).Add(
-                    new ActionBuilder("Wait a bit").BuildActionWait(1000)
-                   ).Add(
-                    new ActionBuilder("ServoPR- aiguiller la pompe sur la ventouse droite").BuildActionServoAbsolue(Robot.robot.PR_SERVO_AIGUILLAGE, 260 * 1024 / 300)
-                   )
+            GestionnaireServosPR gestio = new GestionnaireServosPR();
+            Action MOTHER_ACTION = new ActionBuilder("Action mère Test1").Add(
+                    gestio.PR_BRAS_DROIT_GOTO1000
+                ).Add(
+                    gestio.PR_BRAS_DROIT_ROTATION_MILIEU
+                ).Add(
+                     new ActionBuilder("Ventouse").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, true)
+                ).Add(
+                    gestio.PR_BRAS_DROIT_HAUTEUR_RAMASSER_CUBE_1
+                ).Add(
+                    gestio.PR_BRAS_DROIT_HAUTEUR_POSER_CUBE_2
+                ).Add(
+                    gestio.PR_BRAS_DROIT_ROTATION_INTERIEUR
+                ).Add(
+                    new ActionBuilder("Ventouse").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, false)
+                )
                 .BuildActionEnSerie();
 
             setMotherAction(ModeOperatoire.COMPETITION, TypeRobot.PETIT_ROBOT, MOTHER_ACTION);

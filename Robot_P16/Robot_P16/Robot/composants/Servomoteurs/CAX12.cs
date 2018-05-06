@@ -85,6 +85,8 @@ namespace Robot_P16.Robot.composants.Servomoteurs
         public byte m_ID = 0;
         AX12Mode m_mode = 0;
 
+        public static Object locker = new Object();
+
         int TEMPORAIRE_position = 0;
 
         public CAX_12(byte ID, SerialPort portserie, OutputPort direction)
@@ -97,7 +99,7 @@ namespace Robot_P16.Robot.composants.Servomoteurs
 
             Register PINSEL0 = new Register(0xE002C000);
 
-            m_Direction.Write(true); // Servo en mode reception uniquement
+            //m_Direction.Write(true); // Servo en mode reception uniquement
 
         }
 
@@ -142,69 +144,144 @@ namespace Robot_P16.Robot.composants.Servomoteurs
 
 
 
-        public bool sendCommand(byte ID, Instruction instruction, byte[] parametres)
+        public int[] sendCommand(byte ID, Instruction instruction, byte[] parametres)
         {
-            bool error = false;
-            int length = 0;
-            if (parametres != null)
+            int[] retour = new int[0];
+            lock (locker)
             {
-                length = parametres.Length;
+                int length = 0;
+                if (parametres != null)
+                {
+                    length = parametres.Length;
+                }
+
+                m_commande[0] = 0xFF;
+                m_commande[1] = 0XFF;
+                m_commande[2] = ID;
+                m_commande[3] = (byte)(length + 2);//len
+                m_commande[4] = (byte)instruction;
+
+                for (int i = 5; i < length + 5; i++)
+                {
+                    m_commande[i] = parametres[i - 5];
+                }
+                m_commande[length + 5] = calculeCRC();
+
+
+                // send data
+                if (m_serial.IsOpen)
+                {
+                    // UART en transmission TX activé
+                    m_Direction.Write(true);
+                    //Thread.Sleep(10);
+                    m_serial.Write(m_commande, 0, length + 6);
+
+                    while (m_serial.BytesToWrite > 0) ;
+
+                    //http://www.crustcrawler.com/products/bioloid/docs/AX-12.pdf
+                    // OXFF 0XFF ID LENGTH ERROR PARAMETER1 PARAMETER2…PARAMETER N CHECK SUM
+                    m_Direction.Write(false);
+                    Thread.Sleep(1);
+                    if (m_serial.BytesToRead <= 0)
+                    {
+                        Debug.Print("No feedback received from servo. Weird...");
+                    }
+                    else
+                    {
+                        /*
+                        int counter = 0;
+                        while (m_serial.BytesToRead > 0)
+                        {
+                            Debug.Print("Byte[" + counter + "] =" + m_serial.ReadByte());
+                        }*/
+
+                        if (m_serial.ReadByte() != 255 || m_serial.ReadByte() != 255)
+                        {
+                            Debug.Print("BAD PACKET received !!! Header should be 0xFF 0XFF");
+                            retour = null;
+                        }
+                        else
+                        {
+                            int id = m_serial.ReadByte();
+                            int len = m_serial.ReadByte();
+                            //Debug.Print("ID "+id+", Long : "+len);
+                            retour = new int[len - 2];
+                            int erreur = m_serial.ReadByte();
+                            if (erreur != 0)
+                            {
+                                Informations.printInformations(Priority.HIGH, "CAX12, error found : " + erreur);
+                                retour = null;
+                            }
+                            else
+                            {
+                                for (int i = 0; i < len - 2; i++)
+                                {
+                                    retour[i] = m_serial.ReadByte();
+                                    // Debug.Print("retour[" + i + "] : " + retour[i]);
+                                }
+
+                            }
+                            int checkSum = m_serial.ReadByte();
+                            if (id != this.m_ID)
+                            {
+                                Informations.printInformations(Priority.HIGH, "CAX12, wrong ID returned. This.id = " + this.m_ID + "; id received : " + id);
+                                retour = null;
+                            }
+                            //Debug.Print("Check sum : " + checkSum);
+                        }
+                    }
+                }
             }
 
-            m_commande[0] = 0xFF;
-            m_commande[1] = 0XFF;
-            m_commande[2] = ID;
-            m_commande[3] = (byte)(length + 2);//len
-            m_commande[4] = (byte)instruction;
-
-            for (int i = 5; i < length + 5; i++)
-            {
-                m_commande[i] = parametres[i - 5];
-            }
-            m_commande[length + 5] = calculeCRC();
-
-
-            // send data
-            if (m_serial.IsOpen)
-            {
-                // UART en transmission TX activé
-                m_Direction.Write(true);
-                //   m_serial.DiscardInBuffer();
-                Thread.Sleep(10);
-                //m_serial.DiscardOutBuffer();
-                m_serial.Write(m_commande, 0, length + 6);
-                //wait till all is sent
-
-                while (m_serial.BytesToWrite > 0) ;
-
-                Debug.Print("Bytes to read : "+m_serial.BytesToRead);
-                m_serial.DiscardInBuffer();
-                // UART en transmission TX desactivé
-                m_Direction.Write(false);
-                // Thread.Sleep(100);
-                error = true;
-            }
-            return error;
+            return retour;
             //the response is now coming back so you must read it
         }
 
 
+        public bool isMoving()
+        {
+            byte[] buf = { (byte)Address.AX_MOVING, 0x01 };
+            //Debug.Print("IS MOVING ?");
+            int[] retour = sendCommand(m_ID, Instruction.AX_READ_DATA, buf);
+            if (retour == null || retour.Length <= 0)
+            {
+                Informations.printInformations(Priority.HIGH, "Servomoteur : isMoving got bad return : no params returned...");
+                return false;
+            }
+            return retour[0] == 1;
+        }
+
         public bool move(int value)
         {
-            bool erreur = false;
 
-            if (m_mode == AX12Mode.joint)
+            if (m_mode != AX12Mode.joint)
             {
-                Informations.printInformations(Priority.LOW, "Servo ID "+m_ID+" en mode joint, moving...");
-                byte[] buf = { 0x1E, (byte)(value), (byte)(value >> 8) };
+                Informations.printInformations(Priority.HIGH, "Servo ID " + m_ID + " pas en omde joint, erreur en appelant move!");
+                return true;
+            }
+            
+            Informations.printInformations(Priority.LOW, "Servo ID "+m_ID+" en mode joint, moving...");
+            byte[] buf = { 0x1E, (byte)(value), (byte)(value >> 8) };
 
-                erreur = sendCommand(m_ID, Instruction.AX_WRITE_DATA, buf);
-                Informations.printInformations(Priority.LOW, "Servo move joint : status : "+erreur);
-                TEMPORAIRE_position = value;
+            if (sendCommand(m_ID, Instruction.AX_WRITE_DATA, buf) == null)
+                return true; // ERROR !!!
+
+            bool currentMoving = isMoving();
+            if (currentMoving != true)
+            {
+                Informations.printInformations(Priority.HIGH, "WARNING !!! isMoving = false right after Servo.Move()...");
+                return false;
             }
 
-            Informations.printInformations(Priority.LOW, "Servo move : status : " + erreur);
-            return erreur;
+            do
+            {
+                Thread.Sleep(100);
+            } while (isMoving());
+
+            TEMPORAIRE_position = value;
+            //Thread.Sleep(50);
+
+            return false;
 
         }
 
