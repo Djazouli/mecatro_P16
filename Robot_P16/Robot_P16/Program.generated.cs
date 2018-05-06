@@ -11,28 +11,17 @@
 namespace Robot_P16 {
     using Gadgeteer;
     using GTM = Gadgeteer.Modules;
-    
+    using Microsoft.SPOT;
     
     public partial class Program : Gadgeteer.Program {
         
-        /// <summary>The Display TE35 module using sockets 14, 13, 12 and 10 of the mainboard.</summary>
-        private Gadgeteer.Modules.GHIElectronics.DisplayTE35 displayTE35;
-        
-        /// <summary>The Button module using socket 11 of the mainboard.</summary>
-        private Gadgeteer.Modules.GHIElectronics.Button button;
-        
-        /// <summary>The Distance US3 module using socket 9 of the mainboard.</summary>
-        private Gadgeteer.Modules.GHIElectronics.DistanceUS3 distanceUS3;
-        
-        /// <summary>The Motor Driver L298 module (not connected).</summary>
-        private Gadgeteer.Modules.GHIElectronics.MotorDriverL298 motorDriverL298;
-        
         /// <summary>This property provides access to the Mainboard API. This is normally not necessary for an end user program.</summary>
-        protected new static GHIElectronics.Gadgeteer.FEZSpiderII Mainboard {
+        public new static Gadgeteer.Mainboard Mainboard {
             get {
-                return ((GHIElectronics.Gadgeteer.FEZSpiderII)(Gadgeteer.Program.Mainboard));
+                return ((Gadgeteer.Mainboard)(Gadgeteer.Program.Mainboard));
             }
             set {
+                Debug.Print("Setting mainboard to : " + value.MainboardVersion);
                 Gadgeteer.Program.Mainboard = value;
             }
         }
@@ -40,7 +29,7 @@ namespace Robot_P16 {
         /// <summary>This method runs automatically when the device is powered, and calls ProgramStarted.</summary>
         public static void Main() {
             // Important to initialize the Mainboard first
-            Program.Mainboard = new GHIElectronics.Gadgeteer.FEZSpiderII();
+            //throw new System.Exception("No mainboard is defined. Please add a mainboard in the Gadgeteer Designer.");
             Program p = new Program();
             p.InitializeModules();
             p.ProgramStarted();
@@ -49,10 +38,6 @@ namespace Robot_P16 {
         }
         
         private void InitializeModules() {
-            this.displayTE35 = null;
-            this.button = null;
-            this.distanceUS3 = null;
-            this.motorDriverL298 = null;
         }
     }
 }

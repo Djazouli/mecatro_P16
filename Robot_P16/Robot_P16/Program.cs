@@ -15,7 +15,6 @@ using GTM = Gadgeteer.Modules;
 using Robot_P16.Actions;
 using Robot_P16.Actions.ActionsIHM;
 using Robot_P16.Robot.composants.IHM;
-using Gadgeteer.Modules.GHIElectronics;
 
 namespace Robot_P16
 {

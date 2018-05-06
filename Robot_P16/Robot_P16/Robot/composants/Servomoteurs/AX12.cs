@@ -36,7 +36,22 @@ namespace Robot_P16.Robot.composants.Servomoteurs
             if (serialPort == null)
             {
                 string COMSerie = GT.Socket.GetSocket(socket, true, null, null).SerialPortName; //permet d'associer le nom de communication série au socket (ici 'COMSerie' au socket11)
-                SerialPort PortCOM = new SerialPort(COMSerie, 937500, Parity.None, 8, StopBits.One);
+                int baudRate;
+
+                if ((Robot.robot.TypeRobot == TypeRobot.GRAND_ROBOT && Robot.robot.isGRSpiderI)
+                    || (Robot.robot.TypeRobot == TypeRobot.PETIT_ROBOT && Robot.robot.isPRSpiderI))
+                {
+                    baudRate = 1000000;
+                    direction_TX = new OutputPort((Cpu.Pin)GHI.Pins.FEZSpider.Socket11.Pin3, false);
+                }
+                else
+                {
+                    baudRate = 937500;
+                    direction_TX = new OutputPort((Cpu.Pin)GHI.Pins.FEZSpiderII.Socket11.Pin3, false);
+
+                }
+                SerialPort PortCOM = new SerialPort(COMSerie, baudRate, Parity.None, 8, StopBits.One);
+
                 PortCOM.ReadTimeout = 500;     // temps de réception max limité à 500ms
                 PortCOM.WriteTimeout = 500;    // temps d'émission max limité à 500ms
 
@@ -55,8 +70,6 @@ namespace Robot_P16.Robot.composants.Servomoteurs
                 //direction_TX = new OutputPort((Cpu.Pin)EMX.IO26, false);   // ligne de direction de data au NLB (Spider en réception de l'interface AX12) 
 
                 serialPort = PortCOM;
-                direction_TX = new OutputPort((Cpu.Pin)GHI.Pins.FEZSpiderII.Socket11.Pin3, false);
-
                 //direction_TX = new OutputPort((Cpu.Pin)GT.Socket.GetSocket(socket, true, null, null)., false);
                 //OutputPort direction_TX = new OutputPort(GHI.Pins.G120E.Gpio.P2_30, false);       //équivalente à la précédente
                 //   OutputPort direction_TX = new OutputPort(GHI.Pins.FEZSpiderII.Socket11.Pin3,false);   équivalente à la précédente

@@ -45,6 +45,11 @@ namespace Robot_P16.Robot
         /// Pas élégant mais efficace pour pas avoir ?convertir les composants de tous les côtés...
         /// </summary>
 
+
+        public bool isPRSpiderI = true;
+        public bool isGRSpiderI = false;
+
+
         public readonly int GR_SOCKET_SERVOS = 11;
         public readonly int PR_SOCKET_SERVOS = 11;
 
@@ -129,7 +134,6 @@ namespace Robot_P16.Robot
         public composants.RelaisMoteur PR_RELAIS_VENTOUZES;
 
 
-
         /* ********************************** FIN PETIT ROBOT ****************************** */
 
         /* ********************************** TEST ROBOT 1 ****************************** */
@@ -195,6 +199,12 @@ namespace Robot_P16.Robot
             {
                 case TypeRobot.GRAND_ROBOT:
                     Informations.printInformations(Priority.HIGH, "Robot : loadComponents : GRAND Robot selected !");
+
+                    if (isPRSpiderI)
+                        Program.Mainboard = new GHIElectronics.Gadgeteer.FEZSpider();
+                    else
+                        Program.Mainboard = new GHIElectronics.Gadgeteer.FEZSpiderII();
+
                     BASE_ROULANTE = new composants.BaseRoulante.BaseRoulante(GR_SOCKET_BASE_ROUlANTE);
                     
                     GR_SERVO_PLATEAU= new composants.Servomoteurs.AX12(GR_SOCKET_SERVOS, GR_SERVO_ID_PLATEAU);
@@ -225,6 +235,10 @@ namespace Robot_P16.Robot
                     // Port 11 Spider : AX-12 => ID ?
                     // Port 8 : Kangaroo
                     // Quel socket pour les pompes ?
+                    if (isPRSpiderI)
+                        Program.Mainboard = new GHIElectronics.Gadgeteer.FEZSpider();
+                    else
+                        Program.Mainboard = new GHIElectronics.Gadgeteer.FEZSpiderII();
                     
                     PR_SERVO_ASCENSEUR_BRAS_DROIT = new composants.Servomoteurs.AX12(PR_SOCKET_SERVOS, PR_SERVO_ID_ASCENSEUR_BRAS_DROIT);
                     PR_SERVO_ASCENSEUR_BRAS_GAUCHE = new composants.Servomoteurs.AX12(PR_SOCKET_SERVOS, PR_SERVO_ID_ASCENSEUR_BRAS_GAUCHE);

@@ -110,22 +110,14 @@
     <Reference Include="GHI.Glide, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="GHI.Hardware, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="GHI.Pins, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="GHIElectronics.Gadgeteer.FEZSpiderII, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
-    <Reference Include="GTM.GHIElectronics.Button, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
+    <Reference Include="GHIElectronics.Gadgeteer.FEZSpider, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="GHIElectronics.Gadgeteer.FEZSpiderII, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="GTM.GHIElectronics.Button, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="GTM.GHIElectronics.ColorSense, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="GTM.GHIElectronics.DisplayT35, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL" />
-    <Reference Include="GTM.GHIElectronics.DisplayTE35, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
-    <Reference Include="GTM.GHIElectronics.DistanceUS3, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
-    <Reference Include="GTM.GHIElectronics.MotorDriverL298, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-    </Reference>
+    <Reference Include="GTM.GHIElectronics.DisplayTE35, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="GTM.GHIElectronics.DistanceUS3, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="GTM.GHIElectronics.MotorDriverL298, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="GTM.GHIElectronics.USBClientEDP, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="GTM.GHIElectronics.USBClientSP, Version=4.3.8.1, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.SPOT.Graphics" />
