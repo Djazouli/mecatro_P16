@@ -16,10 +16,11 @@ namespace Robot_P16.Robot.composants.Servomoteurs
          * ***************** FIN DES REGLES DE NOMMAGE ****************** */
 
 
-        public const int ANGLE_PR_ASCENSEURDROIT_PARTIE_BASSE_MINIMUM = 11; // PRET A RAMASSER VENTOUSE 
-        public const int ANGLE_PR_ASCENSEURDROIT_PARTIE_BASSE_HAUTEUR_2_CUBE = 900; // Depose le 3eme cube
+        public const int ANGLE_PR_ASCENSEURDROIT_PARTIE_BASSE_MINIMUM = 20; // PRET A RAMASSER VENTOUSE 
+        public const int ANGLE_PR_ASCENSEURDROIT_PARTIE_BASSE_HAUTEUR_1_CUBE = 820;//Depose le 2eme cube
         public const int ANGLE_PR_ASCENSEURDROIT_PARTIE_BASSE_MAXIMUM = 1023;
         public const int ANGLE_PR_ASCENSEURDROIT_PARTIE_HAUTE_MINIMUM = 0;
+        public const int ANGLE_PR_ASCENSEURDROIT_PARTIE_HAUTE_HAUTEUR_2_CUBE = 320; // Depose le 3eme cube (2eme zone)
         public const int ANGLE_PR_ASCENSEURDROIT_PARTIE_HAUTE_MAXIMUM = 320;
         public const int ANGLE_PR_ASCENSEURDROIT_COINCER = 494;
 

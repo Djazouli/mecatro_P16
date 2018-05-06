@@ -17,7 +17,7 @@ namespace Robot_P16.Robot
             // ventouse aiguillee sur le bras droit en position de base
             //mettre le bras gauche sur la butee du bas puis le monter de 500 avant de commencer la partie
 
-            Action PR_MOUVEMENT_1 = new ActionBuilder("empiler le cube de base sur le cube du milieu").Add(
+            /*Action PR_MOUVEMENT_1 = new ActionBuilder("empiler le cube de base sur le cube du milieu").Add(
                 //gestionnaireServo.PR_BRAS_DROIT_ROTATIONANTIHORAIRE).Add(
                 //lancer la pompe
                gestionnaireServo.PR_BRAS_DROIT_MONTER)
@@ -154,30 +154,30 @@ namespace Robot_P16.Robot
 
             Action MOTHER_ACTION = new ActionBuilder("Action mère Test1")
            .Add(new ActionBuilder("Creer la première pile de cube").Add( // cas équipe orange combinaison J-N-B
-                     /*PR_MOUVEMENT_4
+                     PR_MOUVEMENT_4
                       ).Add(
                       PR_MOUVEMENT_2_BIS
                       ).Add(
-                      PR_MOUVEMENT_5*/
+                      PR_MOUVEMENT_5
                      PR_MOUVEMENT_2_BIS
                      ).Add(
                      PR_MOUVEMENT_5
                      
-                     /*gestionnaireServo.PR_BRAS_DROIT_POSITION_BASE
+                     gestionnaireServo.PR_BRAS_DROIT_POSITION_BASE
                      ).Add(
                      gestionnaireServo.PR_BRAS_DROIT_HAUTEUR_1
                      ).Add(
-                     PR_MOUVEMENT_1_BIS*/
+                     PR_MOUVEMENT_1_BIS
                        ).BuildActionEnSerie()
                       
 
                    /*  .Add( new ActionBuilder ("Poser la pile 1")).Add(
                                 
                       
-                      )*/
+                      )
 
-                        ).BuildActionEnSerie();
-
+                        ).BuildActionEnSerie();*/
+            Action MOTHER_ACTION = new ActionBuilder("juste pour un instant").BuildActionWait(1);
             return
                 MOTHER_ACTION;
 
