@@ -81,7 +81,21 @@ namespace Robot_P16.Robot
 
         private static void loadActionPRCompete()
         {
-            setMotherAction(ModeOperatoire.HOMOLOGATION,TypeRobot.PETIT_ROBOT, new ActionRamasseCube("V-N-O"));
+            PointOriente pt1 = new PointOriente(800, 0, 180);
+            PointOriente pt4 = new PointOriente(600, 0, 180);
+            PointOriente pt5 = new PointOriente(700, 0, 180);
+            PointOriente pt2 = new PointOriente(300, 900, 180);
+            PointOriente pt3 = new PointOriente(200, 600, 180);
+            Action MOTHER_ACTION = new ActionBuilder("Action test PR").Add(
+                    new ActionBuilder("Deplacement 1").BuildActionBaseRoulante_GOTO_ONLY(pt4)
+                ).Add(
+                    new ActionBuilder("Deplacement 1").BuildActionBaseRoulante_GOTO_ONLY(pt5)
+                ).Add(
+                    new ActionBuilder("Deplacement 1").BuildActionBaseRoulante_GOTO_ONLY(pt1, OBSTACLE_DIRECTION.AVANT)
+                ).Add(
+                    new ActionRamasseCube("V-N-O")
+                ).BuildActionEnSerie();
+            setMotherAction(ModeOperatoire.HOMOLOGATION,TypeRobot.PETIT_ROBOT, MOTHER_ACTION);
         }
 
 

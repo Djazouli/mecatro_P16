@@ -27,7 +27,7 @@ namespace Robot_P16.Actions
         {
             Informations.printInformations(Priority.MEDIUM, "Executing action servo absolue; angle : " + angle + "; description : " + description);
             int delay = servomoteur.SetAngle(angle);
-            Thread.Sleep(delay);
+            Thread.Sleep(delay+500);
             this.Status = ActionStatus.SUCCESS;
         }
 

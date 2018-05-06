@@ -255,8 +255,10 @@ namespace Robot_P16.Robot.composants.BaseRoulante
 
         public double convertTo360(double angle)
         {
+            if (angle >= 360) return (angle - 360);
             if (angle >= 0) return angle;
-            else return (360+angle);
+            if (angle <= -360) return (720 + angle);
+            else return (360 + angle);
         }
     }
 }
