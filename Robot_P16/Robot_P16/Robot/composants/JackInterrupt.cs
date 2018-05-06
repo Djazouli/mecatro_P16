@@ -5,6 +5,8 @@ using Gadgeteer;
 using Gadgeteer.Modules;
 using Microsoft.SPOT.Hardware;
 
+using System.Threading;
+
 namespace Robot_P16.Robot.composants
 {
 
@@ -14,6 +16,7 @@ namespace Robot_P16.Robot.composants
     {
         private InterruptPort portJack;
         private int port;
+        private bool isJackEventAboutToBeLaunched = false;
 
         public event JackListenerDelegate JackChangeEvent;
 
@@ -32,10 +35,18 @@ namespace Robot_P16.Robot.composants
 
         public void launchJackEvent()
         {
-            Informations.printInformations(Priority.HIGH, "Jack interrupt event detected");
+            if (isJackEventAboutToBeLaunched)
+            {
+                Informations.printInformations(Priority.HIGH, "LaunchJackEvent called, but was already called earlier.");
+                return; // Already called by another interrupt event
+            }
+            isJackEventAboutToBeLaunched = true; // Not very Thread safe, but who cares ?
+            Thread.Sleep(1500);
+            Informations.printInformations(Priority.HIGH, "Jack interrupt event detected : isJackOn : " + this.IsJackOn());
             if( JackChangeEvent != null ) {
                 JackChangeEvent(this.IsJackOn());
             }
+            isJackEventAboutToBeLaunched = false;
         }
 
         public bool IsJackOn()

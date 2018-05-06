@@ -23,6 +23,13 @@ namespace Robot_P16.Actions
             this.duration = duration;
             this.vitesse = vitesse;
         }
+        public ActionServoRotation(String description, AX12 servomoteur, speed vitesse, int duration)
+            : base(description)
+        {
+            this.servomoteur = servomoteur;
+            this.duration = duration;
+            this.vitesse = (int)vitesse;
+        }
 
         public override void Execute()
         {
