@@ -75,7 +75,7 @@ namespace Robot_P16.Robot
         public readonly int GR_SOCKET_LANCEUR = 8;
         public readonly int PR_SOCKET_RECEPTEUR_CODE_COULEUR = 4;
 
-        public readonly int PR_SOCKET_VENTOUZES = 6;
+        public readonly int PR_SOCKET_VENTOUZES = 5;
         public readonly int PR_PORT_VENTOUZES = 3;
 
         public readonly int GR_SOCKET_BASE_ROUlANTE = 4;
