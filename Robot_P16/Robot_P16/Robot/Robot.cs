@@ -200,10 +200,10 @@ namespace Robot_P16.Robot
                 case TypeRobot.GRAND_ROBOT:
                     Informations.printInformations(Priority.HIGH, "Robot : loadComponents : GRAND Robot selected !");
 
-                    if (isPRSpiderI)
+                    /*if (isPRSpiderI)
                         Program.Mainboard = new GHIElectronics.Gadgeteer.FEZSpider();
                     else
-                        Program.Mainboard = new GHIElectronics.Gadgeteer.FEZSpiderII();
+                        Program.Mainboard = new GHIElectronics.Gadgeteer.FEZSpiderII();*/
 
                     BASE_ROULANTE = new composants.BaseRoulante.BaseRoulante(GR_SOCKET_BASE_ROUlANTE);
                     
@@ -235,10 +235,11 @@ namespace Robot_P16.Robot
                     // Port 11 Spider : AX-12 => ID ?
                     // Port 8 : Kangaroo
                     // Quel socket pour les pompes ?
-                    if (isPRSpiderI)
+                    
+                    /*if (isPRSpiderI)
                         Program.Mainboard = new GHIElectronics.Gadgeteer.FEZSpider();
                     else
-                        Program.Mainboard = new GHIElectronics.Gadgeteer.FEZSpiderII();
+                        Program.Mainboard = new GHIElectronics.Gadgeteer.FEZSpiderII();*/
                     
                     PR_SERVO_ASCENSEUR_BRAS_DROIT = new composants.Servomoteurs.AX12(PR_SOCKET_SERVOS, PR_SERVO_ID_ASCENSEUR_BRAS_DROIT);
                     PR_SERVO_ASCENSEUR_BRAS_GAUCHE = new composants.Servomoteurs.AX12(PR_SOCKET_SERVOS, PR_SERVO_ID_ASCENSEUR_BRAS_GAUCHE);
@@ -248,6 +249,7 @@ namespace Robot_P16.Robot
                     PR_SERVO_POUSSOIRJOKER = new composants.Servomoteurs.AX12(PR_SOCKET_SERVOS, PR_SERVO_ID_POUSSOIRJOKER);
                     PR_SERVO_AIGUILLAGE = new composants.Servomoteurs.AX12(PR_SOCKET_SERVOS, PR_SERVO_ID_AIGUILLAGE);
 
+                    
                     BASE_ROULANTE = new composants.BaseRoulante.BaseRoulante(PR_SOCKET_BASE_ROUlANTE);
 
                     PR_INFRAROUGE_1 = new composants.CapteursObstacle.Infrarouge(PR_SOCKET_INFRAROUGE, PR_PORT_INFRAROUGE_1, OBSTACLE_DIRECTION.ARRIERE);

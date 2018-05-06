@@ -30,6 +30,7 @@ namespace Robot_P16 {
         public static void Main() {
             // Important to initialize the Mainboard first
             //throw new System.Exception("No mainboard is defined. Please add a mainboard in the Gadgeteer Designer.");
+            Program.Mainboard = new GHIElectronics.Gadgeteer.FEZSpider();
             Program p = new Program();
             p.InitializeModules();
             p.ProgramStarted();
