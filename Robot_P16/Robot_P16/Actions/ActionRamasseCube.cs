@@ -77,7 +77,7 @@ namespace Robot_P16.Actions
                         return new int[] {1,13,5};
                     case "O-N-V":
                     case "V-N-O":
-                        return new int[] {1,12,5};
+                        return new int[] {1,12,5}; // 1,2,5 ??
                     case "V-J-B":
                     case "B-J-V":
                         return new int[] {4,13,5};
@@ -157,66 +157,48 @@ namespace Robot_P16.Actions
                     gestionnaire.PR_BRAS_GAUCHE_ROTATION_MILIEU.Execute();
                     gestionnaire.PR_BRAS_GAUCHE_DESCENDRE.Execute();
                     break;
-                case 3: //convention changées
+                case 3:
                     gestionnaire.PR_BRAS_GAUCHE_MONTER.Execute();
                     gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_SORTIR_CUBE_CENTRAL.Execute();
-                    //gestionnaire.PR_ROTATion
+                    gestionnaire.PR_BRAS_GAUCHE_ROTATION_CUBE_CENTRAL.Execute();
+                    new ActionBuilder("Active ventouse Gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true).Execute();
+                    gestionnaire.PR_BRAS_GAUCHE_DESCENDREPOURPOSERVENTOUSE.Execute();
+                    gestionnaire.PR_BRAS_GAUCHE_MONTER.Execute();
+                    gestionnaire.PR_BRAS_GAUCHE_ROTATION_INTERIEUR.Execute();
+                    new ActionBuilder("Desactive Ventouse Gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false).Execute();
+                    Thread.Sleep(1000);
+                    gestionnaire.PR_BRAS_GAUCHE_ROTATION_MILIEU.Execute();
                     break;
-                /*case 13:
-                    gestionnaire.PR_BRAS_DROIT_MONTER.Execute();
-                    gestionnaire.PR_BRAS_DROIT_MONTER.Execute();
-                    gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_SORTIR.Execute();
-                    gestionnaire.PR_BRAS_DROIT_ROTATIONHORAIRE.Execute();
-                    gestionnaire.PR_BRAS_DROIT_ROTATIONHORAIRE.Execute();
-                    gestionnaire.PR_BRAS_DROIT_DESCENDRE.Execute();
-                    gestionnaire.PR_BRAS_DROIT_DESCENDRE.Execute();
-                    gestionnaire.PR_AIGUILLAGE_VENTOUSEDROITE.Execute();
-                    gestionnaire.PR_BRAS_DROIT_MONTER.Execute();
-                    gestionnaire.PR_BRAS_DROIT_MONTER.Execute();
-                    gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_RENTRER.Execute();
-                    gestionnaire.PR_AIGUILLAGE_VENTOUSEGAUCHE.Execute();
-                    gestionnaire.PR_BRAS_DROIT_ROTATIONANTIHORAIRE.Execute();
-                    gestionnaire.PR_BRAS_DROIT_ROTATIONANTIHORAIRE.Execute();
-                    gestionnaire.PR_BRAS_DROIT_DESCENDRE.Execute();
-                    gestionnaire.PR_BRAS_DROIT_DESCENDRE.Execute();
+                case 13:
+                    gestionnaire.PR_BRAS_GAUCHE_MONTER.Execute();
+                    gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_SORTIR_CUBE_CENTRAL.Execute();
+                    gestionnaire.PR_BRAS_GAUCHE_ROTATION_CUBE_CENTRAL.Execute();
+                    new ActionBuilder("Active ventouse Gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true).Execute();
+                    gestionnaire.PR_BRAS_GAUCHE_DESCENDREPOURPOSERVENTOUSE.Execute();
+                    gestionnaire.PR_BRAS_GAUCHE_MONTER_2.Execute();
+                    gestionnaire.PR_BRAS_GAUCHE_ROTATION_INTERIEUR.Execute();
+                    new ActionBuilder("Desactive Ventouse Gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false).Execute();
+                    Thread.Sleep(1000);
+                    gestionnaire.PR_BRAS_GAUCHE_ROTATION_MILIEU.Execute();
                     break;
                 case 4:
-                    gestionnaire.PR_AIGUILLAGE_VENTOUSEDROITE.Execute();
-                    gestionnaire.PR_BRAS_GAUCHE_MONTER.Execute();
-                    gestionnaire.PR_BRAS_GAUCHE_MONTER.Execute();
-                    gestionnaire.PR_BRAS_GAUCHE_ROTATIONHORAIRE.Execute();
-                    gestionnaire.PR_BRAS_GAUCHE_DESCENDRE.Execute();
-                    gestionnaire.PR_BRAS_GAUCHE_DESCENDRE.Execute();
-                    gestionnaire.PR_AIGUILLAGE_VENTOUSEGAUCHE.Execute();
-                    gestionnaire.PR_BRAS_GAUCHE_MONTER.Execute();
-                    gestionnaire.PR_BRAS_GAUCHE_MONTER.Execute();
-                    gestionnaire.PR_BRAS_GAUCHE_ROTATIONANTIHORAIRE.Execute();
-                    gestionnaire.PR_BRAS_GAUCHE_DESCENDRE.Execute();
-                    gestionnaire.PR_AIGUILLAGE_VENTOUSEDROITE.Execute();
-                    gestionnaire.PR_BRAS_GAUCHE_ROTATIONHORAIRE.Execute();
-                    gestionnaire.PR_BRAS_GAUCHE_ROTATIONHORAIRE.Execute();
-                    gestionnaire.PR_BRAS_GAUCHE_DESCENDRE.Execute();
-                    gestionnaire.PR_BRAS_GAUCHE_DESCENDRE.Execute();
-                    gestionnaire.PR_AIGUILLAGE_VENTOUSEGAUCHE.Execute();
+                    gestionnaire.PR_BRAS_DROIT_HAUTEUR_POSER_CUBE_2.Execute();
+                    gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU.Execute();
+                    new ActionBuilder("Activer ventouze droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, true).Execute();
+                    gestionnaire.PR_BRAS_DROIT_HAUTEUR_RAMASSER_CUBE_1.Execute();
+                    gestionnaire.PR_BRAS_DROIT_HAUTEUR_POSER_CUBE_2.Execute();
+                    gestionnaire.PR_BRAS_DROIT_ROTATION_INTERIEUR.Execute();
+                    new ActionBuilder("Desactiver ventouze droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, false).Execute();
                     break;
                 case 14:
-                    gestionnaire.PR_AIGUILLAGE_VENTOUSEDROITE.Execute();
-                    gestionnaire.PR_BRAS_GAUCHE_MONTER.Execute();
-                    gestionnaire.PR_BRAS_GAUCHE_MONTER.Execute();
-                    gestionnaire.PR_BRAS_GAUCHE_ROTATIONHORAIRE.Execute();
-                    gestionnaire.PR_BRAS_GAUCHE_DESCENDRE.Execute();
-                    gestionnaire.PR_BRAS_GAUCHE_DESCENDRE.Execute();
-                    gestionnaire.PR_AIGUILLAGE_VENTOUSEGAUCHE.Execute();
-                    gestionnaire.PR_BRAS_GAUCHE_MONTER.Execute();
-                    gestionnaire.PR_BRAS_GAUCHE_MONTER.Execute();
-                    gestionnaire.PR_BRAS_GAUCHE_ROTATIONANTIHORAIRE.Execute();
-                    gestionnaire.PR_BRAS_GAUCHE_DESCENDRE.Execute();
-                    gestionnaire.PR_AIGUILLAGE_VENTOUSEDROITE.Execute();
-                    gestionnaire.PR_BRAS_GAUCHE_ROTATIONHORAIRE.Execute();
-                    gestionnaire.PR_BRAS_GAUCHE_ROTATIONHORAIRE.Execute();
-                    gestionnaire.PR_BRAS_GAUCHE_DESCENDRE.Execute();
-                    gestionnaire.PR_BRAS_GAUCHE_DESCENDRE.Execute();
-                    gestionnaire.PR_AIGUILLAGE_VENTOUSEGAUCHE.Execute();
+                    gestionnaire.PR_BRAS_DROIT_HAUTEUR_POSER_CUBE_2.Execute();
+                    gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU.Execute();
+                    new ActionBuilder("Activer ventouze droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, true).Execute();
+                    gestionnaire.PR_BRAS_DROIT_HAUTEUR_RAMASSER_CUBE_1.Execute();
+                    gestionnaire.PR_BRAS_DROIT_ZONE_BAS_VERS_HAUT.Execute();
+                    gestionnaire.PR_BRAS_DROIT_HAUTEUR_POSER_CUBE_3.Execute();
+                    gestionnaire.PR_BRAS_DROIT_ROTATION_INTERIEUR.Execute();
+                    new ActionBuilder("Desactiver ventouze droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, false).Execute();
                     break;
                 case 5:
                     gestionnaire.PR_POUSSOIRJOKER_POUSSER.Execute();
@@ -241,7 +223,7 @@ namespace Robot_P16.Actions
                     gestionnaire.PR_BRAS_DROIT_ROTATIONANTIHORAIRE.Execute();
                     gestionnaire.PR_BRAS_DROIT_DESCENDRE.Execute();
                     gestionnaire.PR_BRAS_DROIT_DESCENDRE.Execute();
-                    break;*/
+                    break;
                 default:
                     Debug.Print("ALLO CE NEST PAS UN NUMERO VALIDE DE MAKEMOVE");
                     break;

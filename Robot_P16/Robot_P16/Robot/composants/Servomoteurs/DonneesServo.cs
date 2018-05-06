@@ -46,7 +46,7 @@ namespace Robot_P16.Robot.composants.Servomoteurs
      public const int ANGLE_PR_ROTATIONGAUCHE_INTERIEUR = 170 * 1024 / 300;//stockage d'un cube sur la pile (90 ou -90)
      public const int ANGLE_PR_ROTATIONGAUCHE_MILIEU =  80*1024/300;
      public const int ANGLE_PR_ROTATIONGAUCHE_CUBE_CENTRAL = 533;
-     public const int ANGLE_PR_ROTATIONGAUCHE_CUBE_GAUCHE = 533;
+     public const int ANGLE_PR_ROTATIONGAUCHE_CUBE_GAUCHE = 80 * 1024 / 300;
      public const int ANGLE_PR_ROTATIONGAUCHE_COINCER = 552; //15=-1;//utiliser les patins pour saisir un cube de la pile
 
      public const int ANGLE_PR_ROTATIONDROIT_INTERIEUR = 200;// a peu pres 60*1024/300
