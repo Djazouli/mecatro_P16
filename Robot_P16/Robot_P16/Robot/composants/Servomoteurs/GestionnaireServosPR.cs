@@ -21,9 +21,12 @@ namespace Robot_P16.Robot.composants.Servomoteurs
 
         public ActionServoAbsolue PR_BRAS_DROIT_HAUTEUR_POSER_CUBE_3 =
             new ActionBuilder("Bras droit va a la hauteur pour poser un cube sur deux cubes").BuildActionServoAbsolue(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT, DonneesServo.ANGLE_PR_ASCENSEURDROIT_PARTIE_HAUTE_HAUTEUR_2_CUBE);
+        public ActionServoAbsolue PR_BRAS_DROIT_GOTO0 =
+            new ActionBuilder("En zone haut, aller en 0 avant de descendre").BuildActionServoAbsolue(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT, DonneesServo.ANGLE_PR_ASCENSEURDROIT_PARTIE_HAUTE_MINIMUM);
         public ActionServoRotation PR_BRAS_DROIT_ZONE_HAUT_VERS_BAS =
             new ActionBuilder("Partant de la zone haute en 0, on passe dans la zone du bas").BuildActionServoRotation(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT, DonneesServo.VITESSE_PR_ASCENSEURDROIT_PARTIE_HAUTE_VERS_BASSE, DonneesServo.DELAI_PR_ASCENSEURDROIT_PARTIE_HAUTE_VERS_BASSE);
-        
+        public ActionServoAbsolue PR_BRAS_DROIT_GOTO1000 =
+            new ActionBuilder("On va en 1000 de la zone du bas").BuildActionServoAbsolue(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT, 1000);
         public ActionServoRotation PR_BRAS_DROIT_ZONE_BAS_VERS_HAUT =
             new ActionBuilder("Partant de la zone basse en 1000, on passe dans la zone du haut").BuildActionServoRotation(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT, DonneesServo.VITESSE_PR_ASCENSEURDROIT_PARTIE_BASSE_VERS_HAUTE, DonneesServo.DELAI_PR_ASCENSEURDROIT_PARTIE_BASSE_VERS_HAUTE);
         /*public ActionServoRotation PR_BRAS_DROIT_MONTER =
