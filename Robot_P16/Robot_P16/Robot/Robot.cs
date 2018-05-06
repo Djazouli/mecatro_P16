@@ -40,6 +40,9 @@ namespace Robot_P16.Robot
             }
         }
 
+
+        public string codeCouleur = null;
+
         /// <summary>
         /// Liste des composants
         /// Pas élégant mais efficace pour pas avoir ?convertir les composants de tous les côtés...
