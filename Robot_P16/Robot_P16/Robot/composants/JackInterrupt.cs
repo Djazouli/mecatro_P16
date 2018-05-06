@@ -41,12 +41,15 @@ namespace Robot_P16.Robot.composants
                 return; // Already called by another interrupt event
             }
             isJackEventAboutToBeLaunched = true; // Not very Thread safe, but who cares ?
-            Thread.Sleep(1500);
-            Informations.printInformations(Priority.HIGH, "Jack interrupt event detected : isJackOn : " + this.IsJackOn());
-            if( JackChangeEvent != null ) {
-                JackChangeEvent(this.IsJackOn());
-            }
-            isJackEventAboutToBeLaunched = false;
+            new Thread(() => {
+                Thread.Sleep(1500);
+                Informations.printInformations(Priority.HIGH, "Jack interrupt event detected : isJackOn : " + this.IsJackOn());
+                if (JackChangeEvent != null)
+                {
+                    JackChangeEvent(this.IsJackOn());
+                }
+                isJackEventAboutToBeLaunched = false;
+            }).Start();
         }
 
         public bool IsJackOn()

@@ -26,9 +26,9 @@ namespace Robot_P16.Robot
             ACTION_PER_TYPE.Clear();
             //loadActionHomologation();
             loadActionTest1();
-            //loadActionPRCompete();
+            loadActionPRCompete();
 
-            //loadActionPRServos();
+            loadActionPRServos();
 
             //loadActionTestGR();
             Informations.printInformations(Priority.HIGH, "actions chargees");
@@ -81,37 +81,7 @@ namespace Robot_P16.Robot
 
         private static void loadActionPRCompete()
         {
-            PointOriente pt1 = new PointOriente(0, 100, 50);
-            PointOriente pt2 = new PointOriente(0, 1000, 50);
-            PointOriente pt3 = new PointOriente(100, 0, 50);
-            PointOriente pt4 = new PointOriente(0, 0, 0);
-
-            /*Action MOTHER_ACTION = new ActionBuilder("Action mère Test1").Add(
-                    new ActionBuilder("Wait a bit...").BuildActionWait(5000)
-                ).Add(
-                    new Actions.ActionBaseRoulante("Point1 ")
-                ).Add(
-                    new ActionBuilder("Wait a bit...").BuildActionWait(5000)
-                )
-                .Add(
-                   new Actions.ActionBaseRoulante("Point2 ", pt2)
-                ).Add(
-                    new ActionBuilder("Wait a bit...").BuildActionWait(5000)
-                )
-                .Add(
-                   new Actions.ActionBaseRoulante("Point3 ", pt3)
-                ).Add(
-                    new ActionBuilder("Wait a bit...").BuildActionWait(5000)
-                )
-                .Add(
-                   new Actions.ActionBaseRoulante("Point4 ", pt4)
-                ).Add(
-                    new ActionBuilder("Wait a bit...").BuildActionWait(5000)
-                )
-                .BuildActionEnSerie(); // Envois infinis
-
-            setMotherAction(ModeOperatoire.TEST1,TypeRobot.PETIT_ROBOT, MOTHER_ACTION);
-            setMotherAction(ModeOperatoire.TEST1, TypeRobot.GRAND_ROBOT, MOTHER_ACTION);*/
+            setMotherAction(ModeOperatoire.HOMOLOGATION,TypeRobot.PETIT_ROBOT, new ActionRamasseCube("V-N-O"));
         }
 
 

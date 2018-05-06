@@ -77,7 +77,7 @@ namespace Robot_P16.Actions
                         return new int[] {1,13,5};
                     case "O-N-V":
                     case "V-N-O":
-                        return new int[] {1,2,5};
+                        return new int[] {1,12,5};
                     case "V-J-B":
                     case "B-J-V":
                         return new int[] {4,13,5};
@@ -120,7 +120,7 @@ namespace Robot_P16.Actions
                     new ActionBuilder("Active ventouse droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, true).Execute();
                     gestionnaire.PR_BRAS_DROIT_HAUTEUR_RAMASSER_CUBE_1.Execute();
                     gestionnaire.PR_BRAS_DROIT_HAUTEUR_POSER_CUBE_2.Execute();
-                    new ActionBaseRoulante("Avancer de 1 cube", null).Execute();
+                    new ActionBuilder("Avancer d'un cube").BuildActionBaseRoulante_DRIVE(-58, 30*100).Execute();
                     new ActionBuilder("Desactive ventouse droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, false).Execute();
                     gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU.Execute();
                     break;
