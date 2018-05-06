@@ -93,7 +93,7 @@ namespace Robot_P16.Robot
                 ).Add(
                     new ActionBuilder("Deplacement 1").BuildActionBaseRoulante_GOTO_ONLY(pt1, OBSTACLE_DIRECTION.AVANT)
                 ).Add(
-                    new ActionRamasseCube("V-N-O")
+                    new ActionRamasseCube()
                 ).BuildActionEnSerie();
             setMotherAction(ModeOperatoire.HOMOLOGATION,TypeRobot.PETIT_ROBOT, MOTHER_ACTION);
         }
@@ -125,7 +125,7 @@ namespace Robot_P16.Robot
 
         private static void loadActionTest1()
         {
-            /*Action MOTHER_ACTION = new ActionBuilder("Action mère Test1").Add(
+            /*Action MOTHER_ACTION = new ActionBuilder("Action mere Test1").Add(
                     new Actions.ActionsIHM.ActionBouton(Robot.robot.TR1_BOUTON_1)
                 )
                 .Add(
@@ -164,7 +164,7 @@ namespace Robot_P16.Robot
                 ).Add(
                 new ActionBuilder("pt4").BuildActionBaseRoulante_GOTO_ONLY(pt4))
                 .BuildActionEnSerieRepeated(-1); // Envois infinis*/
-            Action MOTHER_ACTION = new ActionRamasseCube("J-N-B");
+            Action MOTHER_ACTION = new ActionRamasseCube();
             //Action MOTHER_ACTION = new ActionBuilder("test").BuildActionWait(10000);
             setMotherAction(ModeOperatoire.TEST1, TypeRobot.PETIT_ROBOT, MOTHER_ACTION);
             setMotherAction(ModeOperatoire.TEST1, TypeRobot.GRAND_ROBOT, MOTHER_ACTION);

@@ -17,7 +17,10 @@ namespace Robot_P16.Robot.composants
         {
             this.adapteur = new GTM.GHIElectronics.XBeeAdapter(socket);
             adapteur.Configure(9600, GT.SocketInterfaces.SerialParity.None, GT.SocketInterfaces.SerialStopBits.One, 8, GT.SocketInterfaces.HardwareFlowControl.NotRequired);
-
+            Thread.Sleep(300);
+            this.m_port = adapteur.Port;
+            m_port.Open();
+            sendStart();
             new Thread(() =>
             {
                 string code = null;
@@ -25,11 +28,38 @@ namespace Robot_P16.Robot.composants
                 {
                     Thread.Sleep(1000);
                     code = reception();
+                    Debug.Print("code :" + code);
                 }
                 Robot.robot.codeCouleur = code;
+                Debug.Print("Code present dans le robot" +Robot.robot.codeCouleur);
             }).Start();
         }
 
+        public void sendStart()
+        {
+            string commande;
+            byte[] buffer = new byte[100];
+            string couleur="undefined";
+            if (m_port.IsOpen)
+            {
+                Debug.Print("open");
+                    if (Robot.robot.Couleur == CouleurEquipe.ORANGE) couleur = "orange";
+                    if (Robot.robot.Couleur == CouleurEquipe.VERT) couleur = "vert";
+                    commande = couleur+"\r\n";
+                    buffer = System.Text.Encoding.UTF8.GetBytes(commande);
+                    Debug.Print(commande);
+                    m_port.Write(buffer, 0, commande.Length);
+                    Thread.Sleep(100);
+                    m_port.Write(buffer, 0, commande.Length);
+                    Thread.Sleep(100);
+                    m_port.Write(buffer, 0, commande.Length);
+                    Thread.Sleep(100);
+                    m_port.DiscardInBuffer();
+                    m_port.DiscardOutBuffer();
+                    Thread.Sleep(1000);
+                
+            }
+        }
         public string reception()
         {
             if (m_port.BytesToRead <= 0)

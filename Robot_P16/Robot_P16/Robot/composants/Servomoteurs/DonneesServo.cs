@@ -26,10 +26,10 @@ namespace Robot_P16.Robot.composants.Servomoteurs
 
 
         public const int DELAI_PR_ASCENSEURDROIT_PARTIE_BASSE_VERS_HAUTE = 900; // TODO
-        public const int VITESSE_PR_ASCENSEURDROIT_PARTIE_BASSE_VERS_HAUTE = 400; // TODO
+        public const int VITESSE_PR_ASCENSEURDROIT_PARTIE_BASSE_VERS_HAUTE = 400;
 
-        public const int DELAI_PR_ASCENSEURDROIT_PARTIE_HAUTE_VERS_BASSE = 900; // TODO
-        public const int VITESSE_PR_ASCENSEURDROIT_PARTIE_HAUTE_VERS_BASSE = 1400; // TODO
+        public const int DELAI_PR_ASCENSEURDROIT_PARTIE_HAUTE_VERS_BASSE = 900;
+        public const int VITESSE_PR_ASCENSEURDROIT_PARTIE_HAUTE_VERS_BASSE = 1400;
 
  	 public const int ANGLE_PR_POUSSOIRJOKER_POUSSER=160*1024/300;// = 90; //en degré, valeur approximative, odg moins d'un tour
  	 public const int ANGLE_PR_POUSSOIRJOKER_RETOUR=0;// = 90;
