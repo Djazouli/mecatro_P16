@@ -106,12 +106,12 @@ namespace Robot_P16.Actions
             return new ActionBaseRoulante(this.description, new Robot.composants.BaseRoulante.Mouvement(pt, true, forcedDirection));
         }
         public ActionDelegate BuildActionBaseRoulante_DRIVE(int distance, int vitesse) {
-            return new ActionDelegate(this.description, () => Robot.Robot.robot.BASE_ROULANTE.kangaroo.drive(distance, vitesse);
+            return new ActionDelegate(this.description, () => Robot.Robot.robot.BASE_ROULANTE.kangaroo.drive(distance, vitesse));
         }
 
         public ActionDelegate BuildActionBaseRoulante_TURN(double angle, int vitesse)
         {
-            return new ActionDelegate(this.description, () => Robot.Robot.robot.BASE_ROULANTE.kangaroo.rotate(angle, vitesse);
+            return new ActionDelegate(this.description, () => Robot.Robot.robot.BASE_ROULANTE.kangaroo.rotate(angle, vitesse));
 
         }
         public ActionDelegate BuildActionLanceurBalle(double speed)
