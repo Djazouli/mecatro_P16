@@ -42,7 +42,7 @@ namespace Robot_P16.Actions
                         return new int[] {1,13,5};
                     case "O-N-V":
                     case "V-N-O":
-                        return new int[] {1,4,5};
+                        return new int[] {1,14,5};
                     case "V-J-B":
                     case "B-J-V":
                         return new int[] {2,13,5};
@@ -68,7 +68,7 @@ namespace Robot_P16.Actions
                        switch(this.codeCouleur){
                     case "J-N-B":
                     case "B-N-J":
-                        return new int[] {4,2,5};
+                        return new int[] {4,12,5};
                     case "B-V-O":
                     case "O-V-B":
                         return new int[] {1,13,5};
@@ -114,7 +114,7 @@ namespace Robot_P16.Actions
         {
             switch (numMove)
             {
-                case 1: //New conventions
+                case 1: 
                     gestionnaire.PR_BRAS_DROIT_HAUTEUR_POSER_CUBE_2.Execute();
                     gestionnaire.PR_BRAS_DROIT_ROTATION_INTERIEUR.Execute();
                     new ActionBuilder("Active ventouse droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, true).Execute();
@@ -122,6 +122,7 @@ namespace Robot_P16.Actions
                     gestionnaire.PR_BRAS_DROIT_HAUTEUR_POSER_CUBE_2.Execute();
                     new ActionBuilder("Avancer d'un cube").BuildActionBaseRoulante_DRIVE(-58, 30*100).Execute();
                     new ActionBuilder("Desactive ventouse droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, false).Execute();
+                    Thread.Sleep(200);
                     gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU.Execute();
                     break;
                 case 11: 
@@ -132,23 +133,32 @@ namespace Robot_P16.Actions
                     gestionnaire.PR_BRAS_DROIT_GOTO1000.Execute();
                     gestionnaire.PR_BRAS_DROIT_ZONE_BAS_VERS_HAUT.Execute();
                     gestionnaire.PR_BRAS_DROIT_HAUTEUR_POSER_CUBE_3.Execute();
-                    new ActionBaseRoulante("Avancer de 1 cube", null).Execute();
+                    new ActionBuilder("Avancer d'un cube").BuildActionBaseRoulante_DRIVE(-58, 30 * 100).Execute();
                     new ActionBuilder("Desactive ventouse droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, false).Execute();
+                    Thread.Sleep(200);
                     gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU.Execute();
+                    gestionnaire.PR_BRAS_DROIT_GOTO0.Execute();
+                    gestionnaire.PR_BRAS_DROIT_ZONE_HAUT_VERS_BAS.Execute();
                     break;
                 case 2: // Supposons que le bras gauche est initialement au dessus du premier cube, non deployé (sinon on le pousse en arrivant)
+                    gestionnaire.PR_BRAS_GAUCHE_MONTER.Execute();
                     gestionnaire.PR_BRAS_GAUCHE_DEPLOIMENT_SORTIR_CUBE_GAUCHE.Execute();
                     new ActionBuilder("Active ventouse gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true).Execute();
-                    gestionnaire.PR_BRAS_GAUCHE_DESCENDREPOURPOSERVENTOUSE.Execute();// C'est en position relative j'espere que ca va
+                    gestionnaire.PR_BRAS_GAUCHE_DESCENDRE.Execute();// C'est en position relative j'espere que ca va
+                    gestionnaire.PR_BRAS_GAUCHE_DESCENDRE.Execute();
+                    gestionnaire.PR_BRAS_GAUCHE_DESCENDREPOURPOSERVENTOUSE.Execute();
                     gestionnaire.PR_BRAS_GAUCHE_MONTER.Execute();
                     gestionnaire.PR_BRAS_GAUCHE_ROTATION_INTERIEUR.Execute();
                     new ActionBuilder("Desactive ventouse gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false).Execute();
+                    Thread.Sleep(300);
                     gestionnaire.PR_BRAS_GAUCHE_ROTATION_MILIEU.Execute();
                     break;
                 case 12:
                     gestionnaire.PR_BRAS_GAUCHE_MONTER.Execute();
                     gestionnaire.PR_BRAS_GAUCHE_DEPLOIMENT_SORTIR_CUBE_GAUCHE.Execute();
                     new ActionBuilder("Active ventouse gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true).Execute();
+                    gestionnaire.PR_BRAS_GAUCHE_DESCENDRE.Execute();
+                    gestionnaire.PR_BRAS_GAUCHE_DESCENDRE.Execute();
                     gestionnaire.PR_BRAS_GAUCHE_DESCENDREPOURPOSERVENTOUSE.Execute();
                     gestionnaire.PR_BRAS_GAUCHE_MONTER.Execute();
                     gestionnaire.PR_BRAS_GAUCHE_MONTER.Execute();
@@ -160,13 +170,16 @@ namespace Robot_P16.Actions
                 case 3:
                     gestionnaire.PR_BRAS_GAUCHE_MONTER.Execute();
                     gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_SORTIR_CUBE_CENTRAL.Execute();
-                    gestionnaire.PR_BRAS_GAUCHE_ROTATION_CUBE_CENTRAL.Execute();
+                    gestionnaire.PR_BRAS_GAUCHE_ROTATION_INTERIEUR.Execute();
                     new ActionBuilder("Active ventouse Gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true).Execute();
+                    gestionnaire.PR_BRAS_GAUCHE_DESCENDRE.Execute();
+                    gestionnaire.PR_BRAS_GAUCHE_DESCENDRE.Execute();
                     gestionnaire.PR_BRAS_GAUCHE_DESCENDREPOURPOSERVENTOUSE.Execute();
                     gestionnaire.PR_BRAS_GAUCHE_MONTER.Execute();
+                    gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_RENTRER.Execute();
                     gestionnaire.PR_BRAS_GAUCHE_ROTATION_INTERIEUR.Execute();
                     new ActionBuilder("Desactive Ventouse Gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false).Execute();
-                    Thread.Sleep(1000);
+                    Thread.Sleep(300);
                     gestionnaire.PR_BRAS_GAUCHE_ROTATION_MILIEU.Execute();
                     break;
                 case 13:
@@ -174,11 +187,15 @@ namespace Robot_P16.Actions
                     gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_SORTIR_CUBE_CENTRAL.Execute();
                     gestionnaire.PR_BRAS_GAUCHE_ROTATION_CUBE_CENTRAL.Execute();
                     new ActionBuilder("Active ventouse Gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true).Execute();
+                    gestionnaire.PR_BRAS_GAUCHE_DESCENDRE.Execute();
+                    gestionnaire.PR_BRAS_GAUCHE_DESCENDRE.Execute();
                     gestionnaire.PR_BRAS_GAUCHE_DESCENDREPOURPOSERVENTOUSE.Execute();
-                    gestionnaire.PR_BRAS_GAUCHE_MONTER_2.Execute();
+                    gestionnaire.PR_BRAS_GAUCHE_MONTER.Execute();
+                    gestionnaire.PR_BRAS_GAUCHE_MONTER.Execute();
+                    gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_RENTRER.Execute();
                     gestionnaire.PR_BRAS_GAUCHE_ROTATION_INTERIEUR.Execute();
                     new ActionBuilder("Desactive Ventouse Gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false).Execute();
-                    Thread.Sleep(1000);
+                    Thread.Sleep(300);
                     gestionnaire.PR_BRAS_GAUCHE_ROTATION_MILIEU.Execute();
                     break;
                 case 4:
@@ -189,40 +206,46 @@ namespace Robot_P16.Actions
                     gestionnaire.PR_BRAS_DROIT_HAUTEUR_POSER_CUBE_2.Execute();
                     gestionnaire.PR_BRAS_DROIT_ROTATION_INTERIEUR.Execute();
                     new ActionBuilder("Desactiver ventouze droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, false).Execute();
+                    Thread.Sleep(200);
+                    gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU.Execute();
                     break;
                 case 14:
                     gestionnaire.PR_BRAS_DROIT_HAUTEUR_POSER_CUBE_2.Execute();
                     gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU.Execute();
                     new ActionBuilder("Activer ventouze droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, true).Execute();
                     gestionnaire.PR_BRAS_DROIT_HAUTEUR_RAMASSER_CUBE_1.Execute();
+                    gestionnaire.PR_BRAS_DROIT_GOTO1000.Execute();
                     gestionnaire.PR_BRAS_DROIT_ZONE_BAS_VERS_HAUT.Execute();
                     gestionnaire.PR_BRAS_DROIT_HAUTEUR_POSER_CUBE_3.Execute();
                     gestionnaire.PR_BRAS_DROIT_ROTATION_INTERIEUR.Execute();
                     new ActionBuilder("Desactiver ventouze droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, false).Execute();
+                    Thread.Sleep(300);
+                    gestionnaire.PR_BRAS_DROIT_GOTO0.Execute();
+                    gestionnaire.PR_BRAS_DROIT_ZONE_HAUT_VERS_BAS.Execute();
+                    Thread.Sleep(200);
+                    gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU.Execute();
                     break;
                 case 5:
                     gestionnaire.PR_POUSSOIRJOKER_POUSSER.Execute();
                     gestionnaire.PR_POUSSOIRJOKER_RETOUR.Execute();
                     break;
-                case 6:
-                    new ActionBaseRoulante("Avancer de 1 cube", null).Execute();
+                case 6://peut etre qu'on devrait bloquer les cubes avant d'avancer ?
+                    new ActionBuilder("Avancer d'un cube").BuildActionBaseRoulante_DRIVE(-58, 30 * 100).Execute();
                     break;
                 case 7:
-                    gestionnaire.PR_BRAS_DROIT_MONTER.Execute();
-                    gestionnaire.PR_BRAS_DROIT_MONTER.Execute();
-                    gestionnaire.PR_BRAS_DROIT_ROTATIONHORAIRE.Execute();
-                    gestionnaire.PR_BRAS_DROIT_DESCENDRE.Execute();
-                    gestionnaire.PR_BRAS_DROIT_DESCENDRE.Execute();
-                    gestionnaire.PR_AIGUILLAGE_VENTOUSEDROITE.Execute();
-                    gestionnaire.PR_BRAS_DROIT_MONTER.Execute();
-                    gestionnaire.PR_BRAS_DROIT_MONTER.Execute();
-                    gestionnaire.PR_BRAS_DROIT_ROTATIONHORAIRE.Execute();
-                    gestionnaire.PR_BRAS_DROIT_DESCENDRE.Execute();
-                    gestionnaire.PR_AIGUILLAGE_VENTOUSEGAUCHE.Execute();
-                    gestionnaire.PR_BRAS_DROIT_ROTATIONANTIHORAIRE.Execute();
-                    gestionnaire.PR_BRAS_DROIT_ROTATIONANTIHORAIRE.Execute();
-                    gestionnaire.PR_BRAS_DROIT_DESCENDRE.Execute();
-                    gestionnaire.PR_BRAS_DROIT_DESCENDRE.Execute();
+                    gestionnaire.PR_BRAS_GAUCHE_MONTER.Execute();
+                    gestionnaire.PR_BRAS_GAUCHE_MONTER.Execute();
+                    gestionnaire.PR_BRAS_GAUCHE_DEPLOIMENT_SORTIR_CUBE_GAUCHE.Execute();
+                    new ActionBuilder("Activer ventouze gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true).Execute();
+                    gestionnaire.PR_BRAS_GAUCHE_DESCENDRE.Execute();
+                    gestionnaire.PR_BRAS_GAUCHE_DESCENDRE.Execute();
+                    gestionnaire.PR_BRAS_GAUCHE_DESCENDREPOURPOSERVENTOUSE.Execute();
+                    gestionnaire.PR_BRAS_GAUCHE_MONTER.Execute();
+                    gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_SORTIR_CUBE_CENTRAL.Execute();
+                    gestionnaire.PR_BRAS_GAUCHE_ROTATION_INTERIEUR.Execute();
+                    new ActionBuilder("Activer ventouze gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false).Execute();
+                    Thread.Sleep(300);
+                    gestionnaire.PR_BRAS_GAUCHE_ROTATION_MILIEU.Execute();
                     break;
                 default:
                     Debug.Print("ALLO CE NEST PAS UN NUMERO VALIDE DE MAKEMOVE");
@@ -235,6 +258,7 @@ namespace Robot_P16.Actions
         {
             int[] sequence = getSequence();
             for(int i = 0; i<sequence.Length; i++){
+                Debug.Print("Making move" + sequence[i].ToString());
                 makeMove(sequence[i]);
             }
         }

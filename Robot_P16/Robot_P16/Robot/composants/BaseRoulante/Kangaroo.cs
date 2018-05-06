@@ -179,7 +179,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             if (this.currentMode == null)
             {
                 GetDynamicPosition();
-                Debug.Print("POSITION : "+this.position);
+                //Debug.Print("POSITION : "+this.position);
                 return;
             }
 
@@ -219,7 +219,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             }
 
 
-            Informations.printInformations(Priority.HIGH, "Current position : " + this.position);
+            //Informations.printInformations(Priority.HIGH, "Current position : " + this.position);
         }
 
         public PointOriente GetDynamicPosition()
@@ -242,7 +242,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             //T,P100
             if (/*this.currentMode == null || */ feedback == null || feedback.Length < 4) return;// this.position;
             char status = feedback[2];
-            Debug.Print("FEED : "+feedback);
+            //Debug.Print("FEED : "+feedback);
 
             if (feedback[2] == 'E')
             {

@@ -72,13 +72,13 @@ namespace Robot_P16.Robot.composants.Servomoteurs
         //AJOUTER ANGLE_PR_ROTATIONDROIT_ANTIHORAIRE dans Donnees Servo
 
         public ActionServoAbsolue PR_BRAS_GAUCHE_ROTATION_MILIEU =
-            new ActionBuilder("ServoPR- rotation horaire bras gauche").BuildActionServoAbsolue(Robot.robot.PR_SERVO_ROTATION_BRAS_GAUCHE,  DonneesServo.ANGLE_PR_ROTATIONGAUCHE_INTERIEUR);
+            new ActionBuilder("ServoPR- rotation horaire bras gauche").BuildActionServoAbsolue(Robot.robot.PR_SERVO_ROTATION_BRAS_GAUCHE,  DonneesServo.ANGLE_PR_ROTATIONGAUCHE_MILIEU);
 
         //AJOUTER PR_SERVO_ROTATION_BRAS_GAUCHE dans Robot.robot et ANGLE_PR_ROTATIONGAUCHE_HORAIRE dans Donnees Servo
         public ActionServoAbsolue PR_BRAS_GAUCHE_ROTATION_CUBE_CENTRAL =
             new ActionBuilder("Rotation pour attraper le cube sans gauche").BuildActionServoAbsolue(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE, DonneesServo.ANGLE_PR_ROTATIONGAUCHE_CUBE_CENTRAL);
         public ActionServoAbsolue PR_BRAS_GAUCHE_ROTATION_INTERIEUR =
-            new ActionBuilder("ServoPR- rotation antihoraire bras gauche").BuildActionServoAbsolue(Robot.robot.PR_SERVO_ROTATION_BRAS_GAUCHE,  DonneesServo.ANGLE_PR_ROTATIONGAUCHE_MILIEU);
+            new ActionBuilder("ServoPR- rotation antihoraire bras gauche").BuildActionServoAbsolue(Robot.robot.PR_SERVO_ROTATION_BRAS_GAUCHE,  DonneesServo.ANGLE_PR_ROTATIONGAUCHE_INTERIEUR);
 
         //AJOUTER PR_SERVO_ROTATION_BRAS_GAUCHE dans Robot.robot et ANGLE_PR_ROTATIONGAUCHE_HORAIRE dans Donnees Servo
 
