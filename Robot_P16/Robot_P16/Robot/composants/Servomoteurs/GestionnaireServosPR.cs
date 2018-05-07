@@ -26,7 +26,7 @@ namespace Robot_P16.Robot.composants.Servomoteurs
         public ActionServoRotation PR_BRAS_DROIT_ZONE_HAUT_VERS_BAS =
             new ActionBuilder("Partant de la zone haute en 0, on passe dans la zone du bas").BuildActionServoRotation(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT, DonneesServo.VITESSE_PR_ASCENSEURDROIT_PARTIE_HAUTE_VERS_BASSE, DonneesServo.DELAI_PR_ASCENSEURDROIT_PARTIE_HAUTE_VERS_BASSE);
         public ActionServoAbsolue PR_BRAS_DROIT_GOTO1000 =
-            new ActionBuilder("On va en 1000 de la zone du bas").BuildActionServoAbsolue(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT, 1000);
+            new ActionBuilder("On va en 1000 de la zone du bas").BuildActionServoAbsolue(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT, 1020);
         public ActionServoRotation PR_BRAS_DROIT_ZONE_BAS_VERS_HAUT =
             new ActionBuilder("Partant de la zone basse en 1000, on passe dans la zone du haut").BuildActionServoRotation(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT, DonneesServo.VITESSE_PR_ASCENSEURDROIT_PARTIE_BASSE_VERS_HAUTE, DonneesServo.DELAI_PR_ASCENSEURDROIT_PARTIE_BASSE_VERS_HAUTE);
         /*public ActionServoRotation PR_BRAS_DROIT_MONTER =

@@ -199,10 +199,10 @@ namespace Robot_P16.Robot
 
             setMotherAction(ModeOperatoire.TEST1, MOTHER_ACTION);*/
 
-            PointOriente pt1 = new PointOriente(1000, 0, 50);
-            PointOriente pt2 = new PointOriente(1000, 500, 50);
-            PointOriente pt3 = new PointOriente(0, 500, -50);
-            PointOriente pt4 = new PointOriente(0, 0, 50);
+            PointOriente pt1 = new PointOriente(1130, -350, 50);
+            PointOriente pt2 = new PointOriente(1130, 0, 50);
+            PointOriente pt3 = new PointOriente(1130, 565, -180);
+            PointOriente pt4 = new PointOriente(950, 565, -180);
 
             /*Action MOTHER_ACTION = new ActionBuilder("Action mere Test1").Add(
                     new ActionBuilder("Pt1").BuildActionBaseRoulante_GOTO_ONLY(pt1, OBSTACLE_DIRECTION.AVANT)
@@ -224,7 +224,11 @@ namespace Robot_P16.Robot
                 ).Add(
                 new ActionBuilder("pt4").BuildActionBaseRoulante_GOTO_ONLY(pt4))
                 .BuildActionEnSerieRepeated(-1); // Envois infinis*/
-            Action MOTHER_ACTION = new ActionRamasseCube();
+            Action MOTHER_ACTION = new ActionBuilder("test").Add(new ActionBuilder("pt1").BuildActionBaseRoulante_GOTO_ONLY(pt1)
+                ).Add(new ActionBuilder("pt2").BuildActionBaseRoulante_GOTO_ONLY(pt2, OBSTACLE_DIRECTION.ARRIERE)
+                ).Add(new ActionBuilder("pt3").BuildActionBaseRoulante_GOTO_ANGLE(pt3, OBSTACLE_DIRECTION.AVANT)
+                ).Add(new ActionBuilder("pt4").BuildActionBaseRoulante_GOTO_ANGLE(pt4, OBSTACLE_DIRECTION.AVANT)
+                ).Add(new ActionRamasseCube()).BuildActionEnSerie();
             //Action MOTHER_ACTION = new ActionBuilder("test").BuildActionWait(10000);
             setMotherAction(ModeOperatoire.TEST1, TypeRobot.PETIT_ROBOT, MOTHER_ACTION);
 
