@@ -22,8 +22,8 @@ namespace Robot_P16.Robot.composants.CapteursObstacle
 
             capteurIR = new InputPort(Socket.GetSocket(socket, true, null, null).CpuPins[port], false, Port.ResistorMode.Disabled);
 
-            lastStatus = IsThereAnObstacle();
-
+            //lastStatus = IsThereAnObstacle();
+            lastStatus = false;
             /*Gadgeteer.Timer timer = new Gadgeteer.Timer(REFRESH_RATE);
             timer.Tick += this.detectObstacle;
             timer.Start();*/

@@ -63,7 +63,7 @@ namespace Robot_P16.Actions
                 this.indexOfCurrentAction++;
                 if (listeActions.Length > this.indexOfCurrentAction)
                 {
-                    Informations.printInformations(Priority.VERY_LOW, "ActionEnSerie - executing next action. Desc of ActionEnSerie : "+this.description);
+                    Informations.printInformations(Priority.LOW, "ActionEnSerie - executing next action. Desc of ActionEnSerie : "+this.description);
                     this.listeActions[this.indexOfCurrentAction].StatusChangeEvent += this.Feedback;
                     this.listeActions[this.indexOfCurrentAction].Execute();
                 }

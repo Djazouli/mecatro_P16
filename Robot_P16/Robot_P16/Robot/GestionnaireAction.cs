@@ -84,32 +84,76 @@ namespace Robot_P16.Robot
             double dimensionGR_X = 280;
             double dimensionGR_Y = 300;
             // dimension Y espace de depart : 63cm, dimension Y tube : 85cm
+            // dimension X deuxieme tube : 240cm
             double positionInitialeGR_X = dimensionGR_X / 2;
             double positionInitialeGR_Y = -(630 - dimensionGR_Y / 2);
             PointOriente pt1 = new PointOriente(200 + dimensionGR_X / 2, -845, 0);
-            PointOriente pt2 = new PointOriente(0, -845, 0);
-            PointOriente pt3 = new PointOriente(200, 600, 180);
+            PointOriente pt2 = new PointOriente(100, -845, 0);
+            PointOriente pt3 = new PointOriente(2400, -845, 180);
+            PointOriente pt4 = new PointOriente(2380, -1700, 90);
+            PointOriente pt5 = new PointOriente(2380, -2000 - dimensionGR_X / 2, 90);
             GestionnaireServosGR gestio = new GestionnaireServosGR();
             Action MOTHER_ACTION = new ActionBuilder("Action test PR").Add(
                     new ActionBuilder("Position initiale GR Vert").BuildActionSetPositionInitiale(positionInitialeGR_X, positionInitialeGR_Y, 0)
                 ).Add(
+                    new ActionBuilder("Regler vitese drive").BuildActionDelegate(() => Robot.robot.BASE_ROULANTE.speedDrive = 300)
+                ).Add(
                     new ActionBuilder("Deplacement 1").BuildActionBaseRoulante_GOTO_ONLY(pt1)
                 )
                 .Add(
-                    gestio.GR_TRAPPE_OUVRIR
-                )/*.Add(
-                    gestio.GR_PLATEAU_AVANT_ORANGE
-                )*/.Add(
-                    new ActionBuilder("Deplacement 1").BuildActionBaseRoulante_GOTO_ANGLE(pt2, OBSTACLE_DIRECTION.ARRIERE)
+                    gestio.GR_TRAPPE_FERMER
                 ).Add(
-                    new ActionBuilder("Deplacement 1").BuildActionLanceurBalle(0.693)
+                    gestio.GR_PLATEAU_AVANT_VERT
+                ).Add(
+                    new ActionBuilder("Regler vitese drive").BuildActionDelegate(() => Robot.robot.BASE_ROULANTE.speedDrive = 200)
+                )
+                .Add(
+                    new ActionBuilder("Deplacement 2").BuildActionBaseRoulante_GOTO_ANGLE(pt2, OBSTACLE_DIRECTION.ARRIERE)
                 ).Add(
                     gestio.GR_PLATEAU_RECOLTE_1
                 ).Add(
-                    new ActionBuilder("Deplacement 1").BuildActionLanceurBalleStop()
-                )/*.Add(
-                    new ActionRamasseCube()
-                )*/.BuildActionEnSerie();
+                    gestio.GR_PLATEAU_SLOT0
+                ).Add(
+                    new ActionBuilder("Demarrer lanceur").BuildActionLanceurBalle(0.715)
+                ).Add(
+                    gestio.GR_TRAPPE_OUVRIR
+                ).Add(
+                    gestio.GR_PLATEAU_LIBERATION_BALLES_COTE_VERT_ARRIERE()
+                ).Add(new ActionWait("Wait a bit", 1000)).Add(
+                    gestio.GR_TRAPPE_FERMER
+                )
+                .Add(
+                    new ActionBuilder("Stopper lanceur").BuildActionLanceurBalleStop()
+                ).Add(
+                    new ActionBuilder("Regler vitese drive").BuildActionDelegate(() => Robot.robot.BASE_ROULANTE.speedDrive = 600)
+                ).Add(
+                    new ActionBuilder("Deplacement 3").BuildActionBaseRoulante_GOTO_ONLY(pt3)
+                ).Add(
+                    new ActionBuilder("Regler vitese drive").BuildActionDelegate(() => Robot.robot.BASE_ROULANTE.speedDrive = 300)
+                ).Add(
+                    new ActionBuilder("Deplacement 4").BuildActionBaseRoulante_GOTO_ONLY(pt4, OBSTACLE_DIRECTION.ARRIERE)
+                ).Add(
+                    new ActionBuilder("Regler vitese drive").BuildActionDelegate(() => Robot.robot.BASE_ROULANTE.speedDrive = 200)
+                ).Add(
+                    gestio.GR_TRAPPE_FERMER
+                ).Add(
+                    gestio.GR_PLATEAU_AVANT_VERT
+                ).Add(
+                    new ActionBuilder("Deplacement 4").BuildActionBaseRoulante_GOTO_ANGLE(pt5, OBSTACLE_DIRECTION.ARRIERE)
+                ).Add(
+                    gestio.GR_PLATEAU_RECOLTE_1
+                ).Add(
+                    gestio.GR_PLATEAU_SLOT0
+                ).Add(
+                    new ActionBuilder("Demarrer lanceur").BuildActionLanceurBalle(0.45)
+                ).Add(
+                    gestio.GR_PLATEAU_LIBERATION_BALLES_ORANGE_EQUIPE_VERTE()
+                ).Add(new ActionWait("Wait a bit", 1000)).Add(
+                    gestio.GR_TRAPPE_FERMER
+                )
+                .Add(
+                    new ActionBuilder("Stopper lanceur").BuildActionLanceurBalleStop()
+                ).BuildActionEnSerie();
             setMotherAction(ModeOperatoire.HOMOLOGATION,TypeRobot.PETIT_ROBOT, MOTHER_ACTION);
             setMotherAction(ModeOperatoire.HOMOLOGATION, TypeRobot.GRAND_ROBOT, MOTHER_ACTION);
         }
@@ -194,7 +238,7 @@ namespace Robot_P16.Robot
                         ).BuildActionEnSerie()).Add(
                             new ActionBuilder("Servo tourne 1").BuildActionServoAbsolue(Robot.robot.GR_SERVO_PLATEAU, 0)
                         )
-                        .BuildActionEnParallele()
+                        .BuildActionEnSerie()
                         
                 ).Add(
                     new ActionBuilder("Paralelle 2").Add(
@@ -202,14 +246,14 @@ namespace Robot_P16.Robot
                         ).Add(
                             new ActionBuilder("Servo tourne 1").BuildActionServoAbsolue(Robot.robot.GR_SERVO_PLATEAU, 1023)
                         )
-                        .BuildActionEnParallele()
+                        .BuildActionEnSerie()
                 ).Add(
                     new ActionBuilder("Paralelle 3").Add(
                             new ActionBuilder("Servo tourne 1").BuildActionServoAbsolue(Robot.robot.GR_SERVO_ABEILLE, 500)
                         ).Add(
                             new ActionBuilder("Servo tourne 1").BuildActionServoAbsolue(Robot.robot.GR_SERVO_PLATEAU, 500)
                         )
-                        .BuildActionEnParallele()
+                        .BuildActionEnSerie()
                 ).BuildActionEnSerie();
 
             setMotherAction(ModeOperatoire.TEST1, TypeRobot.GRAND_ROBOT, MOTHER_ACTION);

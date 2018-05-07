@@ -20,13 +20,16 @@ namespace Robot_P16.Robot
     }
     public class Informations
     {
-        static public Priority priorityLevel = Priority.VERY_LOW; /// 0=LOW, 1=MEDIUM, 2=HIGH
+        public static DateTime startTime = DateTime.Now;
+        static public Priority priorityLevel = Priority.MEDIUM; /// 0=LOW, 1=MEDIUM, 2=HIGH
 
         public static void printInformations(Priority priority, string message)
         {
             if (priority >= priorityLevel)
             {
-                Debug.Print(message);
+                var endTime = DateTime.Now;
+                Double elapsedMillisecs = ((TimeSpan)(endTime - startTime)).Milliseconds + ((TimeSpan)(endTime - startTime)).Seconds * 1000;
+                Debug.Print(elapsedMillisecs+"ms : "+message);
             }
         }
     }

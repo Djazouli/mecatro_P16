@@ -27,8 +27,8 @@ namespace Robot_P16.Robot.composants.BaseRoulante
 
         public OBSTACLE_DIRECTION direction = OBSTACLE_DIRECTION.AVANT;
 
-        public int speedDrive = 200;// avance 10 cm par seconde
-        public int speedTurn = 150; //tourne 30 degrees par seconde
+        public int speedDrive = 600;// avance 10 cm par seconde
+        public int speedTurn = 400; //tourne 30 degrees par seconde
 
         private static int REFRESH_RATE_EVENT = 200;
 
@@ -63,7 +63,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
 
         public PointOriente GetPosition()
         {
-            return this.kangaroo.GetDynamicPosition();
+            return this.kangaroo.GetStaticPosition();
         }
 
 

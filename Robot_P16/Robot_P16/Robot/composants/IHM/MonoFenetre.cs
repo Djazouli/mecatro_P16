@@ -222,7 +222,8 @@ namespace Robot_P16.Robot.composants.IHM
             if (Type == monoFenetre_Type.FEN_INFORMATION)
             {
                 TextBlock messageView = (TextBlock)m_window.GetChildByName("messageInformation");
-                messageView.Text = message;
+                if (messageView != null)
+                    messageView.Text = message;
             }
         }
 

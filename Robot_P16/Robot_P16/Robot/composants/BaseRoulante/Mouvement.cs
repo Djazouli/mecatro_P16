@@ -125,10 +125,10 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         {
             this.isPaused = false;
             // Launch command
-            Informations.printInformations(Priority.MEDIUM, "Mouvement - Start() called");
+            Informations.printInformations(Priority.HIGH, "Mouvement - Start() called");
             if (Robot.robot.OBSTACLE_MANAGER != null)
                 Robot.robot.OBSTACLE_MANAGER.ObstacleChangeEvent += this.ObstacleListener;
-            Informations.printInformations(Priority.MEDIUM, "Started at" + GetPosition().x.ToString() + "," + GetPosition().y.ToString()+","+GetPosition().theta.ToString());
+            Informations.printInformations(Priority.HIGH, "Started at" + GetPosition().x.ToString() + "," + GetPosition().y.ToString()+","+GetPosition().theta.ToString());
 
             if (this.isDirectionForced)
                 this.GoToOrientedPoint(this.destination, this.forcedDirection);
@@ -173,7 +173,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
 
         public Boolean GoToOrientedPoint(PointOriente pt, OBSTACLE_DIRECTION forceDir) // forceDir = AVANT or ARRIERE
         {
-
+            Informations.printInformations(Priority.HIGH, "Going (dir forced) to " + pt.x.ToString() + "," + pt.y.ToString() + "\r\n");
             // AdjustToAngle == True must be handled here
             double angle=0;
             double deltaX, deltaY, deltaTheta, alpha;
@@ -198,7 +198,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             // We now have the good theta (between 0 and 360)
             if (forceDir == OBSTACLE_DIRECTION.AVANT)
             {
-                Debug.Print("Going en avant");
+                Informations.printInformations(Priority.HIGH, "Going en avant");
                 if (this.GetPosition().theta%360 - deltaTheta%360 > 180) // That means we have to turn atrigo
                 {
                     Rotate(convertTo180(360 - this.GetPosition().theta%360 - deltaTheta%360));
@@ -221,8 +221,8 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             }
             if (forceDir == OBSTACLE_DIRECTION.ARRIERE)
             {
-                Debug.Print("Going en arriere");
-                if (convertTo360(this.GetPosition().theta) - deltaTheta > 180)
+                Informations.printInformations(Priority.HIGH, "Going en arriere");
+                if (this.GetPosition().theta%360 - deltaTheta > 180)
                 {//turn antitrigo
                     Rotate(convertTo180(-convertTo360(this.GetPosition().theta) + 180 - convertTo360(deltaTheta)));
                     //Robot.robot.BASE_ROULANTE.MoveCompleted.WaitOne();// waiting for the move to be completed
@@ -248,6 +248,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 //Robot.robot.BASE_ROULANTE.MoveCompleted.WaitOne();// waiting for the move to be completed
                 if (this.isPaused) return false; // MUST BE CHECKED AFTER EACH WaitOne!!!!
             }
+            Informations.printInformations(Priority.HIGH, "DOne with gotoForced dir.");
             return true;
         }
         public Boolean GoToOrientedPoint(PointOriente pt) // Automatically find direction
@@ -257,7 +258,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             deltaX = pt.x - this.GetPosition().x;
             deltaY = pt.y - this.GetPosition().y;
 
-            Debug.Print("Going to " + pt.x.ToString() + "," + pt.y.ToString() + "\r\n");
+            Informations.printInformations(Priority.HIGH, "Going to " + pt.x.ToString() + "," + pt.y.ToString() + "\r\n");
             if (deltaX == 0)
             {
                 if (deltaY > 0)
@@ -270,7 +271,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 deltaTheta = convertTo360(180 / System.Math.PI * System.Math.Atan2(deltaY , deltaX));
             }
             angle = (convertTo360(this.GetPosition().theta) -  convertTo360(deltaTheta)+90);
-            Debug.Print("Angle before modulo : " + angle.ToString());
+            Informations.printInformations(Priority.HIGH, "Angle before modulo : " + angle.ToString());
             angle = convertTo360(angle);
             Informations.printInformations(Priority.LOW, "J'ai deltaTheta = " + deltaTheta.ToString());
             Informations.printInformations(Priority.LOW, "Donc angle = " + angle.ToString());
@@ -287,7 +288,9 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         public void Pause()
         {
             this.isPaused = true;
+            Robot.robot.IHM.AfficherInformation("PAUSED", false);
             Robot.robot.BASE_ROULANTE.kangaroo.stop();
+            Thread.Sleep(500);
         }
 
         public void ObstacleListener(OBSTACLE_DIRECTION direction, bool isThereAnObstacle)
@@ -303,12 +306,14 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 if (isThereAnObstacle)
                 {
                    Informations.printInformations(Priority.MEDIUM, "Mouvement - ObstacleListener - obstacle detected : pausing movement. ");
+
                    this.Pause();
                 }
                 else
                 {
                     Informations.printInformations(Priority.MEDIUM, "Mouvement - ObstacleListener - obstacle removed : resuming movement. ");
-                    this.Start();
+                    Robot.robot.IHM.AfficherInformation("UNPAUSED", false);
+                    new Thread(() => this.Start()).Start();
                 }
             }
             else

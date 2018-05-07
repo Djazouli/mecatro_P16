@@ -78,10 +78,22 @@ namespace Robot_P16.Robot.composants.Servomoteurs
  	 public const int ANGLE_GR_PLATEAU_TAQUET=-1;// = -54.00;
  	 
  	 public const int ANGLE_GR_TRAPPE_OUVRIR=495;
- 	 public const int ANGLE_GR_TRAPPE_FERMER=580;
+ 	 public const int ANGLE_GR_TRAPPE_FERMER=580; // 580 - 600
 
-     public const int ANGLE_GR_PLATEAU_OUVERTURE_AVANT_ORANGE = 10;
-     public const int ANGLE_GR_PLATEAU_OUVERTURE_ARRIERE_VERT = 995;
+     public const int ANGLE_GR_PLATEAU_OUVERTURE_AVANT_ORANGE = 204;
+     public const int ANGLE_GR_PLATEAU_OUVERTURE_ARRIERE_VERT = 810;
+
+     public const int ANGLE_GR_PLATEAU_SLOT_0 = 0;
+     public const int ANGLE_GR_PLATEAU_SLOT_1 = 80;
+     public const int ANGLE_GR_PLATEAU_SLOT_2 = 204;
+     public const int ANGLE_GR_PLATEAU_SLOT_3 = 320;
+     public const int ANGLE_GR_PLATEAU_SLOT_4 = 442;
+     public const int ANGLE_GR_PLATEAU_SLOT_5 = 578;
+     public const int ANGLE_GR_PLATEAU_SLOT_6 = 690;
+     public const int ANGLE_GR_PLATEAU_SLOT_7 = 816;
+     public const int ANGLE_GR_PLATEAU_SLOT_8 = 950;
+        // Si recole cote orange (avant) : commencer par slot 8 => slot le plus proche
+        // Si recolt cote vert (arriere) : commencer par slot 0 => slot le plus proche
 
 
 

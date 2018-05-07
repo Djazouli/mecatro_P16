@@ -217,7 +217,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             char upperCased = feedback[2].ToUpper();
             if (upperCased == feedback[2])
             {
-                Informations.printInformations(Priority.VERY_LOW, "Kangaroo - CheckMovingStatus detected end of move");
+                Informations.printInformations(Priority.HIGH, "Kangaroo - CheckMovingStatus detected end of move");
                 // isMoving = false, done moving
                 this.currentMode = null;
                 this.MoveCompleted.Set();
@@ -225,6 +225,11 @@ namespace Robot_P16.Robot.composants.BaseRoulante
 
 
             //Informations.printInformations(Priority.HIGH, "Current position : " + this.position);
+        }
+
+        public PointOriente GetStaticPosition()
+        {
+            return position;
         }
 
         public PointOriente GetDynamicPosition()
@@ -236,7 +241,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             if (ROUE_LIBRE)
                 stop(); // TODO : remove this shit
             //return PositionFromFeedback(sendAndReceiveUpdate(this.currentMode));
-            Debug.Print(position.ToString());
+            //Debug.Print(position.ToString());
             return this.position;
         }
 
@@ -248,7 +253,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             //T,P100
             if (/*this.currentMode == null || */ feedback == null || feedback.Length < 4) return;// this.position;
             char status = feedback[2];
-            //Debug.Print("FEED : "+feedback);
+            Debug.Print("FEED : "+feedback);
 
             if (feedback[2] == 'E')
             {
@@ -328,7 +333,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
 
         public bool drive(int distance, int vitesse)
         {
-            Debug.Print("Drivee, Distance demande : " + distance );
+            Informations.printInformations(Priority.HIGH, "Drive, Distance demande : " + distance );
             string commande;
             vitesse *= RAPPORT_DISTANCE_MM_VERS_CODEUR;
             distance = (int)((double)(distance) / (double)(RAPPORT_DISTANCE_CODEUR_VERS_MM) * (double)(RAPPORT_DISTANCE_MM_VERS_CODEUR) * ratioPointOrienteVersKangarooDIST);
@@ -340,14 +345,14 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             Informations.printInformations(Priority.MEDIUM, "Kangaroo - Drive : sent command, waiting for move completion");
             MoveCompleted.WaitOne();
             currentMode = null;
-            Thread.Sleep(100);
+            //Thread.Sleep(100);
             return true;
         }
 
         public bool rotate(double angle, int vitesse)
         {
             string commande;
-            Debug.Print("Rotate, Angle demande : " + angle);
+            Informations.printInformations(Priority.HIGH, "Rotate, Angle demande : " + angle);
             vitesse *= RAPPORT_ANGLE_DEGRE_VERS_CODEUR;
             angle = RAPPORT_ANGLE_DEGRE_VERS_CODEUR * angle * ratioPointOrienteVersKangarooANGLE;
             Init();
@@ -358,14 +363,20 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             Informations.printInformations(Priority.MEDIUM, "Kangaroo - Turn : sent command, waiting for move completion");
             MoveCompleted.WaitOne();
             currentMode = null;
-            Thread.Sleep(100);
+            //Thread.Sleep(100);
             return true;
         }
 
         public void stop()
         {
-            this.EnvoyerCommande("T,powerdown\r\n");
-            this.EnvoyerCommande("D,powerdown\r\n");
+            //Init();
+            this.CheckMovingStatus();
+            if (currentMode != null)
+            {
+                this.EnvoyerCommande(currentMode+",powerdown\r\n");
+                //this.EnvoyerCommande("D,powerdown\r\n");
+            }
+            MoveCompleted.Set();
         }
 
         public double RecallageX(double newY, int timeSleep, int speed, int distance, double angle){

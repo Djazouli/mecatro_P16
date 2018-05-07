@@ -14,7 +14,7 @@ namespace Robot_P16.Robot.composants.CapteursObstacle
         private bool[] lastObstacleFoundForCapteurs;
         public event ObstacleListenerDelegate ObstacleChangeEvent;
 
-        private static int REFRESH_RATE = 500;
+        private static int REFRESH_RATE = 100;
 
         public CapteurObstacleManager(CapteurObstacle[] capteurs)
         {
