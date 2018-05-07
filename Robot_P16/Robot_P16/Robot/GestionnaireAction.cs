@@ -30,7 +30,7 @@ namespace Robot_P16.Robot
 
             loadActionPRServos();
 
-            //loadActionTestGR();
+            loadActionTestGR();
             Informations.printInformations(Priority.HIGH, "actions chargees");
         }
 
@@ -81,21 +81,37 @@ namespace Robot_P16.Robot
 
         private static void loadActionPRCompete()
         {
-            PointOriente pt1 = new PointOriente(800, 0, 180);
-            PointOriente pt4 = new PointOriente(600, 0, 180);
-            PointOriente pt5 = new PointOriente(700, 0, 180);
-            PointOriente pt2 = new PointOriente(300, 900, 180);
+            double dimensionGR_X = 280;
+            double dimensionGR_Y = 300;
+            // dimension Y espace de depart : 63cm, dimension Y tube : 85cm
+            double positionInitialeGR_X = dimensionGR_X / 2;
+            double positionInitialeGR_Y = -(630 - dimensionGR_Y / 2);
+            PointOriente pt1 = new PointOriente(200 + dimensionGR_X / 2, -845, 0);
+            PointOriente pt2 = new PointOriente(0, -845, 0);
             PointOriente pt3 = new PointOriente(200, 600, 180);
+            GestionnaireServosGR gestio = new GestionnaireServosGR();
             Action MOTHER_ACTION = new ActionBuilder("Action test PR").Add(
-                    new ActionBuilder("Deplacement 1").BuildActionBaseRoulante_GOTO_ONLY(pt4)
+                    new ActionBuilder("Position initiale GR Vert").BuildActionSetPositionInitiale(positionInitialeGR_X, positionInitialeGR_Y, 0)
                 ).Add(
-                    new ActionBuilder("Deplacement 1").BuildActionBaseRoulante_GOTO_ONLY(pt5)
+                    new ActionBuilder("Deplacement 1").BuildActionBaseRoulante_GOTO_ONLY(pt1)
+                )
+                .Add(
+                    gestio.GR_TRAPPE_OUVRIR
+                )/*.Add(
+                    gestio.GR_PLATEAU_AVANT_ORANGE
+                )*/.Add(
+                    new ActionBuilder("Deplacement 1").BuildActionBaseRoulante_GOTO_ANGLE(pt2, OBSTACLE_DIRECTION.ARRIERE)
                 ).Add(
-                    new ActionBuilder("Deplacement 1").BuildActionBaseRoulante_GOTO_ONLY(pt1, OBSTACLE_DIRECTION.AVANT)
+                    new ActionBuilder("Deplacement 1").BuildActionLanceurBalle(0.693)
                 ).Add(
+                    gestio.GR_PLATEAU_RECOLTE_1
+                ).Add(
+                    new ActionBuilder("Deplacement 1").BuildActionLanceurBalleStop()
+                )/*.Add(
                     new ActionRamasseCube()
-                ).BuildActionEnSerie();
+                )*/.BuildActionEnSerie();
             setMotherAction(ModeOperatoire.HOMOLOGATION,TypeRobot.PETIT_ROBOT, MOTHER_ACTION);
+            setMotherAction(ModeOperatoire.HOMOLOGATION, TypeRobot.GRAND_ROBOT, MOTHER_ACTION);
         }
 
 
@@ -167,6 +183,35 @@ namespace Robot_P16.Robot
             Action MOTHER_ACTION = new ActionRamasseCube();
             //Action MOTHER_ACTION = new ActionBuilder("test").BuildActionWait(10000);
             setMotherAction(ModeOperatoire.TEST1, TypeRobot.PETIT_ROBOT, MOTHER_ACTION);
+
+            MOTHER_ACTION = new ActionBuilder("Test gros robot").Add(
+                    new ActionBuilder("Piche").BuildActionBaseRoulante_DRIVE(10, 100)
+                    ).Add(
+
+                    new ActionBuilder("Paralelle 1").Add(
+                        new ActionBuilder("Wait and roll").Add(new ActionWait("piche",0)).Add(
+                            new ActionBuilder("Servo tourne 1").BuildActionServoAbsolue(Robot.robot.GR_SERVO_ABEILLE, 0)
+                        ).BuildActionEnSerie()).Add(
+                            new ActionBuilder("Servo tourne 1").BuildActionServoAbsolue(Robot.robot.GR_SERVO_PLATEAU, 0)
+                        )
+                        .BuildActionEnParallele()
+                        
+                ).Add(
+                    new ActionBuilder("Paralelle 2").Add(
+                            new ActionBuilder("Servo tourne 1").BuildActionServoAbsolue(Robot.robot.GR_SERVO_ABEILLE, 1023)
+                        ).Add(
+                            new ActionBuilder("Servo tourne 1").BuildActionServoAbsolue(Robot.robot.GR_SERVO_PLATEAU, 1023)
+                        )
+                        .BuildActionEnParallele()
+                ).Add(
+                    new ActionBuilder("Paralelle 3").Add(
+                            new ActionBuilder("Servo tourne 1").BuildActionServoAbsolue(Robot.robot.GR_SERVO_ABEILLE, 500)
+                        ).Add(
+                            new ActionBuilder("Servo tourne 1").BuildActionServoAbsolue(Robot.robot.GR_SERVO_PLATEAU, 500)
+                        )
+                        .BuildActionEnParallele()
+                ).BuildActionEnSerie();
+
             setMotherAction(ModeOperatoire.TEST1, TypeRobot.GRAND_ROBOT, MOTHER_ACTION);
         }
 

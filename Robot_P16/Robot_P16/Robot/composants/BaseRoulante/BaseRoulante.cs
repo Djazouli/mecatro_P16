@@ -27,10 +27,10 @@ namespace Robot_P16.Robot.composants.BaseRoulante
 
         public OBSTACLE_DIRECTION direction = OBSTACLE_DIRECTION.AVANT;
 
-        public int speedDrive = 100;// avance 10 cm par seconde
-        public int speedTurn = 70; //tourne 30 degrees par seconde
+        public int speedDrive = 200;// avance 10 cm par seconde
+        public int speedTurn = 150; //tourne 30 degrees par seconde
 
-        private static int REFRESH_RATE_EVENT = 300;
+        private static int REFRESH_RATE_EVENT = 200;
 
 
         int PARAMETER_FOR_XY = 1;//l'unite de la dist. = millimetre, on n'accepte QUE l'entier
@@ -41,15 +41,23 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         {
             this.kangaroo = new Kangaroo(socket);
 
-            new Thread(() =>
+            Gadgeteer.Timer timer = new Gadgeteer.Timer(REFRESH_RATE_EVENT);
+            timer.Tick += (Gadgeteer.Timer t) => kangaroo.CheckMovingStatus();
+            timer.Start();
+            /*new Thread(() =>
             {
                 while (true)
                 {
                     Thread.Sleep(REFRESH_RATE_EVENT);
                     kangaroo.CheckMovingStatus();
                 }
-            }).Start();
+            }).Start();*/
 
+        }
+
+        public void setPosition(double x, double y, double theta)
+        {
+            this.kangaroo.setPosition(x, y, theta);
         }
 
 

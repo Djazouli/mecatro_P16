@@ -231,6 +231,7 @@ namespace Robot_P16.Robot.composants.Servomoteurs
                         }
                     }
                 }
+                //Thread.Sleep(50);
             }
 
             return retour;

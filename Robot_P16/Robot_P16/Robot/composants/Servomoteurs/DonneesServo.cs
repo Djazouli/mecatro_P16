@@ -80,6 +80,9 @@ namespace Robot_P16.Robot.composants.Servomoteurs
  	 public const int ANGLE_GR_TRAPPE_OUVRIR=495;
  	 public const int ANGLE_GR_TRAPPE_FERMER=580;
 
+     public const int ANGLE_GR_PLATEAU_OUVERTURE_AVANT_ORANGE = 10;
+     public const int ANGLE_GR_PLATEAU_OUVERTURE_ARRIERE_VERT = 995;
+
 
 
     }

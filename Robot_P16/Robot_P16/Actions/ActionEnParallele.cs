@@ -71,21 +71,24 @@ namespace Robot_P16.Actions
                 if (index >= 0) // Si l'action fait bien parti de notre liste d'action
                 {
                     //Debug.Print("Feedback sur parallele 2 ");    
-                    for (int i = 0; i < listeActions.Length; i++)
+                    /*for (int i = 0; i < listeActions.Length; i++)
                     {
                         //Debug.Print("Feedback sur parallele 3 ");   
                         if (i != index)
                             listeActions[i].Feedback(a);
-                    }
-                }
-                if (a.Status == ActionStatus.SUCCESS && this.Status != ActionStatus.SUCCESS) // Redondant mais utile en cas de suppression de la condition englobante
-                {
-                    if (TestActionStatus(listeActions, ActionStatus.SUCCESS))
+                     * 
+                    }*/
+                    if (a.Status == ActionStatus.SUCCESS && this.Status != ActionStatus.SUCCESS) // Redondant mais utile en cas de suppression de la condition englobante
                     {
-                        Status = ActionStatus.SUCCESS;
-                        //Debug.Print("success de l'action en parallèle !");
+                        threads[index] = null;
+                        if (TestActionStatus(listeActions, ActionStatus.SUCCESS))
+                        {
+                            Status = ActionStatus.SUCCESS;
+                            //Debug.Print("success de l'action en parallèle !");
+                        }
                     }
                 }
+                
             }
         }
 

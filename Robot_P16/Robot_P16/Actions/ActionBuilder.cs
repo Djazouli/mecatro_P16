@@ -143,5 +143,10 @@ namespace Robot_P16.Actions
         {
             return new ActionBaseRoulante(this.description, new Robot.composants.BaseRoulante.Mouvement(pt, true));
         }*/
+
+        public ActionDelegate BuildActionSetPositionInitiale(double x, double y, double theta)
+        {
+            return new ActionDelegate(this.description, () => Robot.Robot.robot.BASE_ROULANTE.kangaroo.setPosition(x,y,theta));
+        }
     }
 }

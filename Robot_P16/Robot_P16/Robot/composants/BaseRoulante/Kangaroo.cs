@@ -126,6 +126,12 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             m_nombreLigneRotation = 0;*/
         }
 
+        
+        public void setPosition(double x, double y, double theta)
+        {
+            this.position = new PointOriente(x, y, theta);
+        }
+
         private bool EnvoyerCommande(string commande)
         {
             if (!m_portCOM.IsOpen) return false;
@@ -183,9 +189,9 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             }
 
 
-            Informations.printInformations(Priority.VERY_LOW, "Received : "+sendAndReceiveUpdate("T"));
+            //Informations.printInformations(Priority.VERY_LOW, "Received : "+sendAndReceiveUpdate("T"));
 
-            Thread.Sleep(100);
+            //Thread.Sleep(100);
 
 
             string feedback;
@@ -225,11 +231,12 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         {
             //if (this.currentMode == null) return position;
             UpdatePositionFromFeedback(sendAndReceiveUpdate("T"));
-            Thread.Sleep(100);
+            //Thread.Sleep(100);
             UpdatePositionFromFeedback(sendAndReceiveUpdate("D"));
             if (ROUE_LIBRE)
                 stop(); // TODO : remove this shit
             //return PositionFromFeedback(sendAndReceiveUpdate(this.currentMode));
+            Debug.Print(position.ToString());
             return this.position;
         }
 

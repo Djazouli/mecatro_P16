@@ -50,7 +50,7 @@ namespace Robot_P16.Robot
 
 
         public bool isPRSpiderI = true;
-        public bool isGRSpiderI = false;
+        public bool isGRSpiderI = true;
 
 
         public readonly int GR_SOCKET_SERVOS = 11;

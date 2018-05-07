@@ -32,6 +32,17 @@ namespace Robot_P16.Robot.composants.Servomoteurs
         public ActionServoAbsolue GR_TRAPPE_FERMER =
     new ActionBuilder("ServoGR- fermer la trappe").BuildActionServoAbsolue(Robot.robot.GR_SERVO_TRAPPE,  DonneesServo.ANGLE_GR_TRAPPE_FERMER);
 
+
+        public ActionServoAbsolue GR_PLATEAU_AVANT_ORANGE=
+    new ActionBuilder("ServoGR- trou du plateau vers l'avant (sticker orange)").BuildActionServoAbsolue(Robot.robot.GR_SERVO_PLATEAU, DonneesServo.ANGLE_GR_PLATEAU_OUVERTURE_AVANT_ORANGE);
+
+        //AJOUTER GR_SERVO_TRAPPE dans Robot.robot et ANGLE_GR_TRAPPE_OUVRIR dans Donnees Servo
+
+        public ActionServoAbsolue GR_PLATEAU_AVANT_VERT =
+    new ActionBuilder("ServoGR- trou du plateau vers l'arriere (sticker vert)").BuildActionServoAbsolue(Robot.robot.GR_SERVO_PLATEAU, DonneesServo.ANGLE_GR_PLATEAU_OUVERTURE_ARRIERE_VERT);
+
+        public ActionServoRotation GR_PLATEAU_RECOLTE_1 = new ActionBuilder("ServoGR - Tourne le plateau en continu").
+            BuildActionServoRotation(Robot.robot.GR_SERVO_PLATEAU, 340, 10000); // ARRIERE VERS TROU (sens trigo)
         //AJOUTER ANGLE_GR_TRAPPE_FERMER dans Donnees Servo
     }
 }
