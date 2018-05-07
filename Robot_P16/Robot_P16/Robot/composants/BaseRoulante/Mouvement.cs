@@ -15,15 +15,20 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         private Boolean adjustToAngle = false;
         private Boolean isDirectionForced = false;
         private OBSTACLE_DIRECTION forcedDirection = OBSTACLE_DIRECTION.AVANT;
-
+        private int speedDrive;
+        private int speedTurn;
         public Mouvement(PointOriente destination)
         {
             this.destination = destination;
+            this.speedDrive = Robot.robot.BASE_ROULANTE.speedDrive;
+            this.speedTurn = Robot.robot.BASE_ROULANTE.speedTurn;
         }
         public Mouvement(PointOriente destination, bool adjustToAngle)
         {
             this.adjustToAngle = adjustToAngle;
             this.destination = destination;
+            this.speedDrive = Robot.robot.BASE_ROULANTE.speedDrive;
+            this.speedTurn = Robot.robot.BASE_ROULANTE.speedTurn;
         }
         public Mouvement(PointOriente destination, bool adjustToAngle, OBSTACLE_DIRECTION forcedDirection)
         {
@@ -31,12 +36,89 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             this.destination = destination;
             this.isDirectionForced = true;
             this.forcedDirection = forcedDirection;
+            this.speedDrive = Robot.robot.BASE_ROULANTE.speedDrive;
+            this.speedTurn = Robot.robot.BASE_ROULANTE.speedTurn;
         }
         public Mouvement(PointOriente destination,  OBSTACLE_DIRECTION forcedDirection)
         {
             this.destination = destination;
             this.isDirectionForced = true;
             this.forcedDirection = forcedDirection;
+            this.speedDrive = Robot.robot.BASE_ROULANTE.speedDrive;
+            this.speedTurn = Robot.robot.BASE_ROULANTE.speedTurn;
+        }
+        public Mouvement(PointOriente destination, int speedDrive)
+        {
+            this.destination = destination;
+            this.speedDrive = speedDrive;
+            this.speedTurn = Robot.robot.BASE_ROULANTE.speedTurn;
+        }
+        public Mouvement(PointOriente destination, bool adjustToAngle, int speedDrive)
+        {
+            this.adjustToAngle = adjustToAngle;
+            this.destination = destination;
+            this.speedDrive =speedDrive;
+            this.speedTurn = Robot.robot.BASE_ROULANTE.speedTurn;
+        }
+        public Mouvement(PointOriente destination, bool adjustToAngle, OBSTACLE_DIRECTION forcedDirection, int speedDrive)
+        {
+            this.adjustToAngle = adjustToAngle;
+            this.destination = destination;
+            this.isDirectionForced = true;
+            this.forcedDirection = forcedDirection;
+            this.speedDrive = speedDrive;
+            this.speedTurn = Robot.robot.BASE_ROULANTE.speedTurn;
+        }
+        public Mouvement(PointOriente destination, OBSTACLE_DIRECTION forcedDirection, int speedDrive)
+        {
+            this.destination = destination;
+            this.isDirectionForced = true;
+            this.forcedDirection = forcedDirection;
+            this.speedDrive = speedDrive;
+            this.speedTurn = Robot.robot.BASE_ROULANTE.speedTurn;
+        }
+
+        public Mouvement(PointOriente destination, int speedDrive, int speedTurn)
+        {
+            this.destination = destination;
+            this.speedDrive = speedDrive;
+            this.speedTurn = speedTurn;
+        }
+        public Mouvement(PointOriente destination, bool adjustToAngle, int speedDrive, int speedTurn)
+        {
+            this.adjustToAngle = adjustToAngle;
+            this.destination = destination;
+            this.speedDrive = speedDrive;
+            this.speedTurn = speedTurn;
+        }
+        public Mouvement(PointOriente destination, bool adjustToAngle, OBSTACLE_DIRECTION forcedDirection, int speedDrive, int speedTurn)
+        {
+            this.adjustToAngle = adjustToAngle;
+            this.destination = destination;
+            this.isDirectionForced = true;
+            this.forcedDirection = forcedDirection;
+            this.speedDrive = speedDrive;
+            this.speedTurn = speedTurn;
+        }
+        public Mouvement(PointOriente destination, OBSTACLE_DIRECTION forcedDirection, int speedDrive, int speedTurn)
+        {
+            this.destination = destination;
+            this.isDirectionForced = true;
+            this.forcedDirection = forcedDirection;
+            this.speedDrive = speedDrive;
+            this.speedTurn = speedTurn;
+        }
+
+        public Mouvement setSpeedDrive(int speedDrive)
+        {
+            this.speedDrive = speedDrive;
+            return this;
+        }
+
+        public Mouvement setSpeedTurn(int speedTurn)
+        {
+            this.speedTurn = speedTurn;
+            return this;
         }
 
         public void Start()
@@ -140,7 +222,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             if (forceDir == OBSTACLE_DIRECTION.ARRIERE)
             {
                 Debug.Print("Going en arriere");
-                if (this.GetPosition().theta%360 - deltaTheta > 180)
+                if (convertTo360(this.GetPosition().theta) - deltaTheta > 180)
                 {//turn antitrigo
                     Rotate(convertTo180(-convertTo360(this.GetPosition().theta) + 180 - convertTo360(deltaTheta)));
                     //Robot.robot.BASE_ROULANTE.MoveCompleted.WaitOne();// waiting for the move to be completed
