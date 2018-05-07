@@ -113,33 +113,278 @@ namespace Robot_P16.Actions
                             gestionnaire.PR_POUSSOIRJOKER_POUSSER
                             ).BuildActionEnSerie();
                         break;
-                } //a commenter
-            } // a commenter
-                    /*    //return new int[] {1,13,5};//ok
+                        //return new int[] {1,13,5};
+                //} //a commenter
+            //} // a commenter
+                    
                     case "V-O-J":
                     case "J-O-V":
-                        return new int[] {1,13,5};//ok
+                        action = new ActionBuilder("Action V-O-J Vert").Add(
+                            new ActionBuilder("Tourner bras droit et avancer bras gauche paralle").Add(
+                                gestionnaire.PR_BRAS_DROIT_ROTATION_INTERIEUR).Add(
+                                gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_SORTIR_CUBE_CENTRAL)
+                                .BuildActionEnParallele()
+                            ).Add(
+                            new ActionBuilder("Activer ventouse bras droit et le baisser, et tourner gauche").Add(
+                                new ActionBuilder("activer ventouse et baisser droit").Add(
+                                    new ActionBuilder("Ventouse droit").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, true)).Add(gestionnaire.PR_BRAS_DROIT_HAUTEUR_RAMASSER_CUBE_1).BuildActionEnSerie()
+                                ).Add(
+                                gestionnaire.PR_BRAS_GAUCHE_ROTATION_INTERIEUR
+                                ).BuildActionEnParallele()
+                            ).Add(
+                            gestionnaire.PR_BRAS_DROIT_HAUTEUR_POSER_CUBE_2
+                            ).Add(
+                            new ActionBuilder("Avancer d'un cube").BuildActionBaseRoulante_DRIVE(-65, 30 * 100)
+                            ).Add(
+                            new ActionBuilder("desactiver ventouse droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, false)
+                            ).Add(
+                            new ActionBuilder("Wait ventouze").BuildActionWait(200)
+                            ).Add(
+                            new ActionBuilder("Rotationner droit /ventouse + descendre gauche").Add(gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU).Add(
+                                    new ActionBuilder("Ventouse + descendregauche").Add(new ActionBuilder("ventouze").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true)).Add(gestionnaire.PR_BRAS_GAUCHE_DESCENDREPOURPOSERVENTOUSE).BuildActionEnSerie()
+                                    ).BuildActionEnParallele()
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_DEPLOIMENT_SORTIR_CUBE_GAUCHE
+                            ).Add(
+                            new ActionBuilder("Desactive ventouze gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false)
+                            ).Add(
+                           gestionnaire.PR_BRAS_GAUCHE_ROTATION_MILIEU
+                            ).Add(
+                            gestionnaire.PR_POUSSOIRJOKER_POUSSER
+                            ).Add(
+                            gestionnaire.PR_POUSSOIRJOKER_RETOUR
+                            ).BuildActionEnSerie();
+                         break;
+                        //return new int[] {1,13,5};//ok
                     case "O-N-V":
                     case "V-N-O":
-                        return new int[] {1,14,5}; // 1 and 14 ok, should be ok
+                        action = new ActionBuilder("O-N-V Vert").Add(
+                            gestionnaire.PR_BRAS_GAUCHE_DEPLOIMENT_SORTIR_CUBE_GAUCHE
+                            ).Add(
+                            gestionnaire.PR_BRAS_DROIT_ROTATION_INTERIEUR
+                            ).Add(
+                            new ActionBuilder("Ventouze gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true)
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            ).Add(
+                            new ActionBuilder("Avancer d'un cube").BuildActionBaseRoulante_DRIVE(-65, 30 * 100)
+                            ).Add(
+                            new ActionBuilder("descative ventouze gauche / Activer ventouse droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, true)
+                            ).Add(
+                            new ActionBuilder("Rotate bras gauche/ attrape cube droit"
+                                ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_MILIEU
+                                ).Add(gestionnaire.PR_BRAS_DROIT_HAUTEUR_RAMASSER_CUBE_1
+                                ).BuildActionEnParallele()
+                            ).Add(
+                            gestionnaire.PR_BRAS_DROIT_GOTO1000
+                            ).Add(
+                            gestionnaire.PR_BRAS_DROIT_ZONE_BAS_VERS_HAUT
+                            ).Add(
+                            gestionnaire.PR_BRAS_DROIT_HAUTEUR_POSER_CUBE_3
+                            ).Add(
+                            gestionnaire.PR_BRAS_DROIT_ROTATION_INTERIEUR
+                            ).Add(new ActionBuilder("Desactive Ventouse").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE,false)
+                            ).Add(
+                            gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU
+                            ).Add(
+                            new ActionBuilder("Poussoir et retour intial").Add(gestionnaire.PR_BRAS_DROIT_GOTO0).Add(gestionnaire.PR_POUSSOIRJOKER_POUSSER).BuildActionEnParallele()
+                            ).Add(
+                            new ActionBuilder("retour poussoir et initial").Add(gestionnaire.PR_BRAS_DROIT_ZONE_HAUT_VERS_BAS).Add(gestionnaire.PR_POUSSOIRJOKER_RETOUR).BuildActionEnParallele()
+                            ).BuildActionEnSerie();
+                        break;
+                        //return new int[] {1,14,5}; // 1 and 14 ok, should be ok
                     case "V-J-B":
                     case "B-J-V":
-                        return new int[] {2,13,5}; // si le cube 2 n'est pas bien pose, il empeche de prendre le cube 3, faut il le recaller ?
+                        action = new ActionBuilder("Action V-J-B Vert").Add(
+                            new ActionBuilder("Activer ventouse gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true)
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_DEPLOIMENT_SORTIR_CUBE_GAUCHE
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_DESCENDREPOURPOSERVENTOUSE
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_ROTATION_INTERIEUR
+                            ).Add(
+                            new ActionBuilder("Desactiver ventouze").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false)
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_SORTIR_CUBE_CENTRAL
+                            ).Add(
+                            new ActionBuilder("Activer ventouze").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true)
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_DESCENDRE
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_DEPLOIMENT_SORTIR_CUBE_GAUCHE
+                            ).Add(
+                            new ActionBuilder("Desactive venotuze gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false)
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_ROTATION_MILIEU
+                            ).BuildActionEnSerie();
+                        break;
+                        //return new int[] {2,13,5}; // si le cube 2 n'est pas bien pose, il empeche de prendre le cube 3, faut il le recaller ?
                     case "N-J-O":
                     case "O-J-N":
-                        return new int[] {3,14,5}; // Idee de genie d'Antonin, tourner le cube (car celui poser sur le cube du milieu bloque
+                        action = new ActionBuilder("N-J-O vert").Add(
+                            gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_SORTIR_CUBE_CENTRAL
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_ROTATION_INTERIEUR
+                            ).Add(
+                            new ActionBuilder("Activer ventouse Gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true)
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_DESCENDREPOURPOSERVENTOUSE
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_RENTRER
+                            ).Add(
+                            new ActionBuilder("Desactiver ventouse gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false)
+                            ).Add(
+                            new ActionBuilder("Wait the ventouZe").BuildActionWait(200)
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_ROTATION_MILIEU //Faudra penser à recaller le cube quand on aura la position absolue
+                            ).Add(
+                            new ActionBuilder("Activer ventouze gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true)
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_DESCENDRE
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_ROTATION_INTERIEUR
+                            ).Add(
+                            new ActionBuilder("Desactiver ventouze gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false)
+                            ).Add(
+                            new ActionBuilder("Wait the ventouZe").BuildActionWait(200)
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_ROTATION_MILIEU //Puis revenir en position basse pour le  truc suivant
+                            )
+                            .BuildActionEnSerie();
+                        break;
+                            
+                        //return new int[] {3,14,5}; // Idee de genie d'Antonin, tourner le cube (car celui poser sur le cube du milieu bloque
                     case "B-O-N":
                     case "N-O-B":
-                        return new int[] {4,11,5}; // !!!!!!!!!! Ne marche pas
+                        action = new ActionBuilder("BON Orange").Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIMENT_SORTIR_CUBE_GAUCHE
+                                   ).Add(gestionnaire.PR_BRAS_DROIT_ROTATION_INTERIEUR //c'est important de le faire avant car ca bloquera sinon
+                                   ).Add(new ActionBuilder("Ventouze").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true)
+                                   ).Add(gestionnaire.PR_BRAS_GAUCHE_DESCENDREPOURPOSERVENTOUSE
+                                   ).Add(gestionnaire.PR_BRAS_GAUCHE_MONTER
+                                   ).Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_SORTIR_CUBE_CENTRAL
+                                   ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_INTERIEUR
+                                   ).Add(new ActionBuilder("ventouze").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, true)
+                                   ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_MILIEU
+                                   ).Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_RENTRER
+                                   ).Add(gestionnaire.PR_BRAS_DROIT_HAUTEUR_RAMASSER_CUBE_1
+                                   ).Add(gestionnaire.PR_BRAS_DROIT_GOTO1000
+                                   ).Add(gestionnaire.PR_BRAS_DROIT_ZONE_BAS_VERS_HAUT
+                                   ).Add(gestionnaire.PR_BRAS_DROIT_HAUTEUR_POSER_CUBE_3
+                                   ).Add(new ActionBuilder("Avancer d'un cube").BuildActionBaseRoulante_DRIVE(-65, 30 * 100)
+                                   ).Add(new ActionBuilder("ventouze").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, false)
+                                   ).Add(new ActionBuilder("wait").BuildActionWait(200)
+                                   ).Add(gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU
+                                   ).Add(gestionnaire.PR_BRAS_DROIT_GOTO0
+                                   ).Add(gestionnaire.PR_BRAS_DROIT_ZONE_HAUT_VERS_BAS
+                                   ).BuildActionEnSerie();
+                        //action = null; // Voir avec Juju j'ai mis 7-11-5 en attendant
+                        break;
+                        //return new int[] {4,11,5}; // !!!!!!!!!! Ne marche pas
                     case "J-V-N":
                     case "N-V-J":
-                        return new int[] {3,6,13};
+                        action = new ActionBuilder("J-V-N Vert").Add(
+                            new ActionBuilder("Deploiyer et tourner"
+                                ).Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_SORTIR_CUBE_CENTRAL
+                                ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_INTERIEUR
+                                ).BuildActionEnParallele()
+                            ).Add(new ActionBuilder("Ventouse").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true)
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_DESCENDREPOURPOSERVENTOUSE
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            ).Add(new ActionBuilder("Avancer et ramener bras"
+                                ).Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIMENT_SORTIR_CUBE_GAUCHE
+                                ).Add(new ActionBuilder("Avancer d'un cube").BuildActionBaseRoulante_DRIVE(-65, 30 * 100)
+                                ).BuildActionEnParallele()
+                            ).Add(new ActionBuilder("ventouse").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false)
+                            ).Add(new ActionBuilder("wait").BuildActionWait(200)
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_SORTIR_CUBE_CENTRAL // puis go to hauteur et recalle le cube
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_DESCENDRE
+                            ).Add(new ActionBuilder("ventouse").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true)
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_DESCENDREPOURPOSERVENTOUSE
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIMENT_SORTIR_CUBE_GAUCHE
+                            ).Add(new ActionBuilder("ventouse").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false)
+                            ).Add(new ActionBuilder("wait").BuildActionWait(200)
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_MILIEU
+                            ).BuildActionEnSerie();
+
+                        break;
+                        //return new int[] {3,6,13};
                     case "N-B-V":
                     case "V-B-N":
-                        return new int[] {4,12,5};
+                        action = new ActionBuilder("N-B-V Vert").Add(
+                            new ActionBuilder("Ventouze droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, true)
+                            ).Add(gestionnaire.PR_BRAS_DROIT_HAUTEUR_RAMASSER_CUBE_1
+                            ).Add(gestionnaire.PR_BRAS_DROIT_HAUTEUR_POSER_CUBE_2
+                            ).Add(gestionnaire.PR_BRAS_DROIT_ROTATION_INTERIEUR
+                            ).Add(new ActionBuilder("desactive ventouze droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE,false)
+                            ).Add(new ActionBuilder("wait venouze").BuildActionWait(200)
+                            ).Add(gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIMENT_SORTIR_CUBE_GAUCHE
+                            ).Add(new ActionBuilder("Ventouze gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true)
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_DESCENDREPOURPOSERVENTOUSE
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_INTERIEUR
+                            ).Add(new ActionBuilder("ventouze gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false)
+                            ).Add(new ActionBuilder("wait").BuildActionWait(200)
+                            ).Add(gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU
+                            ).Add(gestionnaire.PR_POUSSOIRJOKER_POUSSER
+                            ).Add(gestionnaire.PR_POUSSOIRJOKER_RETOUR
+                            ).BuildActionEnSerie();
+                        break;
+                            //return new int[] {4,12,5};
                     case "O-B-J":
                     case "J-B-O":
-                        return new int[] {2,13,5};
+                        action = new ActionBuilder("Action V-J-B Vert").Add(
+                            new ActionBuilder("Activer ventouse gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true)
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_DEPLOIMENT_SORTIR_CUBE_GAUCHE
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_DESCENDREPOURPOSERVENTOUSE
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_ROTATION_INTERIEUR
+                            ).Add(
+                            new ActionBuilder("Desactiver ventouze").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false)
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_SORTIR_CUBE_CENTRAL
+                            ).Add(
+                            new ActionBuilder("Activer ventouze").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true)
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_DESCENDRE
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_DEPLOIMENT_SORTIR_CUBE_GAUCHE
+                            ).Add(
+                            new ActionBuilder("Desactive venotuze gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false)
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_ROTATION_MILIEU
+                            ).BuildActionEnSerie();
+                        break;
+                        
+                        //return new int[] {2,13,5};
                 }
             }
                if (couleurEquipe==CouleurEquipe.ORANGE){
@@ -147,43 +392,368 @@ namespace Robot_P16.Actions
                        switch(codeCouleur){
                     case "J-N-B":
                     case "B-N-J":
-                        return new int[] {4,12,5};
+                               action = new ActionBuilder("N-B-V Vert").Add(
+                            new ActionBuilder("Ventouze droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, true)
+                            ).Add(gestionnaire.PR_BRAS_DROIT_HAUTEUR_RAMASSER_CUBE_1
+                            ).Add(gestionnaire.PR_BRAS_DROIT_HAUTEUR_POSER_CUBE_2
+                            ).Add(gestionnaire.PR_BRAS_DROIT_ROTATION_INTERIEUR
+                            ).Add(new ActionBuilder("desactive ventouze droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE,false)
+                            ).Add(new ActionBuilder("wait venouze").BuildActionWait(200)
+                            ).Add(gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIMENT_SORTIR_CUBE_GAUCHE
+                            ).Add(new ActionBuilder("Ventouze gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true)
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_DESCENDREPOURPOSERVENTOUSE
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_INTERIEUR
+                            ).Add(new ActionBuilder("ventouze gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false)
+                            ).Add(new ActionBuilder("wait").BuildActionWait(200)
+                            ).Add(gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU
+                            ).Add(gestionnaire.PR_POUSSOIRJOKER_POUSSER
+                            ).Add(gestionnaire.PR_POUSSOIRJOKER_RETOUR
+                            ).BuildActionEnSerie();
+                               break;
+                        //return new int[] {4,12,5};
                     case "B-V-O":
                     case "O-V-B":
-                        return new int[] {1,13,5};
+                               action = new ActionBuilder("Action B-V-O Vert").Add(
+                            new ActionBuilder("Tourner bras droit et avancer bras gauche paralle").Add(
+                                gestionnaire.PR_BRAS_DROIT_ROTATION_INTERIEUR).Add(
+                                gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_SORTIR_CUBE_CENTRAL)
+                                .BuildActionEnParallele()
+                            ).Add(
+                            new ActionBuilder("Activer ventouse bras droit et le baisser, et tourner gauche").Add(
+                                new ActionBuilder("activer ventouse et baisser droit").Add(
+                                    new ActionBuilder("Ventouse droit").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, true)).Add(gestionnaire.PR_BRAS_DROIT_HAUTEUR_RAMASSER_CUBE_1).BuildActionEnSerie()
+                                ).Add(
+                                gestionnaire.PR_BRAS_GAUCHE_ROTATION_INTERIEUR
+                                ).BuildActionEnParallele()
+                            ).Add(
+                            gestionnaire.PR_BRAS_DROIT_HAUTEUR_POSER_CUBE_2
+                            ).Add(
+                            new ActionBuilder("Avancer d'un cube").BuildActionBaseRoulante_DRIVE(-65, 30 * 100)
+                            ).Add(
+                            new ActionBuilder("desactiver ventouse droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, false)
+                            ).Add(
+                            new ActionBuilder("Wait ventouze").BuildActionWait(200)
+                            ).Add(
+                            new ActionBuilder("Rotationner droit /ventouse + descendre gauche").Add(gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU).Add(
+                                    new ActionBuilder("Ventouse + descendregauche").Add(new ActionBuilder("ventouze").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true)).Add(gestionnaire.PR_BRAS_GAUCHE_DESCENDREPOURPOSERVENTOUSE).BuildActionEnSerie()
+                                    ).BuildActionEnParallele()
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_DEPLOIMENT_SORTIR_CUBE_GAUCHE
+                            ).Add(
+                            new ActionBuilder("Desactive ventouze gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false)
+                            ).Add(
+                           gestionnaire.PR_BRAS_GAUCHE_ROTATION_MILIEU
+                            ).Add(
+                            gestionnaire.PR_POUSSOIRJOKER_POUSSER
+                            ).BuildActionEnSerie();
+                        break;
+                        //return new int[] {1,13,5};
                     case "V-O-J":
                     case "J-O-V":
-                        return new int[] {1,13,5};
+                               action = new ActionBuilder("Action B-V-O Vert").Add(
+                            new ActionBuilder("Tourner bras droit et avancer bras gauche paralle").Add(
+                                gestionnaire.PR_BRAS_DROIT_ROTATION_INTERIEUR).Add(
+                                gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_SORTIR_CUBE_CENTRAL)
+                                .BuildActionEnParallele()
+                            ).Add(
+                            new ActionBuilder("Activer ventouse bras droit et le baisser, et tourner gauche").Add(
+                                new ActionBuilder("activer ventouse et baisser droit").Add(
+                                    new ActionBuilder("Ventouse droit").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, true)).Add(gestionnaire.PR_BRAS_DROIT_HAUTEUR_RAMASSER_CUBE_1).BuildActionEnSerie()
+                                ).Add(
+                                gestionnaire.PR_BRAS_GAUCHE_ROTATION_INTERIEUR
+                                ).BuildActionEnParallele()
+                            ).Add(
+                            gestionnaire.PR_BRAS_DROIT_HAUTEUR_POSER_CUBE_2
+                            ).Add(
+                            new ActionBuilder("Avancer d'un cube").BuildActionBaseRoulante_DRIVE(-65, 30 * 100)
+                            ).Add(
+                            new ActionBuilder("desactiver ventouse droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, false)
+                            ).Add(
+                            new ActionBuilder("Wait ventouze").BuildActionWait(200)
+                            ).Add(
+                            new ActionBuilder("Rotationner droit /ventouse + descendre gauche").Add(gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU).Add(
+                                    new ActionBuilder("Ventouse + descendregauche").Add(new ActionBuilder("ventouze").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true)).Add(gestionnaire.PR_BRAS_GAUCHE_DESCENDREPOURPOSERVENTOUSE).BuildActionEnSerie()
+                                    ).BuildActionEnParallele()
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_DEPLOIMENT_SORTIR_CUBE_GAUCHE
+                            ).Add(
+                            new ActionBuilder("Desactive ventouze gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false)
+                            ).Add(
+                           gestionnaire.PR_BRAS_GAUCHE_ROTATION_MILIEU
+                            ).Add(
+                            gestionnaire.PR_POUSSOIRJOKER_POUSSER
+                            ).BuildActionEnSerie();
+                        break;
+                        //return new int[] {1,13,5};
                     case "O-N-V":
                     case "V-N-O":
-                        return new int[] {1,12,5}; // 1,2,5 ??
+                        action = new ActionBuilder("O-N-V Orange").Add(gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU
+                            ).Add(new ActionBuilder("ventouze droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, true)
+                            ).Add(gestionnaire.PR_BRAS_DROIT_HAUTEUR_RAMASSER_CUBE_1
+                            ).Add(gestionnaire.PR_BRAS_DROIT_HAUTEUR_POSER_CUBE_2
+                            ).Add(gestionnaire.PR_BRAS_DROIT_ROTATION_INTERIEUR
+                            ).Add(new ActionBuilder("ventouze droite").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true)
+                            ).Add(new ActionBuilder("wait").BuildActionWait(200)
+                            ).Add(gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIMENT_SORTIR_CUBE_GAUCHE
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_DESCENDREPOURPOSERVENTOUSE
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_INTERIEUR
+                            ).Add(new ActionBuilder("ventouze gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false)
+                            ).Add(new ActionBuilder("wait").BuildActionWait(200)
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_MILIEU
+                            ).BuildActionEnSerie();
+                        break;
+                        //return new int[] {1,12,5}; // 1,2,5 ??
                     case "V-J-B":
                     case "B-J-V":
-                        return new int[] {4,13,5};
+                        action = new ActionBuilder("N-B-V Vert").Add(
+                            new ActionBuilder("Ventouze droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, true)
+                            ).Add(gestionnaire.PR_BRAS_DROIT_HAUTEUR_RAMASSER_CUBE_1
+                            ).Add(gestionnaire.PR_BRAS_DROIT_HAUTEUR_POSER_CUBE_2
+                            ).Add(gestionnaire.PR_BRAS_DROIT_ROTATION_INTERIEUR
+                            ).Add(new ActionBuilder("desactive ventouze droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE,false)
+                            ).Add(new ActionBuilder("wait venouze").BuildActionWait(200)
+                            ).Add(gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_SORTIR_CUBE_CENTRAL
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_INTERIEUR
+                            ).Add(new ActionBuilder("Ventouze gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true)
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_DESCENDREPOURPOSERVENTOUSE
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIMENT_SORTIR_CUBE_GAUCHE
+                            ).Add(new ActionBuilder("ventouze gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false)
+                            ).Add(new ActionBuilder("wait").BuildActionWait(200)
+                            ).Add(gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU
+                            ).Add(gestionnaire.PR_POUSSOIRJOKER_POUSSER
+                            ).Add(gestionnaire.PR_POUSSOIRJOKER_RETOUR
+                            ).BuildActionEnSerie();
+                        break;
+                        //return new int[] {4,13,5};
                     case "N-J-O":
                     case "O-J-N":
-                        return new int[] {3,12,5};
+                               action = new ActionBuilder("NJO Orange").Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_SORTIR_CUBE_CENTRAL
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_INTERIEUR
+                            ).Add(new ActionBuilder("Ventouze").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true)
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_DESCENDREPOURPOSERVENTOUSE
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIMENT_SORTIR_CUBE_GAUCHE
+                            ).Add(new ActionBuilder("ventouze").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false)
+                            ).Add(new ActionBuilder("wait").BuildActionWait(200)
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_MILIEU
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIMENT_SORTIR_CUBE_GAUCHE
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_DESCENDRE
+                            ).Add(new ActionBuilder("ventouze").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true)
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_DESCENDREPOURPOSERVENTOUSE
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_INTERIEUR
+                            ).Add(new ActionBuilder("ventouze gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false)
+                            ).Add(new ActionBuilder("wait").BuildActionWait(200)
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_MILIEU
+                            ).BuildActionEnSerie();
+                               break;
+                        //return new int[] {3,12,5};
                     case "B-O-N":
                     case "N-O-B":
-                        return new int[] {7,11,5}; // Le cube tombe lors du replacage au milieu (changer la speed du deploiement interieur ?
+                               action = new ActionBuilder("BON Orange").Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIMENT_SORTIR_CUBE_GAUCHE
+                                   ).Add(gestionnaire.PR_BRAS_DROIT_ROTATION_INTERIEUR //c'est important de le faire avant car ca bloquera sinon
+                                   ).Add(new ActionBuilder("Ventouze").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true)
+                                   ).Add(gestionnaire.PR_BRAS_GAUCHE_DESCENDREPOURPOSERVENTOUSE
+                                   ).Add(gestionnaire.PR_BRAS_GAUCHE_MONTER
+                                   ).Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_SORTIR_CUBE_CENTRAL
+                                   ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_INTERIEUR
+                                   ).Add(new ActionBuilder("ventouze").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, true)
+                                   ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_MILIEU
+                                   ).Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_RENTRER
+                                   ).Add(gestionnaire.PR_BRAS_DROIT_HAUTEUR_RAMASSER_CUBE_1
+                                   ).Add(gestionnaire.PR_BRAS_DROIT_GOTO1000
+                                   ).Add(gestionnaire.PR_BRAS_DROIT_ZONE_BAS_VERS_HAUT
+                                   ).Add(gestionnaire.PR_BRAS_DROIT_HAUTEUR_POSER_CUBE_3
+                                   ).Add(new ActionBuilder("Avancer d'un cube").BuildActionBaseRoulante_DRIVE(-65, 30 * 100)
+                                   ).Add(new ActionBuilder("ventouze").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, false)
+                                   ).Add(new ActionBuilder("wait").BuildActionWait(200)
+                                   ).Add(gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU
+                                   ).Add(gestionnaire.PR_BRAS_DROIT_GOTO0
+                                   ).Add(gestionnaire.PR_BRAS_DROIT_ZONE_HAUT_VERS_BAS
+                                   ).BuildActionEnSerie();
+                               break;
+
+                        //return new int[] {7,11,5}; // Le cube tombe lors du replacage au milieu (changer la speed du deploiement interieur ?
                     case "J-V-N":
                     case "N-V-J":
-                        return new int[] {3,6,3};
+                               action = new ActionBuilder("J-V-N Vert").Add(
+                            new ActionBuilder("Deploiyer et tourner"
+                                ).Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_SORTIR_CUBE_CENTRAL
+                                ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_INTERIEUR
+                                ).BuildActionEnParallele()
+                            ).Add(new ActionBuilder("Ventouse").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true)
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_DESCENDREPOURPOSERVENTOUSE
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            ).Add(new ActionBuilder("Avancer et ramener bras"
+                                ).Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIMENT_SORTIR_CUBE_GAUCHE
+                                ).Add(new ActionBuilder("Avancer d'un cube").BuildActionBaseRoulante_DRIVE(-65, 30 * 100)
+                                ).BuildActionEnParallele()
+                            ).Add(new ActionBuilder("ventouse").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false)
+                            ).Add(new ActionBuilder("wait").BuildActionWait(200)
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_SORTIR_CUBE_CENTRAL // puis go to hauteur et recalle le cube
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_DESCENDRE
+                            ).Add(new ActionBuilder("ventouse").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true)
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_DESCENDREPOURPOSERVENTOUSE
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIMENT_SORTIR_CUBE_GAUCHE
+                            ).Add(new ActionBuilder("ventouse").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false)
+                            ).Add(new ActionBuilder("wait").BuildActionWait(200)
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_MILIEU
+                            ).BuildActionEnSerie();
+                               break;
+                        //return new int[] {3,6,3};
                     case "N-B-V":
                     case "V-B-N":
-                        return new int[] {2,14,5};
+                        action = new ActionBuilder("N-B-V  Orange").Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIMENT_SORTIR_CUBE_GAUCHE
+                            ).Add(new ActionBuilder("ventouze gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true)
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_DESCENDREPOURPOSERVENTOUSE
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_INTERIEUR
+                            ).Add(new ActionBuilder("ventouze gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false)
+                            ).Add(new ActionBuilder("attente").BuildActionWait(200)
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_MILIEU
+                            ).Add(gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU
+                            ).Add(new ActionBuilder("Ventouze droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, true)
+                            ).Add(gestionnaire.PR_BRAS_DROIT_HAUTEUR_RAMASSER_CUBE_1
+                            ).Add(gestionnaire.PR_BRAS_DROIT_GOTO1000
+                            ).Add(gestionnaire.PR_BRAS_DROIT_ZONE_BAS_VERS_HAUT
+                            ).Add(gestionnaire.PR_BRAS_DROIT_HAUTEUR_POSER_CUBE_3
+                            ).Add(gestionnaire.PR_BRAS_DROIT_ROTATION_INTERIEUR
+                            ).Add(new ActionBuilder("Ventouze droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, false)
+                            ).Add(new ActionBuilder("attente").BuildActionWait(200)
+                            ).Add(gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU
+                            ).Add(gestionnaire.PR_BRAS_DROIT_GOTO0
+                            ).Add(gestionnaire.PR_BRAS_DROIT_ZONE_HAUT_VERS_BAS
+                            ).BuildActionEnSerie();
+                        break;
+                            //return new int[] {2,14,5};
                     case "O-B-J":
                     case "J-B-O":
-                        return new int[] {4,13,5};
+                        action = new ActionBuilder("N-B-V Vert").Add(
+                            new ActionBuilder("Ventouze droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, true)
+                            ).Add(gestionnaire.PR_BRAS_DROIT_HAUTEUR_RAMASSER_CUBE_1
+                            ).Add(gestionnaire.PR_BRAS_DROIT_HAUTEUR_POSER_CUBE_2
+                            ).Add(gestionnaire.PR_BRAS_DROIT_ROTATION_INTERIEUR
+                            ).Add(new ActionBuilder("desactive ventouze droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE,false)
+                            ).Add(new ActionBuilder("wait venouze").BuildActionWait(200)
+                            ).Add(gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_SORTIR_CUBE_CENTRAL
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_INTERIEUR
+                            ).Add(new ActionBuilder("Ventouze gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true)
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_DESCENDREPOURPOSERVENTOUSE
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIMENT_SORTIR_CUBE_GAUCHE
+                            ).Add(new ActionBuilder("ventouze gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false)
+                            ).Add(new ActionBuilder("wait").BuildActionWait(200)
+                            ).Add(gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU
+                            ).Add(gestionnaire.PR_POUSSOIRJOKER_POUSSER
+                            ).Add(gestionnaire.PR_POUSSOIRJOKER_RETOUR
+                            ).BuildActionEnSerie();
+                        break;
+                        //return new int[] {4,13,5};
                     default:
-                        return new int[] {4,2,5}; // C'est juste histoire de faire une pile
+                        action = new ActionBuilder("Action B-V-O Vert").Add(
+                            new ActionBuilder("Tourner bras droit et avancer bras gauche paralle").Add(
+                                gestionnaire.PR_BRAS_DROIT_ROTATION_INTERIEUR).Add(
+                                gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_SORTIR_CUBE_CENTRAL)
+                                .BuildActionEnParallele()
+                            ).Add(
+                            new ActionBuilder("Activer ventouse bras droit et le baisser, et tourner gauche").Add(
+                                new ActionBuilder("activer ventouse et baisser droit").Add(
+                                    new ActionBuilder("Ventouse droit").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, true)).Add(gestionnaire.PR_BRAS_DROIT_HAUTEUR_RAMASSER_CUBE_1).BuildActionEnSerie()
+                                ).Add(
+                                gestionnaire.PR_BRAS_GAUCHE_ROTATION_INTERIEUR
+                                ).BuildActionEnParallele()
+                            ).Add(
+                            gestionnaire.PR_BRAS_DROIT_HAUTEUR_POSER_CUBE_2
+                            ).Add(
+                            new ActionBuilder("Avancer d'un cube").BuildActionBaseRoulante_DRIVE(-65, 30 * 100)
+                            ).Add(
+                            new ActionBuilder("desactiver ventouse droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, false)
+                            ).Add(
+                            new ActionBuilder("Wait ventouze").BuildActionWait(200)
+                            ).Add(
+                            new ActionBuilder("Rotationner droit /ventouse + descendre gauche").Add(gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU).Add(
+                                    new ActionBuilder("Ventouse + descendregauche").Add(new ActionBuilder("ventouze").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true)).Add(gestionnaire.PR_BRAS_GAUCHE_DESCENDREPOURPOSERVENTOUSE).BuildActionEnSerie()
+                                    ).BuildActionEnParallele()
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_DEPLOIMENT_SORTIR_CUBE_GAUCHE
+                            ).Add(
+                            new ActionBuilder("Desactive ventouze gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false)
+                            ).Add(
+                           gestionnaire.PR_BRAS_GAUCHE_ROTATION_MILIEU
+                            ).Add(
+                            gestionnaire.PR_POUSSOIRJOKER_POUSSER
+                            ).BuildActionEnSerie(); // C'est juste histoire de faire une pile
+                        break;
                     }
                  }
                else
                {
                    Debug.Print("Code couleur non valide");
-                   return new int[] { 4, 2, 5 }; // histoire de faire une pile
-               }*/
+                   action = new ActionBuilder("Action B-V-O Vert").Add(
+                            new ActionBuilder("Tourner bras droit et avancer bras gauche paralle").Add(
+                                gestionnaire.PR_BRAS_DROIT_ROTATION_INTERIEUR).Add(
+                                gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_SORTIR_CUBE_CENTRAL)
+                                .BuildActionEnParallele()
+                            ).Add(
+                            new ActionBuilder("Activer ventouse bras droit et le baisser, et tourner gauche").Add(
+                                new ActionBuilder("activer ventouse et baisser droit").Add(
+                                    new ActionBuilder("Ventouse droit").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, true)).Add(gestionnaire.PR_BRAS_DROIT_HAUTEUR_RAMASSER_CUBE_1).BuildActionEnSerie()
+                                ).Add(
+                                gestionnaire.PR_BRAS_GAUCHE_ROTATION_INTERIEUR
+                                ).BuildActionEnParallele()
+                            ).Add(
+                            gestionnaire.PR_BRAS_DROIT_HAUTEUR_POSER_CUBE_2
+                            ).Add(
+                            new ActionBuilder("Avancer d'un cube").BuildActionBaseRoulante_DRIVE(-65, 30 * 100)
+                            ).Add(
+                            new ActionBuilder("desactiver ventouse droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, false)
+                            ).Add(
+                            new ActionBuilder("Wait ventouze").BuildActionWait(200)
+                            ).Add(
+                            new ActionBuilder("Rotationner droit /ventouse + descendre gauche").Add(gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU).Add(
+                                    new ActionBuilder("Ventouse + descendregauche").Add(new ActionBuilder("ventouze").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true)).Add(gestionnaire.PR_BRAS_GAUCHE_DESCENDREPOURPOSERVENTOUSE).BuildActionEnSerie()
+                                    ).BuildActionEnParallele()
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_DEPLOIMENT_SORTIR_CUBE_GAUCHE
+                            ).Add(
+                            new ActionBuilder("Desactive ventouze gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false)
+                            ).Add(
+                           gestionnaire.PR_BRAS_GAUCHE_ROTATION_MILIEU
+                            ).Add(
+                            gestionnaire.PR_POUSSOIRJOKER_POUSSER
+                            ).BuildActionEnSerie();
+                   //return new int[] { 4, 2, 5 }; // histoire de faire une pile
+               }
                 return action;    
                }
             
