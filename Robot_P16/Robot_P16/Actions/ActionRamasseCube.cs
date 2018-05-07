@@ -58,19 +58,25 @@ namespace Robot_P16.Actions
                             ).Add(
                             gestionnaire.PR_BRAS_DROIT_HAUTEUR_RAMASSER_CUBE_1
                             ).Add(
-                            gestionnaire.PR_BRAS_GAUCHE_MONTER
+                            gestionnaire.PR_BRAS_DROIT_GOTO1000
+                            ).Add(gestionnaire.PR_BRAS_DROIT_ZONE_BAS_VERS_HAUT
+                            
                             ).Add(
-                            gestionnaire.PR_BRAS_GAUCHE_MONTER
-                            ).Add(
-                            gestionnaire.PR_BRAS_GAUCHE_ROTATION_INTERIEUR
+                            gestionnaire.PR_BRAS_DROIT_HAUTEUR_POSER_CUBE_3
+                            ).Add(gestionnaire.PR_BRAS_DROIT_ROTATION_INTERIEUR
                             ).Add(
                             new ActionBuilder("Desactiver ventouze gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false)
                             ).Add(
                             new ActionBuilder("Wait the ventouZe").BuildActionWait(200)
                             ).Add(
-                            gestionnaire.PR_BRAS_GAUCHE_ROTATION_MILIEU //Puis revenir en position basse pour le  truc suivant
+                            gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU //Puis revenir en position basse pour le  truc suivant
+                            ).Add(
+                            gestionnaire.PR_BRAS_GAUCHE_DESCENDRE
+                            ).Add(gestionnaire.PR_BRAS_DROIT_GOTO0
+                            ).Add(gestionnaire.PR_BRAS_DROIT_ZONE_HAUT_VERS_BAS
                             )
                             .BuildActionEnSerie();
+                       return action;
                         break;
                     //return new int[] {3,14,5}; //ok
                     case "B-V-O":
