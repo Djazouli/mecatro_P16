@@ -1,0 +1,834 @@
+﻿Found debugger!
+
+Create TS.
+
+ Loading start at a0e00000, end a0e2f494
+
+   Assembly: mscorlib (4.3.1.0)     Assembly: Microsoft.SPOT.Native (4.3.1.0)     Assembly: Microsoft.SPOT.Security.PKCS11 (4.3
+.1.0)     Assembly: System.Security (4.3.1.0)     Assembly: Microsoft.SPOT.Hardware (4.3.1.0)  
+   Assembly: Microsoft.SPOT.Graphics (4.3.1.0)     Assembly: Microsoft.SPOT.TinyCore (4.3.1.0)  
+   Assembly: Microsoft.SPOT.IO (4.3.1.0)     Assembly: System.IO (4.3.1.0)     Assembly: Microsoft.SPOT.Hardware.Usb (4.3.1.0) 
+    Assembly: Microsoft.SPOT.Hardware.SerialPort (4.3.1.0)     Assembly: Microsoft.SPOT.Touch (4.3.1.0)  
+   Assembly: Microsoft.SPOT.Ink (4.3.1.0)     Assembly: Microsoft.SPOT.Hardware.PWM (4.3.1.0)  
+Loading Deployment Assemblies.
+
+Attaching deployed file.
+
+   Assembly: GTM.GHIElectronics.DistanceUS3 (4.3.8.1)  Attaching deployed file.
+
+   Assembly: GHI.Glide (4.3.8.1)  Attaching deployed file.
+
+   Assembly: GTM.GHIElectronics.ColorSense (4.3.8.1)  Attaching deployed file.
+
+   Assembly: GHI.Hardware (4.3.8.1)  Attaching deployed file.
+
+   Assembly: Microsoft.SPOT.Net (4.3.1.0)  Attaching deployed file.
+
+   Assembly: GTM.GHIElectronics.USBClientSP (4.3.8.1)  Attaching deployed file.
+
+   Assembly: GHIElectronics.Gadgeteer.FEZSpiderII (4.3.8.1)  Attaching deployed file.
+
+   Assembly: GHIElectronics.Gadgeteer.FEZSpider (4.3.8.1)  Attaching deployed file.
+
+   Assembly: GHI.Usb (4.3.8.1)  Attaching deployed file.
+
+   Assembly: Gadgeteer (2.43.1.0)  Attaching deployed file.
+
+   Assembly: System (4.3.1.0)  Attaching deployed file.
+
+   Assembly: GTM.GHIElectronics.Button (4.3.8.1)  Attaching deployed file.
+
+   Assembly: Robot_P16 (1.0.0.0)  Attaching deployed file.
+
+   Assembly: GTM.GHIElectronics.XBeeAdapter (4.3.8.1)  Attaching deployed file.
+
+   Assembly: Gadgeteer.Serial (2.43.1.0)  Attaching deployed file.
+
+   Assembly: GTM.GHIElectronics.MotorDriverL298 (4.3.8.1)  Attaching deployed file.
+
+   Assembly: GHI.Pins (4.3.8.1)  Attaching deployed file.
+
+   Assembly: System.Xml (4.3.1.0)  Attaching deployed file.
+
+   Assembly: GTM.GHIElectronics.DisplayT35 (4.3.8.1)  Attaching deployed file.
+
+   Assembly: GTM.GHIElectronics.DisplayTE35 (4.3.8.1)  Attaching deployed file.
+
+   Assembly: GTM.GHIElectronics.USBClientEDP (4.3.8.1)  Resolving.
+
+GC: 1msec 50292 bytes used, 7289376 bytes available
+
+Type 0F (STRING              ):     24 bytes
+
+Type 15 (FREEBLOCK           ): 7289376 bytes
+
+Type 17 (ASSEMBLY            ):  48432 bytes
+
+Type 1E (BINARY_BLOB_HEAD    ):   1332 bytes
+
+Type 28 (MEMORY_STREAM_HEAD  ):     36 bytes
+
+Type 29 (MEMORY_STREAM_DATA  ):    396 bytes
+
+Type 34 (APPDOMAIN_HEAD      ):     72 bytes
+
+GC: performing heap compaction...
+
+The debugging target runtime is loading the application assemblies and starting execution.
+Ready.
+
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Native.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Hardware.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Security.PKCS11.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\System.Security.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Graphics.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.TinyCore.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.IO.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\System.IO.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Hardware.Usb.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Hardware.SerialPort.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Touch.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Ink.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Hardware.PWM.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Net.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'D:\Programs\MicrosoftGadgeteerCore\Core\Assemblies\.NET Micro Framework 4.3\le\Gadgeteer.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Modules\DistanceUS3\NETMF 4.3\le\GTM.GHIElectronics.DistanceUS3.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\System.Xml.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\NETMF v4.3 SDK\Libraries\le\GHI.Glide.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Modules\ColorSense\NETMF 4.3\le\GTM.GHIElectronics.ColorSense.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\NETMF v4.3 SDK\Libraries\le\GHI.Hardware.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Modules\USBClientSP\NETMF 4.3\le\GTM.GHIElectronics.USBClientSP.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\NETMF v4.3 SDK\Libraries\le\GHI.Usb.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Mainboards\FEZSpiderII\NETMF 4.3\le\GHIElectronics.Gadgeteer.FEZSpiderII.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Mainboards\FEZSpider\NETMF 4.3\le\GHIElectronics.Gadgeteer.FEZSpider.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\System.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Modules\Button\NETMF 4.3\le\GTM.GHIElectronics.Button.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Modules\MotorDriverL298\NETMF 4.3\le\GTM.GHIElectronics.MotorDriverL298.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'D:\Programs\MicrosoftGadgeteerCore\Core\Assemblies\.NET Micro Framework 4.3\le\Gadgeteer.Serial.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Modules\XBeeAdapter\NETMF 4.3\le\GTM.GHIElectronics.XBeeAdapter.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Modules\DisplayTE35\NETMF 4.3\le\GTM.GHIElectronics.DisplayTE35.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'D:\Documents\Travail\Mines\2A\mecatro\pole_info\code\Robot_P16\Robot_P16\bin\Debug\le\Robot_P16.exe', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\NETMF v4.3 SDK\Libraries\le\GHI.Pins.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Modules\DisplayT35\NETMF 4.3\le\GTM.GHIElectronics.DisplayT35.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Modules\USBClientEDP\NETMF 4.3\le\GTM.GHIElectronics.USBClientEDP.dll'
+19181ms :  Copie du point orienté (0,0,0)
+The thread '<No Name>' (0x2) has exited with code 0 (0x0).
+Using mainboard GHI Electronics FEZ Spider version 1.0
+Program Started
+Querying type...
+Got type : 1
+Querying mode operatoire...
+Got mode : 1
+Querying couleur...
+Got couleur : 1
+4448ms : Robot : loadComponents : GRAND Robot selected !
+4469ms : Tring to open serial port on COMPORt :COM2, socket : 4
+4483ms : New Kangaroo, port com not opened, opening.
+4496ms : New Kangaroo, port com Opening OK !
+4504ms : New Kangaroo, grand robot deteted.
+4740ms : SERVOS : Port COM ouvert : COM1
+4825ms : New infrarouge on socket 9 & port 3; pin : 46; type of pin : Microsoft.SPOT.Hardware.Cpu+Pin
+4873ms : New infrarouge on socket 9 & port 4; pin : 6; type of pin : Microsoft.SPOT.Hardware.Cpu+Pin
+4921ms : New infrarouge on socket 9 & port 5; pin : 7; type of pin : Microsoft.SPOT.Hardware.Cpu+Pin
+4969ms : New infrarouge on socket 9 & port 7; pin : 24; type of pin : Microsoft.SPOT.Hardware.Cpu+Pin
+5006ms : composants du robot chargés
+5061ms : T,P0,len:4
+5069ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P0
+5078ms : FEED : T,P0
+5126ms : D,P0,len:4
+5154ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P0
+5163ms : FEED : D,P0
+5199ms : actions mere set pour le type 2 & le mode 3
+5381ms : actions mere set pour le type 1 & le mode 3
+5537ms : T,P1,len:4
+5545ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1
+5554ms : FEED : T,P1
+5601ms : D,P0,len:4
+5630ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P0
+5639ms : FEED : D,P0
+5739ms : actions mere set pour le type 2 & le mode 1
+5766ms : actions mere set pour le type 1 & le mode 1
+5862ms : actions mere set pour le type 2 & le mode 2
+5902ms : actions mere set pour le type 1 & le mode 2
+5910ms : actions chargees
+Called robot.Start()
+Starting actions with mod : 1 & type : 1
+Lancement de l'action mère avec le mode 1 & type : 1
+5997ms : ActionEnSerie - execute called. Desc : Action test PR
+6035ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Action test PR
+6025ms : T,P-1,len:5
+6054ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-1
+6063ms : FEED : T,P-1
+6046ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Action test PR
+6077ms : ActionBaseRoulante - execute called. Desc : Deplacement 1
+6085ms : Mouvement - Start() called
+6150ms : Started at140,-480,0.020470829068577279
+6132ms : D,p-6,len:5
+6171ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p-6
+6180ms : FEED : D,p-6
+6189ms : Going to 340,-800
+
+6206ms : Angle before modulo : -211.98491237901493
+6225ms : J'ai deltaTheta = 302.00538320808352
+6239ms : Donc angle = 148.01508762098507
+6258ms : Going (dir forced) to 340,-800
+
+6267ms : Going en avant
+6284ms : Rotate, Angle demande : 58.00715748624026
+6336ms : Command sent: T,p5667s25000
+
+6346ms : Kangaroo - Turn : sent command, waiting for move completion
+6482ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=True in direction=1
+6501ms : CapteurObstacleManager : obstacle=True in direction : 0
+6510ms : Mouvement - ObstacleListener - !Map.MapInformation.isObstacleDetecteurOn(), no change on trajectory. 
+6550ms : T,p252,len:6
+6559ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p252
+6568ms : FEED : T,p252
+6616ms : D,p1519,len:7
+6625ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p1519
+6634ms : FEED : D,p1519
+6647ms : Kangaroo - CheckMovingStatus - feedback : T,p252
+6733ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=False in direction=1
+6752ms : CapteurObstacleManager : obstacle=False in direction : 0
+6761ms : Mouvement - ObstacleListener - !Map.MapInformation.isObstacleDetecteurOn(), no change on trajectory. 
+6994ms : T,p4764,len:7
+7003ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p4764
+7012ms : FEED : T,p4764
+7060ms : D,p5678,len:7
+7069ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p5678
+7078ms : FEED : D,p5678
+7092ms : Kangaroo - CheckMovingStatus - feedback : T,p4764
+7344ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=False in direction=1
+7439ms : T,p5703,len:7
+7448ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p5703
+7457ms : FEED : T,p5703
+7505ms : D,p4224,len:7
+7514ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p4224
+7523ms : FEED : D,p4224
+7537ms : Kangaroo - CheckMovingStatus - feedback : T,p5703
+7883ms : T,p5815,len:7
+7892ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p5815
+7901ms : FEED : T,p5815
+7950ms : D,p3229,len:7
+7958ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p3229
+7967ms : FEED : D,p3229
+7980ms : Kangaroo - CheckMovingStatus - feedback : T,p5815
+8328ms : T,p5663,len:7
+8337ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p5663
+8346ms : FEED : T,p5663
+8394ms : D,p2451,len:7
+8403ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p2451
+8412ms : FEED : D,p2451
+8425ms : Kangaroo - CheckMovingStatus - feedback : T,p5663
+8772ms : T,P5666,len:7
+8781ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,P5666
+8790ms : FEED : T,P5666
+8838ms : D,p2101,len:7
+8847ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p2101
+8856ms : FEED : D,p2101
+8870ms : Kangaroo - CheckMovingStatus - feedback : T,P5666
+8879ms : Kangaroo - CheckMovingStatus detected end of move
+8894ms : Drive, Distance demande : 363
+8947ms : D,p35367s45000
+
+8956ms : Kangaroo - Drive : sent command, waiting for move completion
+9225ms : D,p2632,len:7
+9268ms : T,p-25,len:6
+9277ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-25
+9286ms : FEED : T,p-25
+9298ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p2632
+9307ms : FEED : D,p2632
+9320ms : Kangaroo - CheckMovingStatus - feedback : D,p2632
+9670ms : D,p25231,len:8
+9714ms : T,p83,len:5
+9723ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p83
+9732ms : FEED : T,p83
+9744ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p25231
+9753ms : FEED : D,p25231
+9767ms : Kangaroo - CheckMovingStatus - feedback : D,p25231
+10115ms : D,p34714,len:8
+10160ms : T,p77,len:5
+10169ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p77
+10178ms : FEED : T,p77
+10190ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p34714
+10198ms : FEED : D,p34714
+10212ms : Kangaroo - CheckMovingStatus - feedback : D,p34714
+The thread '<No Name>' (0x3) has exited with code 0 (0x0).
+10561ms : D,p35344,len:8
+10605ms : T,p74,len:5
+10614ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p74
+10623ms : FEED : T,p74
+10635ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p35344
+10644ms : FEED : D,p35344
+10658ms : Kangaroo - CheckMovingStatus - feedback : D,p35344
+11007ms : D,p35363,len:8
+11051ms : T,p72,len:5
+11059ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p72
+11069ms : FEED : T,p72
+11081ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p35363
+11090ms : FEED : D,p35363
+11103ms : Kangaroo - CheckMovingStatus - feedback : D,p35363
+11452ms : D,P35365,len:8
+11496ms : T,p72,len:5
+11505ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p72
+11514ms : FEED : T,p72
+11525ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,P35365
+11535ms : FEED : D,P35365
+11548ms : Kangaroo - CheckMovingStatus - feedback : D,P35365
+11558ms : Kangaroo - CheckMovingStatus detected end of move
+11568ms : DOne with gotoForced dir.
+11576ms : Launch completed event
+11584ms : BaseRoulante : LaunchMovingInstructionCompletedEvent called
+11592ms : BaseRoulante - LaunchMovingInstructionCompletedEvent : listeners found !!!
+11601ms : ActionBaseRoulante : completed, status = success
+11611ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Action test PR
+11626ms : Executing action servo absolue; angle : 580; description : ServoGR- fermer la trappe
+11639ms : l'angle absolu de l'AX-12 est désormais de 580steps
+11674ms : Servo ID 2 en mode joint, moving...
+11903ms : T,p72,len:5
+11912ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p72
+11921ms : FEED : T,p72
+11975ms : D,P35365,len:8
+11984ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P35365
+11993ms : FEED : D,P35365
+12256ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Action test PR
+12272ms : Executing action servo absolue; angle : 810; description : ServoGR- trou du plateau vers l'arriere (sticker vert)
+12285ms : l'angle absolu de l'AX-12 est désormais de 810steps
+12322ms : Servo ID 1 en mode joint, moving...
+12347ms : T,p72,len:5
+12356ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p72
+12365ms : FEED : T,p72
+12419ms : D,P35365,len:8
+12428ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P35365
+12437ms : FEED : D,P35365
+12788ms : T,p70,len:5
+12797ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p70
+12806ms : FEED : T,p70
+12855ms : D,P35365,len:8
+12869ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P35365
+12878ms : FEED : D,P35365
+13239ms : T,p70,len:5
+13248ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p70
+13257ms : FEED : T,p70
+13306ms : D,p35357,len:8
+13315ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p35357
+13324ms : FEED : D,p35357
+13680ms : T,p55,len:5
+13694ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p55
+13703ms : FEED : T,p55
+13758ms : D,P35368,len:8
+13767ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P35368
+13776ms : FEED : D,P35368
+13913ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Action test PR
+13924ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Action test PR
+13934ms : ActionBaseRoulante - execute called. Desc : Deplacement 2
+13943ms : Mouvement - Start() called
+13974ms : Started at352.97341949328757,-791.71534698294192,-58.536335721596728
+13993ms : Going (dir forced) to 100,-845
+
+14003ms : Going en arriere
+14021ms : Rotate, Angle demande : -70.430869054473391
+14074ms : Command sent: T,p-6881s25000
+
+14084ms : Kangaroo - Turn : sent command, waiting for move completion
+14185ms : T,p0,len:4
+14194ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p0
+14203ms : FEED : T,p0
+14251ms : D,p-200,len:7
+14259ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p-200
+14268ms : FEED : D,p-200
+14282ms : Kangaroo - CheckMovingStatus - feedback : T,p0
+14491ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=True in direction=1
+14511ms : CapteurObstacleManager : obstacle=True in direction : 0
+14522ms : Mouvement - ObstacleListener - !Map.MapInformation.isObstacleDetecteurOn(), no change on trajectory. 
+14540ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=False in direction=1
+14559ms : CapteurObstacleManager : obstacle=False in direction : 0
+14568ms : Mouvement - ObstacleListener - !Map.MapInformation.isObstacleDetecteurOn(), no change on trajectory. 
+14675ms : T,p-5811,len:8
+14684ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-5811
+14693ms : FEED : T,p-5811
+14743ms : D,p-1102,len:8
+14752ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p-1102
+14761ms : FEED : D,p-1102
+14775ms : Kangaroo - CheckMovingStatus - feedback : T,p-5811
+15123ms : T,p-6814,len:8
+15132ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-6814
+15141ms : FEED : T,p-6814
+15189ms : D,p-301,len:7
+15198ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p-301
+15207ms : FEED : D,p-301
+15220ms : Kangaroo - CheckMovingStatus - feedback : T,p-6814
+15568ms : T,p-6878,len:8
+15577ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-6878
+15586ms : FEED : T,p-6878
+15634ms : D,p-202,len:7
+15643ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p-202
+15652ms : FEED : D,p-202
+15665ms : Kangaroo - CheckMovingStatus - feedback : T,p-6878
+16014ms : T,p-6884,len:8
+16023ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-6884
+16032ms : FEED : T,p-6884
+16081ms : D,p-174,len:7
+16090ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p-174
+16099ms : FEED : D,p-174
+16112ms : Kangaroo - CheckMovingStatus - feedback : T,p-6884
+16138ms : Jack interrupt event detected : isJackOn : True
+The thread '<No Name>' (0x7) has exited with code 0 (0x0).
+16460ms : T,P-6882,len:8
+16469ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,P-6882
+16478ms : FEED : T,P-6882
+16526ms : D,p-159,len:7
+16535ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p-159
+16544ms : FEED : D,p-159
+16557ms : Kangaroo - CheckMovingStatus - feedback : T,P-6882
+16567ms : Kangaroo - CheckMovingStatus detected end of move
+16583ms : Drive, Distance demande : -258
+16637ms : D,p-25136s20000
+
+16646ms : Kangaroo - Drive : sent command, waiting for move completion
+16915ms : D,p-2557,len:8
+16958ms : T,p-25,len:6
+16967ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-25
+16976ms : FEED : T,p-25
+16988ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p-2557
+16997ms : FEED : D,p-2557
+17010ms : Kangaroo - CheckMovingStatus - feedback : D,p-2557
+17097ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=True in direction=1
+17116ms : CapteurObstacleManager : obstacle=True in direction : 0
+17124ms : Mouvement - ObstacleListener - !Map.MapInformation.isObstacleDetecteurOn(), no change on trajectory. 
+17361ms : D,p-12003,len:9
+17404ms : T,p-51,len:6
+17413ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-51
+17421ms : FEED : T,p-51
+17434ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p-12003
+17443ms : FEED : D,p-12003
+17456ms : Kangaroo - CheckMovingStatus - feedback : D,p-12003
+17807ms : D,p-20704,len:9
+17851ms : T,p-338,len:7
+17860ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-338
+17943ms : LaunchJackEvent called, but was already called earlier.
+17869ms : FEED : T,p-338
+17959ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p-20704
+17968ms : FEED : D,p-20704
+17981ms : Kangaroo - CheckMovingStatus - feedback : D,p-20704
+18332ms : D,p-24892,len:9
+18374ms : T,p770,len:6
+18383ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p770
+18392ms : FEED : T,p770
+18404ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p-24892
+18413ms : FEED : D,p-24892
+18427ms : Kangaroo - CheckMovingStatus - feedback : D,p-24892
+18771ms : D,E3,len:4
+18812ms : T,E3,len:4
+18821ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,E3
+18830ms : FEED : T,E3
+18838ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,E3
+18848ms : FEED : D,E3
+18856ms : Kangaroo - CheckMovingStatus - feedback : D,E3
+18866ms : Kangaroo - CheckMovingStatus detected end of move
+18875ms : Starting to adjust angle
+18891ms : Rotate, Angle demande : 4.0225179119754557
+18942ms : Command sent: T,p393s25000
+
+18953ms : Kangaroo - Turn : sent command, waiting for move completion
+19209ms : T,p151,len:6
+19218ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p151
+19227ms : FEED : T,p151
+19274ms : D,p135,len:6
+19283ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p135
+19291ms : FEED : D,p135
+19305ms : Kangaroo - CheckMovingStatus - feedback : T,p151
+19445ms : Jack interrupt event detected : isJackOn : True
+The thread '<No Name>' (0x8) has exited with code 0 (0x0).
+19650ms : T,p381,len:6
+19658ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p381
+19667ms : FEED : T,p381
+19714ms : D,p211,len:6
+19722ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p211
+19732ms : FEED : D,p211
+19744ms : Kangaroo - CheckMovingStatus - feedback : T,p381
+20089ms : T,p403,len:6
+20098ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p403
+20107ms : FEED : T,p403
+20153ms : D,p223,len:6
+20162ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p223
+20171ms : FEED : D,p223
+20184ms : Kangaroo - CheckMovingStatus - feedback : T,p403
+20529ms : T,P392,len:6
+20538ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,P392
+20547ms : FEED : T,P392
+20593ms : D,p221,len:6
+20602ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p221
+20611ms : FEED : D,p221
+20624ms : Kangaroo - CheckMovingStatus - feedback : T,P392
+20634ms : Kangaroo - CheckMovingStatus detected end of move
+20643ms : DOne with gotoForced dir.
+20652ms : Launch completed event
+20659ms : BaseRoulante : LaunchMovingInstructionCompletedEvent called
+20668ms : BaseRoulante - LaunchMovingInstructionCompletedEvent : listeners found !!!
+20676ms : ActionBaseRoulante : completed, status = success
+20685ms : ActionBaseRoulante : completed, status = success
+20695ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Action test PR
+20708ms : Drive, Distance demande : 3
+20761ms : D,p292s10000
+
+20769ms : Kangaroo - Drive : sent command, waiting for move completion
+20978ms : D,p110,len:6
+21021ms : T,p-95,len:6
+21030ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-95
+21039ms : FEED : T,p-95
+21051ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p110
+21060ms : FEED : D,p110
+21073ms : Kangaroo - CheckMovingStatus - feedback : D,p110
+21419ms : D,p284,len:6
+21462ms : T,p-96,len:6
+21470ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-96
+21479ms : FEED : T,p-96
+21491ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p284
+21500ms : FEED : D,p284
+21514ms : Kangaroo - CheckMovingStatus - feedback : D,p284
+21859ms : D,P292,len:6
+21901ms : T,p-95,len:6
+21910ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-95
+21919ms : FEED : T,p-95
+21931ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,P292
+21940ms : FEED : D,P292
+21953ms : Kangaroo - CheckMovingStatus - feedback : D,P292
+21963ms : Kangaroo - CheckMovingStatus detected end of move
+21974ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Action test PR
+No feedback received from servo. Weird...
+22307ms : T,p-94,len:6
+22316ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p-94
+22325ms : FEED : T,p-94
+22371ms : D,P294,len:6
+22380ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P294
+22389ms : FEED : D,P294
+22737ms : T,p-94,len:6
+22745ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p-94
+22754ms : FEED : T,p-94
+22800ms : D,P294,len:6
+22809ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P294
+22818ms : FEED : D,P294
+23167ms : T,p-94,len:6
+23176ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p-94
+23185ms : FEED : T,p-94
+23231ms : D,P294,len:6
+23239ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P294
+23248ms : FEED : D,P294
+23597ms : T,p-95,len:6
+23606ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p-95
+23615ms : FEED : T,p-95
+23661ms : D,P296,len:6
+23670ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P296
+23679ms : FEED : D,P296
+24027ms : T,p-95,len:6
+24036ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p-95
+24045ms : FEED : T,p-95
+24091ms : D,P296,len:6
+24100ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P296
+24109ms : FEED : D,P296
+24457ms : T,p-95,len:6
+24465ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p-95
+24477ms : FEED : T,p-95
+24522ms : D,P296,len:6
+24531ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P296
+24540ms : FEED : D,P296
+24889ms : T,p-95,len:6
+24898ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p-95
+24907ms : FEED : T,p-95
+24953ms : D,P296,len:6
+24962ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P296
+24971ms : FEED : D,P296
+25320ms : T,p-95,len:6
+25329ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p-95
+25337ms : FEED : T,p-95
+25384ms : D,P296,len:6
+25392ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P296
+25401ms : FEED : D,P296
+25750ms : T,p-95,len:6
+25758ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p-95
+25767ms : FEED : T,p-95
+25814ms : D,P296,len:6
+25823ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P296
+25832ms : FEED : D,P296
+26180ms : T,p-95,len:6
+26189ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p-95
+26198ms : FEED : T,p-95
+26244ms : D,P296,len:6
+26252ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P296
+26261ms : FEED : D,P296
+26611ms : T,p-95,len:6
+26619ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p-95
+26628ms : FEED : T,p-95
+26674ms : D,P296,len:6
+26683ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P296
+26692ms : FEED : D,P296
+27028ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Action test PR
+27044ms : Executing action servo absolue; angle : 0; description : ServoGR - plateau slot 1
+27057ms : l'angle absolu de l'AX-12 est désormais de 0steps
+27086ms : T,p-95,len:6
+27104ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p-95
+27130ms : Servo ID 1 en mode joint, moving...
+27114ms : FEED : T,p-95
+27167ms : Servomoteur : isMoving got bad return : no params returned...
+27175ms : WARNING !!! isMoving = false right after Servo.Move()...
+27186ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Action test PR
+27226ms : LanceurBalle : launched motor 1 with speed 0.65000000000000002
+27218ms : D,p303,len:6
+27247ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p303
+27236ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Action test PR
+27272ms : Executing action servo absolue; angle : 495; description : ServoGR- ouvrir la trappe
+27256ms : FEED : D,p303
+27291ms : l'angle absolu de l'AX-12 est désormais de 495steps
+27320ms : CAX12, wrong ID returned. This.id = 2; id received : 1
+27344ms : Servo ID 2 en mode joint, moving...
+27373ms : Servomoteur : isMoving got bad return : no params returned...
+27382ms : WARNING !!! isMoving = false right after Servo.Move()...
+27393ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Action test PR
+27402ms : ActionEnSerie - execute called. Desc : ServoGR - Liberation balles cote vert (arriere)
+27418ms : Executing action servo absolue; angle : 80; description : ServoGR - plateau slot 1
+27431ms : l'angle absolu de l'AX-12 est désormais de 80steps
+27460ms : CAX12, wrong ID returned. This.id = 1; id received : 2
+27484ms : Servo ID 1 en mode joint, moving...
+BAD PACKET received !!! Header should be 0xFF 0XFF
+27511ms : Servomoteur : isMoving got bad return : no params returned...
+27519ms : WARNING !!! isMoving = false right after Servo.Move()...
+27529ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - Liberation balles cote vert (arriere)
+27539ms : ActionEnSerie - execute called. Desc : ServoGR - plateau petit retour en arriere
+27625ms : T,p-96,len:6
+27634ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p-96
+27643ms : FEED : T,p-96
+27688ms : D,P290,len:6
+27697ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P290
+27706ms : FEED : D,P290
+27953ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - plateau petit retour en arriere
+BAD PACKET received !!! Header should be 0xFF 0XFF
+BAD PACKET received !!! Header should be 0xFF 0XFF
+28057ms : T,p-104,len:7
+28066ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p-104
+28075ms : FEED : T,p-104
+28122ms : D,P296,len:6
+28130ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P296
+28139ms : FEED : D,P296
+28256ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - plateau petit retour en arriere
+28490ms : T,p-104,len:7
+28499ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p-104
+28508ms : FEED : T,p-104
+28554ms : D,P296,len:6
+28568ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P296
+28592ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - plateau petit retour en arriere
+28578ms : FEED : D,P296
+28805ms : ActionEnSerie - After last action feedback, status = success. Desc : ServoGR - plateau petit retour en arriere
+28815ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - Liberation balles cote vert (arriere)
+28831ms : Executing action servo absolue; angle : 204; description : ServoGR - plateau slot 2
+28845ms : l'angle absolu de l'AX-12 est désormais de 204steps
+28879ms : Servo ID 1 en mode joint, moving...
+28909ms : Servomoteur : isMoving got bad return : no params returned...
+28917ms : WARNING !!! isMoving = false right after Servo.Move()...
+28931ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - Liberation balles cote vert (arriere)
+28941ms : ActionEnSerie - execute called. Desc : ServoGR - plateau petit retour en arriere
+28967ms : T,p-100,len:7
+28976ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p-100
+28985ms : FEED : T,p-100
+29032ms : D,P292,len:6
+29041ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P292
+29050ms : FEED : D,P292
+29405ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - plateau petit retour en arriere
+29400ms : T,p-103,len:7
+29426ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p-103
+29435ms : FEED : T,p-103
+29493ms : D,p296,len:6
+29502ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p296
+29511ms : FEED : D,p296
+29741ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - plateau petit retour en arriere
+29861ms : T,p-102,len:7
+29870ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p-102
+29879ms : FEED : T,p-102
+29925ms : D,P294,len:6
+29934ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P294
+29943ms : FEED : D,P294
+30050ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - plateau petit retour en arriere
+30263ms : ActionEnSerie - After last action feedback, status = success. Desc : ServoGR - plateau petit retour en arriere
+30274ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - Liberation balles cote vert (arriere)
+30290ms : Executing action servo absolue; angle : 323; description : ServoGR - plateau slot 3
+30304ms : l'angle absolu de l'AX-12 est désormais de 323steps
+30334ms : T,p-102,len:7
+30353ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p-102
+30376ms : Servo ID 1 en mode joint, moving...
+30362ms : FEED : T,p-102
+30415ms : Servomoteur : isMoving got bad return : no params returned...
+30423ms : WARNING !!! isMoving = false right after Servo.Move()...
+30454ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - Liberation balles cote vert (arriere)
+30446ms : D,P296,len:6
+30475ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P296
+30464ms : ActionEnSerie - execute called. Desc : ServoGR - plateau petit retour en arriere
+30484ms : FEED : D,P296
+30838ms : T,p-105,len:7
+30846ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p-105
+30855ms : FEED : T,p-105
+30908ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - plateau petit retour en arriere
+30902ms : D,P294,len:6
+30927ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P294
+30937ms : FEED : D,P294
+31241ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - plateau petit retour en arriere
+31305ms : T,p-105,len:7
+31313ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p-105
+31323ms : FEED : T,p-105
+31369ms : D,P294,len:6
+31378ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P294
+31387ms : FEED : D,P294
+31552ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - plateau petit retour en arriere
+31737ms : T,p-105,len:7
+31746ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p-105
+31755ms : FEED : T,p-105
+31772ms : ActionEnSerie - After last action feedback, status = success. Desc : ServoGR - plateau petit retour en arriere
+31783ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - Liberation balles cote vert (arriere)
+31798ms : Executing action servo absolue; angle : 449; description : ServoGR - plateau slot 4
+31811ms : l'angle absolu de l'AX-12 est désormais de 449steps
+31839ms : D,P294,len:6
+31858ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P294
+31883ms : Servo ID 1 en mode joint, moving...
+31867ms : FEED : D,P294
+31918ms : Servomoteur : isMoving got bad return : no params returned...
+31926ms : WARNING !!! isMoving = false right after Servo.Move()...
+31936ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - Liberation balles cote vert (arriere)
+31946ms : ActionEnSerie - execute called. Desc : ServoGR - plateau petit retour en arriere
+32239ms : T,p-105,len:7
+32248ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p-105
+32257ms : FEED : T,p-105
+32304ms : D,p296,len:6
+32312ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p296
+32321ms : FEED : D,p296
+32359ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - plateau petit retour en arriere
+BAD PACKET received !!! Header should be 0xFF 0XFF
+BAD PACKET received !!! Header should be 0xFF 0XFF
+BAD PACKET received !!! Header should be 0xFF 0XFF
+32680ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - plateau petit retour en arriere
+32675ms : T,p-104,len:7
+32705ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p-104
+32714ms : FEED : T,p-104
+32776ms : D,P294,len:6
+32786ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P294
+32796ms : FEED : D,P294
+33024ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - plateau petit retour en arriere
+33149ms : T,p-104,len:7
+33158ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p-104
+33168ms : FEED : T,p-104
+33217ms : D,P296,len:6
+33226ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P296
+33242ms : ActionEnSerie - After last action feedback, status = success. Desc : ServoGR - plateau petit retour en arriere
+33254ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - Liberation balles cote vert (arriere)
+33271ms : Executing action servo absolue; angle : 573; description : ServoGR - plateau slot 5
+33285ms : l'angle absolu de l'AX-12 est désormais de 573steps
+33236ms : FEED : D,P296
+    #### Exception System.ArgumentOutOfRangeException - CLR_E_OUT_OF_RANGE (6) ####
+    #### Message: 
+    #### Robot_P16.Robot.composants.Servomoteurs.CAX_12::sendCommand [IP: 0133] ####
+    #### Robot_P16.Robot.composants.Servomoteurs.CAX_12::setMode [IP: 0061] ####
+    #### Robot_P16.Robot.composants.Servomoteurs.AX12::SetAngle [IP: 001b] ####
+    #### Robot_P16.Robot.composants.Servomoteurs.AX12::SetAngle [IP: 000b] ####
+    #### Robot_P16.Actions.ActionServoAbsolue::Execute [IP: 0037] ####
+    #### Robot_P16.Actions.ActionServoAbsolue::Execute [IP: 0009] ####
+    #### Robot_P16.Actions.ActionEnSerie::Feedback [IP: 0076] ####
+    #### Robot_P16.Actions.Action::OnStatusChange [IP: 0020] ####
+    #### Robot_P16.Actions.Action::set_Status [IP: 0010] ####
+    #### Robot_P16.Actions.ActionEnSerie::Feedback [IP: 008f] ####
+    #### Robot_P16.Actions.Action::OnStatusChange [IP: 0020] ####
+    #### Robot_P16.Actions.Action::set_Status [IP: 0010] ####
+    #### Robot_P16.Actions.ActionWait::Execute [IP: 000e] ####
+    #### Robot_P16.Actions.ActionEnSerie::Feedback [IP: 0076] ####
+    #### Robot_P16.Actions.Action::OnStatusChange [IP: 0020] ####
+    #### Robot_P16.Actions.Action::set_Status [IP: 0010] ####
+    #### Robot_P16.Actions.ActionServoRotation::Execute [IP: 0016] ####
+    #### Robot_P16.Actions.ActionEnSerie::Feedback [IP: 0076] ####
+    #### Robot_P16.Actions.Action::OnStatusChange [IP: 0020] ####
+    #### Robot_P16.Actions.Action::set_Status [IP: 0010] ####
+    #### Robot_P16.Actions.ActionServoRotation::Execute [IP: 0016] ####
+    #### Robot_P16.Actions.ActionEnSerie::Feedback [IP: 0076] ####
+    #### Robot_P16.Actions.Action::OnStatusChange [IP: 0020] ####
+    #### Robot_P16.Actions.Action::set_Status [IP: 0010] ####
+    #### Robot_P16.Actions.ActionEnSerie::Execute [IP: 004b] ####
+    #### Robot_P16.Actions.Action::OnStatusChange [IP: 0020] ####
+    #### Robot_P16.Actions.Action::set_Status [IP: 0010] ####
+    #### Robot_P16.Actions.ActionServoAbsolue::Execute [IP: 0009] ####
+    #### Robot_P16.Actions.Action::OnStatusChange [IP: 0020] ####
+    #### Robot_P16.Actions.Action::set_Status [IP: 0010] ####
+    #### Robot_P16.Actions.Action::OnStatusChange [IP: 0020] ####
+    #### Robot_P16.Actions.ActionWait::Execute [IP: 000e] ####
+    #### Robot_P16.Actions.Action::OnStatusChange [IP: 0020] ####
+    #### Robot_P16.Actions.ActionServoRotation::Execute [IP: 0016] ####
+    #### Robot_P16.Actions.Action::OnStatusChange [IP: 0020] ####
+    #### Robot_P16.Actions.ActionServoRotation::Execute [IP: 0016] ####
+    #### Robot_P16.Actions.Action::OnStatusChange [IP: 0020] ####
+    #### Robot_P16.Actions.Action::set_Status [IP: 0010] ####
+    #### Robot_P16.Actions.ActionEnSerie::Execute [IP: 004b] ####
+    #### Robot_P16.Actions.Action::OnStatusChange [IP: 0020] ####
+    #### Robot_P16.Actions.Action::set_Status [IP: 0010] ####
+    #### Robot_P16.Actions.ActionServoAbsolue::Execute [IP: 0009] ####
+    #### Robot_P16.Actions.Action::OnStatusChange [IP: 0020] ####
+    #### Robot_P16.Actions.Action::set_Status [IP: 0010] ####
+    #### Robot_P16.Actions.Action::OnStatusChange [IP: 0020] ####
+    #### Robot_P16.Actions.ActionWait::Execute [IP: 000e] ####
+    #### Robot_P16.Actions.Action::OnStatusChange [IP: 0020] ####
+    #### Robot_P16.Actions.ActionServoRotation::Execute [IP: 0016] ####
+    #### Robot_P16.Actions.Action::OnStatusChange [IP: 0020] ####
+    #### Robot_P16.Actions.ActionServoRotation::Execute [IP: 0016] ####
+    #### Robot_P16.Actions.Action::OnStatusChange [IP: 0020] ####
+    #### Robot_P16.Actions.Action::set_Status [IP: 0010] ####
+    #### Robot_P16.Actions.ActionEnSerie::Execute [IP: 004b] ####
+    #### Robot_P16.Actions.Action::OnStatusChange [IP: 0020] ####
+    #### Robot_P16.Actions.Action::set_Status [IP: 0010] ####
+    #### Robot_P16.Actions.ActionServoAbsolue::Execute [IP: 0009] ####
+    #### Robot_P16.Actions.Action::OnStatusChange [IP: 0020] ####
+    #### Robot_P16.Actions.Action::set_Status [IP: 0010] ####
+    #### Robot_P16.Actions.Action::OnStatusChange [IP: 0020] ####
+    #### Robot_P16.Actions.ActionWait::Execute [IP: 000e] ####
+    #### Robot_P16.Actions.Action::OnStatusChange [IP: 0020] ####
+    #### Robot_P16.Actions.ActionServoRotation::Execute [IP: 0016] ####
+    #### Robot_P16.Actions.Action::OnStatusChange [IP: 0020] ####
+    #### Robot_P16.Actions.ActionServoRotation::Execute [IP: 0016] ####
+    #### Robot_P16.Actions.Action::OnStatusChange [IP: 0020] ####
+    #### Robot_P16.Actions.Action::set_Status [IP: 0010] ####
+    #### Robot_P16.Actions.ActionEnSerie::Execute [IP: 004b] ####
+    #### Robot_P16.Actions.Action::OnStatusChange [IP: 0020] ####
+    #### Robot_P16.Actions.Action::set_Status [IP: 0010] ####
+    #### Robot_P16.Actions.ActionServoAbsolue::Execute [IP: 0009] ####
+    #### Robot_P16.Actions.ActionEnSerie::Execute [IP: 004b] ####
+    #### Robot_P16.Actions.Action::OnStatusChange [IP: 0020] ####
+    #### Robot_P16.Actions.Action::set_Status [IP: 0010] ####
+    #### Robot_P16.Actions.ActionServoAbsolue::Execute [IP: 0009] ####
+    #### Robot_P16.Actions.Action::OnStatusChange [IP: 0020] ####
+    #### Robot_P16.Actions.ActionDelegate::Execute [IP: 000e] ####
+    #### Robot_P16.Actions.Action::OnStatusChange [IP: 0020] ####
+    #### Robot_P16.Actions.Action::set_Status [IP: 0010] ####
+    #### Robot_P16.Actions.ActionServoAbsolue::Execute [IP: 0009] ####
+    #### Robot_P16.Actions.Action::OnStatusChange [IP: 0020] ####
+    #### Robot_P16.Actions.ActionServoRotation::Execute [IP: 0016] ####
+    #### Robot_P16.Actions.Action::OnStatusChange [IP: 0020] ####
+    #### Robot_P16.Actions.ActionDelegate::Execute [IP: 000e] ####
+    #### Robot_P16.Actions.Action::OnStatusChange [IP: 0020] ####
+    #### Robot_P16.Actions.Action::set_Status [IP: 0010] ####
+    #### Robot_P16.Robot.composants.BaseRoulante.BaseRoulanteInstructionCompleted::Invoke [IP: a0e08732] ####
+    #### Robot_P16.Robot.composants.BaseRoulante.BaseRoulante::LaunchMovingInstructionCompletedEvent [IP: 0024] ####
+    #### Robot_P16.Actions.ActionBaseRoulante::Execute [IP: 0029] ####
+    #### Robot_P16.Actions.Action::OnStatusChange [IP: 0020] ####
+    #### Robot_P16.Actions.ActionDelegate::Execute [IP: 000e] ####
+    #### Robot_P16.Actions.Action::OnStatusChange [IP: 0020] ####
+    #### Robot_P16.Actions.Action::set_Status [IP: 0010] ####
+    #### Robot_P16.Actions.ActionServoAbsolue::Execute [IP: 0009] ####
+    #### Robot_P16.Actions.Action::OnStatusChange [IP: 0020] ####
+    #### Robot_P16.Actions.Action::set_Status [IP: 0010] ####
+    #### Robot_P16.Actions.ActionServoAbsolue::Execute [IP: 0009] ####
+    #### Robot_P16.Actions.Action::OnStatusChange [IP: 0020] ####
+    #### Robot_P16.Actions.Action::set_Status [IP: 0010] ####
+    #### Robot_P16.Robot.composants.BaseRoulante.BaseRoulante::LaunchMovingInstructionCompletedEvent [IP: 0024] ####
+    #### Robot_P16.Actions.ActionBaseRoulante::Execute [IP: 0029] ####
+    #### Robot_P16.Actions.Action::OnStatusChange [IP: 0020] ####
+    #### Robot_P16.Actions.ActionDelegate::Execute [IP: 000e] ####
+    #### Robot_P16.Actions.Action::OnStatusChange [IP: 0020] ####
+    #### Robot_P16.Actions.Action::set_Status [IP: 0010] ####
+    #### Robot_P16.Actions.ActionEnSerie::Execute [IP: 004b] ####
+    #### Robot_P16.Robot.Robot::<Start>b__0 [IP: 000b] ####
+A first chance exception of type 'System.ArgumentOutOfRangeException' occurred in Robot_P16.exe
+An unhandled exception of type 'System.ArgumentOutOfRangeException' occurred in Robot_P16.exe
+

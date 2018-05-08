@@ -5,24 +5,8 @@ using Robot_P16.Robot;
 
 namespace Robot_P16.Robot.composants.Servomoteurs
 {
-    class GestionnaireServosGR
+    public class GestionnaireServosGR
     {
-        public ActionServoAbsolue GR_PLATEAU_TAQUET =
-            new ActionBuilder("ServoGR- ouvrir le taquet").BuildActionServoAbsolue(Robot.robot.GR_SERVO_PLATEAU,  DonneesServo.ANGLE_GR_PLATEAU_TAQUET);
-
-        //AJOUTER GR_SERVO_PLATEAU dans Robot.robot et ANGLE_GR_PLATEAU_TAQUET dans Donnees Servo
-
-        public ActionServoAbsolue GR_PLATEAU_CRANHORAIRE =
-           new ActionBuilder("ServoGR- tourner le plateau d'un cran dans le sens horaire").BuildActionServoAbsolue(Robot.robot.GR_SERVO_PLATEAU,  DonneesServo.ANGLE_GR_PLATEAU_CRANHORAIRE);
-
-        //AJOUTER ANGLE_GR_PLATEAU_CRANHORAIRE dans Donnees Servo
-
-        public ActionServoAbsolue GR_PLATEAU_CRANANTIHORAIRE =
-            new ActionBuilder("ServoGR- tourner le plateau d'un cran dans le sens antihoraire").BuildActionServoAbsolue(Robot.robot.GR_SERVO_PLATEAU,  DonneesServo.ANGLE_GR_PLATEAU_CRANANTIHORAIRE);
-
-        //AJOUTER ANGLE_GR_PLATEAU_CRANANTIHORAIRE dans Donnees Servo
-
-        //II- ACTIONS POUR LA TRAPPE
 
         public ActionServoAbsolue GR_TRAPPE_OUVRIR =
     new ActionBuilder("ServoGR- ouvrir la trappe").BuildActionServoAbsolue(Robot.robot.GR_SERVO_TRAPPE,  DonneesServo.ANGLE_GR_TRAPPE_OUVRIR);
@@ -41,9 +25,8 @@ namespace Robot_P16.Robot.composants.Servomoteurs
         public ActionServoAbsolue GR_PLATEAU_AVANT_VERT =
     new ActionBuilder("ServoGR- trou du plateau vers l'arriere (sticker vert)").BuildActionServoAbsolue(Robot.robot.GR_SERVO_PLATEAU, DonneesServo.ANGLE_GR_PLATEAU_OUVERTURE_ARRIERE_VERT);
 
-        public ActionServoRotation GR_PLATEAU_RECOLTE_1 = new ActionBuilder("ServoGR - Tourne le plateau en continu").
-            BuildActionServoRotation(Robot.robot.GR_SERVO_PLATEAU, 400, 5000); // ARRIERE VERS TROU (sens trigo)
-        //AJOUTER ANGLE_GR_TRAPPE_FERMER dans Donnees Servo
+        public ActionServoRotation GR_PLATEAU_RECOLTE = new ActionBuilder("ServoGR - Tourne le plateau en continu").
+            BuildActionServoRotation(Robot.robot.GR_SERVO_PLATEAU, 400, 5000); // Rotation continu sens trigo
 
         public ActionServoAbsolue GR_PLATEAU_SLOT0 = new ActionServoAbsolue("ServoGR - plateau slot 1", Robot.robot.GR_SERVO_PLATEAU, DonneesServo.ANGLE_GR_PLATEAU_SLOT_0); // rien sur la trappe
         public ActionServoAbsolue GR_PLATEAU_SLOT1 = new ActionServoAbsolue("ServoGR - plateau slot 1", Robot.robot.GR_SERVO_PLATEAU, DonneesServo.ANGLE_GR_PLATEAU_SLOT_1);
@@ -55,117 +38,93 @@ namespace Robot_P16.Robot.composants.Servomoteurs
         public ActionServoAbsolue GR_PLATEAU_SLOT7 = new ActionServoAbsolue("ServoGR - plateau slot 7", Robot.robot.GR_SERVO_PLATEAU, DonneesServo.ANGLE_GR_PLATEAU_SLOT_7);
         public ActionServoAbsolue GR_PLATEAU_SLOT8 = new ActionServoAbsolue("ServoGR - plateau slot 8", Robot.robot.GR_SERVO_PLATEAU, DonneesServo.ANGLE_GR_PLATEAU_SLOT_8);
 
+        public ActionEnSerie GR_PLATEAU_PETIT_RETOUR_ARRIERE = new ActionBuilder("ServoGR - plateau petit retour en arriere")
+            .Add(new ActionWait("Wait a bit...", 400))
+            .Add(new ActionServoRotation("Plateau servo petit retour arriere", Robot.robot.GR_SERVO_PLATEAU, 200, 250))
+            .Add(new ActionServoRotation("Plateau servo petit retour arriere", Robot.robot.GR_SERVO_PLATEAU, 1200, 250))
+            .Add(new ActionWait("Wait a bit...", 200))
+            .BuildActionEnSerie();
 
-        public Action GR_PLATEAU_LIBERATION_BALLES_COTE_VERT_ARRIERE()
+        public Action GR_PLATEAU_LIBERATION_TUBE_UNICOULEUR()
         {
             return new ActionBuilder("ServoGR - Liberation balles cote vert (arriere)")
-            .Add(
-                GR_PLATEAU_SLOT1
-            ).Add(new ActionWait("Wait a bit...", 600))
-            .Add(
-                GR_PLATEAU_SLOT2
-            ).Add(new ActionWait("Wait a bit...", 600))
-            .Add(
-                GR_PLATEAU_SLOT3
-            ).Add(new ActionWait("Wait a bit...", 600))
-            .Add(
-                GR_PLATEAU_SLOT4
-            ).Add(new ActionWait("Wait a bit...", 600))
-            .Add(
-                GR_PLATEAU_SLOT5
-            ).Add(new ActionWait("Wait a bit...", 600))
-            .Add(
-                GR_PLATEAU_SLOT6
-            ).Add(new ActionWait("Wait a bit...", 600))
-            .Add(
-                GR_PLATEAU_SLOT7
-            ).Add(new ActionWait("Wait a bit...", 600))
-            .Add(
-                GR_PLATEAU_SLOT8
-            ).BuildActionEnSerie();
+            .Add(GR_TRAPPE_FERMER)
+            .Add(GR_PLATEAU_RECOLTE)
+            .Add(GR_PLATEAU_SLOT0)
+            .Add(new ActionBuilder("Demarrer lanceur").BuildActionLanceurBalle(0.65))
+            .Add(GR_TRAPPE_OUVRIR)
+            .Add(GR_PLATEAU_SLOT1)
+            .Add(GR_PLATEAU_PETIT_RETOUR_ARRIERE)
+            .Add(GR_PLATEAU_SLOT2)
+            .Add(GR_PLATEAU_PETIT_RETOUR_ARRIERE)
+            .Add(GR_PLATEAU_SLOT3)
+            .Add(GR_PLATEAU_PETIT_RETOUR_ARRIERE)
+            .Add(GR_PLATEAU_SLOT4)
+            .Add(GR_PLATEAU_PETIT_RETOUR_ARRIERE)
+            .Add(GR_PLATEAU_SLOT5)
+            .Add(GR_PLATEAU_PETIT_RETOUR_ARRIERE)
+            .Add(GR_PLATEAU_SLOT6)
+            .Add(GR_PLATEAU_PETIT_RETOUR_ARRIERE)
+            .Add(GR_PLATEAU_SLOT7)
+            .Add(GR_PLATEAU_PETIT_RETOUR_ARRIERE)
+            .Add(GR_PLATEAU_SLOT8)
+            .Add(GR_PLATEAU_PETIT_RETOUR_ARRIERE)
+            .Add(new ActionWait("Wait a bit...", 1000))
+            .Add(new ActionBuilder("Stopper lanceur").BuildActionLanceurBalleStop())
+            .BuildActionEnSerie();
         }
 
-        public Action GR_PLATEAU_LIBERATION_BALLES_ORANGE_EQUIPE_VERTE()
+        public Action GR_PLATEAU_LIBERATION_BALLES_COULEUR_OPPOSEE()
         {
             return new ActionBuilder("ServoGR - Liberation balles cote vert (arriere)")
-            .Add(
-                GR_TRAPPE_FERMER
-            )
-            .Add(
-                GR_PLATEAU_SLOT2
-            ).Add(new ActionWait("Wait a bit...", 200))
-            .Add(
-                GR_TRAPPE_OUVRIR
-            ).Add(new ActionWait("Wait a bit...", 600))
-            .Add(
-                GR_TRAPPE_FERMER
-            )
-            .Add(
-                GR_PLATEAU_SLOT4
-            ).Add(new ActionWait("Wait a bit...", 200))
-            .Add(
-                GR_TRAPPE_OUVRIR
-            ).Add(new ActionWait("Wait a bit...", 600))
-            .Add(
-                GR_TRAPPE_FERMER
-            )
-            .Add(
-                GR_PLATEAU_SLOT6
-            ).Add(new ActionWait("Wait a bit...", 200))
-            .Add(
-                GR_TRAPPE_OUVRIR
-            ).Add(new ActionWait("Wait a bit...", 600))
-            .Add(
-                GR_TRAPPE_FERMER
-            )
-            .Add(
-                GR_PLATEAU_SLOT8
-            ).Add(new ActionWait("Wait a bit...", 200))
-            .Add(
-                GR_TRAPPE_OUVRIR
-            ).Add(new ActionWait("Wait a bit...", 600)).BuildActionEnSerie();
+            .Add(GR_PLATEAU_SLOT0)
+            .Add(new ActionBuilder("Demarrer lanceur").BuildActionLanceurBalle(0.40))
+            .Add(GR_TRAPPE_FERMER)
+            .Add(GR_PLATEAU_SLOT2)
+            .Add(new ActionWait("Wait a bit...", 200))
+            .Add(GR_TRAPPE_OUVRIR)
+            .Add(GR_PLATEAU_PETIT_RETOUR_ARRIERE)
+            .Add(GR_TRAPPE_FERMER)
+            .Add(GR_PLATEAU_SLOT4)
+            .Add(new ActionWait("Wait a bit...", 200))
+            .Add(GR_TRAPPE_OUVRIR)
+            .Add(GR_PLATEAU_PETIT_RETOUR_ARRIERE)
+            .Add(GR_TRAPPE_FERMER)
+            .Add(GR_PLATEAU_SLOT6)
+            .Add(new ActionWait("Wait a bit...", 200))
+            .Add(GR_TRAPPE_OUVRIR)
+            .Add(GR_PLATEAU_PETIT_RETOUR_ARRIERE)
+            .Add(GR_TRAPPE_FERMER)
+            .Add(GR_PLATEAU_SLOT8)
+            .Add(new ActionWait("Wait a bit...", 200))
+            .Add(GR_TRAPPE_OUVRIR)
+            .Add(GR_PLATEAU_PETIT_RETOUR_ARRIERE)
+            .Add(new ActionWait("Wait a bit", 1000))
+            .Add(GR_TRAPPE_FERMER)
+            .Add(new ActionBuilder("Stopper lanceur").BuildActionLanceurBalleStop())
+            .BuildActionEnSerie();
         }
 
 
-        public Action GR_PLATEAU_ENVOI_BALLES_VERTES_EQUIPE_VERTE()
+        public Action GR_PLATEAU_LIBERATION_BALLES_TUBE_MIXTE_NOTRE_COULEUR()
         {
             return new ActionBuilder("ServoGR - Envoi balles vertes pour recuperateur mixte")
-            .Add(
-                GR_TRAPPE_OUVRIR
-            )
-            .Add(
-                GR_PLATEAU_SLOT1
-            ).Add(new ActionWait("Wait a bit...", 800))
-            /*.Add(
-                GR_TRAPPE_OUVRIR
-            ).Add(new ActionWait("Wait a bit...", 600))
-            .Add(
-                GR_TRAPPE_FERMER
-            )*/
-            .Add(
-                GR_PLATEAU_SLOT3
-            ).Add(new ActionWait("Wait a bit...", 800))
-            /*.Add(
-                GR_TRAPPE_OUVRIR
-            ).Add(new ActionWait("Wait a bit...", 600))
-            .Add(
-                GR_TRAPPE_FERMER
-            )*/
-            .Add(
-                GR_PLATEAU_SLOT5
-            ).Add(new ActionWait("Wait a bit...", 800))
-            /*.Add(
-                GR_TRAPPE_OUVRIR
-            ).Add(new ActionWait("Wait a bit...", 600))
-            .Add(
-                GR_TRAPPE_FERMER
-            )*/
-            .Add(
-                GR_PLATEAU_SLOT7
-            ).Add(new ActionWait("Wait a bit...", 800))
-            /*.Add(
-                GR_TRAPPE_OUVRIR
-            )*/.Add(new ActionWait("Wait a bit...", 600)).BuildActionEnSerie();
+            .Add(new ActionBuilder("Lanceur fort").BuildActionLanceurBalle(0.900))
+            .Add(GR_TRAPPE_FERMER)
+            .Add(GR_PLATEAU_SLOT0)
+            .Add(new ActionWait("Wait a bit", 300))
+            .Add(GR_TRAPPE_OUVRIR)
+            .Add(GR_PLATEAU_SLOT1)
+            .Add(GR_PLATEAU_PETIT_RETOUR_ARRIERE)
+            .Add(GR_PLATEAU_SLOT3)
+            .Add(GR_PLATEAU_PETIT_RETOUR_ARRIERE)
+            .Add(GR_PLATEAU_SLOT5)
+            .Add(GR_PLATEAU_PETIT_RETOUR_ARRIERE)
+            .Add(GR_PLATEAU_SLOT7)
+            .Add(GR_PLATEAU_PETIT_RETOUR_ARRIERE)
+            .Add(new ActionWait("Wait a bit...", 600))
+            .Add(new ActionBuilder("Stopper lanceur").BuildActionLanceurBalleStop())
+            .BuildActionEnSerie();
         }
     }
 }

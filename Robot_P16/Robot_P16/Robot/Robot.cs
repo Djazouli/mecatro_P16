@@ -11,6 +11,8 @@ namespace Robot_P16.Robot
 {
     public class Robot
     {
+
+
         public static Robot robot;
         private ModeOperatoire modeOperatoire = ModeOperatoire.UNDEFINED;
         public ModeOperatoire Mode
@@ -60,9 +62,6 @@ namespace Robot_P16.Robot
         public readonly int PR_SOCKET_INFRAROUGE = 9;
         public readonly int PR_SOCKET_ULTRASON = 6;
 
-        public readonly int PR_SOCKET_JACK = 9;
-        public readonly int GR_SOCKET_JACK = 9;
-
         public readonly int PR_PORT_INFRAROUGE_1 = 5;
         public readonly int PR_PORT_INFRAROUGE_2 = 7;
 
@@ -70,6 +69,10 @@ namespace Robot_P16.Robot
         public readonly int GR_PORT_INFRAROUGE_2 = 4;
         public readonly int GR_PORT_INFRAROUGE_3 = 5;
         public readonly int GR_PORT_INFRAROUGE_4 = 7;
+
+        public readonly int PR_SOCKET_JACK = 9;
+        public readonly int GR_SOCKET_JACK = 9;
+
 
         public readonly int PR_PORT_JACK = 8;
         public readonly int GR_PORT_JACK = 8;
@@ -83,6 +86,12 @@ namespace Robot_P16.Robot
 
         public readonly int GR_SOCKET_BASE_ROUlANTE = 4;
         public readonly int PR_SOCKET_BASE_ROUlANTE = 8;
+
+        public readonly int PR_SOCKET_SWITCH_GLOBAL = 5; // TODO
+        public readonly int GR_SOCKET_SWITCH_GLOBAL = 5;
+        public readonly int PR_PORT_SWITCH_GLOBAL = 3;
+        public readonly int GR_PORT_SWITCH_GLOBAL = 3;
+
 
         /* ****** COMPOSANTS COMMUNS ****** */
 
@@ -193,7 +202,7 @@ namespace Robot_P16.Robot
             t.Tick += (piche) => Debug.Print("IsMoving : " + this.BASE_ROULANTE.kangaroo.isCurrentlyMoving());
             t.Start();*/
 
-            new Thread(() => GestionnaireAction.startActions(this.modeOperatoire, this.typeRobot)).Start();
+            new Thread(() => GestionnaireAction.startActions(this.modeOperatoire, this.typeRobot, this.couleurEquipe)).Start();
 
         }
 
