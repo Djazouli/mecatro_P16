@@ -61,6 +61,9 @@ namespace Robot_P16.Robot.composants.BaseRoulante
 
         public string currentMode = null;
 
+        public DateTime lastInstructionSent = DateTime.Now;
+        private static TimeSpan TIMESPAN_AFTER_INSTUCTION = new TimeSpan(0, 0, 0, 0, 100);
+
         public Kangaroo(int socket) : base(socket)
         {
             string COMPort = Socket.GetSocket(socket, true, null, null).SerialPortName;
@@ -218,12 +221,17 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             //this.position = PositionFromFeedback(feedback);
 
             char upperCased = feedback[2].ToUpper();
-            if (upperCased == feedback[2])
-            {
-                Informations.printInformations(Priority.HIGH, "Kangaroo - CheckMovingStatus detected end of move");
-                // isMoving = false, done moving
-                this.currentMode = null;
-                this.MoveCompleted.Set();
+            DateTime now = DateTime.Now;
+            if (upperCased == feedback[2]) {
+                if( (now - lastInstructionSent).CompareTo(TIMESPAN_AFTER_INSTUCTION) < 0)
+                    Informations.printInformations(Priority.HIGH, "Kangaroo - UPDATE TOO SHORT AFTER INSTRUCTION. NOT TRIGGERING MoveCompleted");
+                else {
+                    Informations.printInformations(Priority.HIGH, "Kangaroo - CheckMovingStatus detected end of move");
+                    // isMoving = false, done moving
+                    this.currentMode = null;
+                    this.MoveCompleted.Set();
+            
+                }
             }
 
 
@@ -256,7 +264,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             //T,P100
             if (/*this.currentMode == null || */ feedback == null || feedback.Length < 4) return;// this.position;
             char status = feedback[2];
-            Debug.Print("FEED : "+feedback);
+            Informations.printInformations(Priority.VERY_LOW, "FEED : "+feedback);
 
             if (feedback[2] == 'E')
             {
@@ -332,13 +340,14 @@ namespace Robot_P16.Robot.composants.BaseRoulante
 
                 }
 
-                Debug.Print(feedback+",len:"+feedback.Length);
+                Informations.printInformations(Priority.VERY_LOW, (feedback+",len:"+feedback.Length));
                 return feedback;
             }
         }
 
         public bool drive(int distance, int vitesse)
         {
+            lastInstructionSent = DateTime.Now;
             Informations.printInformations(Priority.HIGH, "Drive, Distance demande : " + distance );
             string commande;
             vitesse *= RAPPORT_DISTANCE_MM_VERS_CODEUR;
@@ -357,6 +366,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
 
         public bool rotate(double angle, int vitesse)
         {
+            lastInstructionSent = DateTime.Now;
             string commande;
             Informations.printInformations(Priority.HIGH, "Rotate, Angle demande : " + angle);
             vitesse *= RAPPORT_ANGLE_DEGRE_VERS_CODEUR;
@@ -377,14 +387,17 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         {
             
             //Init();
-            
             //this.CheckMovingStatus();
+            Informations.printInformations(Priority.MEDIUM, "Kangaroo - called stop()");
+            //
             //Init();
             if (currentMode != null)
             {
-                this.EnvoyerCommande(currentMode+",p"+distanceIncrementale+"\r\n");
+                this.EnvoyerCommande("T,powerdown\r\n");
+                this.EnvoyerCommande("D,powerdown\r\n");
+                //this.EnvoyerCommande(currentMode+",p"+distanceIncrementale+"\r\n");
                 MoveCompleted.Set();
-                //this.EnvoyerCommande("D,powerdown\r\n");
+                
             }
             //MoveCompleted.Set();
         }

@@ -131,41 +131,41 @@ namespace Robot_P16.Robot.composants.Servomoteurs
         {
             return new ActionBuilder("ServoGR - Envoi balles vertes pour recuperateur mixte")
             .Add(
-                GR_TRAPPE_FERMER
+                GR_TRAPPE_OUVRIR
             )
             .Add(
                 GR_PLATEAU_SLOT1
-            ).Add(new ActionWait("Wait a bit...", 200))
-            .Add(
+            ).Add(new ActionWait("Wait a bit...", 800))
+            /*.Add(
                 GR_TRAPPE_OUVRIR
             ).Add(new ActionWait("Wait a bit...", 600))
             .Add(
                 GR_TRAPPE_FERMER
-            )
+            )*/
             .Add(
                 GR_PLATEAU_SLOT3
-            ).Add(new ActionWait("Wait a bit...", 200))
-            .Add(
+            ).Add(new ActionWait("Wait a bit...", 800))
+            /*.Add(
                 GR_TRAPPE_OUVRIR
             ).Add(new ActionWait("Wait a bit...", 600))
             .Add(
                 GR_TRAPPE_FERMER
-            )
+            )*/
             .Add(
                 GR_PLATEAU_SLOT5
-            ).Add(new ActionWait("Wait a bit...", 200))
-            .Add(
+            ).Add(new ActionWait("Wait a bit...", 800))
+            /*.Add(
                 GR_TRAPPE_OUVRIR
             ).Add(new ActionWait("Wait a bit...", 600))
             .Add(
                 GR_TRAPPE_FERMER
-            )
+            )*/
             .Add(
                 GR_PLATEAU_SLOT7
-            ).Add(new ActionWait("Wait a bit...", 200))
-            .Add(
+            ).Add(new ActionWait("Wait a bit...", 800))
+            /*.Add(
                 GR_TRAPPE_OUVRIR
-            ).Add(new ActionWait("Wait a bit...", 600)).BuildActionEnSerie();
+            )*/.Add(new ActionWait("Wait a bit...", 600)).BuildActionEnSerie();
         }
     }
 }

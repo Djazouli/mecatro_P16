@@ -7,7 +7,7 @@ namespace Robot_P16.Robot.composants.CapteursObstacle
 {
 
     public delegate void ObstacleListenerDelegate(OBSTACLE_DIRECTION direction, bool isThereAnObstacle);
-    public delegate void CapteurObstacleListenerDelegate(CapteurObstacle capteur, bool isThereAnObstacle);
+    public delegate void CapteurObstacleListenerDelegate(int indexCapteur, bool isThereAnObstacle);
 
     public class CapteurObstacleManager
     {
@@ -71,15 +71,15 @@ namespace Robot_P16.Robot.composants.CapteursObstacle
             return false;
         }
 
-        private void OnObstacle(CapteurObstacle capteur, bool isThereAnObstacle)
+        private void OnObstacle(int indexCapteur, bool isThereAnObstacle)
         {
             bool fireEvent = false;
             lock (lastObstacleFoundForCapteurs)
             {
-                int indexCapteur = indexForCapteur(capteur);
-                bool lastStatusForDirection = getObstacleStatusForDirection(capteur.direction, this.lastObstacleFoundForCapteurs);
+                //int indexCapteur = indexForCapteur(capteur);
+                bool lastStatusForDirection = getObstacleStatusForDirection(capteurs[indexCapteur].direction, this.lastObstacleFoundForCapteurs);
                 lastObstacleFoundForCapteurs[indexCapteur] = isThereAnObstacle;
-                bool currentStatusForDirection = getObstacleStatusForDirection(capteur.direction, this.lastObstacleFoundForCapteurs);
+                bool currentStatusForDirection = getObstacleStatusForDirection(capteurs[indexCapteur].direction, this.lastObstacleFoundForCapteurs);
                 if (lastStatusForDirection != currentStatusForDirection)
                 {
                     fireEvent = true;
@@ -88,10 +88,10 @@ namespace Robot_P16.Robot.composants.CapteursObstacle
             }
             if (fireEvent)
             {
-                Informations.printInformations(Priority.MEDIUM, "CapteurObstacleManager : obstacle=" + isThereAnObstacle + " in direction : " + capteur.direction);
+                Informations.printInformations(Priority.MEDIUM, "CapteurObstacleManager : obstacle=" + isThereAnObstacle + " in direction : " + capteurs[indexCapteur].direction);
                 if (ObstacleChangeEvent != null)
                 {
-                    ObstacleChangeEvent(capteur.direction, isThereAnObstacle);
+                    ObstacleChangeEvent(capteurs[indexCapteur].direction, isThereAnObstacle);
                 }
             }
             
@@ -104,10 +104,16 @@ namespace Robot_P16.Robot.composants.CapteursObstacle
     {
         public event CapteurObstacleListenerDelegate CapteurObstacleEvent;
         public OBSTACLE_DIRECTION direction;
+        public int index;
 
         public CapteurObstacle(OBSTACLE_DIRECTION direction)
         {
             this.direction = direction;
+        }
+
+        public void setIndex(int index)
+        {
+            this.index = index;
         }
 
         public abstract bool IsThereAnObstacle();
@@ -117,7 +123,7 @@ namespace Robot_P16.Robot.composants.CapteursObstacle
             Informations.printInformations(Priority.LOW, "CapteurObstacle - OnObstacleChange called , OBSTACLE=" + isThereAnobstacle + " in direction=" + this.direction);
             if (CapteurObstacleEvent != null)
             {
-                CapteurObstacleEvent(this, isThereAnobstacle);
+                CapteurObstacleEvent(index, isThereAnobstacle);
             }
         }
 

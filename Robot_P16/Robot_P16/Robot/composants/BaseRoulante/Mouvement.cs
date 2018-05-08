@@ -11,12 +11,15 @@ namespace Robot_P16.Robot.composants.BaseRoulante
     public class Mouvement
     {
         public PointOriente destination;
-        private Boolean isPaused = false;
-        private Boolean adjustToAngle = false;
-        private Boolean isDirectionForced = false;
+        private bool isPaused = false;
+        private bool adjustToAngle = false;
+        private bool isDirectionForced = false;
         private OBSTACLE_DIRECTION forcedDirection = OBSTACLE_DIRECTION.AVANT;
         private int speedDrive;
         private int speedTurn;
+
+        private bool subscribedToEvent = false;
+
         public Mouvement(PointOriente destination)
         {
             this.destination = destination;
@@ -125,8 +128,11 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         {
             // Launch command
             Informations.printInformations(Priority.HIGH, "Mouvement - Start() called");
-            if (Robot.robot.OBSTACLE_MANAGER != null)
+            if (Robot.robot.OBSTACLE_MANAGER != null && !subscribedToEvent)
+            {
                 Robot.robot.OBSTACLE_MANAGER.ObstacleChangeEvent += this.ObstacleListener;
+                subscribedToEvent = true;
+            }
             Informations.printInformations(Priority.HIGH, "Started at" + GetPosition().x.ToString() + "," + GetPosition().y.ToString()+","+GetPosition().theta.ToString());
 
             bool ok;
@@ -139,7 +145,13 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             {
                 this.isPaused = false;
                 if (Robot.robot.OBSTACLE_MANAGER != null)
+                {
                     Robot.robot.OBSTACLE_MANAGER.ObstacleChangeEvent -= this.ObstacleListener;
+                    subscribedToEvent = false;
+                }
+
+                Informations.printInformations(Priority.HIGH, "Launch completed event");
+                    
                 Robot.robot.BASE_ROULANTE.LaunchMovingInstructionCompletedEvent();
             }
             else
@@ -180,7 +192,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
 
         public Boolean GoToOrientedPoint(PointOriente pt, OBSTACLE_DIRECTION forceDir) // forceDir = AVANT or ARRIERE
         {
-            isPaused = Robot.robot.OBSTACLE_MANAGER.getObstacleStatusForDirection(forceDir);
+            isPaused = Map.MapInformation.isDetecteurOn && Robot.robot.OBSTACLE_MANAGER.getObstacleStatusForDirection(forceDir);
             if (isPaused) return false;
             Informations.printInformations(Priority.HIGH, "Going (dir forced) to " + pt.x.ToString() + "," + pt.y.ToString() + "\r\n");
             Robot.robot.BASE_ROULANTE.direction = forceDir;
@@ -299,7 +311,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         {
             this.isPaused = true;
             //Robot.robot.OBSTACLE_MANAGER.TimerRefresh.Stop();
-            Robot.robot.IHM.AfficherInformation("PAUSED", false);
+            //Robot.robot.IHM.AfficherInformation("PAUSED", false);
             Robot.robot.BASE_ROULANTE.kangaroo.stop();
         }
 
@@ -322,7 +334,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 if(!isThereAnObstacle)
                 {
                     Informations.printInformations(Priority.MEDIUM, "Mouvement - ObstacleListener - obstacle removed : resuming movement. ");
-                    Robot.robot.IHM.AfficherInformation("UNPAUSED", false);
+                    //Robot.robot.IHM.AfficherInformation("UNPAUSED", false);
                     //new Thread(() => this.Start()).Start();
                     isPaused = false;
                 }
