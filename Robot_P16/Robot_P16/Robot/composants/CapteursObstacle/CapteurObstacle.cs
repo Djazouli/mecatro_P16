@@ -7,14 +7,16 @@ namespace Robot_P16.Robot.composants.CapteursObstacle
 {
 
     public delegate void ObstacleListenerDelegate(OBSTACLE_DIRECTION direction, bool isThereAnObstacle);
+    public delegate void CapteurObstacleListenerDelegate(CapteurObstacle capteur, bool isThereAnObstacle);
 
     public class CapteurObstacleManager
     {
         private CapteurObstacle[] capteurs;
         private bool[] lastObstacleFoundForCapteurs;
         public event ObstacleListenerDelegate ObstacleChangeEvent;
+        private static int REFRESH_RATE = 50;
+        public Gadgeteer.Timer TimerRefresh = new Gadgeteer.Timer(REFRESH_RATE);
 
-        private static int REFRESH_RATE = 100;
 
         public CapteurObstacleManager(CapteurObstacle[] capteurs)
         {
@@ -25,49 +27,36 @@ namespace Robot_P16.Robot.composants.CapteursObstacle
                 this.lastObstacleFoundForCapteurs[i] = capteurs[i].IsThereAnObstacle();
             }
 
-            this.start();
+            //this.start();
 
-            /*
+            
             foreach (CapteurObstacle capteur in capteurs)
             {
-                capteur.ObstacleChangeEvent += this.OnObstacle;
-            }*/
+                capteur.CapteurObstacleEvent += this.OnObstacle;
+            }
         }
 
-        private void start()
+        /*private void start()
         {
             //new Thread(() => { Thread.Sleep(REFRESH_RATE); checkObstacles(); }).Start();
-            Gadgeteer.Timer timer = new Gadgeteer.Timer(REFRESH_RATE);
-            timer.Tick += (Gadgeteer.Timer t) => this.checkObstacles();
-            timer.Start();
+            TimerRefresh = new Gadgeteer.Timer(REFRESH_RATE);
+            TimerRefresh.Tick += (Gadgeteer.Timer t) => this.checkObstacles();
+            TimerRefresh.Start();
+        }*/
+
+        private int indexForCapteur(CapteurObstacle c)
+        {
+            for (int i = 0; i < capteurs.Length; i++)
+            {
+                if (c.Equals(capteurs[i]))
+                    return i;
+            }
+            return -1;
         }
 
-        private void checkObstacles()
+        public bool getObstacleStatusForDirection(OBSTACLE_DIRECTION direction)
         {
-            bool[] newObstacles = new bool[this.capteurs.Length];
-            for (int i = 0; i < this.capteurs.Length; i++)
-            {
-                newObstacles[i] = capteurs[i].IsThereAnObstacle();
-            }
-
-            bool obstacleDEVANT = getObstacleStatusForDirection(OBSTACLE_DIRECTION.AVANT, newObstacles);
-            bool obstacleARRIERE = getObstacleStatusForDirection(OBSTACLE_DIRECTION.ARRIERE, newObstacles);
-
-            if (obstacleDEVANT != getObstacleStatusForDirection(OBSTACLE_DIRECTION.AVANT, this.lastObstacleFoundForCapteurs))
-            {
-                Informations.printInformations(Priority.MEDIUM, "CapteurObstacleManager : obstacle change (obstacle : " + obstacleDEVANT + ") in direction AVANT");
-                if (this.ObstacleChangeEvent != null)
-                    this.ObstacleChangeEvent(OBSTACLE_DIRECTION.AVANT, obstacleDEVANT);
-            }
-
-            if (obstacleARRIERE != getObstacleStatusForDirection(OBSTACLE_DIRECTION.ARRIERE, this.lastObstacleFoundForCapteurs))
-            {
-                Informations.printInformations(Priority.MEDIUM, "CapteurObstacleManager : obstacle change (obstacle : " + obstacleARRIERE + ") in direction ARRIERE");
-                if (this.ObstacleChangeEvent != null)
-                    this.ObstacleChangeEvent(OBSTACLE_DIRECTION.ARRIERE, obstacleARRIERE);
-            }
-
-            this.lastObstacleFoundForCapteurs = newObstacles;
+            return getObstacleStatusForDirection(direction, this.lastObstacleFoundForCapteurs);
         }
 
         private bool getObstacleStatusForDirection(OBSTACLE_DIRECTION direction, bool[] obstaclesBySensor)
@@ -82,38 +71,38 @@ namespace Robot_P16.Robot.composants.CapteursObstacle
             return false;
         }
 
-        // OUTDATED CODE
-        /*
-        private void OnObstacle(OBSTACLE_DIRECTION direction, bool isThereAnObstacle)
+        private void OnObstacle(CapteurObstacle capteur, bool isThereAnObstacle)
         {
-            // TODO : Add check of the zone
-            if (ObstacleChangeEvent != null)
+            bool fireEvent = false;
+            lock (lastObstacleFoundForCapteurs)
             {
-                if( isThereAnObstacle ){
-                    Informations.printInformations(Priority.MEDIUM, "CapteurObstacleManager : obstacle found in direction : " + direction);
-                    ObstacleChangeEvent(direction, isThereAnObstacle);
-                }
-                else
+                int indexCapteur = indexForCapteur(capteur);
+                bool lastStatusForDirection = getObstacleStatusForDirection(capteur.direction, this.lastObstacleFoundForCapteurs);
+                lastObstacleFoundForCapteurs[indexCapteur] = isThereAnObstacle;
+                bool currentStatusForDirection = getObstacleStatusForDirection(capteur.direction, this.lastObstacleFoundForCapteurs);
+                if (lastStatusForDirection != currentStatusForDirection)
                 {
-                    foreach (CapteurObstacle capteur in capteurs)
-                    {
-                        if (capteur.direction == direction && capteur.IsThereAnObstacle())
-                        {
-
-                            Informations.printInformations(Priority.MEDIUM, "CapteurObstacleManager : obstacle removed BUT CANCLLED in direction : " + direction);
-                            return;
-                        }
-                    }
-                    Informations.printInformations(Priority.MEDIUM, "CapteurObstacleManager : obstacle removed in direction : " + direction);
-                    ObstacleChangeEvent(direction, isThereAnObstacle);
+                    fireEvent = true;
+                }
+                 
+            }
+            if (fireEvent)
+            {
+                Informations.printInformations(Priority.MEDIUM, "CapteurObstacleManager : obstacle=" + isThereAnObstacle + " in direction : " + capteur.direction);
+                if (ObstacleChangeEvent != null)
+                {
+                    ObstacleChangeEvent(capteur.direction, isThereAnObstacle);
                 }
             }
-        }*/
+            
+            
+        }
+        
     }
 
     public abstract class CapteurObstacle
     {
-        public event ObstacleListenerDelegate ObstacleChangeEvent;
+        public event CapteurObstacleListenerDelegate CapteurObstacleEvent;
         public OBSTACLE_DIRECTION direction;
 
         public CapteurObstacle(OBSTACLE_DIRECTION direction)
@@ -125,9 +114,10 @@ namespace Robot_P16.Robot.composants.CapteursObstacle
 
         protected void OnObstacleChange(bool isThereAnobstacle)
         {
-            if (ObstacleChangeEvent != null)
+            Informations.printInformations(Priority.LOW, "CapteurObstacle - OnObstacleChange called , OBSTACLE=" + isThereAnobstacle + " in direction=" + this.direction);
+            if (CapteurObstacleEvent != null)
             {
-                ObstacleChangeEvent(direction, isThereAnobstacle);
+                CapteurObstacleEvent(this, isThereAnobstacle);
             }
         }
 

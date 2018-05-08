@@ -18,6 +18,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         private float m_nombreLigneRotation;    // Nombre de ligne pour 1 mm*/
         public AutoResetEvent MoveCompleted = new AutoResetEvent(false);
         public bool blockRead = false;
+        public Object readLocker = new Object();
         public AutoResetEvent UnblockRead = new AutoResetEvent(false);
         PointOriente position = new PointOriente(0, 0, 0);
 
@@ -58,7 +59,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
 
         private const bool ROUE_LIBRE = false;
 
-        string currentMode = null;
+        public string currentMode = null;
 
         public Kangaroo(int socket) : base(socket)
         {
@@ -129,7 +130,9 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         
         public void setPosition(double x, double y, double theta)
         {
-            this.position = new PointOriente(x, y, theta);
+            this.position.x = x;
+            this.position.y = y;
+            this.position.theta = theta;
         }
 
         private bool EnvoyerCommande(string commande)
@@ -275,10 +278,8 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                     deplacement = -deplacement;
                 }
                 double angle = System.Math.PI * position.theta / 180.0;
-                position = new PointOriente(
-                    position.x + deplacement * System.Math.Cos(angle),
-                    position.y + deplacement * System.Math.Sin(angle),
-                    position.theta);
+                position.x = position.x + deplacement * System.Math.Cos(angle);
+                position.y = position.y + deplacement * System.Math.Sin(angle);
                 //Debug.Print("MAJ Position = " + position.x + "," + position.y + "," + position.theta);
             }
             else
@@ -291,10 +292,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 {
                     deplacement = -deplacement;
                 }
-                position = new PointOriente(
-                    position.x,
-                    position.y,
-                    position.theta + deplacement);
+                position.theta += deplacement;
                 //Debug.Print("MAJ Position = " + position.x + "," + position.y + "," + position.theta);
             }
         }
@@ -302,33 +300,41 @@ namespace Robot_P16.Robot.composants.BaseRoulante
 
         private string sendAndReceiveUpdate(string prefix)
         {
-            while (blockRead)
+            lock (readLocker)
             {
-                UnblockRead.WaitOne();
+                string commande = prefix + ",getp\r\n";
+                EnvoyerCommande(commande);
+
+                string feedback = "";
+                int suffixLeftToRead = 2;
+                while (suffixLeftToRead > 0)
+                {
+                    char charRead = (char)m_portCOM.ReadByte();
+                    if (charRead == '\r' || charRead == '\n')
+                        suffixLeftToRead--;
+                    else
+                        feedback += charRead;
+                }
+                /*byte[] bytesRead = new byte[m_portCOM.BytesToRead];
+                m_portCOM.Read(bytesRead, 0, m_portCOM.BytesToRead);
+
+                blockRead = false;*
+                //UnblockRead.Set();
+
+                char[] feedback_chars = System.Text.Encoding.UTF8.GetChars(bytesRead);
+
+                string feedback = new string(feedback_chars);*/
+                if (feedback != null && feedback.Length >= 2)
+                {
+                    //if(feedback.Substring(feedback.Length - 4) == "\r\n") {
+                    //feedback = feedback.Substring(0, feedback.Length - 2);
+                    //}
+
+                }
+
+                Debug.Print(feedback+",len:"+feedback.Length);
+                return feedback;
             }
-            blockRead = true;
-            string commande = prefix + ",getp\r\n";
-            EnvoyerCommande(commande);
-
-            Thread.Sleep(100);
-            byte[] bytesRead = new byte[m_portCOM.BytesToRead];
-            m_portCOM.Read(bytesRead, 0, m_portCOM.BytesToRead);
-
-            blockRead = false;
-            UnblockRead.Set();
-
-            char[] feedback_chars = System.Text.Encoding.UTF8.GetChars(bytesRead);
-            
-            string feedback = new string(feedback_chars);
-            if (feedback != null && feedback.Length >= 2) {
-                //if(feedback.Substring(feedback.Length - 4) == "\r\n") {
-                    feedback = feedback.Substring(0, feedback.Length - 2);
-                //}
-
-            }
-
-            //Debug.Print(feedback);
-            return feedback;
         }
 
         public bool drive(int distance, int vitesse)
@@ -369,21 +375,26 @@ namespace Robot_P16.Robot.composants.BaseRoulante
 
         public void stop()
         {
+            
             //Init();
-            this.CheckMovingStatus();
+            
+            //this.CheckMovingStatus();
+            //Init();
             if (currentMode != null)
             {
-                this.EnvoyerCommande(currentMode+",powerdown\r\n");
+                this.EnvoyerCommande(currentMode+",p"+distanceIncrementale+"\r\n");
+                MoveCompleted.Set();
                 //this.EnvoyerCommande("D,powerdown\r\n");
             }
-            MoveCompleted.Set();
+            //MoveCompleted.Set();
         }
 
         public double RecallageX(double newY, int timeSleep, int speed, int distance, double angle){
             drive(distance, speed);
             Thread.Sleep(timeSleep);
             stop();
-            position = new PointOriente(position.x, newY, angle);
+            position.y = newY;
+            position.theta = angle;
             return newY;
         }
         public double RecallageY(double newX, int timeSleep, int speed, int distance, double angle)
@@ -391,7 +402,8 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             drive(distance, speed);
             Thread.Sleep(timeSleep);
             stop();
-            position = new PointOriente(newX, position.y, angle);
+            position.x = newX;
+            position.theta = angle;
             return newX;
         }
            

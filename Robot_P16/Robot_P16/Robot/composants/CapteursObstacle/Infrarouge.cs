@@ -7,7 +7,7 @@ namespace Robot_P16.Robot.composants.CapteursObstacle
 {
     public class Infrarouge : CapteurObstacle
     {
-        private InputPort capteurIR;
+        private InterruptPort capteurIR;
         private static int REFRESH_RATE = 500;
         private bool lastStatus;
 
@@ -16,17 +16,12 @@ namespace Robot_P16.Robot.composants.CapteursObstacle
         {
             
             Informations.printInformations(Priority.MEDIUM, "New infrarouge on socket " + socket + " & port " + port + "; pin : " + Socket.GetSocket(socket, true, null, null).CpuPins[port] + "; type of pin : " + Socket.GetSocket(socket, true, null, null).CpuPins[port].GetType());
-            /*capteurIR = new InterruptPort(Socket.GetSocket(socket, true, null, null).CpuPins[port], false, Port.ResistorMode.Disabled, Port.InterruptMode.InterruptEdgeBoth);
-            //capteurIR.EnableInterrupt();
-            capteurIR.OnInterrupt += new NativeEventHandler((uint data1, uint data2, DateTime time) => this.OnObstacleChange());*/
-
-            capteurIR = new InputPort(Socket.GetSocket(socket, true, null, null).CpuPins[port], false, Port.ResistorMode.Disabled);
-
-            //lastStatus = IsThereAnObstacle();
-            lastStatus = false;
-            /*Gadgeteer.Timer timer = new Gadgeteer.Timer(REFRESH_RATE);
-            timer.Tick += this.detectObstacle;
-            timer.Start();*/
+            this.capteurIR = new InterruptPort(
+              Socket.GetSocket(socket, true, null, null).CpuPins[port],
+              true,
+              Port.ResistorMode.PullUp,
+              Port.InterruptMode.InterruptEdgeBoth);
+            this.capteurIR.OnInterrupt += (uint pin, uint state, DateTime time)  => OnObstacleChange(state == 0);
         }
 
 
@@ -35,17 +30,5 @@ namespace Robot_P16.Robot.composants.CapteursObstacle
             return !capteurIR.Read();
         }
 
-
-        private void detectObstacle(Gadgeteer.Timer timer)
-        {
-            bool obstacle = IsThereAnObstacle();
-            Informations.printInformations(Priority.VERY_LOW, "Obstacle read by IR "+capteurIR.Id+": " + obstacle);
-            // TODO : Add threshold
-            if (obstacle != lastStatus)
-            {
-                lastStatus = obstacle;
-                this.OnObstacleChange(obstacle);
-            }
-        }
     }
 }

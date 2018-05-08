@@ -21,7 +21,7 @@ namespace Robot_P16.Robot
     public class Informations
     {
         public static DateTime startTime = DateTime.Now;
-        static public Priority priorityLevel = Priority.MEDIUM; /// 0=LOW, 1=MEDIUM, 2=HIGH
+        static public Priority priorityLevel = Priority.LOW; /// 0=LOW, 1=MEDIUM, 2=HIGH
 
         public static void printInformations(Priority priority, string message)
         {

@@ -5,9 +5,9 @@ namespace Robot_P16.Map
 {
     public class PointOriente
     {
-        public readonly double x;
-        public readonly double y;
-        public readonly double theta;
+        public double x;
+        public double y;
+        public double theta;
 
         public PointOriente(double x, double y, double theta)
         {

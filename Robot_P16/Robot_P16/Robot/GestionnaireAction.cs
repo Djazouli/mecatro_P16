@@ -87,17 +87,20 @@ namespace Robot_P16.Robot
             // dimension X deuxieme tube : 240cm
             double positionInitialeGR_X = dimensionGR_X / 2;
             double positionInitialeGR_Y = -(630 - dimensionGR_Y / 2);
-            PointOriente pt1 = new PointOriente(200 + dimensionGR_X / 2, -845, 0);
+            PointOriente pt0= new PointOriente(positionInitialeGR_X + 170, positionInitialeGR_Y, 0);
+            PointOriente pt1 = new PointOriente(200 + dimensionGR_X / 2, -800, 0);
+            //PointOriente pt1 = new PointOriente(1000, positionInitialeGR_Y, 0);
             PointOriente pt2 = new PointOriente(100, -845, 0);
-            PointOriente pt3 = new PointOriente(2400, -845, 180);
-            PointOriente pt4 = new PointOriente(2380, -1700, 90);
+            PointOriente pt3 = new PointOriente(2400, -860, 180);
+            PointOriente pt4 = new PointOriente(2420, -1600, 90);
             PointOriente pt5 = new PointOriente(2380, -2000 - dimensionGR_X / 2, 90);
+            PointOriente pt6 = new PointOriente(2390, -2000 + 340, 45);
             GestionnaireServosGR gestio = new GestionnaireServosGR();
             Action MOTHER_ACTION = new ActionBuilder("Action test PR").Add(
                     new ActionBuilder("Position initiale GR Vert").BuildActionSetPositionInitiale(positionInitialeGR_X, positionInitialeGR_Y, 0)
-                ).Add(
-                    new ActionBuilder("Regler vitese drive").BuildActionDelegate(() => Robot.robot.BASE_ROULANTE.speedDrive = 300)
-                ).Add(
+                )/*.Add(
+                    new ActionBuilder("Deplacement 0").BuildActionBaseRoulante_GOTO_ONLY(pt0)
+                )*/.Add(
                     new ActionBuilder("Deplacement 1").BuildActionBaseRoulante_GOTO_ONLY(pt1)
                 )
                 .Add(
@@ -110,11 +113,13 @@ namespace Robot_P16.Robot
                 .Add(
                     new ActionBuilder("Deplacement 2").BuildActionBaseRoulante_GOTO_ANGLE(pt2, OBSTACLE_DIRECTION.ARRIERE)
                 ).Add(
+                    new ActionBuilder("Recul un peu").BuildActionBaseRoulante_DRIVE(3,100)
+                ).Add(
                     gestio.GR_PLATEAU_RECOLTE_1
                 ).Add(
                     gestio.GR_PLATEAU_SLOT0
                 ).Add(
-                    new ActionBuilder("Demarrer lanceur").BuildActionLanceurBalle(0.715)
+                    new ActionBuilder("Demarrer lanceur").BuildActionLanceurBalle(0.65)
                 ).Add(
                     gestio.GR_TRAPPE_OUVRIR
                 ).Add(
@@ -125,7 +130,7 @@ namespace Robot_P16.Robot
                 .Add(
                     new ActionBuilder("Stopper lanceur").BuildActionLanceurBalleStop()
                 ).Add(
-                    new ActionBuilder("Regler vitese drive").BuildActionDelegate(() => Robot.robot.BASE_ROULANTE.speedDrive = 600)
+                    new ActionBuilder("Regler vitese drive").BuildActionDelegate(() => Robot.robot.BASE_ROULANTE.speedDrive = 550)
                 ).Add(
                     new ActionBuilder("Deplacement 3").BuildActionBaseRoulante_GOTO_ONLY(pt3)
                 ).Add(
@@ -139,13 +144,15 @@ namespace Robot_P16.Robot
                 ).Add(
                     gestio.GR_PLATEAU_AVANT_VERT
                 ).Add(
-                    new ActionBuilder("Deplacement 4").BuildActionBaseRoulante_GOTO_ANGLE(pt5, OBSTACLE_DIRECTION.ARRIERE)
+                    new ActionBuilder("Deplacement 5").BuildActionBaseRoulante_GOTO_ANGLE(pt5, OBSTACLE_DIRECTION.ARRIERE)
+                ).Add(
+                    new ActionBuilder("Recul un peu").BuildActionBaseRoulante_DRIVE(3, 100)
                 ).Add(
                     gestio.GR_PLATEAU_RECOLTE_1
                 ).Add(
                     gestio.GR_PLATEAU_SLOT0
                 ).Add(
-                    new ActionBuilder("Demarrer lanceur").BuildActionLanceurBalle(0.45)
+                    new ActionBuilder("Demarrer lanceur").BuildActionLanceurBalle(0.40)
                 ).Add(
                     gestio.GR_PLATEAU_LIBERATION_BALLES_ORANGE_EQUIPE_VERTE()
                 ).Add(new ActionWait("Wait a bit", 1000)).Add(
@@ -153,7 +160,17 @@ namespace Robot_P16.Robot
                 )
                 .Add(
                     new ActionBuilder("Stopper lanceur").BuildActionLanceurBalleStop()
-                ).BuildActionEnSerie();
+                ).Add(
+                    new ActionBuilder("Deplacement 6").BuildActionBaseRoulante_GOTO_ANGLE(pt6, OBSTACLE_DIRECTION.AVANT)
+                ).Add(
+                    new ActionBuilder("Lanceur fort").BuildActionLanceurBalle(0.900)
+                ).Add(
+                    gestio.GR_PLATEAU_ENVOI_BALLES_VERTES_EQUIPE_VERTE()
+                )
+                .Add(
+                    new ActionBuilder("Stopper lanceur").BuildActionLanceurBalleStop()
+                )
+                .BuildActionEnSerie();
             setMotherAction(ModeOperatoire.HOMOLOGATION,TypeRobot.PETIT_ROBOT, MOTHER_ACTION);
             setMotherAction(ModeOperatoire.HOMOLOGATION, TypeRobot.GRAND_ROBOT, MOTHER_ACTION);
         }

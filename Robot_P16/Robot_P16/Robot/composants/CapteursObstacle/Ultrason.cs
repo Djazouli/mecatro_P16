@@ -10,7 +10,7 @@ namespace Robot_P16.Robot.composants.CapteursObstacle
         private GTM.GHIElectronics.DistanceUS3 capteurUltrason;
         private bool lastStatus;
 
-        private static int REFRESH_RATE = 500;
+        private static int REFRESH_RATE = 1000;
         private static double THRESHOLD = 20.0;
 
         public Ultrason(int socket, OBSTACLE_DIRECTION direction)
@@ -18,9 +18,9 @@ namespace Robot_P16.Robot.composants.CapteursObstacle
         {
             capteurUltrason = new GTM.GHIElectronics.DistanceUS3(socket);
             lastStatus = IsThereAnObstacle();
-            /*Gadgeteer.Timer timer = new Gadgeteer.Timer(REFRESH_RATE);
+            Gadgeteer.Timer timer = new Gadgeteer.Timer(REFRESH_RATE);
             timer.Tick += this.detectObstacle;
-            timer.Start();*/
+            timer.Start();
         }
 
         public override bool IsThereAnObstacle()
@@ -30,6 +30,7 @@ namespace Robot_P16.Robot.composants.CapteursObstacle
 
         private void detectObstacle(Gadgeteer.Timer timer)
         {
+            //if (Robot.robot.OBSTACLE_MANAGER.ObstacleChangeEvent == null) return; TODO : UNCOMMENT AFTER DEBUG
             double distance = capteurUltrason.GetDistance();
             Informations.printInformations(Priority.VERY_LOW, "Distance read : " + distance);
 
@@ -42,7 +43,6 @@ namespace Robot_P16.Robot.composants.CapteursObstacle
                 this.lastStatus = obstacle;
                 this.OnObstacleChange(obstacle);
             }
-            // TODO : Add threshold
         }
     }
 }

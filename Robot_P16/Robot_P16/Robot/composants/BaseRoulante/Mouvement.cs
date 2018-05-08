@@ -123,26 +123,33 @@ namespace Robot_P16.Robot.composants.BaseRoulante
 
         public void Start()
         {
-            this.isPaused = false;
             // Launch command
             Informations.printInformations(Priority.HIGH, "Mouvement - Start() called");
             if (Robot.robot.OBSTACLE_MANAGER != null)
                 Robot.robot.OBSTACLE_MANAGER.ObstacleChangeEvent += this.ObstacleListener;
             Informations.printInformations(Priority.HIGH, "Started at" + GetPosition().x.ToString() + "," + GetPosition().y.ToString()+","+GetPosition().theta.ToString());
 
+            bool ok;
             if (this.isDirectionForced)
-                this.GoToOrientedPoint(this.destination, this.forcedDirection);
+                ok = this.GoToOrientedPoint(this.destination, this.forcedDirection);
             else
-                this.GoToOrientedPoint(this.destination);
+                ok = this.GoToOrientedPoint(this.destination);
 
-            
-            // waiting for the move to be completed
-            if (this.isPaused) return; // MUST BE CHECKED AFTER EACH WaitOne!!!!
-            Informations.printInformations(Priority.MEDIUM, "Mouvement completed, launching completed event");
-            // Movement completed
-            if (Robot.robot.OBSTACLE_MANAGER != null)
-                Robot.robot.OBSTACLE_MANAGER.ObstacleChangeEvent -= this.ObstacleListener;
-            Robot.robot.BASE_ROULANTE.LaunchMovingInstructionCompletedEvent();
+            if (ok)
+            {
+                this.isPaused = false;
+                if (Robot.robot.OBSTACLE_MANAGER != null)
+                    Robot.robot.OBSTACLE_MANAGER.ObstacleChangeEvent -= this.ObstacleListener;
+                Robot.robot.BASE_ROULANTE.LaunchMovingInstructionCompletedEvent();
+            }
+            else
+            {
+                while (isPaused)
+                {
+                    Thread.Sleep(500);
+                }
+                Start();
+            }
         }
         public int getSpeedDrive()
         {
@@ -173,7 +180,10 @@ namespace Robot_P16.Robot.composants.BaseRoulante
 
         public Boolean GoToOrientedPoint(PointOriente pt, OBSTACLE_DIRECTION forceDir) // forceDir = AVANT or ARRIERE
         {
+            isPaused = Robot.robot.OBSTACLE_MANAGER.getObstacleStatusForDirection(forceDir);
+            if (isPaused) return false;
             Informations.printInformations(Priority.HIGH, "Going (dir forced) to " + pt.x.ToString() + "," + pt.y.ToString() + "\r\n");
+            Robot.robot.BASE_ROULANTE.direction = forceDir;
             // AdjustToAngle == True must be handled here
             double angle=0;
             double deltaX, deltaY, deltaTheta, alpha;
@@ -288,9 +298,9 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         public void Pause()
         {
             this.isPaused = true;
+            //Robot.robot.OBSTACLE_MANAGER.TimerRefresh.Stop();
             Robot.robot.IHM.AfficherInformation("PAUSED", false);
             Robot.robot.BASE_ROULANTE.kangaroo.stop();
-            Thread.Sleep(500);
         }
 
         public void ObstacleListener(OBSTACLE_DIRECTION direction, bool isThereAnObstacle)
@@ -301,19 +311,20 @@ namespace Robot_P16.Robot.composants.BaseRoulante
                 return;
             }
 
-            if (direction != Robot.robot.BASE_ROULANTE.GetDirection())
+            if (direction == Robot.robot.BASE_ROULANTE.GetDirection())
             {
-                if (isThereAnObstacle)
+                if (isThereAnObstacle /*&& Robot.robot.BASE_ROULANTE.kangaroo.currentMode == "D"*/)
                 {
                    Informations.printInformations(Priority.MEDIUM, "Mouvement - ObstacleListener - obstacle detected : pausing movement. ");
 
                    this.Pause();
                 }
-                else
+                if(!isThereAnObstacle)
                 {
                     Informations.printInformations(Priority.MEDIUM, "Mouvement - ObstacleListener - obstacle removed : resuming movement. ");
                     Robot.robot.IHM.AfficherInformation("UNPAUSED", false);
-                    new Thread(() => this.Start()).Start();
+                    //new Thread(() => this.Start()).Start();
+                    isPaused = false;
                 }
             }
             else

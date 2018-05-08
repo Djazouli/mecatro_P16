@@ -125,5 +125,47 @@ namespace Robot_P16.Robot.composants.Servomoteurs
                 GR_TRAPPE_OUVRIR
             ).Add(new ActionWait("Wait a bit...", 600)).BuildActionEnSerie();
         }
+
+
+        public Action GR_PLATEAU_ENVOI_BALLES_VERTES_EQUIPE_VERTE()
+        {
+            return new ActionBuilder("ServoGR - Envoi balles vertes pour recuperateur mixte")
+            .Add(
+                GR_TRAPPE_FERMER
+            )
+            .Add(
+                GR_PLATEAU_SLOT1
+            ).Add(new ActionWait("Wait a bit...", 200))
+            .Add(
+                GR_TRAPPE_OUVRIR
+            ).Add(new ActionWait("Wait a bit...", 600))
+            .Add(
+                GR_TRAPPE_FERMER
+            )
+            .Add(
+                GR_PLATEAU_SLOT3
+            ).Add(new ActionWait("Wait a bit...", 200))
+            .Add(
+                GR_TRAPPE_OUVRIR
+            ).Add(new ActionWait("Wait a bit...", 600))
+            .Add(
+                GR_TRAPPE_FERMER
+            )
+            .Add(
+                GR_PLATEAU_SLOT5
+            ).Add(new ActionWait("Wait a bit...", 200))
+            .Add(
+                GR_TRAPPE_OUVRIR
+            ).Add(new ActionWait("Wait a bit...", 600))
+            .Add(
+                GR_TRAPPE_FERMER
+            )
+            .Add(
+                GR_PLATEAU_SLOT7
+            ).Add(new ActionWait("Wait a bit...", 200))
+            .Add(
+                GR_TRAPPE_OUVRIR
+            ).Add(new ActionWait("Wait a bit...", 600)).BuildActionEnSerie();
+        }
     }
 }
