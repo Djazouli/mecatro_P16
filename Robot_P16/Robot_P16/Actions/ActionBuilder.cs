@@ -148,5 +148,10 @@ namespace Robot_P16.Actions
         {
             return new ActionDelegate(this.description, () => Robot.Robot.robot.BASE_ROULANTE.kangaroo.setPosition(x,y,theta));
         }
+
+        public ActionDelegate BuildActionSetDetecteurObstacle(bool isOn)
+        {
+            return new ActionDelegate(this.description, () => Map.MapInformation.isDetecteurOn = isOn);
+        }
     }
 }

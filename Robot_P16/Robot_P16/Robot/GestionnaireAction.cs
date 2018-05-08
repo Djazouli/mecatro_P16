@@ -98,6 +98,8 @@ namespace Robot_P16.Robot
             GestionnaireServosGR gestio = new GestionnaireServosGR();
             Action MOTHER_ACTION = new ActionBuilder("Action test PR").Add(
                     new ActionBuilder("Position initiale GR Vert").BuildActionSetPositionInitiale(positionInitialeGR_X, positionInitialeGR_Y, 0)
+                ).Add(
+                    new ActionBuilder("Desactiver IR").BuildActionSetDetecteurObstacle(false)
                 )/*.Add(
                     new ActionBuilder("Deplacement 0").BuildActionBaseRoulante_GOTO_ONLY(pt0)
                 )*/.Add(
@@ -132,9 +134,13 @@ namespace Robot_P16.Robot
                 ).Add(
                     new ActionBuilder("Regler vitese drive").BuildActionDelegate(() => Robot.robot.BASE_ROULANTE.speedDrive = 550)
                 ).Add(
+                    new ActionBuilder("Activer IR").BuildActionSetDetecteurObstacle(true)
+                ).Add(
                     new ActionBuilder("Deplacement 3").BuildActionBaseRoulante_GOTO_ONLY(pt3)
                 ).Add(
                     new ActionBuilder("Regler vitese drive").BuildActionDelegate(() => Robot.robot.BASE_ROULANTE.speedDrive = 300)
+                ).Add(
+                    new ActionBuilder("Desactiver IR").BuildActionSetDetecteurObstacle(false)
                 ).Add(
                     new ActionBuilder("Deplacement 4").BuildActionBaseRoulante_GOTO_ONLY(pt4, OBSTACLE_DIRECTION.ARRIERE)
                 ).Add(

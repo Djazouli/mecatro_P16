@@ -1,0 +1,41 @@
+<html>
+<head>
+<script type="text/javascript">
+isFirstClick = true;
+x_ini = 223;
+y_ini =250;
+x_final  = 1406;
+y_final = 1036;
+dimX = 3000;
+dimY = 2000;
+pos_x= 0;
+pos_y = 0;
+
+function point_it(event){
+	//alert(event.offsetX?(event.offsetX):event.pageX-document.getElementById("pointer_div").offsetLeft);
+	temp_pos_x = ((event.offsetX?(event.offsetX):event.pageX-document.getElementById("pointer_div").offsetLeft) - x_ini) * dimX / (x_final - x_ini);
+	temp_pos_y = - ((event.offsetY?(event.offsetY):event.pageY-document.getElementById("pointer_div").offsetTop )- y_ini) * dimY / (y_final - y_ini);
+	
+	if(isFirstClick) {
+		pos_x = temp_pos_x;
+		pos_y = temp_pos_y;
+		document.pointform.form_x.value = pos_x;
+		document.pointform.form_y.value = pos_y;
+	}
+	else {
+		angle = Math.atan2(temp_pos_y - pos_y, temp_pos_x - pos_x)  * 180 / Math.PI;
+		document.pointform.form_theta.value = angle;
+	}
+	isFirstClick = !isFirstClick;
+	
+}
+</script>
+
+</head>
+<body>
+<form name="pointform" method="post">
+<div id="pointer_div" onclick="point_it(event)" style = "background-image:url('table_mecatro.png');width:1652px;height:1208px;"></div>
+You pointed on x = <input type="text" name="form_x" size="4" /> - y = <input type="text" name="form_y" size="4" />, theta =  <input type="text" name="form_theta" size="4" />
+</form> 
+</body>
+</html>

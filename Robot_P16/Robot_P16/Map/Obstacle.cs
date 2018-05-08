@@ -5,9 +5,10 @@ using Robot_P16.Map.Surface;
 namespace Robot_P16.Map
 {
     public class MapInformation {
+        public static bool isDetecteurOn = false;
         public static bool isObstacleDetecteurOn()
         {
-            return true;
+            return isDetecteurOn ;
         }
     }
 
