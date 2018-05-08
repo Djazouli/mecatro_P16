@@ -62,7 +62,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         public string currentMode = null;
 
         public DateTime lastInstructionSent = DateTime.Now;
-        private static TimeSpan TIMESPAN_AFTER_INSTUCTION = new TimeSpan(0, 0, 0, 0, 100);
+        private static TimeSpan TIMESPAN_AFTER_INSTUCTION = new TimeSpan(0, 0, 0, 0, 1000);
 
         public Kangaroo(int socket) : base(socket)
         {

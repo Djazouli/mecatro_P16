@@ -45,6 +45,7 @@
     <Compile Include="Actions\ActionGetPosition.cs" />
     <Compile Include="Actions\ActionJack.cs" />
     <Compile Include="Actions\ActionRamasseCube.cs" />
+    <Compile Include="Actions\ActionReleaseCube.cs" />
     <Compile Include="Actions\ActionRepeated.cs" />
     <Compile Include="Actions\ActionSendStart.cs" />
     <Compile Include="Actions\ActionServoRotation.cs" />

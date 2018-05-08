@@ -41,7 +41,7 @@ namespace Robot_P16.Robot
         }
 
 
-        public string codeCouleur = "J-N-B";
+        public string codeCouleur = "O-B-J";
 
         /// <summary>
         /// Liste des composants
