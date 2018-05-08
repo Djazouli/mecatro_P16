@@ -265,7 +265,7 @@ namespace Robot_P16.Robot
 
                     PR_RELAIS_VENTOUZES = new composants.RelaisMoteur(PR_SOCKET_VENTOUZES, PR_PORT_VENTOUZES);
 
-                    composants.CapteursObstacle.CapteurObstacle[] capteurs_PR = {PR_INFRAROUGE_1, PR_INFRAROUGE_2, PR_ULTRASON};
+                    composants.CapteursObstacle.CapteurObstacle[] capteurs_PR = {PR_INFRAROUGE_1, PR_INFRAROUGE_2/*, PR_ULTRASON*/};
                     OBSTACLE_MANAGER = new composants.CapteursObstacle.CapteurObstacleManager(capteurs_PR);
 
                     PR_RECEPTEUR_CODE_COULEUR = new composants.RecepteurCodeCouleur(PR_SOCKET_RECEPTEUR_CODE_COULEUR);

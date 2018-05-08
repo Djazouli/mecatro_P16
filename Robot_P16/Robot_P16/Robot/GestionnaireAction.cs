@@ -221,11 +221,15 @@ namespace Robot_P16.Robot
                 ).BuildActionEnSerieRepeated(-1); // Envois infinis
 
             setMotherAction(ModeOperatoire.TEST1, MOTHER_ACTION);*/
-
-            PointOriente pt1 = new PointOriente(1130, -350, 50);
-            PointOriente pt2 = new PointOriente(1130, 0, 50);
-            PointOriente pt3 = new PointOriente(1130, 565, -180);
-            PointOriente pt4 = new PointOriente(950, 565, -180);
+            int dis = 93; //distance entre le milieu du robot (la ou on veut les cubes, et lecentre de rotation)
+            //signe y a changer selon le cote 
+            PointOriente ptInit = new PointOriente(125-dis, -108, 0);
+            PointOriente pt0 = new PointOriente(125, -108, 0);
+            PointOriente pt1 = new PointOriente(1130-dis+90, -350, 50);
+            PointOriente pt2 = new PointOriente(1130-dis+90, -(-15+dis), -90);
+            PointOriente pt3 = new PointOriente(1230+dis+90, -490, -180); //+610
+            //PointOriente ptIntermediaire = new PointOriente(1100+dis, 620, -180);
+            PointOriente pt4 = new PointOriente(900+dis, -520, -180);
 
             /*Action MOTHER_ACTION = new ActionBuilder("Action mere Test1").Add(
                     new ActionBuilder("Pt1").BuildActionBaseRoulante_GOTO_ONLY(pt1, OBSTACLE_DIRECTION.AVANT)
@@ -247,10 +251,13 @@ namespace Robot_P16.Robot
                 ).Add(
                 new ActionBuilder("pt4").BuildActionBaseRoulante_GOTO_ONLY(pt4))
                 .BuildActionEnSerieRepeated(-1); // Envois infinis*/
-            Action MOTHER_ACTION = new ActionBuilder("test").Add(new ActionBuilder("pt1").BuildActionBaseRoulante_GOTO_ONLY(pt1)
-                ).Add(new ActionBuilder("pt2").BuildActionBaseRoulante_GOTO_ONLY(pt2, OBSTACLE_DIRECTION.ARRIERE)
-                ).Add(new ActionBuilder("pt3").BuildActionBaseRoulante_GOTO_ANGLE(pt3, OBSTACLE_DIRECTION.AVANT)
-                ).Add(new ActionBuilder("pt4").BuildActionBaseRoulante_GOTO_ANGLE(pt4, OBSTACLE_DIRECTION.AVANT)
+            Action MOTHER_ACTION = new ActionBuilder("test").Add(new ActionBuilder("set init").BuildActionSetPositionInitiale(ptInit.x, ptInit.y,ptInit.theta)
+                ).Add(new ActionBuilder("pt0").BuildActionBaseRoulante_GOTO_ONLY(pt0)
+                ).Add(new ActionBuilder("pt1").BuildActionBaseRoulante_GOTO_ONLY(pt1)
+                ).Add(new ActionBuilder("pt2").BuildActionBaseRoulante_GOTO_ANGLE(pt2, OBSTACLE_DIRECTION.ARRIERE)
+                ).Add(new ActionBuilder("pt3").BuildActionBaseRoulante_GOTO_ONLY(pt3, OBSTACLE_DIRECTION.AVANT)
+                //).Add(new ActionBuilder("ptInter").BuildActionBaseRoulante_GOTO_ONLY(ptIntermediaire, OBSTACLE_DIRECTION.AVANT)
+                ).Add(new ActionBuilder("pt4").BuildActionBaseRoulante_GOTO_ONLY(pt4, OBSTACLE_DIRECTION.AVANT)
                 ).Add(new ActionRamasseCube()).BuildActionEnSerie();
             //Action MOTHER_ACTION = new ActionBuilder("test").BuildActionWait(10000);
             setMotherAction(ModeOperatoire.TEST1, TypeRobot.PETIT_ROBOT, MOTHER_ACTION);

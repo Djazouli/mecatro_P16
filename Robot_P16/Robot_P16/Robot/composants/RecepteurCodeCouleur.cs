@@ -21,7 +21,7 @@ namespace Robot_P16.Robot.composants
             this.m_port = adapteur.Port;
             m_port.Open();
             sendStart();
-            new Thread(() =>
+            /*new Thread(() =>
             {
                 string code = null;
                 while (code== null)
@@ -32,7 +32,7 @@ namespace Robot_P16.Robot.composants
                 }
                 Robot.robot.codeCouleur = code;
                 Debug.Print("Code present dans le robot" +Robot.robot.codeCouleur);
-            }).Start();
+            }).Start();*/
         }
 
         public void sendStart()

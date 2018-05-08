@@ -26,7 +26,7 @@ namespace Robot_P16.Robot.composants.CapteursObstacle
             {
                 this.lastObstacleFoundForCapteurs[i] = capteurs[i].IsThereAnObstacle();
             }
-
+            
             //this.start();
 
             
@@ -43,7 +43,6 @@ namespace Robot_P16.Robot.composants.CapteursObstacle
             TimerRefresh.Tick += (Gadgeteer.Timer t) => this.checkObstacles();
             TimerRefresh.Start();
         }*/
-
         private int indexForCapteur(CapteurObstacle c)
         {
             for (int i = 0; i < capteurs.Length; i++)

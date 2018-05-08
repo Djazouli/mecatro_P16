@@ -1,0 +1,458 @@
+﻿Found debugger!
+
+Create TS.
+
+ Loading start at a0e00000, end a0e2f494
+
+   Assembly: mscorlib (4.3.1.0)     Assembly: Microsoft.SPOT.Native (4.3.1.0)     Assembly: Microsoft.SPOT.Security.PKCS11 (4.3
+.1.0)     Assembly: System.Security (4.3.1.0)     Assembly: Microsoft.SPOT.Hardware (4.3.1.0)  
+   Assembly: Microsoft.SPOT.Graphics (4.3.1.0)     Assembly: Microsoft.SPOT.TinyCore (4.3.1.0)  
+   Assembly: Microsoft.SPOT.IO (4.3.1.0)     Assembly: System.IO (4.3.1.0)     Assembly: Microsoft.SPOT.Hardware.Usb (4.3.1.0) 
+    Assembly: Microsoft.SPOT.Hardware.SerialPort (4.3.1.0)     Assembly: Microsoft.SPOT.Touch (4.3.1.0)  
+   Assembly: Microsoft.SPOT.Ink (4.3.1.0)     Assembly: Microsoft.SPOT.Hardware.PWM (4.3.1.0)  
+Loading Deployment Assemblies.
+
+Attaching deployed file.
+
+   Assembly: GTM.GHIElectronics.DistanceUS3 (4.3.8.1)  Attaching deployed file.
+
+   Assembly: GHI.Glide (4.3.8.1)  Attaching deployed file.
+
+   Assembly: GTM.GHIElectronics.ColorSense (4.3.8.1)  Attaching deployed file.
+
+   Assembly: GHI.Hardware (4.3.8.1)  Attaching deployed file.
+
+   Assembly: Microsoft.SPOT.Net (4.3.1.0)  Attaching deployed file.
+
+   Assembly: GTM.GHIElectronics.USBClientSP (4.3.8.1)  Attaching deployed file.
+
+   Assembly: GHIElectronics.Gadgeteer.FEZSpiderII (4.3.8.1)  Attaching deployed file.
+
+   Assembly: GHIElectronics.Gadgeteer.FEZSpider (4.3.8.1)  Attaching deployed file.
+
+   Assembly: GHI.Usb (4.3.8.1)  Attaching deployed file.
+
+   Assembly: Gadgeteer (2.43.1.0)  Attaching deployed file.
+
+   Assembly: System (4.3.1.0)  Attaching deployed file.
+
+   Assembly: GTM.GHIElectronics.Button (4.3.8.1)  Attaching deployed file.
+
+   Assembly: Robot_P16 (1.0.0.0)  Attaching deployed file.
+
+   Assembly: GTM.GHIElectronics.XBeeAdapter (4.3.8.1)  Attaching deployed file.
+
+   Assembly: Gadgeteer.Serial (2.43.1.0)  Attaching deployed file.
+
+   Assembly: GTM.GHIElectronics.MotorDriverL298 (4.3.8.1)  Attaching deployed file.
+
+   Assembly: GHI.Pins (4.3.8.1)  Attaching deployed file.
+
+   Assembly: System.Xml (4.3.1.0)  Attaching deployed file.
+
+   Assembly: GTM.GHIElectronics.DisplayT35 (4.3.8.1)  Attaching deployed file.
+
+   Assembly: GTM.GHIElectronics.DisplayTE35 (4.3.8.1)  Attaching deployed file.
+
+   Assembly: GTM.GHIElectronics.USBClientEDP (4.3.8.1)  Resolving.
+
+GC: 1msec 50232 bytes used, 7289436 bytes available
+
+Type 0F (STRING              ):     24 bytes
+
+Type 15 (FREEBLOCK           ): 7289436 bytes
+
+Type 17 (ASSEMBLY            ):  48372 bytes
+
+Type 1E (BINARY_BLOB_HEAD    ):   1332 bytes
+
+Type 28 (MEMORY_STREAM_HEAD  ):     36 bytes
+
+Type 29 (MEMORY_STREAM_DATA  ):    396 bytes
+
+Type 34 (APPDOMAIN_HEAD      ):     72 bytes
+
+GC: performing heap compaction...
+
+The debugging target runtime is loading the application assemblies and starting execution.
+Ready.
+
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Native.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Hardware.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Security.PKCS11.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\System.Security.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Graphics.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.TinyCore.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.IO.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\System.IO.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Hardware.Usb.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Hardware.SerialPort.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Touch.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Ink.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Hardware.PWM.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Net.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Gadgeteer\Core\Assemblies\.NET Micro Framework 4.3\le\Gadgeteer.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Modules\DistanceUS3\NETMF 4.3\le\GTM.GHIElectronics.DistanceUS3.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\System.Xml.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\NETMF v4.3 SDK\Libraries\le\GHI.Glide.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Modules\ColorSense\NETMF 4.3\le\GTM.GHIElectronics.ColorSense.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\NETMF v4.3 SDK\Libraries\le\GHI.Hardware.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Modules\USBClientSP\NETMF 4.3\le\GTM.GHIElectronics.USBClientSP.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\NETMF v4.3 SDK\Libraries\le\GHI.Usb.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Mainboards\FEZSpiderII\NETMF 4.3\le\GHIElectronics.Gadgeteer.FEZSpiderII.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Mainboards\FEZSpider\NETMF 4.3\le\GHIElectronics.Gadgeteer.FEZSpider.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\System.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Modules\Button\NETMF 4.3\le\GTM.GHIElectronics.Button.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Modules\MotorDriverL298\NETMF 4.3\le\GTM.GHIElectronics.MotorDriverL298.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Gadgeteer\Core\Assemblies\.NET Micro Framework 4.3\le\Gadgeteer.Serial.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Modules\XBeeAdapter\NETMF 4.3\le\GTM.GHIElectronics.XBeeAdapter.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Modules\DisplayTE35\NETMF 4.3\le\GTM.GHIElectronics.DisplayTE35.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Users\gaelm\Documents\Visual Studio 2013\Projects\mecatro_P16\Robot_P16\Robot_P16\bin\Debug\le\Robot_P16.exe', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\NETMF v4.3 SDK\Libraries\le\GHI.Pins.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Modules\DisplayT35\NETMF 4.3\le\GTM.GHIElectronics.DisplayT35.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Modules\USBClientEDP\NETMF 4.3\le\GTM.GHIElectronics.USBClientEDP.dll'
+15479ms :  Copie du point orienté (0,0,0)
+The thread '<No Name>' (0x2) has exited with code 0 (0x0).
+Using mainboard GHI Electronics FEZ Spider version 1.0
+Program Started
+Querying type...
+WARN: Total initialization time exceeds 10 seconds.
+    : ProgramStarted is blocking execution, which means events and timers will not run properly.
+    : Make sure not to use blocking code such as while(true) - use a GT.Timer instead.
+Got type : 2
+Querying mode operatoire...
+WARN: Total initialization time exceeds 20 seconds.
+    : ProgramStarted is blocking execution, which means events and timers will not run properly.
+    : Make sure not to use blocking code such as while(true) - use a GT.Timer instead.
+Got mode : 3
+Querying couleur...
+Got couleur : 0
+23607ms : Robot : loadComponents : PETiT Robot selected !
+23636ms : SERVOS : Port COM ouvert : COM1
+23681ms : Tring to open serial port on COMPORt :COM3, socket : 8
+23696ms : New Kangaroo, port com not opened, opening.
+23709ms : New Kangaroo, port com Opening OK !
+23717ms : New Kangaroo, petit robot deteted.
+23951ms : New infrarouge on socket 9 & port 5; pin : 7; type of pin : Microsoft.SPOT.Hardware.Cpu+Pin
+23998ms : New infrarouge on socket 9 & port 7; pin : 24; type of pin : Microsoft.SPOT.Hardware.Cpu+Pin
+WARN: Total initialization time exceeds 30 seconds.
+    : ProgramStarted is blocking execution, which means events and timers will not run properly.
+    : Make sure not to use blocking code such as while(true) - use a GT.Timer instead.
+open
+vert
+
+35113ms : composants du robot chargés
+35227ms : actions mere set pour le type 2 & le mode 3
+35306ms : actions mere set pour le type 1 & le mode 3
+35512ms : actions mere set pour le type 2 & le mode 1
+35542ms : actions mere set pour le type 1 & le mode 1
+35642ms : actions mere set pour le type 2 & le mode 2
+35684ms : actions mere set pour le type 1 & le mode 2
+35692ms : actions chargees
+Called robot.Start()
+Starting actions with mod : 3 & type : 2
+Lancement de l'action mère avec le mode 3 & type : 2
+35778ms : ActionEnSerie - execute called. Desc : test
+35791ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : test
+35801ms : ActionBaseRoulante - execute called. Desc : pt1
+35809ms : Mouvement - Start() called
+35835ms : Started at32,-118,0
+35868ms : Going to 1037,-350
+
+35889ms : Angle before modulo : -257.00121957321596
+35904ms : J'ai deltaTheta = 347.00121957321596
+35918ms : Donc angle = 102.99878042678404
+35939ms : Going (dir forced) to 1037,-350
+
+35949ms : Going en avant
+35976ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P0
+FEED : T,P0
+35966ms : Rotate, Angle demande : -12.998780426784037
+36044ms : Command sent: T,p-1243s40000
+
+36055ms : Kangaroo - Turn : sent command, waiting for move completion
+36098ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,P0
+FEED : D,P0
+36225ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p0
+FEED : T,p0
+36346ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p-291
+FEED : D,p-291
+36362ms : Kangaroo - CheckMovingStatus - feedback : T,p0
+36481ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-563
+FEED : T,p-563
+36602ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p-1596
+FEED : D,p-1596
+36618ms : Kangaroo - CheckMovingStatus - feedback : T,p-563
+36737ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-1056
+FEED : T,p-1056
+36860ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p-2112
+FEED : D,p-2112
+36877ms : Kangaroo - CheckMovingStatus - feedback : T,p-1056
+36996ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-1171
+FEED : T,p-1171
+37119ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p-2162
+FEED : D,p-2162
+37137ms : Kangaroo - CheckMovingStatus - feedback : T,p-1171
+37257ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-1254
+FEED : T,p-1254
+37382ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p-2330
+FEED : D,p-2330
+37398ms : Kangaroo - CheckMovingStatus - feedback : T,p-1254
+37517ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-1267
+FEED : T,p-1267
+37641ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p-2322
+FEED : D,p-2322
+37657ms : Kangaroo - CheckMovingStatus - feedback : T,p-1267
+37776ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-1266
+FEED : T,p-1266
+37898ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p-2304
+FEED : D,p-2304
+37914ms : Kangaroo - CheckMovingStatus - feedback : T,p-1266
+38033ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,P-1245
+FEED : T,P-1245
+38156ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p-2288
+FEED : D,p-2288
+38174ms : Kangaroo - CheckMovingStatus - feedback : T,P-1245
+38183ms : Kangaroo - CheckMovingStatus detected end of move
+38201ms : Drive, Distance demande : -1007
+38256ms : D,p-95636s30000
+
+38265ms : Kangaroo - Drive : sent command, waiting for move completion
+38383ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,P1
+FEED : T,P1
+38505ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p-971
+FEED : D,p-971
+38740ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-46
+FEED : T,p-46
+38754ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p-4753
+FEED : D,p-4753
+38771ms : Kangaroo - CheckMovingStatus - feedback : D,p-4753
+38999ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-27
+FEED : T,p-27
+39014ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p-13071
+FEED : D,p-13071
+39030ms : Kangaroo - CheckMovingStatus - feedback : D,p-13071
+39256ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-2
+FEED : T,p-2
+39270ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p-20650
+FEED : D,p-20650
+39288ms : Kangaroo - CheckMovingStatus - feedback : D,p-20650
+39515ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-56
+FEED : T,p-56
+39530ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p-28244
+FEED : D,p-28244
+39548ms : Kangaroo - CheckMovingStatus - feedback : D,p-28244
+39774ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-7
+FEED : T,p-7
+39789ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p-35977
+FEED : D,p-35977
+39806ms : Kangaroo - CheckMovingStatus - feedback : D,p-35977
+40034ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-94
+FEED : T,p-94
+40049ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p-43664
+FEED : D,p-43664
+40065ms : Kangaroo - CheckMovingStatus - feedback : D,p-43664
+40293ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-31
+FEED : T,p-31
+40307ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p-51346
+FEED : D,p-51346
+40324ms : Kangaroo - CheckMovingStatus - feedback : D,p-51346
+The thread '<No Name>' (0x3) has exited with code 0 (0x0).
+40552ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-71
+FEED : T,p-71
+40567ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p-58905
+FEED : D,p-58905
+40585ms : Kangaroo - CheckMovingStatus - feedback : D,p-58905
+40811ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-3
+FEED : T,p-3
+40825ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p-66716
+FEED : D,p-66716
+40842ms : Kangaroo - CheckMovingStatus - feedback : D,p-66716
+41067ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-25
+FEED : T,p-25
+41081ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p-74338
+FEED : D,p-74338
+41099ms : Kangaroo - CheckMovingStatus - feedback : D,p-74338
+41327ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-78
+FEED : T,p-78
+41342ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p-82027
+FEED : D,p-82027
+41358ms : Kangaroo - CheckMovingStatus - feedback : D,p-82027
+41584ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-63
+FEED : T,p-63
+41598ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p-89597
+FEED : D,p-89597
+41614ms : Kangaroo - CheckMovingStatus - feedback : D,p-89597
+41840ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-27
+FEED : T,p-27
+41855ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p-93917
+FEED : D,p-93917
+41872ms : Kangaroo - CheckMovingStatus - feedback : D,p-93917
+42101ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-24
+FEED : T,p-24
+42116ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p-95146
+FEED : D,p-95146
+42132ms : Kangaroo - CheckMovingStatus - feedback : D,p-95146
+42359ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-25
+FEED : T,p-25
+42374ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p-95519
+FEED : D,p-95519
+42392ms : Kangaroo - CheckMovingStatus - feedback : D,p-95519
+42619ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-19
+FEED : T,p-19
+42634ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p-95603
+FEED : D,p-95603
+42650ms : Kangaroo - CheckMovingStatus - feedback : D,p-95603
+42876ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-16
+FEED : T,p-16
+42890ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,P-95634
+FEED : D,P-95634
+42906ms : Kangaroo - CheckMovingStatus - feedback : D,P-95634
+42916ms : Kangaroo - CheckMovingStatus detected end of move
+42929ms : DOne with gotoForced dir.
+42937ms : Mouvement completed, launching completed event
+42946ms : BaseRoulante : LaunchMovingInstructionCompletedEvent called
+42956ms : BaseRoulante - LaunchMovingInstructionCompletedEvent : listeners found !!!
+42965ms : ActionBaseRoulante : completed, status = success
+42977ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : test
+42986ms : ActionBaseRoulante - execute called. Desc : pt2
+42995ms : Mouvement - Start() called
+43037ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p-15
+FEED : T,p-15
+43026ms : Started at1035.2965936253477,-354.71120950029535,-13.176593521421106
+43066ms : Going (dir forced) to 1037,-50
+
+43079ms : Going en arriere
+43098ms : Rotate, Angle demande : -77.154149166899572
+43154ms : Command sent: T,p-7383s40000
+
+43164ms : Kangaroo - Turn : sent command, waiting for move completion
+43182ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,P-95638
+FEED : D,P-95638
+43309ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-2
+FEED : T,p-2
+43432ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p313
+FEED : D,p313
+43448ms : Kangaroo - CheckMovingStatus - feedback : T,p-2
+43567ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-1267
+FEED : T,p-1267
+43692ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p1392
+FEED : D,p1392
+43708ms : Kangaroo - CheckMovingStatus - feedback : T,p-1267
+43827ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-5048
+FEED : T,p-5048
+43949ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p371
+FEED : D,p371
+43965ms : Kangaroo - CheckMovingStatus - feedback : T,p-5048
+44084ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-6552
+FEED : T,p-6552
+44206ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p96
+FEED : D,p96
+44221ms : Kangaroo - CheckMovingStatus - feedback : T,p-6552
+44341ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-7068
+FEED : T,p-7068
+44463ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,P-4
+FEED : D,P-4
+44478ms : Kangaroo - CheckMovingStatus - feedback : T,p-7068
+44599ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-7275
+FEED : T,p-7275
+44722ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p-10
+FEED : D,p-10
+44739ms : Kangaroo - CheckMovingStatus - feedback : T,p-7275
+44858ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-7350
+FEED : T,p-7350
+44983ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p-10
+FEED : D,p-10
+44998ms : Kangaroo - CheckMovingStatus - feedback : T,p-7350
+45117ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-7375
+FEED : T,p-7375
+45241ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p-6
+FEED : D,p-6
+45256ms : Kangaroo - CheckMovingStatus - feedback : T,p-7375
+45374ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,P-7382
+FEED : T,P-7382
+45497ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p-4
+FEED : D,p-4
+45511ms : Kangaroo - CheckMovingStatus - feedback : T,P-7382
+45521ms : Kangaroo - CheckMovingStatus detected end of move
+45539ms : Drive, Distance demande : 312
+45595ms : D,p29631s30000
+
+45605ms : Kangaroo - Drive : sent command, waiting for move completion
+45721ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p16
+FEED : T,p16
+45845ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p271
+FEED : D,p271
+46078ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p1013
+FEED : T,p1013
+46093ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p2210
+FEED : D,p2210
+46109ms : Kangaroo - CheckMovingStatus - feedback : D,p2210
+46336ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p1297
+FEED : T,p1297
+46352ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p8186
+FEED : D,p8186
+46367ms : Kangaroo - CheckMovingStatus - feedback : D,p8186
+46596ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p1288
+FEED : T,p1288
+46611ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p15466
+FEED : D,p15466
+46627ms : Kangaroo - CheckMovingStatus - feedback : D,p15466
+46854ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p810
+FEED : T,p810
+46869ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p23483
+FEED : D,p23483
+46887ms : Kangaroo - CheckMovingStatus - feedback : D,p23483
+47113ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p519
+FEED : T,p519
+47133ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p27803
+FEED : D,p27803
+47149ms : Kangaroo - CheckMovingStatus - feedback : D,p27803
+47375ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p347
+FEED : T,p347
+47390ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p29110
+FEED : D,p29110
+47406ms : Kangaroo - CheckMovingStatus - feedback : D,p29110
+47633ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p261
+FEED : T,p261
+47648ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p29455
+FEED : D,p29455
+47664ms : Kangaroo - CheckMovingStatus - feedback : D,p29455
+47892ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p244
+FEED : T,p244
+47907ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p29530
+FEED : D,p29530
+47923ms : Kangaroo - CheckMovingStatus - feedback : D,p29530
+48152ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p237
+FEED : T,p237
+48166ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p29588
+FEED : D,p29588
+48184ms : Kangaroo - CheckMovingStatus - feedback : D,p29588
+48411ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p230
+FEED : T,p230
+48426ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p29614
+FEED : D,p29614
+48442ms : Kangaroo - CheckMovingStatus - feedback : D,p29614
+58290ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p216
+FEED : T,p216
+58305ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,P29630
+FEED : D,P29630
+58321ms : Kangaroo - CheckMovingStatus - feedback : D,P29630
+58332ms : Kangaroo - CheckMovingStatus detected end of move
+58345ms : DOne with gotoForced dir.
+58353ms : Mouvement completed, launching completed event
+58362ms : BaseRoulante : LaunchMovingInstructionCompletedEvent called
+58370ms : BaseRoulante - LaunchMovingInstructionCompletedEvent : listeners found !!!
+58378ms : ActionBaseRoulante : completed, status = success
+58389ms : ActionBaseRoulante : completed, status = success
+58399ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : test
+58408ms : ActionBaseRoulante - execute called. Desc : pt3
+58417ms : Mouvement - Start() called
+58449ms : Started at974.29096996591181,-55.372216762668998,-88.04597701149423
+58491ms : Going (dir forced) to 1037,-540
+
+58501ms : Going en avant
+58539ms : Rotate, Angle demande : 5.4188705088921552
+58634ms : Command sent: T,p518s40000
+
+58665ms : Kangaroo - Turn : sent command, waiting for move completion
