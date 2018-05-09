@@ -57,6 +57,7 @@ namespace Robot_P16.Actions
         /// <param name="a">Action qui a changé de statut</param>
         public override void Feedback(Action a)
         {
+            if (Robot.Robot.robot.isStopped) return;
             if (a.Status == ActionStatus.SUCCESS)
             {
                 this.listeActions[this.indexOfCurrentAction].StatusChangeEvent -= this.Feedback;

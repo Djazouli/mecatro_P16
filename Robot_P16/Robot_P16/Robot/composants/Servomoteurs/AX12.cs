@@ -162,11 +162,18 @@ namespace Robot_P16.Robot.composants.Servomoteurs
             return 0;
         }
 
-        public void Stop()
+        public void RotateForever(int vitesse)
         {
-            // Stop simplement la rotation actuelle, quelqu'elle soit (wheel/Joint)
+            this.cax12.setMode(AX12Mode.wheel);
+            this.cax12.setMovingSpeed(vitesse);
         }
 
+
+        public void Stop()
+        {
+            Debug.Print("Called servo stop");
+            RotateForever(0);
+        }
 
 
     }

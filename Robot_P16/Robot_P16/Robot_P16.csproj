@@ -106,6 +106,7 @@
     <Compile Include="Robot\Robot.cs" />
     <Compile Include="Robot\StrategieGrosRobot.cs" />
     <Compile Include="Robot\StrategiePetitRobot.cs" />
+    <Compile Include="Robot\TestRobots.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Gadgeteer" />

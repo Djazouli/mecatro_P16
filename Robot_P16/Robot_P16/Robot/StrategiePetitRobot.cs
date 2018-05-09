@@ -23,7 +23,9 @@ namespace Robot_P16.Robot
             PointOriente zone = new PointOriente(500, -100, 0);
             PointOriente pt5 = new PointOriente(500, -200, 0);
 
-            Action MOTHER_ACTION = new ActionBuilder("test").Add(new ActionBuilder("set init").BuildActionSetPositionInitiale(ptInit.x, ptInit.y, ptInit.theta)
+            Action MOTHER_ACTION = new ActionBuilder("test")
+                .Add(new ActionJack())
+                .Add(new ActionBuilder("set init").BuildActionSetPositionInitiale(ptInit.x, ptInit.y, ptInit.theta)
                 ).Add(new ActionBuilder("pt0").BuildActionBaseRoulante_GOTO_ONLY(pt0)
                 ).Add(new ActionBuilder("pt1").BuildActionBaseRoulante_GOTO_ONLY(pt1)
                 ).Add(new ActionBuilder("pt2").BuildActionBaseRoulante_GOTO_ANGLE(pt2, OBSTACLE_DIRECTION.ARRIERE)

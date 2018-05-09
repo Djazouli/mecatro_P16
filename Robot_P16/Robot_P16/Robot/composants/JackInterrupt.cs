@@ -17,6 +17,7 @@ namespace Robot_P16.Robot.composants
         private InterruptPort portJack;
         private int port;
         private bool isJackEventAboutToBeLaunched = false;
+        public bool doneListeningToJack = false;
 
         public event JackListenerDelegate JackChangeEvent;
 
@@ -35,6 +36,11 @@ namespace Robot_P16.Robot.composants
 
         public void launchJackEvent()
         {
+            if (doneListeningToJack)
+            {
+                Informations.printInformations(Priority.MEDIUM, "LaunchJackEvent called, but done listening to Jack.");
+                return; // Already called by another interrupt event
+            }
             if (isJackEventAboutToBeLaunched)
             {
                 Informations.printInformations(Priority.HIGH, "LaunchJackEvent called, but was already called earlier.");
@@ -42,7 +48,7 @@ namespace Robot_P16.Robot.composants
             }
             isJackEventAboutToBeLaunched = true; // Not very Thread safe, but who cares ?
             new Thread(() => {
-                Thread.Sleep(1500);
+                Thread.Sleep(500);
                 Informations.printInformations(Priority.HIGH, "Jack interrupt event detected : isJackOn : " + this.IsJackOn());
                 if (JackChangeEvent != null)
                 {

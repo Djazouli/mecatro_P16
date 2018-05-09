@@ -13,24 +13,19 @@ namespace Robot_P16.Actions
 
         public override void Execute()
         {
-            Informations.printInformations(Priority.MEDIUM, "JackAction : Executing jack action : adding listener");
+            Informations.printInformations(Priority.HIGH, "JackAction : Executing jack action : adding listener");
             Robot.Robot.robot.JACK.JackChangeEvent += this.JackChange;
-            //Robot.Robot.robot.JACK.StartTimer();
-            DisplayOnIHM();
         }
 
         private void JackChange(bool newStatus)
         {
-            Informations.printInformations(Priority.MEDIUM, "JackAction : Jack changed, status = success & stop listening to Jack, new Jack status : "+newStatus);
+            Informations.printInformations(Priority.HIGH, "JackAction : Jack changed, status = success & stop listening to Jack, new Jack status : "+newStatus);
             //Robot.Robot.robot.JACK.JackChangeEvent -= this.JackChange;
             //Robot.Robot.robot.JACK.StopTimer();
-            //this.Status = ActionStatus.SUCCESS;
-            DisplayOnIHM();
-        }
-
-        private void DisplayOnIHM()
-        {
-            //Robot.Robot.robot.IHM.AfficherInformation("Status jack :\n" + Robot.Robot.robot.JACK.IsJackOn(),false);
+            Robot.Robot.robot.JACK.doneListeningToJack = true;
+            Robot.Robot.robot.StartCountdown();
+            this.Status = ActionStatus.SUCCESS;
+            //DisplayOnIHM();
         }
 
 

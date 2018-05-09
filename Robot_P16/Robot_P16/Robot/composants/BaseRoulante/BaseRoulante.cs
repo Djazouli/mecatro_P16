@@ -30,7 +30,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         public int speedDrive = 150;// avance 10 cm par seconde
         public int speedTurn = 200; //tourne 30 degrees par seconde
 
-        private static int REFRESH_RATE_EVENT = 300;
+        public int REFRESH_RATE_KANGAROO = 1000;
 
 
         int PARAMETER_FOR_XY = 1;//l'unite de la dist. = millimetre, on n'accepte QUE l'entier
@@ -44,14 +44,6 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             /*Gadgeteer.Timer timer = new Gadgeteer.Timer(REFRESH_RATE_EVENT);
             timer.Tick += (Gadgeteer.Timer t) => kangaroo.CheckMovingStatus();
             timer.Start();*/
-            new Thread(() =>
-            {
-                while (true)
-                {
-                    Thread.Sleep(REFRESH_RATE_EVENT);
-                    kangaroo.CheckMovingStatus();
-                }
-            }).Start();
 
         }
 

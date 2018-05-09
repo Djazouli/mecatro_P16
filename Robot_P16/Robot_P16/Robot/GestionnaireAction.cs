@@ -18,12 +18,20 @@ namespace Robot_P16.Robot
 
             StrategieGrosRobot strategieGR = new StrategieGrosRobot();
             setMotherAction(ModeOperatoire.COMPETITION, TypeRobot.GRAND_ROBOT, CouleurEquipe.VERT, strategieGR.GetMotherActionForCouleurVerte());
+            setMotherAction(ModeOperatoire.COMPETITION, TypeRobot.GRAND_ROBOT, CouleurEquipe.ORANGE, strategieGR.GetMotherActionForCouleurOrange());
 
             StrategiePetitRobot strategiePR = new StrategiePetitRobot();
             setMotherAction(ModeOperatoire.COMPETITION, TypeRobot.PETIT_ROBOT, CouleurEquipe.VERT, strategiePR.GetMotherActionPRCompetitionForCouleurVerte());
 
+            TestRobots testRobots = new TestRobots();
+            setMotherAction(ModeOperatoire.TEST1, TypeRobot.PETIT_ROBOT, CouleurEquipe.VERT, testRobots.GetActionTestIR());
+            setMotherAction(ModeOperatoire.TEST1, TypeRobot.PETIT_ROBOT, CouleurEquipe.ORANGE, testRobots.GetActionTestIR());
+            setMotherAction(ModeOperatoire.TEST1, TypeRobot.GRAND_ROBOT, CouleurEquipe.VERT, testRobots.GetActionTestIR());
+            setMotherAction(ModeOperatoire.TEST1, TypeRobot.GRAND_ROBOT, CouleurEquipe.ORANGE, testRobots.GetActionTestIR());
+
             Informations.printInformations(Priority.HIGH, "actions chargees");
         }
+
 
         public static void startActions(ModeOperatoire mode, TypeRobot type, CouleurEquipe couleur)
         {
@@ -62,13 +70,9 @@ namespace Robot_P16.Robot
                 ACTION_PER_TYPE.Add(mode, new Hashtable());
             }
             
-            if (((Hashtable)ACTION_PER_TYPE[mode]).Contains(type))
+            if (!((Hashtable)ACTION_PER_TYPE[mode]).Contains(type))
             {
-                ((Hashtable)ACTION_PER_TYPE[mode])[type] = a;
-            }
-            else
-            {
-                ((Hashtable)ACTION_PER_TYPE[mode]).Add(type, a);
+                ((Hashtable)ACTION_PER_TYPE[mode]).Add(type, new Hashtable());
             }
 
             if (((Hashtable)((Hashtable)ACTION_PER_TYPE[mode])[type]).Contains(couleur))

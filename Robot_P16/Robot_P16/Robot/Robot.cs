@@ -12,6 +12,7 @@ namespace Robot_P16.Robot
     public class Robot
     {
 
+        public bool isStopped = false;
 
         public static Robot robot;
         private ModeOperatoire modeOperatoire = ModeOperatoire.UNDEFINED;
@@ -87,8 +88,8 @@ namespace Robot_P16.Robot
         public readonly int GR_SOCKET_BASE_ROUlANTE = 4;
         public readonly int PR_SOCKET_BASE_ROUlANTE = 8;
 
-        public readonly int PR_SOCKET_SWITCH_GLOBAL = 5; // TODO
-        public readonly int GR_SOCKET_SWITCH_GLOBAL = 5;
+        public readonly int PR_SOCKET_SWITCH_GLOBAL = 8;
+        public readonly int GR_SOCKET_SWITCH_GLOBAL = 4;
         public readonly int PR_PORT_SWITCH_GLOBAL = 3;
         public readonly int GR_PORT_SWITCH_GLOBAL = 3;
 
@@ -101,6 +102,7 @@ namespace Robot_P16.Robot
         public composants.JackInterrupt JACK;
         public composants.CapteursObstacle.CapteurObstacleManager OBSTACLE_MANAGER;
         public composants.IHM.C_IHM IHM;
+        public composants.RelaisMoteur SWITCH_GLOBAL;
 
 
         /* ********************************** GRAND ROBOT ****************************** */
@@ -187,6 +189,29 @@ namespace Robot_P16.Robot
 
             loadComponents();
 
+            new Thread(() =>
+            {
+                while (true)
+                {
+                    Thread.Sleep(this.BASE_ROULANTE.REFRESH_RATE_KANGAROO);
+                    this.BASE_ROULANTE.kangaroo.CheckMovingStatus();
+
+                }
+            }).Start();
+            /*
+            if (this.TypeRobot == TypeRobot.PETIT_ROBOT)
+            {
+                new Thread(() =>
+                {
+                    while (true)
+                    {
+                        //Thread.Sleep(PR_ULTRASON.REFRESH_RATE);
+                        PR_ULTRASON.detectObstacle(null);
+                    }
+                }).Start();
+            }*/
+
+
             /*Debug.Print("Starting ROBOT !!!");
             parametrization.startMethod();*/
         }
@@ -195,15 +220,50 @@ namespace Robot_P16.Robot
         {
             Debug.Print("Called robot.Start()");
             
-            //GestionnaireAction.startActions(this.modeOperatoire, this.typeRobot);
-
-
-            /*Gadgeteer.Timer t = new Gadgeteer.Timer(500);
-            t.Tick += (piche) => Debug.Print("IsMoving : " + this.BASE_ROULANTE.kangaroo.isCurrentlyMoving());
-            t.Start();*/
+            //GestionnaireAction.startActions(this.modeOperatoire, this.typeRobot
 
             new Thread(() => GestionnaireAction.startActions(this.modeOperatoire, this.typeRobot, this.couleurEquipe)).Start();
+            //new Thread(() => { Thread.Sleep(10000); Stop(); }).Start();
+        }
 
+        public void StartCountdown()
+        {
+            new Thread(() => { Thread.Sleep(1000000); Stop(); }).Start();
+        }
+
+        public void Stop()
+        {
+            Informations.printInformations(Priority.HIGH, "Robot - called stop()");
+            isStopped = true;
+            this.SWITCH_GLOBAL.Activate();
+            if (this.typeRobot == TypeRobot.GRAND_ROBOT)
+            {
+                this.GR_LANCEUR_BALLE.stop(); 
+                this.GR_SERVO_PLATEAU.Stop();
+                Thread.Sleep(50);
+                this.GR_SERVO_ABEILLE.Stop();
+                Thread.Sleep(50);
+                this.GR_SERVO_TRAPPE.Stop();
+                Thread.Sleep(50);
+            }
+            else
+            {
+                this.PR_RELAIS_VENTOUZES.Desactivate();
+                this.PR_SERVO_AIGUILLAGE.Stop();
+                Thread.Sleep(50);
+                this.PR_SERVO_ASCENSEUR_BRAS_DROIT.Stop();
+                Thread.Sleep(50);
+                this.PR_SERVO_ASCENSEUR_BRAS_GAUCHE.Stop();
+                Thread.Sleep(50);
+                 this.PR_SERVO_DEPLOIEMENT_BRAS_GAUCHE.Stop();
+                Thread.Sleep(50);
+                this.PR_SERVO_POUSSOIRJOKER.Stop();
+                Thread.Sleep(20);
+                 this.PR_SERVO_ROTATION_BRAS_DROIT.Stop();
+                Thread.Sleep(50);
+                this.PR_SERVO_ROTATION_BRAS_GAUCHE.Stop();
+                Thread.Sleep(50);
+            }
         }
 
         public void loadComponents()
@@ -217,6 +277,9 @@ namespace Robot_P16.Robot
                         Program.Mainboard = new GHIElectronics.Gadgeteer.FEZSpider();
                     else
                         Program.Mainboard = new GHIElectronics.Gadgeteer.FEZSpiderII();*/
+
+                    SWITCH_GLOBAL = new composants.RelaisMoteur(GR_SOCKET_SWITCH_GLOBAL, GR_PORT_SWITCH_GLOBAL);
+                    //SWITCH_GLOBAL.Desactivate();
 
                     BASE_ROULANTE = new composants.BaseRoulante.BaseRoulante(GR_SOCKET_BASE_ROUlANTE);
                     
@@ -254,6 +317,9 @@ namespace Robot_P16.Robot
                     else
                         Program.Mainboard = new GHIElectronics.Gadgeteer.FEZSpiderII();*/
                     
+                    SWITCH_GLOBAL = new composants.RelaisMoteur(PR_SOCKET_SWITCH_GLOBAL, PR_PORT_SWITCH_GLOBAL);
+                    //SWITCH_GLOBAL.Activate();
+
                     PR_SERVO_ASCENSEUR_BRAS_DROIT = new composants.Servomoteurs.AX12(PR_SOCKET_SERVOS, PR_SERVO_ID_ASCENSEUR_BRAS_DROIT);
                     PR_SERVO_ASCENSEUR_BRAS_GAUCHE = new composants.Servomoteurs.AX12(PR_SOCKET_SERVOS, PR_SERVO_ID_ASCENSEUR_BRAS_GAUCHE);
                     PR_SERVO_ROTATION_BRAS_GAUCHE = new composants.Servomoteurs.AX12(PR_SOCKET_SERVOS, PR_SERVO_ID_ROTATION_BRAS_GAUCHE);
