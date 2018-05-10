@@ -25,6 +25,7 @@ namespace Robot_P16.Robot.composants.CapteursObstacle
             for (int i = 0; i < this.capteurs.Length; i++)
             {
                 this.lastObstacleFoundForCapteurs[i] = capteurs[i].IsThereAnObstacle();
+                this.capteurs[i].setIndex(i);
             }
             
             //this.start();

@@ -8,6 +8,7 @@ namespace Robot_P16.Map
         public static bool isDetecteurOn = false;
         public static bool isObstacleDetecteurOn()
         {
+            //return false;
             return isDetecteurOn ;
         }
     }

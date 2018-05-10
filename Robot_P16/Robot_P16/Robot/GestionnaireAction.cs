@@ -22,12 +22,23 @@ namespace Robot_P16.Robot
 
             StrategiePetitRobot strategiePR = new StrategiePetitRobot();
             setMotherAction(ModeOperatoire.COMPETITION, TypeRobot.PETIT_ROBOT, CouleurEquipe.VERT, strategiePR.GetMotherActionPRCompetitionForCouleurVerte());
+            setMotherAction(ModeOperatoire.COMPETITION, TypeRobot.PETIT_ROBOT, CouleurEquipe.ORANGE, strategiePR.GetMotherActionPRCompetitionForCouleurOrange());
 
             TestRobots testRobots = new TestRobots();
-            setMotherAction(ModeOperatoire.TEST1, TypeRobot.PETIT_ROBOT, CouleurEquipe.VERT, testRobots.GetActionTestIR());
+            setMotherAction(ModeOperatoire.TEST1, TypeRobot.PETIT_ROBOT, CouleurEquipe.VERT, testRobots.GetActionCalibragePR());
             setMotherAction(ModeOperatoire.TEST1, TypeRobot.PETIT_ROBOT, CouleurEquipe.ORANGE, testRobots.GetActionTestIR());
-            setMotherAction(ModeOperatoire.TEST1, TypeRobot.GRAND_ROBOT, CouleurEquipe.VERT, testRobots.GetActionTestIR());
-            setMotherAction(ModeOperatoire.TEST1, TypeRobot.GRAND_ROBOT, CouleurEquipe.ORANGE, testRobots.GetActionTestIR());
+            setMotherAction(ModeOperatoire.TEST1, TypeRobot.GRAND_ROBOT, CouleurEquipe.VERT, testRobots.GetActionTestScore());
+            setMotherAction(ModeOperatoire.TEST1, TypeRobot.GRAND_ROBOT, CouleurEquipe.ORANGE, testRobots.TestRecallage());
+
+            GestionnaireServosGR gestio = new GestionnaireServosGR();
+            setMotherAction(ModeOperatoire.HOMOLOGATION, TypeRobot.GRAND_ROBOT, CouleurEquipe.VERT, gestio.GR_PLATEAU_LIBERATION_TUBE_UNICOULEUR());
+            setMotherAction(ModeOperatoire.HOMOLOGATION, TypeRobot.GRAND_ROBOT, CouleurEquipe.ORANGE,
+                new ActionBuilder("Test").Add(gestio.GR_TRAPPE_FERMER).Add(gestio.GR_PLATEAU_RECOLTE)
+                .Add(gestio.GR_PLATEAU_LIBERATION_BALLES_COULEUR_OPPOSEE()).BuildActionEnSerie());
+
+            
+
+            //setMotherAction(ModeOperatoire.TEST1, TypeRobot.GRAND_ROBOT, CouleurEquipe.ORANGE, gestio.GR_PLATEAU_LIBERATION_BALLES_TUBE_MIXTE_NOTRE_COULEUR());
 
             Informations.printInformations(Priority.HIGH, "actions chargees");
         }

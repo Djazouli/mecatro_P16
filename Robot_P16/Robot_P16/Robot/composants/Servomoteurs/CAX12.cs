@@ -276,11 +276,11 @@ namespace Robot_P16.Robot.composants.Servomoteurs
 
             do
             {
-                Thread.Sleep(100);
+                Thread.Sleep(130);
             } while (isMoving());
 
             TEMPORAIRE_position = value;
-            Thread.Sleep(80); // a commenter ou decommenter
+            //Thread.Sleep(80); // a commenter ou decommenter
 
             return false;
 

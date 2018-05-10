@@ -63,8 +63,11 @@ namespace Robot_P16.Robot
         public readonly int PR_SOCKET_INFRAROUGE = 9;
         public readonly int PR_SOCKET_ULTRASON = 6;
 
-        public readonly int PR_PORT_INFRAROUGE_1 = 5;
-        public readonly int PR_PORT_INFRAROUGE_2 = 7;
+        public readonly int PR_PORT_INFRAROUGE_1 = 5; // Arriere
+        public readonly int PR_PORT_INFRAROUGE_2 = 7;// Arriere
+        public readonly int PR_PORT_INFRAROUGE_3 = 3;// Arriere
+        public readonly int PR_PORT_INFRAROUGE_4 = 4;// Arriere
+
 
         public readonly int GR_PORT_INFRAROUGE_1 = 3;
         public readonly int GR_PORT_INFRAROUGE_2 = 4;
@@ -144,6 +147,8 @@ namespace Robot_P16.Robot
 
         public composants.CapteursObstacle.Infrarouge PR_INFRAROUGE_1;
         public composants.CapteursObstacle.Infrarouge PR_INFRAROUGE_2;
+        public composants.CapteursObstacle.Infrarouge PR_INFRAROUGE_3;
+        public composants.CapteursObstacle.Infrarouge PR_INFRAROUGE_4;
         public composants.CapteursObstacle.Ultrason PR_ULTRASON;
 
         public composants.RelaisMoteur PR_RELAIS_VENTOUZES;
@@ -228,7 +233,24 @@ namespace Robot_P16.Robot
 
         public void StartCountdown()
         {
-            new Thread(() => { Thread.Sleep(1000000); Stop(); }).Start();
+            new Thread(() => { Thread.Sleep(1000 * 100); Stop(); }).Start();
+
+            if (this.typeRobot == TypeRobot.PETIT_ROBOT)
+            {
+                this.PR_RECEPTEUR_CODE_COULEUR.sendStart();
+                new Thread(() =>
+                {
+                    string code = null;
+                    while (code == null)
+                    {
+                        Thread.Sleep(1000);
+                        code = PR_RECEPTEUR_CODE_COULEUR.reception();
+                        Debug.Print("code :" + code);
+                    }
+                    Robot.robot.codeCouleur = code;
+                    Debug.Print("Code present dans le robot" + Robot.robot.codeCouleur);
+                }).Start();
+            }
         }
 
         public void Stop()
@@ -333,14 +355,17 @@ namespace Robot_P16.Robot
 
                     PR_INFRAROUGE_1 = new composants.CapteursObstacle.Infrarouge(PR_SOCKET_INFRAROUGE, PR_PORT_INFRAROUGE_1, OBSTACLE_DIRECTION.ARRIERE);
                     PR_INFRAROUGE_2 = new composants.CapteursObstacle.Infrarouge(PR_SOCKET_INFRAROUGE, PR_PORT_INFRAROUGE_2, OBSTACLE_DIRECTION.ARRIERE);
-                    PR_ULTRASON = new composants.CapteursObstacle.Ultrason(PR_SOCKET_ULTRASON, OBSTACLE_DIRECTION.AVANT);
+                    
+                    PR_INFRAROUGE_3 = new composants.CapteursObstacle.Infrarouge(PR_SOCKET_INFRAROUGE, PR_PORT_INFRAROUGE_3, OBSTACLE_DIRECTION.AVANT);
+                    PR_INFRAROUGE_4 = new composants.CapteursObstacle.Infrarouge(PR_SOCKET_INFRAROUGE, PR_PORT_INFRAROUGE_4, OBSTACLE_DIRECTION.AVANT);
+                    //PR_ULTRASON = new composants.CapteursObstacle.Ultrason(PR_SOCKET_ULTRASON, OBSTACLE_DIRECTION.AVANT);
                     
                     //JACK = new composants.Jack(PR_SOCKET_JACK, PR_PORT_JACK);
                     JACK = new composants.JackInterrupt(PR_SOCKET_JACK, PR_PORT_JACK);
 
                     PR_RELAIS_VENTOUZES = new composants.RelaisMoteur(PR_SOCKET_VENTOUZES, PR_PORT_VENTOUZES);
 
-                    composants.CapteursObstacle.CapteurObstacle[] capteurs_PR = {PR_INFRAROUGE_1, PR_INFRAROUGE_2/*, PR_ULTRASON*/};
+                    composants.CapteursObstacle.CapteurObstacle[] capteurs_PR = {PR_INFRAROUGE_1, PR_INFRAROUGE_2, PR_INFRAROUGE_3, PR_INFRAROUGE_4};
                     OBSTACLE_MANAGER = new composants.CapteursObstacle.CapteurObstacleManager(capteurs_PR);
 
                     PR_RECEPTEUR_CODE_COULEUR = new composants.RecepteurCodeCouleur(PR_SOCKET_RECEPTEUR_CODE_COULEUR);

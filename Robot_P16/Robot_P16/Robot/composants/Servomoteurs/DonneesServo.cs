@@ -87,7 +87,7 @@ namespace Robot_P16.Robot.composants.Servomoteurs
      public const int ANGLE_GR_PLATEAU_SLOT_1 = 80;
      public const int ANGLE_GR_PLATEAU_SLOT_2 = 204;
      public const int ANGLE_GR_PLATEAU_SLOT_3 = 323;
-     public const int ANGLE_GR_PLATEAU_SLOT_4 = 449;
+     public const int ANGLE_GR_PLATEAU_SLOT_4 = 440;
      public const int ANGLE_GR_PLATEAU_SLOT_5 = 573;
      public const int ANGLE_GR_PLATEAU_SLOT_6 = 697;
      public const int ANGLE_GR_PLATEAU_SLOT_7 = 820;
@@ -96,6 +96,8 @@ namespace Robot_P16.Robot.composants.Servomoteurs
         // Si recolt cote vert (arriere) : commencer par slot 0 => slot le plus proche
 
 
+     public const int ANGLE_GR_ABEILLE_DECLENCHER = 425; // 432 avant
+     public const int ANGLE_GR_ABEILLE_REPLIER = 210;
 
     }
 }

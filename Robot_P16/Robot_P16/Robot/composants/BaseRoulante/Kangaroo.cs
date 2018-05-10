@@ -36,11 +36,11 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         private int CODEUR_VAL_DISTANCE_1MM;// = 1634;
 
         
-        private const int CODEUR_LINES_ANGLE_360_DEGRES_PR = 4017;
-        private const int CODEUR_VAL_ANGLE_360_DEGRES_PR = 360;
+        private const int CODEUR_LINES_ANGLE_360_DEGRES_PR = 520833;
+        private const int CODEUR_VAL_ANGLE_360_DEGRES_PR = 10000;
 
-        private const int CODEUR_LINES_DISTANCE_1MM_PR = 10240;
-        private const int CODEUR_VAL_DISTANCE_1MM_PR = 1634;
+        private const int CODEUR_LINES_DISTANCE_1MM_PR = 791955; //102400;
+        private const int CODEUR_VAL_DISTANCE_1MM_PR = 10000; // 1293;//
 
         private const int CODEUR_LINES_ANGLE_360_DEGRES_GR = 5122;
         private const int CODEUR_VAL_ANGLE_360_DEGRES_GR = 360;
@@ -51,8 +51,8 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         private double ratioPointOrienteVersKangarooANGLE;// = 1.0 * 0.957;// / 2.66; //125.0 / 360.0;//617.0 / 360.0 / 5.0;//550.0 / 720.0;
         private double ratioPointOrienteVersKangarooDIST;// = 1.0 * 170.0 / 179.0;// * 0.67; //57.0/10.0;//688.0 / 1000.0;
 
-        private const double ratioPointOrienteVersKangarooANGLE_PR = 1.0 * 0.957;// / 2.66; //125.0 / 360.0;//617.0 / 360.0 / 5.0;//550.0 / 720.0;
-        private const double ratioPointOrienteVersKangarooDIST_PR = 1.0 * 170.0 / 179.0;// * 0.67; //57.0/10.0;//688.0 / 1000.0;
+        private const double ratioPointOrienteVersKangarooANGLE_PR = 1.0;// * 0.957;// / 2.66; //125.0 / 360.0;//617.0 / 360.0 / 5.0;//550.0 / 720.0;
+        private const double ratioPointOrienteVersKangarooDIST_PR = 1.0;// * 170.0 / 179.0;// * 0.67; //57.0/10.0;//688.0 / 1000.0;
 
         private const double ratioPointOrienteVersKangarooANGLE_GR = 1.0 * 0.977;// * 0.957;// / 2.66; //125.0 / 360.0;//617.0 / 360.0 / 5.0;//550.0 / 720.0;
         private const double ratioPointOrienteVersKangarooDIST_GR = 1.0 * 0.9743;// * 170.0 / 179.0;// * 0.67; //57.0/10.0;//688.0 / 1000.0;
@@ -62,7 +62,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         public string currentMode = null;
 
         public DateTime lastInstructionSent = DateTime.Now;
-        private static TimeSpan TIMESPAN_AFTER_INSTUCTION = new TimeSpan(0, 0, 0, 0, 1000);
+        private static TimeSpan TIMESPAN_AFTER_INSTUCTION = new TimeSpan(0, 0, 0, 0, 0);
 
         public Kangaroo(int socket) : base(socket)
         {
@@ -190,7 +190,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             if (this.currentMode == null)
             {
                 GetDynamicPosition();
-                //Debug.Print("POSITION : "+this.position);
+                Debug.Print("POSITION : "+this.position);
                 return;
             }
 
@@ -235,7 +235,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             }
 
 
-            //Informations.printInformations(Priority.HIGH, "Current position : " + this.position);
+            Informations.printInformations(Priority.HIGH, "Current position : " + this.position);
         }
 
         public PointOriente GetStaticPosition()
@@ -264,7 +264,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             //T,P100
             if (/*this.currentMode == null || */ feedback == null || feedback.Length < 4) return;// this.position;
             char status = feedback[2];
-            Informations.printInformations(Priority.VERY_LOW, "FEED : "+feedback);
+            Informations.printInformations(Priority.HIGH, "FEED : "+feedback);
 
             if (feedback[2] == 'E')
             {
@@ -403,7 +403,9 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         }
 
         public double RecallageX(double newY, int timeSleep, int speed, int distance, double angle){
-            drive(distance, speed);
+            Init();
+            string commande = "D,p" + distance + "s" + speed + "\r\n";
+            EnvoyerCommande(commande);
             Thread.Sleep(timeSleep);
             stop();
             position.y = newY;
@@ -412,7 +414,9 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         }
         public double RecallageY(double newX, int timeSleep, int speed, int distance, double angle)
         {
-            drive(distance, speed);
+            Init();
+            string commande = "D,p" + distance + "s" + speed + "\r\n";
+            EnvoyerCommande(commande);
             Thread.Sleep(timeSleep);
             stop();
             position.x = newX;
