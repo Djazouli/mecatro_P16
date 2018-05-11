@@ -48,7 +48,7 @@ namespace Robot_P16.Robot
                 .Add(new ActionBuilder("Deplacement 2").BuildActionBaseRoulante_GOTO_ANGLE(point_tube_uni_final, OBSTACLE_DIRECTION.ARRIERE))
                 //.Add(new ActionBuilder("Recule un peu").BuildActionBaseRoulante_DRIVE(3, 100))
                 .Add(gestio.GR_PLATEAU_LIBERATION_TUBE_UNICOULEUR())
-                .Add(new ActionBuilder("Recule un peu").BuildActionBaseRoulante_DRIVE(50, 100 * 100))
+                //.Add(new ActionBuilder("Recule un peu").BuildActionBaseRoulante_DRIVE(50, 100 * 100))
                 .BuildActionEnSerie();
 
             ActionEnSerie ActiverAbeille = new ActionBuilder("Activer l'abeille")

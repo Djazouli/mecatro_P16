@@ -84,14 +84,14 @@ namespace Robot_P16.Robot.composants.Servomoteurs
      public const int ANGLE_GR_PLATEAU_OUVERTURE_ARRIERE_VERT = 810;
 
      public const int ANGLE_GR_PLATEAU_SLOT_0 = 0;
-     public const int ANGLE_GR_PLATEAU_SLOT_1 = 80;
-     public const int ANGLE_GR_PLATEAU_SLOT_2 = 204;
-     public const int ANGLE_GR_PLATEAU_SLOT_3 = 323;
-     public const int ANGLE_GR_PLATEAU_SLOT_4 = 440;
-     public const int ANGLE_GR_PLATEAU_SLOT_5 = 573;
-     public const int ANGLE_GR_PLATEAU_SLOT_6 = 697;
-     public const int ANGLE_GR_PLATEAU_SLOT_7 = 820;
-     public const int ANGLE_GR_PLATEAU_SLOT_8 = 939;
+     public const int ANGLE_GR_PLATEAU_SLOT_1 = 83; //80
+     public const int ANGLE_GR_PLATEAU_SLOT_2 = 205; //204
+     public const int ANGLE_GR_PLATEAU_SLOT_3 = 325; //323
+     public const int ANGLE_GR_PLATEAU_SLOT_4 = 445; //440
+     public const int ANGLE_GR_PLATEAU_SLOT_5 = 569; //573
+     public const int ANGLE_GR_PLATEAU_SLOT_6 = 692; //697
+     public const int ANGLE_GR_PLATEAU_SLOT_7 = 816; // 820
+     public const int ANGLE_GR_PLATEAU_SLOT_8 = 963; //939
         // Si recole cote orange (avant) : commencer par slot 8 => slot le plus proche
         // Si recolt cote vert (arriere) : commencer par slot 0 => slot le plus proche
 

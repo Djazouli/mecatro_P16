@@ -31,7 +31,7 @@ namespace Robot_P16.Robot.composants.Servomoteurs
     new ActionBuilder("ServoGR- trou du plateau vers l'arriere (sticker vert)").BuildActionServoAbsolue(Robot.robot.GR_SERVO_PLATEAU, DonneesServo.ANGLE_GR_PLATEAU_OUVERTURE_ARRIERE_VERT);
 
         public ActionServoRotation GR_PLATEAU_RECOLTE = new ActionBuilder("ServoGR - Tourne le plateau en continu").
-            BuildActionServoRotation(Robot.robot.GR_SERVO_PLATEAU, 700, 4000); // Rotation continu sens trigo
+            BuildActionServoRotation(Robot.robot.GR_SERVO_PLATEAU, 600, 4000); // Rotation continu sens trigo
 
         public ActionServoAbsolue GR_PLATEAU_SLOT0 = new ActionServoAbsolue("ServoGR - plateau slot 1", Robot.robot.GR_SERVO_PLATEAU, DonneesServo.ANGLE_GR_PLATEAU_SLOT_0); // rien sur la trappe
         public ActionServoAbsolue GR_PLATEAU_SLOT1 = new ActionServoAbsolue("ServoGR - plateau slot 1", Robot.robot.GR_SERVO_PLATEAU, DonneesServo.ANGLE_GR_PLATEAU_SLOT_1);
@@ -45,9 +45,9 @@ namespace Robot_P16.Robot.composants.Servomoteurs
 
         public ActionEnSerie GR_PLATEAU_PETIT_RETOUR_ARRIERE = new ActionBuilder("ServoGR - plateau petit retour en arriere")
             .Add(new ActionWait("Wait a bit...", 500))
-            .Add(new ActionServoRotation("Plateau servo petit retour arriere", Robot.robot.GR_SERVO_PLATEAU, 250, 200))
-            .Add(new ActionServoRotation("Plateau servo petit retour arriere", Robot.robot.GR_SERVO_PLATEAU, 250, 200))
-            .Add(new ActionWait("Wait a bit...", 300))
+            /*.Add(new ActionServoRotation("Plateau servo petit retour arriere", Robot.robot.GR_SERVO_PLATEAU, 250, 200))
+            .Add(new ActionServoRotation("Plateau servo petit retour arriere", Robot.robot.GR_SERVO_PLATEAU, 1250, 200))*/
+            .Add(new ActionWait("Wait a bit...", 700))
             .BuildActionEnSerie();
 
         public Action GR_PLATEAU_LIBERATION_TUBE_UNICOULEUR()
@@ -57,7 +57,8 @@ namespace Robot_P16.Robot.composants.Servomoteurs
             .Add(GR_PLATEAU_RECOLTE)
             .Add(GR_PLATEAU_SLOT0)
             .Add(new ActionWait("Wait a bit...", 500))
-            .Add(new ActionBuilder("Demarrer lanceur").BuildActionLanceurBalle(/*0.618*/ 0.635 ))
+            .Add(new ActionBuilder("piche").BuildActionBaseRoulante_GOTO_ANGLE(new Map.PointOriente(610 - 168/* point final */,0,110-90), OBSTACLE_DIRECTION.AVANT))
+            .Add(new ActionBuilder("Demarrer lanceur").BuildActionLanceurBalle(/*0.618*/ 0.645 ))
             .Add(GR_TRAPPE_OUVRIR)
             .Add(new ActionWait("Wait a bit...", 500))
             .Add(GR_PLATEAU_SLOT1)
