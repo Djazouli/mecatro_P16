@@ -129,6 +129,8 @@ namespace Robot_P16.Robot
 
         /* ********************************** PETIT ROBOT ****************************** */
 
+        public composants.Servomoteurs.AscenseurDroite PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW; // ID = 5
+
         public composants.Servomoteurs.AX12 PR_SERVO_ASCENSEUR_BRAS_DROIT; // ID = 5
         public composants.Servomoteurs.AX12 PR_SERVO_ASCENSEUR_BRAS_GAUCHE; // ID = 4
         public composants.Servomoteurs.AX12 PR_SERVO_ROTATION_BRAS_GAUCHE; // ID = 1
@@ -349,7 +351,7 @@ namespace Robot_P16.Robot
                     PR_SERVO_DEPLOIEMENT_BRAS_GAUCHE = new composants.Servomoteurs.AX12(PR_SOCKET_SERVOS, PR_SERVO_ID_DEPLOIEMENT_BRAS_GAUCHE);
                     PR_SERVO_POUSSOIRJOKER = new composants.Servomoteurs.AX12(PR_SOCKET_SERVOS, PR_SERVO_ID_POUSSOIRJOKER);
                     PR_SERVO_AIGUILLAGE = new composants.Servomoteurs.AX12(PR_SOCKET_SERVOS, PR_SERVO_ID_AIGUILLAGE);
-
+                    PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW = new composants.Servomoteurs.AscenseurDroite(PR_SOCKET_SERVOS, PR_SERVO_ID_ASCENSEUR_BRAS_DROIT); 
                     
                     BASE_ROULANTE = new composants.BaseRoulante.BaseRoulante(PR_SOCKET_BASE_ROUlANTE);
 

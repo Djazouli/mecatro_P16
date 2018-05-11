@@ -12,6 +12,23 @@ namespace Robot_P16.Robot
     public class TestRobots
     {
 
+        public Action TestPRAscenseurDroit()
+        {
+            return new ActionBuilder("Test asceneur droit PR")
+                .Add(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW.ActionHauteurPose_3emeCube())
+                .Add(new ActionWait("Wait", 3000))
+                .Add(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW.ActionPoserVentouze())
+                .Add(new ActionWait("Wait", 3000))
+                .Add(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW.ActionHauteurPose_3emeCube())
+                .Add(new ActionWait("Wait", 3000))
+                .Add(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW.ActionHauteurPose_2emeCube())
+                .Add(new ActionWait("Wait", 3000))
+                .Add(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW.ActionHauteurPose_3emeCube())
+                .Add(new ActionWait("Wait", 3000))
+                .Add(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW.ActionPoserVentouze())
+                .Add(new ActionWait("Wait", 3000))
+                .BuildActionEnSerie();
+        }
 
         public Action TestRecallage()
         {
@@ -34,20 +51,42 @@ namespace Robot_P16.Robot
         }
 
 
+        public Action GetActionCalibragePR2()
+        {
+            Action MOTHER_ACTION = new ActionBuilder("Test IR")
+                //.Add(new ActionBuilder("Tourne 90").BuildActionBaseRoulante_DRIVE(1000,100*600))
+            .Add(new ActionBuilder("Regler vitese drive").BuildActionDelegate(() => Robot.robot.BASE_ROULANTE.speedDrive = 50))
+           .Add(new ActionBuilder("Deplacement bidon").BuildActionBaseRoulante_TURN(+90, 50))
+           .Add(new ActionWait("Wait a bit...", 20000))
+           .Add(new ActionBuilder("Deplacement bidon").BuildActionBaseRoulante_TURN(-90, 50))
+
+           /*.Add(new ActionBuilder("Deplacement bidon").BuildActionBaseRoulante_GOTO_ONLY(new PointOriente(100, -100)))
+           .Add(new ActionWait("Wait a bit...", 10000))
+           .Add(new ActionBuilder("Deplacement bidon").BuildActionBaseRoulante_GOTO_ONLY(new PointOriente(0, -100)))
+           .Add(new ActionWait("Wait a bit...", 10000))
+           .Add(new ActionBuilder("Deplacement bidon").BuildActionBaseRoulante_GOTO_ONLY(new PointOriente(0, 0)))
+           .Add(new ActionWait("Wait a bit...", 10000))*/
+           .BuildActionEnSerieRepeated(1);
+
+            return MOTHER_ACTION;
+        }
+
         public Action GetActionCalibragePR()
         {
             Action MOTHER_ACTION = new ActionBuilder("Test IR")
             //.Add(new ActionBuilder("Tourne 90").BuildActionBaseRoulante_DRIVE(1000,100*600))
             .Add(new ActionBuilder("Regler vitese drive").BuildActionDelegate(() => Robot.robot.BASE_ROULANTE.speedDrive = 50))
-           .Add(new ActionBuilder("Deplacement bidon").BuildActionBaseRoulante_GOTO_ONLY(new PointOriente(100, 0)))
-           .Add(new ActionWait("Wait a bit...", 10000))
-           .Add(new ActionBuilder("Deplacement bidon").BuildActionBaseRoulante_GOTO_ONLY(new PointOriente(100, -100)))
+           .Add(new ActionBuilder("Deplacement bidon").BuildActionBaseRoulante_TURN(-90, 50))
+           .Add(new ActionWait("Wait a bit...", 20000))
+           .Add(new ActionBuilder("Deplacement bidon").BuildActionBaseRoulante_TURN(90, 50))
+           
+           /*.Add(new ActionBuilder("Deplacement bidon").BuildActionBaseRoulante_GOTO_ONLY(new PointOriente(100, -100)))
            .Add(new ActionWait("Wait a bit...", 10000))
            .Add(new ActionBuilder("Deplacement bidon").BuildActionBaseRoulante_GOTO_ONLY(new PointOriente(0, -100)))
            .Add(new ActionWait("Wait a bit...", 10000))
            .Add(new ActionBuilder("Deplacement bidon").BuildActionBaseRoulante_GOTO_ONLY(new PointOriente(0, 0)))
-           .Add(new ActionWait("Wait a bit...", 10000))
-           .BuildActionEnSerieRepeated(-1);
+           .Add(new ActionWait("Wait a bit...", 10000))*/
+           .BuildActionEnSerieRepeated(1);
 
             return MOTHER_ACTION;
         }

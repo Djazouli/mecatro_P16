@@ -86,6 +86,7 @@
     <Compile Include="Robot\composants\LanceurBalle.cs" />
     <Compile Include="Robot\composants\RecepteurCodeCouleur.cs" />
     <Compile Include="Robot\composants\RelaisMoteur.cs" />
+    <Compile Include="Robot\composants\Servomoteurs\Ascenseur.cs" />
     <Compile Include="Robot\composants\Servomoteurs\CAX12.cs" />
     <Compile Include="Robot\Informations.cs" />
     <Compile Include="Robot\composants\BaseRoulante\BaseRoulante.cs" />

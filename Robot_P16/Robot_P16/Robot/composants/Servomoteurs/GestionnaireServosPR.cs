@@ -5,7 +5,7 @@ using Robot_P16.Robot;
 
 namespace Robot_P16.Robot.composants.Servomoteurs
 {
-    class GestionnaireServosPR
+    public class GestionnaireServosPR
     {
         public ActionServoRotation PR_BRAS_GAUCHE_POSITION_BASE =
             new ActionBuilder("ServoPR - mettre bras gauche en position de base").BuildActionServoRotation(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE, Robot_P16.Robot.composants.Servomoteurs.speed.forward, 500);

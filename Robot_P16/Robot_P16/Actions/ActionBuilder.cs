@@ -20,6 +20,7 @@ namespace Robot_P16.Actions
 
         public ActionBuilder Add(Action a)
         {
+            if (a == null) return this;
             liste.Add(a);
             return this;
         }
