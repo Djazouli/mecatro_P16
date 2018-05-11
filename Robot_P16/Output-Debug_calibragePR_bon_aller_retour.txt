@@ -1,0 +1,1010 @@
+﻿Found debugger!
+
+Create TS.
+
+ Loading start at a0e00000, end a0e2f494
+
+   Assembly: mscorlib (4.3.1.0)     Assembly: Microsoft.SPOT.Native (4.3.1.0)     Assembly: Microsoft.SPOT.Security.PKCS11 (4.3
+.1.0)     Assembly: System.Security (4.3.1.0)     Assembly: Microsoft.SPOT.Hardware (4.3.1.0)  
+   Assembly: Microsoft.SPOT.Graphics (4.3.1.0)     Assembly: Microsoft.SPOT.TinyCore (4.3.1.0)  
+   Assembly: Microsoft.SPOT.IO (4.3.1.0)     Assembly: System.IO (4.3.1.0)     Assembly: Microsoft.SPOT.Hardware.Usb (4.3.1.0) 
+    Assembly: Microsoft.SPOT.Hardware.SerialPort (4.3.1.0)     Assembly: Microsoft.SPOT.Touch (4.3.1.0)  
+   Assembly: Microsoft.SPOT.Ink (4.3.1.0)     Assembly: Microsoft.SPOT.Hardware.PWM (4.3.1.0)  
+Loading Deployment Assemblies.
+
+Attaching deployed file.
+
+   Assembly: GTM.GHIElectronics.DistanceUS3 (4.3.8.1)  Attaching deployed file.
+
+   Assembly: GHI.Glide (4.3.8.1)  Attaching deployed file.
+
+   Assembly: GTM.GHIElectronics.ColorSense (4.3.8.1)  Attaching deployed file.
+
+   Assembly: GHI.Hardware (4.3.8.1)  Attaching deployed file.
+
+   Assembly: Microsoft.SPOT.Net (4.3.1.0)  Attaching deployed file.
+
+   Assembly: GTM.GHIElectronics.USBClientSP (4.3.8.1)  Attaching deployed file.
+
+   Assembly: GHIElectronics.Gadgeteer.FEZSpiderII (4.3.8.1)  Attaching deployed file.
+
+   Assembly: GHIElectronics.Gadgeteer.FEZSpider (4.3.8.1)  Attaching deployed file.
+
+   Assembly: GHI.Usb (4.3.8.1)  Attaching deployed file.
+
+   Assembly: Gadgeteer (2.43.1.0)  Attaching deployed file.
+
+   Assembly: System (4.3.1.0)  Attaching deployed file.
+
+   Assembly: GTM.GHIElectronics.Button (4.3.8.1)  Attaching deployed file.
+
+   Assembly: Robot_P16 (1.0.0.0)  Attaching deployed file.
+
+   Assembly: GTM.GHIElectronics.XBeeAdapter (4.3.8.1)  Attaching deployed file.
+
+   Assembly: Gadgeteer.Serial (2.43.1.0)  Attaching deployed file.
+
+   Assembly: GTM.GHIElectronics.MotorDriverL298 (4.3.8.1)  Attaching deployed file.
+
+   Assembly: GHI.Pins (4.3.8.1)  Attaching deployed file.
+
+   Assembly: System.Xml (4.3.1.0)  Attaching deployed file.
+
+   Assembly: GTM.GHIElectronics.DisplayT35 (4.3.8.1)  Attaching deployed file.
+
+   Assembly: GTM.GHIElectronics.DisplayTE35 (4.3.8.1)  Attaching deployed file.
+
+   Assembly: GTM.GHIElectronics.USBClientEDP (4.3.8.1)  Resolving.
+
+GC: 1msec 50424 bytes used, 7289244 bytes available
+
+Type 0F (STRING              ):     24 bytes
+
+Type 15 (FREEBLOCK           ): 7289244 bytes
+
+Type 17 (ASSEMBLY            ):  48564 bytes
+
+Type 1E (BINARY_BLOB_HEAD    ):   1332 bytes
+
+Type 28 (MEMORY_STREAM_HEAD  ):     36 bytes
+
+Type 29 (MEMORY_STREAM_DATA  ):    396 bytes
+
+Type 34 (APPDOMAIN_HEAD      ):     72 bytes
+
+GC: performing heap compaction...
+
+The debugging target runtime is loading the application assemblies and starting execution.
+Ready.
+
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Native.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Hardware.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Security.PKCS11.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\System.Security.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Graphics.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.TinyCore.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.IO.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\System.IO.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Hardware.Usb.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Hardware.SerialPort.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Touch.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Ink.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Hardware.PWM.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Net.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'D:\Programs\MicrosoftGadgeteerCore\Core\Assemblies\.NET Micro Framework 4.3\le\Gadgeteer.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Modules\DistanceUS3\NETMF 4.3\le\GTM.GHIElectronics.DistanceUS3.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\System.Xml.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\NETMF v4.3 SDK\Libraries\le\GHI.Glide.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Modules\ColorSense\NETMF 4.3\le\GTM.GHIElectronics.ColorSense.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\NETMF v4.3 SDK\Libraries\le\GHI.Hardware.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Modules\USBClientSP\NETMF 4.3\le\GTM.GHIElectronics.USBClientSP.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\NETMF v4.3 SDK\Libraries\le\GHI.Usb.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Mainboards\FEZSpiderII\NETMF 4.3\le\GHIElectronics.Gadgeteer.FEZSpiderII.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Mainboards\FEZSpider\NETMF 4.3\le\GHIElectronics.Gadgeteer.FEZSpider.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\System.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Modules\Button\NETMF 4.3\le\GTM.GHIElectronics.Button.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Modules\MotorDriverL298\NETMF 4.3\le\GTM.GHIElectronics.MotorDriverL298.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'D:\Programs\MicrosoftGadgeteerCore\Core\Assemblies\.NET Micro Framework 4.3\le\Gadgeteer.Serial.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Modules\XBeeAdapter\NETMF 4.3\le\GTM.GHIElectronics.XBeeAdapter.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Modules\DisplayTE35\NETMF 4.3\le\GTM.GHIElectronics.DisplayTE35.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'D:\Documents\Travail\Mines\2A\mecatro\pole_info\code\Robot_P16\Robot_P16\bin\Debug\le\Robot_P16.exe', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\NETMF v4.3 SDK\Libraries\le\GHI.Pins.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Modules\DisplayT35\NETMF 4.3\le\GTM.GHIElectronics.DisplayT35.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Modules\USBClientEDP\NETMF 4.3\le\GTM.GHIElectronics.USBClientEDP.dll'
+594ms :  Copie du point orienté (0,0,0)
+The thread '<No Name>' (0x2) has exited with code 0 (0x0).
+Using mainboard GHI Electronics FEZ Spider version 1.0
+Program Started
+Querying type...
+WARN: Total initialization time exceeds 10 seconds.
+    : ProgramStarted is blocking execution, which means events and timers will not run properly.
+    : Make sure not to use blocking code such as while(true) - use a GT.Timer instead.
+Got type : 2
+Querying mode operatoire...
+WARN: Total initialization time exceeds 20 seconds.
+    : ProgramStarted is blocking execution, which means events and timers will not run properly.
+    : Make sure not to use blocking code such as while(true) - use a GT.Timer instead.
+Got mode : 3
+Querying couleur...
+Got couleur : 0
+23224ms : Robot : loadComponents : PETiT Robot selected !
+23261ms : SERVOS : Port COM ouvert : COM1
+23307ms : Tring to open serial port on COMPORt :COM3, socket : 8
+23321ms : New Kangaroo, port com not opened, opening.
+23335ms : New Kangaroo, port com Opening OK !
+23343ms : New Kangaroo, petit robot deteted.
+23568ms : New infrarouge on socket 9 & port 5; pin : 7; type of pin : Microsoft.SPOT.Hardware.Cpu+Pin
+23617ms : New infrarouge on socket 9 & port 7; pin : 24; type of pin : Microsoft.SPOT.Hardware.Cpu+Pin
+23666ms : New infrarouge on socket 9 & port 3; pin : 46; type of pin : Microsoft.SPOT.Hardware.Cpu+Pin
+23715ms : New infrarouge on socket 9 & port 4; pin : 6; type of pin : Microsoft.SPOT.Hardware.Cpu+Pin
+23792ms : Port COM Recepteur code couleur ouvert.
+23800ms : composants du robot chargés
+24100ms : T,P0,len:4
+24109ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P0
+24118ms : FEED : T,P0
+24166ms : D,P0,len:4
+24196ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P0
+24205ms : FEED : D,P0
+POSITION : PointOriente : X=0; Y=0; theta=0
+24327ms : actions mere set pour le type 1 & le mode 2 & couleur 0
+24519ms : T,P0,len:4
+24528ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P0
+24537ms : FEED : T,P0
+24585ms : D,P0,len:4
+24614ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P0
+24623ms : FEED : D,P0
+POSITION : PointOriente : X=0; Y=0; theta=0
+24792ms : actions mere set pour le type 1 & le mode 2 & couleur 1
+24938ms : T,P0,len:4
+24946ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P0
+24956ms : FEED : T,P0
+25015ms : actions mere set pour le type 2 & le mode 2 & couleur 0
+25004ms : D,P0,len:4
+25033ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P0
+25042ms : FEED : D,P0
+POSITION : PointOriente : X=0; Y=0; theta=0
+25136ms : actions mere set pour le type 2 & le mode 2 & couleur 1
+25204ms : actions mere set pour le type 2 & le mode 3 & couleur 0
+25263ms : actions mere set pour le type 2 & le mode 3 & couleur 1
+25318ms : actions mere set pour le type 1 & le mode 3 & couleur 0
+25355ms : T,P0,len:4
+25364ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P0
+25373ms : FEED : T,P0
+25421ms : D,P0,len:4
+25450ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P0
+25459ms : FEED : D,P0
+25446ms : actions mere set pour le type 1 & le mode 3 & couleur 1
+POSITION : PointOriente : X=0; Y=0; theta=0
+25613ms : actions mere set pour le type 1 & le mode 1 & couleur 0
+25706ms : actions mere set pour le type 1 & le mode 1 & couleur 1
+25715ms : actions chargees
+Called robot.Start()
+25785ms : Starting actions with mod : 3 & type : 2
+25832ms : T,P0,len:4
+25841ms : Lancement de l'action mère avec le mode 3 & type : 2 & couleur 0
+25861ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P0
+25870ms : FEED : T,P0
+25855ms : ActionEnSerie - execute called. Desc : Test IR
+25887ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Test IR
+25907ms : Rotate, Angle demande : 90
+25938ms : D,P0,len:4
+25978ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P0
+25987ms : FEED : D,P0
+26011ms : Command sent: T,p9356s5000
+
+26043ms : Kangaroo - Turn : sent command, waiting for move completion
+POSITION : PointOriente : X=0; Y=0; theta=0
+26294ms : T,p568,len:6
+26303ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p568
+26312ms : FEED : T,p568
+26360ms : D,p336,len:6
+26369ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p336
+26378ms : FEED : D,p336
+26391ms : Kangaroo - CheckMovingStatus - feedback : T,p568
+26429ms : Current position : PointOriente : X=-3.3447344329588899; Y=-0.31992432383170222; theta=5.4637274549098196
+26676ms : T,p2206,len:7
+26685ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p2206
+26695ms : FEED : T,p2206
+26742ms : D,p465,len:6
+26751ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p465
+26761ms : FEED : D,p465
+26774ms : Kangaroo - CheckMovingStatus - feedback : T,p2206
+26809ms : Current position : PointOriente : X=-4.5472688989190084; Y=-0.78684065271516768; theta=21.22004008016032
+27057ms : T,p4241,len:7
+27066ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p4241
+27075ms : FEED : T,p4241
+27122ms : D,p127,len:6
+27131ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p127
+27140ms : FEED : D,p127
+27154ms : Kangaroo - CheckMovingStatus - feedback : T,p4241
+27188ms : Current position : PointOriente : X=-1.9884402250140405; Y=1.4215061990274978; theta=40.795190380761525
+27436ms : T,p6108,len:7
+27444ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p6108
+27453ms : FEED : T,p6108
+27503ms : D,p54,len:5
+27512ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p54
+27521ms : FEED : D,p54
+27534ms : Kangaroo - CheckMovingStatus - feedback : T,p6108
+27568ms : Current position : PointOriente : X=-1.6097826785931484; Y=2.0456203412631226; theta=58.754308617234472
+27816ms : T,p7862,len:7
+27825ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p7862
+27835ms : FEED : T,p7862
+27882ms : D,p125,len:6
+27891ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p125
+27900ms : FEED : D,p125
+27914ms : Kangaroo - CheckMovingStatus - feedback : T,p7862
+27948ms : Current position : PointOriente : X=-1.7860349780010241; Y=1.3578448495847433; theta=75.626452905811618
+28196ms : T,p9112,len:7
+28205ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p9112
+28214ms : FEED : T,p9112
+28261ms : D,p444,len:6
+28270ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p444
+28280ms : FEED : D,p444
+28293ms : Kangaroo - CheckMovingStatus - feedback : T,p9112
+28328ms : Current position : PointOriente : X=-1.9168090342589323; Y=-1.8294734818986143; theta=87.650501002004006
+28575ms : T,p9302,len:7
+28584ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p9302
+28593ms : FEED : T,p9302
+28640ms : D,p494,len:6
+28649ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p494
+28659ms : FEED : D,p494
+28672ms : Kangaroo - CheckMovingStatus - feedback : T,p9302
+28707ms : Current position : PointOriente : X=-1.9213629165608337; Y=-2.3294527436245187; theta=89.478156312625245
+28954ms : T,P9358,len:7
+28963ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,P9358
+28972ms : FEED : T,P9358
+29019ms : D,p496,len:6
+29028ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p496
+29038ms : FEED : D,p496
+29051ms : Kangaroo - CheckMovingStatus - feedback : T,P9358
+29061ms : Kangaroo - CheckMovingStatus detected end of move
+29087ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Test IR
+29108ms : Current position : PointOriente : X=-1.9213570405025147; Y=-2.3494527427613172; theta=90.016833667334666
+29355ms : T,p9373,len:7
+29364ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p9373
+29373ms : FEED : T,p9373
+29420ms : D,p392,len:6
+29429ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p392
+29438ms : FEED : D,p392
+POSITION : PointOriente : X=-1.9242816348590213; Y=-1.3094568549099037; theta=90.161122244488979
+29717ms : T,P9356,len:7
+29726ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+29735ms : FEED : T,P9356
+29782ms : D,p359,len:6
+29791ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p359
+29800ms : FEED : D,p359
+POSITION : PointOriente : X=-1.9242677841499314; Y=-0.97945685520057357; theta=89.997595190380764
+30079ms : T,P9356,len:7
+30088ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+30097ms : FEED : T,P9356
+30145ms : D,p359,len:6
+30154ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p359
+30163ms : FEED : D,p359
+POSITION : PointOriente : X=-1.9242677841499314; Y=-0.97945685520057357; theta=89.997595190380764
+The thread '<No Name>' (0x3) has exited with code 0 (0x0).
+30443ms : T,P9356,len:7
+30452ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+30461ms : FEED : T,P9356
+30509ms : D,p359,len:6
+30518ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p359
+30527ms : FEED : D,p359
+POSITION : PointOriente : X=-1.9242677841499314; Y=-0.97945685520057357; theta=89.997595190380764
+30805ms : T,P9356,len:7
+30814ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+30823ms : FEED : T,P9356
+30871ms : D,p359,len:6
+30880ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p359
+30889ms : FEED : D,p359
+POSITION : PointOriente : X=-1.9242677841499314; Y=-0.97945685520057357; theta=89.997595190380764
+31168ms : T,P9356,len:7
+31177ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+31186ms : FEED : T,P9356
+31233ms : D,p359,len:6
+31242ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p359
+31251ms : FEED : D,p359
+POSITION : PointOriente : X=-1.9242677841499314; Y=-0.97945685520057357; theta=89.997595190380764
+31530ms : T,P9356,len:7
+31539ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+31548ms : FEED : T,P9356
+31595ms : D,p359,len:6
+31604ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p359
+31613ms : FEED : D,p359
+31648ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=True in direction=0
+31668ms : CapteurObstacleManager : obstacle=True in direction : 0
+POSITION : PointOriente : X=-1.9242677841499314; Y=-0.97945685520057357; theta=89.997595190380764
+31930ms : T,P9356,len:7
+31938ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+31947ms : FEED : T,P9356
+31995ms : D,p359,len:6
+32004ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p359
+32013ms : FEED : D,p359
+POSITION : PointOriente : X=-1.9242677841499314; Y=-0.97945685520057357; theta=89.997595190380764
+32127ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=True in direction=0
+32292ms : T,P9356,len:7
+32301ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+32310ms : FEED : T,P9356
+32358ms : D,p359,len:6
+32367ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p359
+32376ms : FEED : D,p359
+POSITION : PointOriente : X=-1.9242677841499314; Y=-0.97945685520057357; theta=89.997595190380764
+32655ms : T,P9356,len:7
+32663ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+32673ms : FEED : T,P9356
+32720ms : D,p359,len:6
+32729ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p359
+32738ms : FEED : D,p359
+POSITION : PointOriente : X=-1.9242677841499314; Y=-0.97945685520057357; theta=89.997595190380764
+33016ms : T,P9356,len:7
+33025ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+33035ms : FEED : T,P9356
+33082ms : D,p359,len:6
+33091ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p359
+33100ms : FEED : D,p359
+POSITION : PointOriente : X=-1.9242677841499314; Y=-0.97945685520057357; theta=89.997595190380764
+33379ms : T,P9356,len:7
+33388ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+33397ms : FEED : T,P9356
+33444ms : D,p359,len:6
+33453ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p359
+33463ms : FEED : D,p359
+POSITION : PointOriente : X=-1.9242677841499314; Y=-0.97945685520057357; theta=89.997595190380764
+33742ms : T,P9356,len:7
+33751ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+33760ms : FEED : T,P9356
+33806ms : D,p359,len:6
+33815ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p359
+33825ms : FEED : D,p359
+POSITION : PointOriente : X=-1.9242677841499314; Y=-0.97945685520057357; theta=89.997595190380764
+34103ms : T,P9356,len:7
+34112ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+34122ms : FEED : T,P9356
+34169ms : D,p359,len:6
+34177ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p359
+34187ms : FEED : D,p359
+POSITION : PointOriente : X=-1.9242677841499314; Y=-0.97945685520057357; theta=89.997595190380764
+34465ms : T,P9356,len:7
+34474ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+34483ms : FEED : T,P9356
+34531ms : D,p359,len:6
+34540ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p359
+34549ms : FEED : D,p359
+POSITION : PointOriente : X=-1.9242677841499314; Y=-0.97945685520057357; theta=89.997595190380764
+34828ms : T,P9356,len:7
+34837ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+34846ms : FEED : T,P9356
+34893ms : D,p359,len:6
+34902ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p359
+34911ms : FEED : D,p359
+POSITION : PointOriente : X=-1.9242677841499314; Y=-0.97945685520057357; theta=89.997595190380764
+35036ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=False in direction=0
+35190ms : T,P9356,len:7
+35199ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+35208ms : FEED : T,P9356
+35255ms : D,p359,len:6
+35264ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p359
+35274ms : FEED : D,p359
+POSITION : PointOriente : X=-1.9242677841499314; Y=-0.97945685520057357; theta=89.997595190380764
+35552ms : T,P9356,len:7
+35561ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+35570ms : FEED : T,P9356
+35617ms : D,p359,len:6
+35626ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p359
+35636ms : FEED : D,p359
+POSITION : PointOriente : X=-1.9242677841499314; Y=-0.97945685520057357; theta=89.997595190380764
+35915ms : T,P9356,len:7
+35924ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+35933ms : FEED : T,P9356
+35980ms : D,p359,len:6
+35989ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p359
+35998ms : FEED : D,p359
+POSITION : PointOriente : X=-1.9242677841499314; Y=-0.97945685520057357; theta=89.997595190380764
+36277ms : T,P9355,len:7
+36286ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9355
+36295ms : FEED : T,P9355
+36343ms : D,p357,len:6
+36352ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p357
+36361ms : FEED : D,p357
+POSITION : PointOriente : X=-1.9242635869653884; Y=-0.95945685564098249; theta=89.987975951903806
+36428ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=True in direction=0
+36639ms : T,P9355,len:7
+36648ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9355
+36657ms : FEED : T,P9355
+36704ms : D,p357,len:6
+36713ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p357
+36722ms : FEED : D,p357
+POSITION : PointOriente : X=-1.9242635869653884; Y=-0.95945685564098249; theta=89.987975951903806
+36934ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=False in direction=0
+37001ms : T,P9355,len:7
+37010ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9355
+37020ms : FEED : T,P9355
+37067ms : D,p357,len:6
+37076ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p357
+37085ms : FEED : D,p357
+POSITION : PointOriente : X=-1.9242635869653884; Y=-0.95945685564098249; theta=89.987975951903806
+37340ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=False in direction=0
+37361ms : CapteurObstacleManager : obstacle=False in direction : 0
+37388ms : T,P9355,len:7
+37396ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9355
+37405ms : FEED : T,P9355
+37453ms : D,p357,len:6
+37462ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p357
+37471ms : FEED : D,p357
+POSITION : PointOriente : X=-1.9242635869653884; Y=-0.95945685564098249; theta=89.987975951903806
+37750ms : T,P9356,len:7
+37759ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+37768ms : FEED : T,P9356
+37815ms : D,p355,len:6
+37824ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p355
+37833ms : FEED : D,p355
+POSITION : PointOriente : X=-1.9242627475284737; Y=-0.93945685565859882; theta=89.997595190380764
+38112ms : T,P9356,len:7
+38121ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+38130ms : FEED : T,P9356
+38178ms : D,p355,len:6
+38187ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p355
+38196ms : FEED : D,p355
+POSITION : PointOriente : X=-1.9242627475284737; Y=-0.93945685565859882; theta=89.997595190380764
+38475ms : T,P9356,len:7
+38484ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+38493ms : FEED : T,P9356
+38541ms : D,p355,len:6
+38550ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p355
+38559ms : FEED : D,p355
+POSITION : PointOriente : X=-1.9242627475284737; Y=-0.93945685565859882; theta=89.997595190380764
+38838ms : T,P9356,len:7
+38847ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+38856ms : FEED : T,P9356
+38903ms : D,p355,len:6
+38912ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p355
+38921ms : FEED : D,p355
+POSITION : PointOriente : X=-1.9242627475284737; Y=-0.93945685565859882; theta=89.997595190380764
+39201ms : T,P9356,len:7
+39209ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+39219ms : FEED : T,P9356
+39266ms : D,p355,len:6
+39275ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p355
+39284ms : FEED : D,p355
+POSITION : PointOriente : X=-1.9242627475284737; Y=-0.93945685565859882; theta=89.997595190380764
+39563ms : T,P9356,len:7
+39572ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+39581ms : FEED : T,P9356
+39629ms : D,p355,len:6
+39637ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p355
+39646ms : FEED : D,p355
+POSITION : PointOriente : X=-1.9242627475284737; Y=-0.93945685565859882; theta=89.997595190380764
+39925ms : T,P9356,len:7
+39934ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+39943ms : FEED : T,P9356
+39991ms : D,p355,len:6
+39999ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p355
+40009ms : FEED : D,p355
+POSITION : PointOriente : X=-1.9242627475284737; Y=-0.93945685565859882; theta=89.997595190380764
+40287ms : T,P9356,len:7
+40296ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+40305ms : FEED : T,P9356
+40353ms : D,p355,len:6
+40361ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p355
+40370ms : FEED : D,p355
+POSITION : PointOriente : X=-1.9242627475284737; Y=-0.93945685565859882; theta=89.997595190380764
+40649ms : T,P9356,len:7
+40658ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+40667ms : FEED : T,P9356
+40715ms : D,p355,len:6
+40724ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p355
+40733ms : FEED : D,p355
+POSITION : PointOriente : X=-1.9242627475284737; Y=-0.93945685565859882; theta=89.997595190380764
+41012ms : T,P9356,len:7
+41021ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+41030ms : FEED : T,P9356
+41078ms : D,p355,len:6
+41087ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p355
+41096ms : FEED : D,p355
+POSITION : PointOriente : X=-1.9242627475284737; Y=-0.93945685565859882; theta=89.997595190380764
+41375ms : T,P9356,len:7
+41384ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+41393ms : FEED : T,P9356
+41441ms : D,p351,len:6
+41450ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p351
+41459ms : FEED : D,p351
+POSITION : PointOriente : X=-1.9242610686546446; Y=-0.89945685569383149; theta=89.997595190380764
+41737ms : T,P9356,len:7
+41746ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+41755ms : FEED : T,P9356
+41803ms : D,p351,len:6
+41812ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p351
+41821ms : FEED : D,p351
+POSITION : PointOriente : X=-1.9242610686546446; Y=-0.89945685569383149; theta=89.997595190380764
+42100ms : T,P9356,len:7
+42109ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+42118ms : FEED : T,P9356
+42166ms : D,p351,len:6
+42174ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p351
+42183ms : FEED : D,p351
+POSITION : PointOriente : X=-1.9242610686546446; Y=-0.89945685569383149; theta=89.997595190380764
+42461ms : T,P9356,len:7
+42470ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+42479ms : FEED : T,P9356
+42527ms : D,p351,len:6
+42536ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p351
+42545ms : FEED : D,p351
+POSITION : PointOriente : X=-1.9242610686546446; Y=-0.89945685569383149; theta=89.997595190380764
+42824ms : T,P9356,len:7
+42833ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+42842ms : FEED : T,P9356
+42890ms : D,p351,len:6
+42899ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p351
+42908ms : FEED : D,p351
+POSITION : PointOriente : X=-1.9242610686546446; Y=-0.89945685569383149; theta=89.997595190380764
+43187ms : T,P9356,len:7
+43196ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+43205ms : FEED : T,P9356
+43252ms : D,p351,len:6
+43261ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p351
+43270ms : FEED : D,p351
+POSITION : PointOriente : X=-1.9242610686546446; Y=-0.89945685569383149; theta=89.997595190380764
+43549ms : T,P9356,len:7
+43558ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+43566ms : FEED : T,P9356
+43614ms : D,p351,len:6
+43623ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p351
+43632ms : FEED : D,p351
+POSITION : PointOriente : X=-1.9242610686546446; Y=-0.89945685569383149; theta=89.997595190380764
+43910ms : T,P9356,len:7
+43919ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+43929ms : FEED : T,P9356
+43976ms : D,p351,len:6
+43985ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p351
+43994ms : FEED : D,p351
+POSITION : PointOriente : X=-1.9242610686546446; Y=-0.89945685569383149; theta=89.997595190380764
+44273ms : T,P9356,len:7
+44282ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+44291ms : FEED : T,P9356
+44339ms : D,p351,len:6
+44348ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p351
+44357ms : FEED : D,p351
+POSITION : PointOriente : X=-1.9242610686546446; Y=-0.89945685569383149; theta=89.997595190380764
+44636ms : T,P9356,len:7
+44645ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+44654ms : FEED : T,P9356
+44702ms : D,p351,len:6
+44710ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p351
+44719ms : FEED : D,p351
+POSITION : PointOriente : X=-1.9242610686546446; Y=-0.89945685569383149; theta=89.997595190380764
+44999ms : T,P9356,len:7
+45008ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+45017ms : FEED : T,P9356
+45065ms : D,p351,len:6
+45073ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p351
+45082ms : FEED : D,p351
+POSITION : PointOriente : X=-1.9242610686546446; Y=-0.89945685569383149; theta=89.997595190380764
+45361ms : T,P9356,len:7
+45370ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+45379ms : FEED : T,P9356
+45427ms : D,p351,len:6
+45436ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p351
+45445ms : FEED : D,p351
+POSITION : PointOriente : X=-1.9242610686546446; Y=-0.89945685569383149; theta=89.997595190380764
+45724ms : T,P9356,len:7
+45733ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+45742ms : FEED : T,P9356
+45790ms : D,p351,len:6
+45798ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p351
+45807ms : FEED : D,p351
+POSITION : PointOriente : X=-1.9242610686546446; Y=-0.89945685569383149; theta=89.997595190380764
+46087ms : T,P9356,len:7
+46096ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+46105ms : FEED : T,P9356
+46152ms : D,p351,len:6
+46161ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p351
+46170ms : FEED : D,p351
+POSITION : PointOriente : X=-1.9242610686546446; Y=-0.89945685569383149; theta=89.997595190380764
+46450ms : T,P9356,len:7
+46458ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+46467ms : FEED : T,P9356
+46515ms : D,p351,len:6
+46524ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p351
+46533ms : FEED : D,p351
+POSITION : PointOriente : X=-1.9242610686546446; Y=-0.89945685569383149; theta=89.997595190380764
+46812ms : T,P9356,len:7
+46821ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+46830ms : FEED : T,P9356
+46878ms : D,p351,len:6
+46887ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p351
+46896ms : FEED : D,p351
+POSITION : PointOriente : X=-1.9242610686546446; Y=-0.89945685569383149; theta=89.997595190380764
+47175ms : T,P9356,len:7
+47183ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+47193ms : FEED : T,P9356
+47240ms : D,p351,len:6
+47249ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p351
+47258ms : FEED : D,p351
+POSITION : PointOriente : X=-1.9242610686546446; Y=-0.89945685569383149; theta=89.997595190380764
+47537ms : T,P9356,len:7
+47546ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+47556ms : FEED : T,P9356
+47603ms : D,p351,len:6
+47612ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p351
+47621ms : FEED : D,p351
+POSITION : PointOriente : X=-1.9242610686546446; Y=-0.89945685569383149; theta=89.997595190380764
+47900ms : T,P9356,len:7
+47908ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+47918ms : FEED : T,P9356
+47965ms : D,p351,len:6
+47974ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p351
+47983ms : FEED : D,p351
+POSITION : PointOriente : X=-1.9242610686546446; Y=-0.89945685569383149; theta=89.997595190380764
+48263ms : T,P9356,len:7
+48271ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+48281ms : FEED : T,P9356
+48328ms : D,p351,len:6
+48337ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p351
+48347ms : FEED : D,p351
+POSITION : PointOriente : X=-1.9242610686546446; Y=-0.89945685569383149; theta=89.997595190380764
+48625ms : T,P9356,len:7
+48634ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+48644ms : FEED : T,P9356
+48691ms : D,p351,len:6
+48700ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p351
+48709ms : FEED : D,p351
+POSITION : PointOriente : X=-1.9242610686546446; Y=-0.89945685569383149; theta=89.997595190380764
+48988ms : T,P9356,len:7
+48997ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P9356
+49006ms : FEED : T,P9356
+49053ms : D,p351,len:6
+49062ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p351
+49072ms : FEED : D,p351
+49100ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Test IR
+49116ms : Rotate, Angle demande : -90
+49170ms : Command sent: T,p-9356s5000
+
+49181ms : Kangaroo - Turn : sent command, waiting for move completion
+POSITION : PointOriente : X=-1.9242610686546446; Y=-0.89945685569383149; theta=89.997595190380764
+49444ms : T,p-477,len:7
+49453ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-477
+49462ms : FEED : T,p-477
+49511ms : D,p-234,len:7
+49520ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p-234
+49529ms : FEED : D,p-234
+49542ms : Kangaroo - CheckMovingStatus - feedback : T,p-477
+49577ms : Current position : PointOriente : X=-1.7369708628968996; Y=1.4330358835933072; theta=85.409218436873743
+49826ms : T,p-2353,len:8
+49835ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-2353
+49844ms : FEED : T,p-2353
+49892ms : D,p-68,len:6
+49900ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p-68
+49910ms : FEED : D,p-68
+49923ms : Kangaroo - CheckMovingStatus - feedback : T,p-2353
+49958ms : Current position : PointOriente : X=-2.3758765357418739; Y=-0.099086677172152582; theta=67.363527054108204
+50207ms : T,p-4273,len:8
+50216ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-4273
+50226ms : FEED : T,p-4273
+50273ms : D,p-33,len:6
+50281ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p-33
+50291ms : FEED : D,p-33
+50304ms : Kangaroo - CheckMovingStatus - feedback : T,p-4273
+50339ms : Current position : PointOriente : X=-2.6059827781453899; Y=-0.36281213519039984; theta=48.894589178356696
+50588ms : T,p-6004,len:8
+50597ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-6004
+50606ms : FEED : T,p-6004
+50655ms : D,p29,len:5
+50664ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p29
+50673ms : FEED : D,p29
+50686ms : Kangaroo - CheckMovingStatus - feedback : T,p-6004
+50721ms : Current position : PointOriente : X=-3.1303704751887427; Y=-0.69359536207708605; theta=32.243687374749484
+50971ms : T,p-7825,len:8
+50979ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-7825
+50988ms : FEED : T,p-7825
+51037ms : D,p-8,len:5
+51046ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p-8
+51055ms : FEED : D,p-8
+51068ms : Kangaroo - CheckMovingStatus - feedback : T,p-7825
+51103ms : Current position : PointOriente : X=-2.772525780051196; Y=-0.59953594382502429; theta=14.727054108216418
+51352ms : T,p-9102,len:8
+51361ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-9102
+51371ms : FEED : T,p-9102
+51419ms : D,p-158,len:7
+51428ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p-158
+51438ms : FEED : D,p-158
+51451ms : Kangaroo - CheckMovingStatus - feedback : T,p-9102
+51486ms : Current position : PointOriente : X=-1.2738894177593059; Y=-0.5355902354738703; theta=2.4432865731462776
+51735ms : T,p-9314,len:8
+51744ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-9314
+51753ms : FEED : T,p-9314
+51803ms : D,p-129,len:7
+51812ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p-129
+51821ms : FEED : D,p-129
+51834ms : Kangaroo - CheckMovingStatus - feedback : T,p-9314
+51870ms : Current position : PointOriente : X=-1.5638822083297561; Y=-0.53763508685305128; theta=0.40400801603204917
+52119ms : T,p-9351,len:8
+52128ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-9351
+52137ms : FEED : T,p-9351
+52186ms : D,p-108,len:7
+52195ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p-108
+52204ms : FEED : D,p-108
+52218ms : Kangaroo - CheckMovingStatus - feedback : T,p-9351
+52253ms : Current position : PointOriente : X=-1.7738821343410553; Y=-0.53781136858445355; theta=0.048096192384754599
+52503ms : T,P-9358,len:8
+52511ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,P-9358
+52521ms : FEED : T,P-9358
+52570ms : D,p-104,len:7
+52579ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p-104
+52588ms : FEED : D,p-104
+52601ms : Kangaroo - CheckMovingStatus - feedback : T,P-9358
+52611ms : Kangaroo - CheckMovingStatus detected end of move
+52635ms : ActionEnSerie - After last action feedback, status = success. Desc : Test IR
+The thread '<No Name>' (0x6) has exited with code 0 (0x0).
+52762ms : Current position : PointOriente : X=-1.8138821320861616; Y=-0.53779793759406935; theta=-0.019238476953922765
+53011ms : T,P-9358,len:8
+53020ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-9358
+53029ms : FEED : T,P-9358
+53079ms : D,p-104,len:7
+53088ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p-104
+53097ms : FEED : D,p-104
+POSITION : PointOriente : X=-1.8138821320861616; Y=-0.53779793759406935; theta=-0.019238476953922765
+53379ms : T,p-9360,len:8
+53388ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p-9360
+53397ms : FEED : T,p-9360
+53446ms : D,p-104,len:7
+53455ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p-104
+53465ms : FEED : D,p-104
+POSITION : PointOriente : X=-1.8138821320861616; Y=-0.53779793759406935; theta=-0.038476953907830583
+53745ms : T,p-9360,len:8
+53754ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p-9360
+53763ms : FEED : T,p-9360
+53812ms : D,p-104,len:7
+53821ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p-104
+53831ms : FEED : D,p-104
+POSITION : PointOriente : X=-1.8138821320861616; Y=-0.53779793759406935; theta=-0.038476953907830583
+54112ms : T,p-9360,len:8
+54121ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p-9360
+54130ms : FEED : T,p-9360
+54180ms : D,p-104,len:7
+54188ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p-104
+54198ms : FEED : D,p-104
+POSITION : PointOriente : X=-1.8138821320861616; Y=-0.53779793759406935; theta=-0.038476953907830583
+54479ms : T,p-9360,len:8
+54488ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p-9360
+54497ms : FEED : T,p-9360
+54546ms : D,p-104,len:7
+54555ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p-104
+54564ms : FEED : D,p-104
+POSITION : PointOriente : X=-1.8138821320861616; Y=-0.53779793759406935; theta=-0.038476953907830583
+54846ms : T,p-9360,len:8
+54855ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p-9360
+54864ms : FEED : T,p-9360
+54913ms : D,p-108,len:7
+54922ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p-108
+54932ms : FEED : D,p-108
+POSITION : PointOriente : X=-1.7738821411057366; Y=-0.53782479957332352; theta=-0.038476953907830583
+55212ms : T,p-9359,len:8
+55221ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p-9359
+55230ms : FEED : T,p-9359
+55279ms : D,p-114,len:7
+55288ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p-114
+55298ms : FEED : D,p-114
+POSITION : PointOriente : X=-1.7138821487160032; Y=-0.53785501930097823; theta=-0.028857715430876674
+55579ms : T,P-9356,len:8
+55588ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-9356
+55597ms : FEED : T,P-9356
+55647ms : D,p-114,len:7
+55656ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p-114
+55665ms : FEED : D,p-114
+POSITION : PointOriente : X=-1.7138821487160032; Y=-0.53785501930097823; theta=-1.4949846915968124e-14
+55946ms : T,P-9356,len:8
+55955ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-9356
+55964ms : FEED : T,P-9356
+56014ms : D,p-114,len:7
+56022ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p-114
+56031ms : FEED : D,p-114
+POSITION : PointOriente : X=-1.7138821487160032; Y=-0.53785501930097823; theta=-1.4949846915968124e-14
+56314ms : T,P-9356,len:8
+56323ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-9356
+56332ms : FEED : T,P-9356
+56381ms : D,p-114,len:7
+56390ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p-114
+56399ms : FEED : D,p-114
+POSITION : PointOriente : X=-1.7138821487160032; Y=-0.53785501930097823; theta=-1.4949846915968124e-14
+56681ms : T,P-9356,len:8
+56689ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-9356
+56698ms : FEED : T,P-9356
+56748ms : D,p-114,len:7
+56757ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p-114
+56766ms : FEED : D,p-114
+POSITION : PointOriente : X=-1.7138821487160032; Y=-0.53785501930097823; theta=-1.4949846915968124e-14
+57048ms : T,P-9356,len:8
+57057ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-9356
+57066ms : FEED : T,P-9356
+57115ms : D,p-114,len:7
+57124ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p-114
+57133ms : FEED : D,p-114
+POSITION : PointOriente : X=-1.7138821487160032; Y=-0.53785501930097823; theta=-1.4949846915968124e-14
+57415ms : T,P-9356,len:8
+57424ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-9356
+57434ms : FEED : T,P-9356
+57483ms : D,p-114,len:7
+57492ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p-114
+57501ms : FEED : D,p-114
+POSITION : PointOriente : X=-1.7138821487160032; Y=-0.53785501930097823; theta=-1.4949846915968124e-14
+57782ms : T,P-9356,len:8
+57791ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-9356
+57800ms : FEED : T,P-9356
+57849ms : D,p-114,len:7
+57859ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p-114
+57868ms : FEED : D,p-114
+POSITION : PointOriente : X=-1.7138821487160032; Y=-0.53785501930097823; theta=-1.4949846915968124e-14
+58149ms : T,P-9356,len:8
+58158ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-9356
+58167ms : FEED : T,P-9356
+58216ms : D,p-114,len:7
+58225ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p-114
+58234ms : FEED : D,p-114
+POSITION : PointOriente : X=-1.7138821487160032; Y=-0.53785501930097823; theta=-1.4949846915968124e-14
+58516ms : T,P-9356,len:8
+58525ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-9356
+58534ms : FEED : T,P-9356
+58583ms : D,p-114,len:7
+58592ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p-114
+58601ms : FEED : D,p-114
+POSITION : PointOriente : X=-1.7138821487160032; Y=-0.53785501930097823; theta=-1.4949846915968124e-14
+58882ms : T,P-9356,len:8
+58891ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-9356
+58900ms : FEED : T,P-9356
+58949ms : D,p-114,len:7
+58958ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p-114
+58968ms : FEED : D,p-114
+POSITION : PointOriente : X=-1.7138821487160032; Y=-0.53785501930097823; theta=-1.4949846915968124e-14
+59249ms : T,P-9356,len:8
+59258ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-9356
+59267ms : FEED : T,P-9356
+59316ms : D,p-114,len:7
+59325ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p-114
+59334ms : FEED : D,p-114
+POSITION : PointOriente : X=-1.7138821487160032; Y=-0.53785501930097823; theta=-1.4949846915968124e-14
+59616ms : T,P-9356,len:8
+59625ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-9356
+59634ms : FEED : T,P-9356
+59684ms : D,p-114,len:7
+59693ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p-114
+59702ms : FEED : D,p-114
+POSITION : PointOriente : X=-1.7138821487160032; Y=-0.53785501930097823; theta=-1.4949846915968124e-14
+59984ms : T,P-9356,len:8
+59993ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-9356
+2ms : FEED : T,P-9356
+51ms : D,p-114,len:7
+60ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p-114
+69ms : FEED : D,p-114
+POSITION : PointOriente : X=-1.7138821487160032; Y=-0.53785501930097823; theta=-1.4949846915968124e-14
+350ms : T,P-9356,len:8
+359ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-9356
+368ms : FEED : T,P-9356
+418ms : D,p-114,len:7
+427ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p-114
+436ms : FEED : D,p-114
+POSITION : PointOriente : X=-1.7138821487160032; Y=-0.53785501930097823; theta=-1.4949846915968124e-14
+718ms : T,P-9356,len:8
+727ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-9356
+736ms : FEED : T,P-9356
+785ms : D,p-114,len:7
+794ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p-114
+803ms : FEED : D,p-114
+POSITION : PointOriente : X=-1.7138821487160032; Y=-0.53785501930097823; theta=-1.4949846915968124e-14
+1086ms : T,P-9356,len:8
+1094ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-9356
+1104ms : FEED : T,P-9356
+1153ms : D,p-114,len:7
+1162ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p-114
+1171ms : FEED : D,p-114
+POSITION : PointOriente : X=-1.7138821487160032; Y=-0.53785501930097823; theta=-1.4949846915968124e-14
+1452ms : T,P-9355,len:8
+1461ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-9355
+1471ms : FEED : T,P-9355
+1520ms : D,p-112,len:7
+1529ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p-112
+1538ms : FEED : D,p-112
+POSITION : PointOriente : X=-1.7338821484341416; Y=-0.53785837704862161; theta=0.0096192384769389593
+1818ms : T,P-9355,len:8
+1827ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-9355
+1836ms : FEED : T,P-9355
+1885ms : D,p-112,len:7
+1894ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p-112
+1903ms : FEED : D,p-112
+POSITION : PointOriente : X=-1.7338821484341416; Y=-0.53785837704862161; theta=0.0096192384769389593
+2184ms : T,P-9355,len:8
+2193ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-9355
+2202ms : FEED : T,P-9355
+2251ms : D,p-112,len:7
+2260ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p-112
+2270ms : FEED : D,p-112
+POSITION : PointOriente : X=-1.7338821484341416; Y=-0.53785837704862161; theta=0.0096192384769389593
+2550ms : T,P-9355,len:8
+2559ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-9355
+2569ms : FEED : T,P-9355
+2618ms : D,p-112,len:7
+2627ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p-112
+2636ms : FEED : D,p-112
+POSITION : PointOriente : X=-1.7338821484341416; Y=-0.53785837704862161; theta=0.0096192384769389593
+2918ms : T,P-9355,len:8
+2926ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-9355
+2936ms : FEED : T,P-9355
+2985ms : D,p-112,len:7
+2994ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p-112
+3003ms : FEED : D,p-112
+POSITION : PointOriente : X=-1.7338821484341416; Y=-0.53785837704862161; theta=0.0096192384769389593
+3284ms : T,P-9355,len:8
+3293ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-9355
+3302ms : FEED : T,P-9355
+3351ms : D,p-112,len:7
+3360ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p-112
+3370ms : FEED : D,p-112
+POSITION : PointOriente : X=-1.7338821484341416; Y=-0.53785837704862161; theta=0.0096192384769389593
+3651ms : T,P-9355,len:8
+3659ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-9355
+3668ms : FEED : T,P-9355
+3718ms : D,p-112,len:7
+3727ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p-112
+3736ms : FEED : D,p-112
+POSITION : PointOriente : X=-1.7338821484341416; Y=-0.53785837704862161; theta=0.0096192384769389593
+4016ms : T,P-9355,len:8
+4025ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-9355
+4034ms : FEED : T,P-9355
+4084ms : D,p-112,len:7
+4092ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p-112
+4102ms : FEED : D,p-112
+POSITION : PointOriente : X=-1.7338821484341416; Y=-0.53785837704862161; theta=0.0096192384769389593
+4383ms : T,P-9355,len:8
+4391ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-9355
+4400ms : FEED : T,P-9355
+4450ms : D,p-112,len:7
+4458ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p-112
+4468ms : FEED : D,p-112
+POSITION : PointOriente : X=-1.7338821484341416; Y=-0.53785837704862161; theta=0.0096192384769389593
+4748ms : T,P-9355,len:8
+4757ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-9355
+4767ms : FEED : T,P-9355
+4816ms : D,p-112,len:7
+4825ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p-112
+4834ms : FEED : D,p-112
+POSITION : PointOriente : X=-1.7338821484341416; Y=-0.53785837704862161; theta=0.0096192384769389593
+5115ms : T,P-9355,len:8
+5123ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-9355
+5132ms : FEED : T,P-9355
+5182ms : D,p-112,len:7
+5191ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p-112
+5200ms : FEED : D,p-112
+POSITION : PointOriente : X=-1.7338821484341416; Y=-0.53785837704862161; theta=0.0096192384769389593
+5480ms : T,P-9355,len:8
+5489ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-9355
+5498ms : FEED : T,P-9355
+5547ms : D,p-112,len:7
+5556ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p-112
+5566ms : FEED : D,p-112
+POSITION : PointOriente : X=-1.7338821484341416; Y=-0.53785837704862161; theta=0.0096192384769389593
+5847ms : T,P-9355,len:8
+5856ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-9355
+5865ms : FEED : T,P-9355
+5914ms : D,p-112,len:7
+5923ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p-112
+5932ms : FEED : D,p-112
+POSITION : PointOriente : X=-1.7338821484341416; Y=-0.53785837704862161; theta=0.0096192384769389593
+6213ms : T,P-9355,len:8
+6222ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-9355
+6231ms : FEED : T,P-9355
+6281ms : D,p-112,len:7
+6290ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p-112
+6299ms : FEED : D,p-112
+POSITION : PointOriente : X=-1.7338821484341416; Y=-0.53785837704862161; theta=0.0096192384769389593
+6579ms : T,P-9355,len:8
+6588ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-9355
+6597ms : FEED : T,P-9355
+6646ms : D,p-112,len:7
+6655ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p-112
+6664ms : FEED : D,p-112
+POSITION : PointOriente : X=-1.7338821484341416; Y=-0.53785837704862161; theta=0.0096192384769389593
+6945ms : T,P-9355,len:8
+6954ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-9355
+6963ms : FEED : T,P-9355
+7012ms : D,p-112,len:7
+7021ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p-112
+7031ms : FEED : D,p-112
+POSITION : PointOriente : X=-1.7338821484341416; Y=-0.53785837704862161; theta=0.0096192384769389593
+The program '[35] Micro Framework application: Managed' has exited with code 0 (0x0).

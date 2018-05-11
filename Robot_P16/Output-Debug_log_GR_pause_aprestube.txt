@@ -1,0 +1,2769 @@
+﻿Found debugger!
+
+Create TS.
+
+ Loading start at a0e00000, end a0e2f494
+
+   Assembly: mscorlib (4.3.1.0)     Assembly: Microsoft.SPOT.Native (4.3.1.0)     Assembly: Microsoft.SPOT.Security.PKCS11 (4.3
+.1.0)     Assembly: System.Security (4.3.1.0)     Assembly: Microsoft.SPOT.Hardware (4.3.1.0)  
+   Assembly: Microsoft.SPOT.Graphics (4.3.1.0)     Assembly: Microsoft.SPOT.TinyCore (4.3.1.0)  
+   Assembly: Microsoft.SPOT.IO (4.3.1.0)     Assembly: System.IO (4.3.1.0)     Assembly: Microsoft.SPOT.Hardware.Usb (4.3.1.0) 
+    Assembly: Microsoft.SPOT.Hardware.SerialPort (4.3.1.0)     Assembly: Microsoft.SPOT.Touch (4.3.1.0)  
+   Assembly: Microsoft.SPOT.Ink (4.3.1.0)     Assembly: Microsoft.SPOT.Hardware.PWM (4.3.1.0)  
+Loading Deployment Assemblies.
+
+Attaching deployed file.
+
+   Assembly: GTM.GHIElectronics.DistanceUS3 (4.3.8.1)  Attaching deployed file.
+
+   Assembly: GHI.Glide (4.3.8.1)  Attaching deployed file.
+
+   Assembly: GTM.GHIElectronics.ColorSense (4.3.8.1)  Attaching deployed file.
+
+   Assembly: GHI.Hardware (4.3.8.1)  Attaching deployed file.
+
+   Assembly: Microsoft.SPOT.Net (4.3.1.0)  Attaching deployed file.
+
+   Assembly: GTM.GHIElectronics.USBClientSP (4.3.8.1)  Attaching deployed file.
+
+   Assembly: GHIElectronics.Gadgeteer.FEZSpiderII (4.3.8.1)  Attaching deployed file.
+
+   Assembly: GHIElectronics.Gadgeteer.FEZSpider (4.3.8.1)  Attaching deployed file.
+
+   Assembly: GHI.Usb (4.3.8.1)  Attaching deployed file.
+
+   Assembly: Gadgeteer (2.43.1.0)  Attaching deployed file.
+
+   Assembly: System (4.3.1.0)  Attaching deployed file.
+
+   Assembly: GTM.GHIElectronics.Button (4.3.8.1)  Attaching deployed file.
+
+   Assembly: Robot_P16 (1.0.0.0)  Attaching deployed file.
+
+   Assembly: GTM.GHIElectronics.XBeeAdapter (4.3.8.1)  Attaching deployed file.
+
+   Assembly: Gadgeteer.Serial (2.43.1.0)  Attaching deployed file.
+
+   Assembly: GTM.GHIElectronics.MotorDriverL298 (4.3.8.1)  Attaching deployed file.
+
+   Assembly: GHI.Pins (4.3.8.1)  Attaching deployed file.
+
+   Assembly: System.Xml (4.3.1.0)  Attaching deployed file.
+
+   Assembly: GTM.GHIElectronics.DisplayT35 (4.3.8.1)  Attaching deployed file.
+
+   Assembly: GTM.GHIElectronics.DisplayTE35 (4.3.8.1)  Attaching deployed file.
+
+   Assembly: GTM.GHIElectronics.USBClientEDP (4.3.8.1)  Resolving.
+
+GC: 1msec 50508 bytes used, 7289160 bytes available
+
+Type 0F (STRING              ):     24 bytes
+
+Type 15 (FREEBLOCK           ): 7289160 bytes
+
+Type 17 (ASSEMBLY            ):  48648 bytes
+
+Type 1E (BINARY_BLOB_HEAD    ):   1332 bytes
+
+Type 28 (MEMORY_STREAM_HEAD  ):     36 bytes
+
+Type 29 (MEMORY_STREAM_DATA  ):    396 bytes
+
+Type 34 (APPDOMAIN_HEAD      ):     72 bytes
+
+GC: performing heap compaction...
+
+The debugging target runtime is loading the application assemblies and starting execution.
+Ready.
+
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Native.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Hardware.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Security.PKCS11.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\System.Security.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Graphics.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.TinyCore.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.IO.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\System.IO.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Hardware.Usb.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Hardware.SerialPort.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Touch.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Ink.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Hardware.PWM.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\Microsoft.SPOT.Net.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'D:\Programs\MicrosoftGadgeteerCore\Core\Assemblies\.NET Micro Framework 4.3\le\Gadgeteer.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Modules\DistanceUS3\NETMF 4.3\le\GTM.GHIElectronics.DistanceUS3.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\System.Xml.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\NETMF v4.3 SDK\Libraries\le\GHI.Glide.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Modules\ColorSense\NETMF 4.3\le\GTM.GHIElectronics.ColorSense.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\NETMF v4.3 SDK\Libraries\le\GHI.Hardware.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Modules\USBClientSP\NETMF 4.3\le\GTM.GHIElectronics.USBClientSP.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\NETMF v4.3 SDK\Libraries\le\GHI.Usb.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Mainboards\FEZSpiderII\NETMF 4.3\le\GHIElectronics.Gadgeteer.FEZSpiderII.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Mainboards\FEZSpider\NETMF 4.3\le\GHIElectronics.Gadgeteer.FEZSpider.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\Microsoft .NET Micro Framework\v4.3\Assemblies\le\System.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Modules\Button\NETMF 4.3\le\GTM.GHIElectronics.Button.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Modules\MotorDriverL298\NETMF 4.3\le\GTM.GHIElectronics.MotorDriverL298.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'D:\Programs\MicrosoftGadgeteerCore\Core\Assemblies\.NET Micro Framework 4.3\le\Gadgeteer.Serial.dll', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Modules\XBeeAdapter\NETMF 4.3\le\GTM.GHIElectronics.XBeeAdapter.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Modules\DisplayTE35\NETMF 4.3\le\GTM.GHIElectronics.DisplayTE35.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'D:\Documents\Travail\Mines\2A\mecatro\pole_info\code\Robot_P16\Robot_P16\bin\Debug\le\Robot_P16.exe', Symbols loaded.
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\NETMF v4.3 SDK\Libraries\le\GHI.Pins.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Modules\DisplayT35\NETMF 4.3\le\GTM.GHIElectronics.DisplayT35.dll'
+'Microsoft.SPOT.Debugger.CorDebug.12.dll' (Managed): Loaded 'C:\Program Files (x86)\GHI Electronics\.NET Gadgeteer SDK\Modules\USBClientEDP\NETMF 4.3\le\GTM.GHIElectronics.USBClientEDP.dll'
+26542ms :  Copie du point orienté (0,0,0)
+The thread '<No Name>' (0x2) has exited with code 0 (0x0).
+Using mainboard GHI Electronics FEZ Spider version 1.0
+Program Started
+Querying type...
+WARN: Total initialization time exceeds 10 seconds.
+    : ProgramStarted is blocking execution, which means events and timers will not run properly.
+    : Make sure not to use blocking code such as while(true) - use a GT.Timer instead.
+Got type : 1
+Querying mode operatoire...
+Got mode : 2
+Querying couleur...
+Got couleur : 0
+13884ms : Robot : loadComponents : GRAND Robot selected !
+13909ms : Tring to open serial port on COMPORt :COM2, socket : 4
+13923ms : New Kangaroo, port com not opened, opening.
+13937ms : New Kangaroo, port com Opening OK !
+13945ms : New Kangaroo, grand robot deteted.
+14159ms : SERVOS : Port COM ouvert : COM1
+14244ms : New infrarouge on socket 9 & port 3; pin : 46; type of pin : Microsoft.SPOT.Hardware.Cpu+Pin
+14292ms : New infrarouge on socket 9 & port 4; pin : 6; type of pin : Microsoft.SPOT.Hardware.Cpu+Pin
+14340ms : New infrarouge on socket 9 & port 5; pin : 7; type of pin : Microsoft.SPOT.Hardware.Cpu+Pin
+14387ms : New infrarouge on socket 9 & port 7; pin : 24; type of pin : Microsoft.SPOT.Hardware.Cpu+Pin
+14426ms : composants du robot chargés
+14752ms : T,E4,len:4
+14761ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,E4
+14770ms : FEED : T,E4
+14814ms : D,E1,len:4
+14843ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,E1
+14852ms : FEED : D,E1
+POSITION : PointOriente : X=0; Y=0; theta=0
+14907ms : actions mere set pour le type 1 & le mode 2 & couleur 0
+15140ms : T,E1,len:4
+15149ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,E1
+15158ms : FEED : T,E1
+15201ms : D,E1,len:4
+15230ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,E1
+15239ms : FEED : D,E1
+POSITION : PointOriente : X=0; Y=0; theta=0
+15363ms : actions mere set pour le type 1 & le mode 2 & couleur 1
+15527ms : T,E1,len:4
+15535ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,E1
+15545ms : FEED : T,E1
+15558ms : actions mere set pour le type 2 & le mode 2 & couleur 0
+15588ms : D,E1,len:4
+15617ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,E1
+15626ms : FEED : D,E1
+POSITION : PointOriente : X=0; Y=0; theta=0
+15691ms : actions mere set pour le type 2 & le mode 2 & couleur 1
+15758ms : actions mere set pour le type 2 & le mode 3 & couleur 0
+15817ms : actions mere set pour le type 2 & le mode 3 & couleur 1
+15883ms : LaunchJackEvent called, but was already called earlier.
+15894ms : LaunchJackEvent called, but was already called earlier.
+15903ms : LaunchJackEvent called, but was already called earlier.
+15924ms : T,E1,len:4
+15933ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,E1
+15941ms : FEED : T,E1
+15985ms : D,E1,len:4
+15994ms : LaunchJackEvent called, but was already called earlier.
+15967ms : actions mere set pour le type 1 & le mode 3 & couleur 0
+16024ms : LaunchJackEvent called, but was already called earlier.
+16033ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,E1
+16042ms : FEED : D,E1
+POSITION : PointOriente : X=0; Y=0; theta=0
+16100ms : actions mere set pour le type 1 & le mode 3 & couleur 1
+16218ms : actions mere set pour le type 1 & le mode 1 & couleur 0
+16329ms : T,E1,len:4
+16338ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,E1
+16348ms : FEED : T,E1
+16360ms : actions mere set pour le type 1 & le mode 1 & couleur 1
+16368ms : actions chargees
+Called robot.Start()
+16448ms : Starting actions with mod : 2 & type : 1
+16460ms : Jack interrupt event detected : isJackOn : False
+The thread '<No Name>' (0x6) has exited with code 0 (0x0).
+16509ms : Lancement de l'action mère avec le mode 2 & type : 1 & couleur 0
+16522ms : ActionEnSerie - execute called. Desc : Mother action - competition Gros Robot
+16532ms : JackAction : Executing jack action : adding listener
+The thread '<No Name>' (0x7) has exited with code 0 (0x0).
+16570ms : D,E1,len:4
+16589ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,E1
+16598ms : FEED : D,E1
+POSITION : PointOriente : X=0; Y=0; theta=0
+16860ms : T,E1,len:4
+16869ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,E1
+16878ms : FEED : T,E1
+16919ms : D,E1,len:4
+16928ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,E1
+16936ms : FEED : D,E1
+POSITION : PointOriente : X=0; Y=0; theta=0
+17199ms : T,E1,len:4
+17208ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,E1
+17217ms : FEED : T,E1
+17258ms : D,E1,len:4
+17267ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,E1
+17276ms : FEED : D,E1
+POSITION : PointOriente : X=0; Y=0; theta=0
+17538ms : T,E1,len:4
+17546ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,E1
+17555ms : FEED : T,E1
+17597ms : D,E1,len:4
+17605ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,E1
+17614ms : FEED : D,E1
+POSITION : PointOriente : X=0; Y=0; theta=0
+17876ms : T,E1,len:4
+17885ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,E1
+17893ms : FEED : T,E1
+17935ms : D,E1,len:4
+17943ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,E1
+17952ms : FEED : D,E1
+POSITION : PointOriente : X=0; Y=0; theta=0
+18214ms : T,E1,len:4
+18223ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,E1
+18232ms : FEED : T,E1
+18273ms : D,E1,len:4
+18282ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,E1
+18291ms : FEED : D,E1
+POSITION : PointOriente : X=0; Y=0; theta=0
+18553ms : T,E1,len:4
+18562ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,E1
+18571ms : FEED : T,E1
+18612ms : D,E1,len:4
+18621ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,E1
+18630ms : FEED : D,E1
+POSITION : PointOriente : X=0; Y=0; theta=0
+18891ms : T,E1,len:4
+18900ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,E1
+18909ms : FEED : T,E1
+18949ms : D,E1,len:4
+18958ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,E1
+18967ms : FEED : D,E1
+POSITION : PointOriente : X=0; Y=0; theta=0
+19229ms : T,E1,len:4
+19238ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,E1
+19247ms : FEED : T,E1
+19287ms : D,E1,len:4
+19296ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,E1
+19305ms : FEED : D,E1
+POSITION : PointOriente : X=0; Y=0; theta=0
+19566ms : T,E1,len:4
+19575ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,E1
+19584ms : FEED : T,E1
+19624ms : LaunchJackEvent called, but was already called earlier.
+19636ms : LaunchJackEvent called, but was already called earlier.
+19645ms : LaunchJackEvent called, but was already called earlier.
+19655ms : LaunchJackEvent called, but was already called earlier.
+19664ms : LaunchJackEvent called, but was already called earlier.
+19694ms : LaunchJackEvent called, but was already called earlier.
+19704ms : LaunchJackEvent called, but was already called earlier.
+19714ms : LaunchJackEvent called, but was already called earlier.
+19685ms : D,E1,len:4
+19724ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,E1
+19733ms : FEED : D,E1
+POSITION : PointOriente : X=0; Y=0; theta=0
+19765ms : LaunchJackEvent called, but was already called earlier.
+19778ms : LaunchJackEvent called, but was already called earlier.
+19790ms : LaunchJackEvent called, but was already called earlier.
+19994ms : T,E1,len:4
+20003ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,E1
+20012ms : FEED : T,E1
+20023ms : LaunchJackEvent called, but was already called earlier.
+20035ms : LaunchJackEvent called, but was already called earlier.
+20044ms : LaunchJackEvent called, but was already called earlier.
+20094ms : LaunchJackEvent called, but was already called earlier.
+20102ms : LaunchJackEvent called, but was already called earlier.
+20087ms : D,E1,len:4
+20113ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,E1
+20122ms : FEED : D,E1
+20136ms : Jack interrupt event detected : isJackOn : False
+20151ms : LaunchJackEvent called, but was already called earlier.
+20160ms : LaunchJackEvent called, but was already called earlier.
+20169ms : LaunchJackEvent called, but was already called earlier.
+20146ms : JackAction : Jack changed, status = success & stop listening to Jack, new Jack status : True
+20193ms : LaunchJackEvent called, but done listening to Jack.
+20204ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Mother action - competition Gros Robot
+20215ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Mother action - competition Gros Robot
+20229ms : Drive, Distance demande : 50
+POSITION : PointOriente : X=140; Y=-480; theta=0
+20302ms : D,p4871s2000000
+
+20314ms : Kangaroo - Drive : sent command, waiting for move completion
+The thread '<No Name>' (0x3) has exited with code 0 (0x0).
+20545ms : D,p2368,len:7
+20589ms : T,p-123,len:7
+20597ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-123
+20606ms : FEED : T,p-123
+20619ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p2368
+20628ms : FEED : D,p2368
+20641ms : Kangaroo - CheckMovingStatus - feedback : D,p2368
+20676ms : Current position : PointOriente : X=164.29876194724525; Y=-479.46599913154336; theta=1.2589559877175025
+20922ms : D,p4643,len:7
+20965ms : T,p-87,len:6
+20974ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-87
+20983ms : FEED : T,p-87
+20995ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p4643
+21004ms : FEED : D,p4643
+21018ms : Kangaroo - CheckMovingStatus - feedback : D,p4643
+21051ms : Current position : PointOriente : X=187.64603942090434; Y=-479.10311057690592; theta=0.8904810644831116
+21297ms : D,p4853,len:7
+21353ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=False in direction=1
+21373ms : CapteurObstacleManager : obstacle=False in direction : 1
+21340ms : T,p-76,len:6
+21386ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-76
+21395ms : FEED : T,p-76
+21407ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p4853
+21416ms : FEED : D,p4853
+21429ms : Kangaroo - CheckMovingStatus - feedback : D,p4853
+21463ms : Current position : PointOriente : X=189.80123438951031; Y=-479.0738481968815; theta=0.77789150460593659
+21709ms : D,P4871,len:7
+21752ms : T,p-75,len:6
+21760ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-75
+21769ms : FEED : T,p-75
+21782ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,P4871
+21790ms : FEED : D,P4871
+21804ms : Kangaroo - CheckMovingStatus - feedback : D,P4871
+21813ms : Kangaroo - CheckMovingStatus detected end of move
+21840ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Mother action - competition Gros Robot
+21849ms : ActionEnSerie - execute called. Desc : Vider le tube uni
+21861ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Vider le tube uni
+21872ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Vider le tube uni
+21882ms : ActionBaseRoulante - execute called. Desc : Deplacement
+21891ms : Mouvement - Start() called
+21921ms : Started at189.98596583194154,-479.07137299357566,0.76765609007164792
+21947ms : Current position : PointOriente : X=189.98596583194154; Y=-479.07137299357566; theta=0.76765609007164792
+21959ms : Going to 340,-845
+
+21976ms : Angle before modulo : -201.52373411557522
+21991ms : J'ai deltaTheta = 292.29139020564685
+22005ms : Donc angle = 158.47626588442478
+22024ms : Going (dir forced) to 340,-845
+
+22034ms : Going en avant
+22050ms : Rotate, Angle demande : 68.476265884424777
+22102ms : Command sent: T,p6690s15000
+
+22113ms : Kangaroo - Turn : sent command, waiting for move completion
+22214ms : T,p0,len:4
+22222ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p0
+22231ms : FEED : T,p0
+22267ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=True in direction=0
+22293ms : D,p62,len:5
+22301ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p62
+22310ms : FEED : D,p62
+22323ms : Kangaroo - CheckMovingStatus - feedback : T,p0
+22367ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=False in direction=0
+22387ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=False in direction=0
+22406ms : CapteurObstacleManager : obstacle=False in direction : 0
+22414ms : Mouvement - ObstacleListener - !Map.MapInformation.isObstacleDetecteurOn(), no change on trajectory. 
+22356ms : Current position : PointOriente : X=190.62226302253796; Y=-479.06284729330008; theta=0.76765609007164792
+22666ms : T,p4883,len:7
+22675ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p4883
+22684ms : FEED : T,p4883
+22733ms : D,p1500,len:7
+22742ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p1500
+22751ms : FEED : D,p1500
+22764ms : Kangaroo - CheckMovingStatus - feedback : T,p4883
+22799ms : Current position : PointOriente : X=200.2639876705189; Y=-490.23757354350607; theta=-49.211873080859775
+23045ms : T,p6529,len:7
+23053ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p6529
+23062ms : FEED : T,p6529
+23109ms : D,p496,len:6
+23118ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p496
+23127ms : FEED : D,p496
+23140ms : Kangaroo - CheckMovingStatus - feedback : T,p6529
+23175ms : Current position : PointOriente : X=196.08239021482572; Y=-480.81930133297084; theta=-66.059365404298873
+23422ms : T,p6666,len:7
+23430ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p6666
+23439ms : FEED : T,p6666
+23486ms : D,p318,len:6
+23495ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p318
+23504ms : FEED : D,p318
+23517ms : Kangaroo - CheckMovingStatus - feedback : T,p6666
+23551ms : Current position : PointOriente : X=195.3821151236375; Y=-479.13188588141287; theta=-67.461617195496416
+23798ms : T,p6687,len:7
+23807ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p6687
+23816ms : FEED : T,p6687
+23863ms : D,p292,len:6
+23872ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p292
+23881ms : FEED : D,p292
+23893ms : Kangaroo - CheckMovingStatus - feedback : T,p6687
+23928ms : Current position : PointOriente : X=195.28075311856733; Y=-478.88502747388037; theta=-67.676560900716481
+24175ms : T,p6695,len:7
+24183ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p6695
+24192ms : FEED : T,p6695
+24239ms : D,p279,len:6
+24248ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p279
+24257ms : FEED : D,p279
+24270ms : Kangaroo - CheckMovingStatus - feedback : T,p6695
+24304ms : Current position : PointOriente : X=195.23024856453466; Y=-478.76152596626895; theta=-67.758444216990796
+24550ms : T,P6692,len:7
+24559ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,P6692
+24568ms : FEED : T,P6692
+24615ms : D,p264,len:6
+24624ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p264
+24633ms : FEED : D,p264
+24646ms : Kangaroo - CheckMovingStatus - feedback : T,P6692
+24656ms : Kangaroo - CheckMovingStatus detected end of move
+24687ms : Drive, Distance demande : 393
+24740ms : D,p38289s30000
+
+24749ms : Kangaroo - Drive : sent command, waiting for move completion
+24767ms : Current position : PointOriente : X=195.17189771723253; Y=-478.6190554779368; theta=-67.727737973387931
+25015ms : D,p3158,len:7
+25057ms : T,p105,len:6
+25066ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p105
+25075ms : FEED : T,p105
+25087ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p3158
+25096ms : FEED : D,p3158
+25110ms : Kangaroo - CheckMovingStatus - feedback : D,p3158
+25144ms : Current position : PointOriente : X=206.89194450218903; Y=-508.83898285236774; theta=-68.802456499488244
+25392ms : D,p15325,len:8
+25436ms : T,p24,len:5
+25445ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p24
+25454ms : FEED : T,p24
+25466ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p15325
+25475ms : FEED : D,p15325
+25489ms : Kangaroo - CheckMovingStatus - feedback : D,p15325
+25523ms : Current position : PointOriente : X=253.72636531087969; Y=-624.60340623259151; theta=-67.973387922210861
+25772ms : D,p26701,len:8
+25816ms : T,p33,len:5
+25825ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p33
+25834ms : FEED : T,p33
+25846ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p26701
+25855ms : FEED : D,p26701
+25868ms : Kangaroo - CheckMovingStatus - feedback : D,p26701
+25902ms : Current position : PointOriente : X=297.3419111568187; Y=-732.91202641915356; theta=-68.065506653019455
+26151ms : D,p36485,len:8
+26196ms : T,p26,len:5
+26204ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p26
+26213ms : FEED : T,p26
+26225ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p36485
+26234ms : FEED : D,p36485
+26248ms : Kangaroo - CheckMovingStatus - feedback : D,p36485
+26282ms : Current position : PointOriente : X=334.97019017673671; Y=-826.01655204508018; theta=-67.993858751279433
+26531ms : D,p38148,len:8
+26572ms : T,p8,len:4
+26581ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p8
+26590ms : FEED : T,p8
+26602ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p38148
+26611ms : FEED : D,p38148
+26624ms : Kangaroo - CheckMovingStatus - feedback : D,p38148
+26659ms : Current position : PointOriente : X=341.41677402638004; Y=-841.82100935014262; theta=-67.809621289662232
+26906ms : D,p38285,len:8
+26948ms : T,p3,len:4
+26956ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p3
+26966ms : FEED : T,p3
+26978ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p38285
+26987ms : FEED : D,p38285
+27001ms : Kangaroo - CheckMovingStatus - feedback : D,p38285
+27035ms : Current position : PointOriente : X=341.94901432657059; Y=-843.12252523804739; theta=-67.758444216990782
+27283ms : D,p38302,len:8
+27325ms : T,P0,len:4
+27334ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,P0
+27343ms : FEED : T,P0
+27354ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p38302
+27363ms : FEED : D,p38302
+27377ms : Kangaroo - CheckMovingStatus - feedback : D,p38302
+27411ms : Current position : PointOriente : X=342.01514528684635; Y=-843.28399179149051; theta=-67.727737973387917
+27660ms : D,P38289,len:8
+27702ms : T,p2,len:4
+27710ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p2
+27719ms : FEED : T,p2
+27731ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,P38289
+27740ms : FEED : D,P38289
+27754ms : Kangaroo - CheckMovingStatus - feedback : D,P38289
+27763ms : Kangaroo - CheckMovingStatus detected end of move
+27791ms : DOne with gotoForced dir.
+27800ms : Launch completed event
+27808ms : BaseRoulante : LaunchMovingInstructionCompletedEvent called
+27816ms : BaseRoulante - LaunchMovingInstructionCompletedEvent : listeners found !!!
+27824ms : ActionBaseRoulante : completed, status = success
+27834ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Vider le tube uni
+27850ms : Executing action servo absolue; angle : 810; description : ServoGR- trou du plateau vers l'arriere (sticker vert)
+27862ms : l'angle absolu de l'AX-12 est désormais de 810steps
+27882ms : Current position : PointOriente : X=341.96461867110236; Y=-843.16049930806832; theta=-67.748208802456489
+27911ms : Servo ID 1 en mode joint, moving...
+28125ms : T,P1,len:4
+28133ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1
+28142ms : FEED : T,P1
+28192ms : D,p38296,len:8
+28200ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p38296
+28209ms : FEED : D,p38296
+POSITION : PointOriente : X=341.99183718886388; Y=-843.22699039937947; theta=-67.737973387922196
+28488ms : T,P0,len:4
+28497ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P0
+28506ms : FEED : T,P0
+28559ms : D,p38298,len:8
+28574ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p38298
+28583ms : FEED : D,p38298
+POSITION : PointOriente : X=341.99961730183747; Y=-843.24598646449044; theta=-67.727737973387903
+28854ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Vider le tube uni
+28865ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Vider le tube uni
+28875ms : ActionBaseRoulante - execute called. Desc : Deplacement 2
+28884ms : Mouvement - Start() called
+28915ms : Started at341.99961730183747,-843.24598646449044,-67.727737973387903
+28934ms : Going (dir forced) to 100,-845
+
+28959ms : T,P1,len:4
+28944ms : Going en arriere
+28988ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1
+28997ms : FEED : T,P1
+28983ms : Rotate, Angle demande : -68.143010584720741
+29059ms : Command sent: T,p-6657s15000
+
+29070ms : Kangaroo - Turn : sent command, waiting for move completion
+29099ms : D,P0,len:4
+29108ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,P0
+29118ms : FEED : D,P0
+POSITION : PointOriente : X=341.99961730183747; Y=-843.24598646449044; theta=-67.737973387922196
+29398ms : T,p-1950,len:8
+29407ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-1950
+29416ms : FEED : T,p-1950
+29465ms : D,p-412,len:7
+29473ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p-412
+29483ms : FEED : D,p-412
+29495ms : Kangaroo - CheckMovingStatus - feedback : T,p-1950
+29530ms : Current position : PointOriente : X=339.15797527721259; Y=-840.11440862501945; theta=-47.778915046059353
+29685ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=True in direction=0
+29704ms : CapteurObstacleManager : obstacle=True in direction : 0
+29713ms : Mouvement - ObstacleListener - !Map.MapInformation.isObstacleDetecteurOn(), no change on trajectory. 
+29778ms : T,p-6143,len:8
+29787ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-6143
+29796ms : FEED : T,p-6143
+29856ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=True in direction=0
+29843ms : D,p-73,len:6
+29871ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p-73
+29880ms : FEED : D,p-73
+29893ms : Kangaroo - CheckMovingStatus - feedback : T,p-6143
+29928ms : Current position : PointOriente : X=342.62487741208975; Y=-840.40930002430196; theta=-4.8618219037870887
+30176ms : T,p-6609,len:8
+30185ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-6609
+30194ms : FEED : T,p-6609
+30242ms : D,p34,len:5
+30251ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p34
+30259ms : FEED : D,p34
+30272ms : Kangaroo - CheckMovingStatus - feedback : T,p-6609
+30307ms : Current position : PointOriente : X=343.72310035887909; Y=-840.41106572139222; theta=-0.092118730808582683
+30555ms : T,p-6650,len:8
+30564ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-6650
+30573ms : FEED : T,p-6650
+30622ms : D,p52,len:5
+30630ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p52
+30639ms : FEED : D,p52
+30651ms : Kangaroo - CheckMovingStatus - feedback : T,p-6650
+30685ms : Current position : PointOriente : X=343.9078453644417; Y=-840.41000960880353; theta=0.3275332650972515
+30934ms : T,P-6657,len:8
+30942ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,P-6657
+30951ms : FEED : T,P-6657
+30999ms : D,p54,len:5
+31008ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p54
+31017ms : FEED : D,p54
+31030ms : Kangaroo - CheckMovingStatus - feedback : T,P-6657
+31040ms : Kangaroo - CheckMovingStatus detected end of move
+31073ms : Drive, Distance demande : -243
+31127ms : D,p-23675s20000
+
+31135ms : Kangaroo - Drive : sent command, waiting for move completion
+31151ms : Current position : PointOriente : X=343.92837242449252; Y=-840.40986659393525; theta=0.39918116683727201
+31399ms : D,p-2350,len:8
+31441ms : T,p-18,len:6
+31450ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-18
+31459ms : FEED : T,p-18
+31471ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p-2350
+31480ms : FEED : D,p-2350
+31494ms : Kangaroo - CheckMovingStatus - feedback : D,p-2350
+31527ms : Current position : PointOriente : X=319.80974190668906; Y=-840.65546487014524; theta=0.58341862845446746
+31776ms : D,p-9906,len:8
+31819ms : T,p-21,len:6
+31827ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-21
+31836ms : FEED : T,p-21
+31849ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p-9906
+31858ms : FEED : D,p-9906
+31871ms : Kangaroo - CheckMovingStatus - feedback : D,p-9906
+31904ms : Current position : PointOriente : X=242.2610817009176; Y=-841.48670209770864; theta=0.61412487205733335
+32139ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=False in direction=0
+32171ms : D,p-16876,len:9
+32214ms : T,p499,len:6
+32222ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p499
+32231ms : FEED : T,p499
+32244ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p-16876
+32252ms : FEED : D,p-16876
+32266ms : Kangaroo - CheckMovingStatus - feedback : D,p-16876
+32300ms : Current position : PointOriente : X=170.96394659147666; Y=-835.61462404027657; theta=-4.7082906857727593
+32551ms : D,p-19207,len:9
+32593ms : T,p625,len:6
+32602ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p625
+32611ms : FEED : T,p625
+32623ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p-19207
+32632ms : FEED : D,p-19207
+32646ms : Kangaroo - CheckMovingStatus - feedback : D,p-19207
+32680ms : Current position : PointOriente : X=147.1700510557894; Y=-833.11464435024277; theta=-5.9979529170931283
+32924ms : D,E3,len:4
+32965ms : T,E3,len:4
+32974ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,E3
+32983ms : FEED : T,E3
+32991ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,E3
+33001ms : FEED : D,E3
+33009ms : Kangaroo - CheckMovingStatus - feedback : D,E3
+33019ms : Kangaroo - CheckMovingStatus detected end of move
+33035ms : Starting to adjust angle
+33051ms : Rotate, Angle demande : -5.9979529170931283
+33104ms : Command sent: T,p-585s15000
+
+33114ms : Kangaroo - Turn : sent command, waiting for move completion
+33143ms : Current position : PointOriente : X=147.1700510557894; Y=-833.11464435024277; theta=-5.9979529170931283
+33391ms : T,p-281,len:7
+33400ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-281
+33409ms : FEED : T,p-281
+33432ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=True in direction=0
+33459ms : D,p208,len:6
+33468ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p208
+33477ms : FEED : D,p208
+33490ms : Kangaroo - CheckMovingStatus - feedback : T,p-281
+33524ms : Current position : PointOriente : X=149.30174901640103; Y=-833.23090650646202; theta=-3.1218014329580206
+33770ms : T,p-716,len:7
+33779ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-716
+33788ms : FEED : T,p-716
+33834ms : D,p200,len:6
+33843ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p200
+33851ms : FEED : D,p200
+33865ms : Kangaroo - CheckMovingStatus - feedback : T,p-716
+33898ms : Current position : PointOriente : X=149.21966092455855; Y=-833.23281321539878; theta=1.3306038894575374
+34144ms : T,p-600,len:7
+34153ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-600
+34162ms : FEED : T,p-600
+34208ms : D,p277,len:6
+34217ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p277
+34226ms : FEED : D,p277
+34239ms : Kangaroo - CheckMovingStatus - feedback : T,p-600
+34272ms : Current position : PointOriente : X=150.00996944540174; Y=-833.2308366626479; theta=0.14329580348005533
+34485ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=True in direction=1
+34505ms : CapteurObstacleManager : obstacle=True in direction : 1
+34513ms : Mouvement - ObstacleListener - !Map.MapInformation.isObstacleDetecteurOn(), no change on trajectory. 
+34559ms : T,p-589,len:7
+34568ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-589
+34576ms : FEED : T,p-589
+34623ms : D,p266,len:6
+34632ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p266
+34641ms : FEED : D,p266
+34654ms : Kangaroo - CheckMovingStatus - feedback : T,p-589
+34687ms : Current position : PointOriente : X=149.89706789125708; Y=-833.23089716942491; theta=0.030706243602880295
+34934ms : T,P-585,len:7
+34942ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,P-585
+34951ms : FEED : T,P-585
+34998ms : D,p266,len:6
+35007ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p266
+35031ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=True in direction=1
+35016ms : FEED : D,p266
+35048ms : Kangaroo - CheckMovingStatus - feedback : T,P-585
+35058ms : Kangaroo - CheckMovingStatus detected end of move
+35083ms : DOne with gotoForced dir.
+35092ms : Launch completed event
+35100ms : BaseRoulante : LaunchMovingInstructionCompletedEvent called
+35108ms : BaseRoulante - LaunchMovingInstructionCompletedEvent : listeners found !!!
+35117ms : ActionBaseRoulante : completed, status = success
+35125ms : ActionBaseRoulante : completed, status = success
+35135ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Vider le tube uni
+35151ms : Executing action servo absolue; angle : 580; description : ServoGR- fermer la trappe
+35163ms : l'angle absolu de l'AX-12 est désormais de 580steps
+35185ms : Current position : PointOriente : X=149.89706789125708; Y=-833.23089716942491; theta=-0.010235414534274262
+35214ms : Servo ID 2 en mode joint, moving...
+35431ms : T,P-585,len:7
+35440ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-585
+35449ms : FEED : T,P-585
+35496ms : D,p266,len:6
+35504ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p266
+35513ms : FEED : D,p266
+POSITION : PointOriente : X=149.89706789125708; Y=-833.23089716942491; theta=-0.010235414534274262
+35802ms : T,P-585,len:7
+35811ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-585
+35820ms : FEED : T,P-585
+35871ms : D,p266,len:6
+35879ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p266
+35888ms : FEED : D,p266
+POSITION : PointOriente : X=149.89706789125708; Y=-833.23089716942491; theta=-0.010235414534274262
+35990ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Vider le tube uni
+No feedback received from servo. Weird...
+36166ms : T,P-585,len:7
+36174ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-585
+36197ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=False in direction=1
+36183ms : FEED : T,P-585
+36249ms : D,p266,len:6
+36258ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p266
+36267ms : FEED : D,p266
+POSITION : PointOriente : X=149.89706789125708; Y=-833.23089716942491; theta=-0.010235414534274262
+36522ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=False in direction=1
+36542ms : CapteurObstacleManager : obstacle=False in direction : 1
+36568ms : T,P-585,len:7
+36577ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-585
+36586ms : FEED : T,P-585
+36633ms : D,p264,len:6
+36641ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p264
+36650ms : FEED : D,p264
+POSITION : PointOriente : X=149.87654033333769; Y=-833.23089350234739; theta=-0.010235414534274262
+36926ms : T,P-584,len:7
+36935ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-584
+36944ms : FEED : T,P-584
+36990ms : D,p264,len:6
+36999ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p264
+37008ms : FEED : D,p264
+POSITION : PointOriente : X=149.87654033333769; Y=-833.23089350234739; theta=-0.020470829068562901
+37286ms : T,P-584,len:7
+37294ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-584
+37303ms : FEED : T,P-584
+37350ms : D,p264,len:6
+37359ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p264
+37368ms : FEED : D,p264
+POSITION : PointOriente : X=149.87654033333769; Y=-833.23089350234739; theta=-0.020470829068562901
+37645ms : T,P-584,len:7
+37654ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-584
+37663ms : FEED : T,P-584
+37710ms : D,p264,len:6
+37718ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p264
+37727ms : FEED : D,p264
+POSITION : PointOriente : X=149.87654033333769; Y=-833.23089350234739; theta=-0.020470829068562901
+38004ms : T,P-584,len:7
+38012ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-584
+38022ms : FEED : T,P-584
+38068ms : D,p264,len:6
+38077ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p264
+38086ms : FEED : D,p264
+POSITION : PointOriente : X=149.87654033333769; Y=-833.23089350234739; theta=-0.020470829068562901
+38364ms : T,P-584,len:7
+38372ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-584
+38381ms : FEED : T,P-584
+38428ms : D,p264,len:6
+38437ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p264
+38445ms : FEED : D,p264
+POSITION : PointOriente : X=149.87654033333769; Y=-833.23089350234739; theta=-0.020470829068562901
+38722ms : T,P-584,len:7
+38730ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-584
+38739ms : FEED : T,P-584
+38786ms : D,p264,len:6
+38794ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p264
+38804ms : FEED : D,p264
+POSITION : PointOriente : X=149.87654033333769; Y=-833.23089350234739; theta=-0.020470829068562901
+39082ms : T,P-584,len:7
+39091ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-584
+39100ms : FEED : T,P-584
+39146ms : D,p264,len:6
+39155ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p264
+39164ms : FEED : D,p264
+POSITION : PointOriente : X=149.87654033333769; Y=-833.23089350234739; theta=-0.020470829068562901
+39442ms : T,P-584,len:7
+39450ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-584
+39459ms : FEED : T,P-584
+39505ms : D,p264,len:6
+39514ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p264
+39523ms : FEED : D,p264
+POSITION : PointOriente : X=149.87654033333769; Y=-833.23089350234739; theta=-0.020470829068562901
+39800ms : T,P-584,len:7
+39809ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-584
+39818ms : FEED : T,P-584
+39864ms : D,p264,len:6
+39873ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p264
+39882ms : FEED : D,p264
+POSITION : PointOriente : X=149.87654033333769; Y=-833.23089350234739; theta=-0.020470829068562901
+40045ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Vider le tube uni
+40061ms : Executing action servo absolue; angle : 0; description : ServoGR - plateau slot 1
+40073ms : l'angle absolu de l'AX-12 est désormais de 0steps
+40108ms : Servo ID 1 en mode joint, moving...
+40141ms : Servomoteur : isMoving got bad return : no params returned...
+40174ms : T,P-584,len:7
+40182ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-584
+40149ms : WARNING !!! isMoving = false right after Servo.Move()...
+40201ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Vider le tube uni
+40191ms : FEED : T,P-584
+40251ms : D,p264,len:6
+40260ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p264
+40269ms : FEED : D,p264
+POSITION : PointOriente : X=149.87654033333769; Y=-833.23089350234739; theta=-0.020470829068562901
+40547ms : T,p-583,len:7
+40556ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p-583
+40565ms : FEED : T,p-583
+40611ms : D,p266,len:6
+40620ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p266
+40629ms : FEED : D,p266
+POSITION : PointOriente : X=149.89706788863671; Y=-833.23090450357961; theta=-0.030706243602851541
+40713ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Vider le tube uni
+40723ms : ActionBaseRoulante - execute called. Desc : piche
+40732ms : Mouvement - Start() called
+40763ms : Started at149.89706788863671,-833.23090450357961,-0.030706243602851541
+40782ms : Going (dir forced) to 542,-845
+
+40792ms : Going en avant
+40808ms : Rotate, Angle demande : 1.6885288150637052
+40860ms : Command sent: T,p164s15000
+
+40870ms : Kangaroo - Turn : sent command, waiting for move completion
+40971ms : T,p6,len:4
+40979ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p6
+40988ms : FEED : T,p6
+41036ms : D,p26,len:5
+41045ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p26
+41054ms : FEED : D,p26
+41067ms : Kangaroo - CheckMovingStatus - feedback : T,p6
+41101ms : Current position : PointOriente : X=150.16392580094066; Y=-833.2313335514707; theta=-0.092118730808583377
+41134ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=True in direction=1
+41153ms : CapteurObstacleManager : obstacle=True in direction : 1
+41162ms : Mouvement - ObstacleListener - !Map.MapInformation.isObstacleDetecteurOn(), no change on trajectory. 
+41206ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=False in direction=1
+41225ms : CapteurObstacleManager : obstacle=False in direction : 1
+41234ms : Mouvement - ObstacleListener - !Map.MapInformation.isObstacleDetecteurOn(), no change on trajectory. 
+41346ms : T,p160,len:6
+41355ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p160
+41364ms : FEED : T,p160
+41411ms : D,p34,len:5
+41420ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p34
+41429ms : FEED : D,p34
+41442ms : Kangaroo - CheckMovingStatus - feedback : T,p160
+41476ms : Current position : PointOriente : X=150.2460012260608; Y=-833.23372414818618; theta=-1.6683725690890339
+41720ms : T,p170,len:6
+41729ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p170
+41738ms : FEED : T,p170
+41785ms : D,p34,len:5
+41794ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p34
+41803ms : FEED : D,p34
+41816ms : Kangaroo - CheckMovingStatus - feedback : T,p170
+41850ms : Current position : PointOriente : X=150.2460012260608; Y=-833.23372414818618; theta=-1.7707267144319203
+42095ms : T,p167,len:6
+42104ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p167
+42113ms : FEED : T,p167
+42160ms : D,p39,len:5
+42169ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p39
+42178ms : FEED : D,p39
+42190ms : Kangaroo - CheckMovingStatus - feedback : T,p167
+42225ms : Current position : PointOriente : X=150.29729645826546; Y=-833.23528241660165; theta=-1.7400204708290543
+42469ms : T,P166,len:6
+42478ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,P166
+42487ms : FEED : T,P166
+42535ms : D,p41,len:5
+42544ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p41
+42553ms : FEED : D,p41
+42566ms : Kangaroo - CheckMovingStatus - feedback : T,P166
+42575ms : Kangaroo - CheckMovingStatus detected end of move
+42609ms : Drive, Distance demande : 391
+42661ms : D,p38095s20000
+
+42670ms : Kangaroo - Drive : sent command, waiting for move completion
+42687ms : Current position : PointOriente : X=150.31781466216862; Y=-833.23590205857124; theta=-1.7297850562947656
+42933ms : D,p2273,len:7
+42977ms : T,p-3,len:5
+42986ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-3
+42995ms : FEED : T,p-3
+43006ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p2273
+43015ms : FEED : D,p2273
+43029ms : Kangaroo - CheckMovingStatus - feedback : D,p2273
+43063ms : Current position : PointOriente : X=173.63712746010117; Y=-833.9276278530109; theta=-1.6990788126918996
+43311ms : D,p10076,len:8
+43353ms : T,p-17,len:6
+43362ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-17
+43371ms : FEED : T,p-17
+43383ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p10076
+43392ms : FEED : D,p10076
+43406ms : Kangaroo - CheckMovingStatus - feedback : D,p10076
+43440ms : Current position : PointOriente : X=253.69587265320408; Y=-836.10204030420164; theta=-1.5557830092118587
+43689ms : D,p17486,len:8
+43733ms : T,p19,len:5
+43741ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p19
+43750ms : FEED : T,p19
+43762ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p17486
+43772ms : FEED : D,p17486
+43785ms : Kangaroo - CheckMovingStatus - feedback : D,p17486
+43820ms : Current position : PointOriente : X=329.70758793835404; Y=-838.6558263721048; theta=-1.9242579324462497
+44068ms : D,p25027,len:8
+44113ms : T,p13,len:5
+44121ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p13
+44130ms : FEED : T,p13
+44142ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p25027
+44151ms : FEED : D,p25027
+44165ms : Kangaroo - CheckMovingStatus - feedback : D,p25027
+44199ms : Current position : PointOriente : X=407.06584131111191; Y=-841.17184535411843; theta=-1.8628454452405179
+44447ms : D,p32594,len:8
+44492ms : T,p16,len:5
+44500ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p16
+44510ms : FEED : T,p16
+44522ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p32594
+44531ms : FEED : D,p32594
+44544ms : Kangaroo - CheckMovingStatus - feedback : D,p32594
+44578ms : Current position : PointOriente : X=484.68944771394757; Y=-843.73813991498548; theta=-1.8935516888433839
+44697ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=False in direction=0
+44827ms : D,p37514,len:8
+44871ms : T,p22,len:5
+44880ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p22
+44888ms : FEED : T,p22
+44900ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p37514
+44910ms : FEED : D,p37514
+44923ms : Kangaroo - CheckMovingStatus - feedback : D,p37514
+44966ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=True in direction=0
+44957ms : Current position : PointOriente : X=535.15784876638008; Y=-845.46081867689759; theta=-1.9549641760491157
+45224ms : D,p38053,len:8
+45266ms : T,p9,len:4
+45275ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p9
+45284ms : FEED : T,p9
+45296ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p38053
+45305ms : FEED : D,p38053
+45318ms : Kangaroo - CheckMovingStatus - feedback : D,p38053
+45352ms : Current position : PointOriente : X=540.68722908346194; Y=-845.63670241149111; theta=-1.8219037871033634
+45600ms : D,P38096,len:8
+45641ms : T,p7,len:4
+45650ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p7
+45659ms : FEED : T,p7
+45671ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,P38096
+45680ms : FEED : D,P38096
+45694ms : Kangaroo - CheckMovingStatus - feedback : D,P38096
+45703ms : Kangaroo - CheckMovingStatus detected end of move
+45731ms : Starting to adjust angle
+45748ms : Rotate, Angle demande : -21.801432958034788
+45800ms : Command sent: T,p-2129s15000
+
+45812ms : Kangaroo - Turn : sent command, waiting for move completion
+45827ms : Current position : PointOriente : X=541.12835346304144; Y=-845.65057634695472; theta=-1.8014329580347861
+46085ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=False in direction=0
+46076ms : T,p-1021,len:8
+46103ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-1021
+46112ms : FEED : T,p-1021
+46147ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=False in direction=0
+46167ms : CapteurObstacleManager : obstacle=False in direction : 0
+46175ms : Mouvement - ObstacleListener - !Map.MapInformation.isObstacleDetecteurOn(), no change on trajectory. 
+46200ms : D,p-37,len:6
+46208ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p-37
+46218ms : FEED : D,p-37
+46231ms : Kangaroo - CheckMovingStatus - feedback : T,p-1021
+46264ms : Current position : PointOriente : X=540.75291213842934; Y=-845.70768447604644; theta=8.6489252814739146
+46513ms : T,p-2072,len:8
+46522ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-2072
+46530ms : FEED : T,p-2072
+46579ms : D,p34,len:5
+46588ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p34
+46596ms : FEED : D,p34
+46609ms : Kangaroo - CheckMovingStatus - feedback : T,p-2072
+46643ms : Current position : PointOriente : X=541.44023838550424; Y=-845.46555312492308; theta=19.406345957011276
+46891ms : T,p-2121,len:8
+46900ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-2121
+46909ms : FEED : T,p-2121
+46958ms : D,p60,len:5
+46966ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p60
+46975ms : FEED : D,p60
+46988ms : Kangaroo - CheckMovingStatus - feedback : T,p-2121
+47022ms : Current position : PointOriente : X=541.69114953951578; Y=-845.37468551664654; theta=19.907881269191417
+47271ms : T,p-2127,len:8
+47279ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-2127
+47289ms : FEED : T,p-2127
+47337ms : D,p67,len:5
+47346ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p67
+47355ms : FEED : D,p67
+47368ms : Kangaroo - CheckMovingStatus - feedback : T,p-2127
+47401ms : Current position : PointOriente : X=541.75867628159676; Y=-845.35014876794583; theta=19.96929375639715
+47650ms : T,p-2131,len:8
+47658ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-2131
+47667ms : FEED : T,p-2131
+47716ms : D,p69,len:5
+47724ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p69
+47733ms : FEED : D,p69
+47746ms : Kangaroo - CheckMovingStatus - feedback : T,p-2131
+47779ms : Current position : PointOriente : X=541.77796462208198; Y=-845.34312448371838; theta=20.010235414534304
+48028ms : T,p-2131,len:8
+48037ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-2131
+48046ms : FEED : T,p-2131
+48094ms : D,p69,len:5
+48103ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p69
+48112ms : FEED : D,p69
+48125ms : Kangaroo - CheckMovingStatus - feedback : T,p-2131
+48158ms : Current position : PointOriente : X=541.77796462208198; Y=-845.34312448371838; theta=20.010235414534304
+48407ms : T,P-2130,len:8
+48416ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,P-2130
+48425ms : FEED : T,P-2130
+48474ms : D,p64,len:5
+48482ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p64
+48491ms : FEED : D,p64
+48504ms : Kangaroo - CheckMovingStatus - feedback : T,P-2130
+48514ms : Kangaroo - CheckMovingStatus detected end of move
+48541ms : DOne with gotoForced dir.
+48550ms : Launch completed event
+48557ms : BaseRoulante : LaunchMovingInstructionCompletedEvent called
+48566ms : BaseRoulante - LaunchMovingInstructionCompletedEvent : listeners found !!!
+48575ms : ActionBaseRoulante : completed, status = success
+48583ms : ActionBaseRoulante : completed, status = success
+48592ms : ActionBaseRoulante : completed, status = success
+48601ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Vider le tube uni
+48611ms : ActionEnSerie - execute called. Desc : ServoGR - Liberation balles cote vert (arriere)
+48631ms : LanceurBalle : launched motor 1 with speed 0.64500000000000002
+48648ms : Current position : PointOriente : X=541.72974063456343; Y=-845.36067657975275; theta=20.000000000000014
+48641ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - Liberation balles cote vert (arriere)
+48672ms : Executing action servo absolue; angle : 495; description : ServoGR- ouvrir la trappe
+48685ms : l'angle absolu de l'AX-12 est désormais de 495steps
+48714ms : CAX12, wrong ID returned. This.id = 2; id received : 1
+48738ms : Servo ID 2 en mode joint, moving...
+BAD PACKET received !!! Header should be 0xFF 0XFF
+48766ms : Servomoteur : isMoving got bad return : no params returned...
+48774ms : WARNING !!! isMoving = false right after Servo.Move()...
+48784ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - Liberation balles cote vert (arriere)
+48895ms : T,P-2131,len:8
+48904ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-2131
+48913ms : FEED : T,P-2131
+48961ms : D,p67,len:5
+48969ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p67
+48978ms : FEED : D,p67
+POSITION : PointOriente : X=541.75867314529125; Y=-845.35014015341164; theta=20.010235414534304
+49256ms : T,P-2131,len:8
+49265ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-2131
+49274ms : FEED : T,P-2131
+49296ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - Liberation balles cote vert (arriere)
+49312ms : Executing action servo absolue; angle : 83; description : ServoGR - plateau slot 1
+49325ms : l'angle absolu de l'AX-12 est désormais de 83steps
+BAD PACKET received !!! Header should be 0xFF 0XFF
+49352ms : D,p67,len:5
+49367ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p67
+49376ms : FEED : D,p67
+BAD PACKET received !!! Header should be 0xFF 0XFF
+49392ms : Servo ID 1 en mode joint, moving...
+BAD PACKET received !!! Header should be 0xFF 0XFF
+49429ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - Liberation balles cote vert (arriere)
+49439ms : ActionEnSerie - execute called. Desc : ServoGR - plateau petit retour en arriere
+POSITION : PointOriente : X=541.75867314529125; Y=-845.35014015341164; theta=20.010235414534304
+49697ms : T,p-2131,len:8
+49706ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p-2131
+49715ms : FEED : T,p-2131
+49763ms : D,p67,len:5
+49771ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p67
+49780ms : FEED : D,p67
+POSITION : PointOriente : X=541.75867314529125; Y=-845.35014015341164; theta=20.010235414534304
+49951ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - plateau petit retour en arriere
+49982ms : CAX12, wrong ID returned. This.id = 1; id received : 2
+50057ms : T,P-2130,len:8
+50066ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-2130
+50075ms : FEED : T,P-2130
+50123ms : D,p64,len:5
+50132ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p64
+50141ms : FEED : D,p64
+POSITION : PointOriente : X=541.72973875278012; Y=-845.36067141103229; theta=20.000000000000014
+50229ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - plateau petit retour en arriere
+50418ms : T,P-2130,len:8
+50427ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-2130
+50436ms : FEED : T,P-2130
+50484ms : D,p64,len:5
+50498ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p64
+50507ms : FEED : D,p64
+50523ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - plateau petit retour en arriere
+POSITION : PointOriente : X=541.72973875278012; Y=-845.36067141103229; theta=20.000000000000014
+50801ms : T,P-2130,len:8
+50810ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-2130
+50819ms : FEED : T,P-2130
+50837ms : ActionEnSerie - After last action feedback, status = success. Desc : ServoGR - plateau petit retour en arriere
+50847ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - Liberation balles cote vert (arriere)
+50864ms : Executing action servo absolue; angle : 205; description : ServoGR - plateau slot 2
+50877ms : l'angle absolu de l'AX-12 est désormais de 205steps
+50904ms : D,p60,len:5
+50922ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p60
+50931ms : FEED : D,p60
+50949ms : Servo ID 1 en mode joint, moving...
+POSITION : PointOriente : X=541.69115956276528; Y=-845.37471308785973; theta=20.000000000000014
+51006ms : Servomoteur : isMoving got bad return : no params returned...
+51014ms : WARNING !!! isMoving = false right after Servo.Move()...
+51024ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - Liberation balles cote vert (arriere)
+51034ms : ActionEnSerie - execute called. Desc : ServoGR - plateau petit retour en arriere
+51240ms : T,P-2130,len:8
+51249ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-2130
+51258ms : FEED : T,P-2130
+51307ms : D,p56,len:5
+51315ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p56
+51324ms : FEED : D,p56
+POSITION : PointOriente : X=541.65258037275044; Y=-845.38875476468718; theta=20.000000000000014
+51546ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - plateau petit retour en arriere
+51612ms : T,p-2127,len:8
+51620ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p-2127
+51630ms : FEED : T,p-2127
+51678ms : D,p49,len:5
+51687ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p49
+51695ms : FEED : D,p49
+POSITION : PointOriente : X=541.58505363066945; Y=-845.41329151338789; theta=19.96929375639715
+51808ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - plateau petit retour en arriere
+51973ms : T,P-2128,len:8
+51982ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-2128
+51991ms : FEED : T,P-2128
+52039ms : D,p52,len:5
+52048ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p52
+52057ms : FEED : D,p52
+52098ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - plateau petit retour en arriere
+POSITION : PointOriente : X=541.61399178397687; Y=-845.40277059421646; theta=19.979529170931439
+52356ms : T,P-2128,len:8
+52365ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-2128
+52374ms : FEED : T,P-2128
+52410ms : ActionEnSerie - After last action feedback, status = success. Desc : ServoGR - plateau petit retour en arriere
+52420ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - Liberation balles cote vert (arriere)
+52436ms : Executing action servo absolue; angle : 325; description : ServoGR - plateau slot 3
+52449ms : l'angle absolu de l'AX-12 est désormais de 325steps
+52477ms : D,p52,len:5
+52495ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p52
+52504ms : FEED : D,p52
+52521ms : Servo ID 1 en mode joint, moving...
+POSITION : PointOriente : X=541.61399178397687; Y=-845.40277059421646; theta=19.979529170931439
+52578ms : Servomoteur : isMoving got bad return : no params returned...
+52587ms : WARNING !!! isMoving = false right after Servo.Move()...
+52597ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - Liberation balles cote vert (arriere)
+52607ms : ActionEnSerie - execute called. Desc : ServoGR - plateau petit retour en arriere
+52813ms : T,P-2129,len:8
+52822ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-2129
+52831ms : FEED : T,P-2129
+52879ms : D,p52,len:5
+52887ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p52
+52896ms : FEED : D,p52
+POSITION : PointOriente : X=541.61399178397687; Y=-845.40277059421646; theta=19.989764585465728
+53119ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - plateau petit retour en arriere
+53187ms : T,P-2128,len:8
+53196ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-2128
+53206ms : FEED : T,P-2128
+53256ms : D,p52,len:5
+53266ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p52
+53275ms : FEED : D,p52
+POSITION : PointOriente : X=541.61399178397687; Y=-845.40277059421646; theta=19.979529170931439
+53381ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - plateau petit retour en arriere
+53557ms : T,P-2128,len:8
+53567ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-2128
+53577ms : FEED : T,P-2128
+53627ms : D,p52,len:5
+53642ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p52
+53665ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - plateau petit retour en arriere
+53652ms : FEED : D,p52
+POSITION : PointOriente : X=541.61399178397687; Y=-845.40277059421646; theta=19.979529170931439
+53951ms : T,p-2127,len:8
+53960ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p-2127
+53970ms : FEED : T,p-2127
+53988ms : ActionEnSerie - After last action feedback, status = success. Desc : ServoGR - plateau petit retour en arriere
+54000ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - Liberation balles cote vert (arriere)
+54017ms : Executing action servo absolue; angle : 445; description : ServoGR - plateau slot 4
+54031ms : l'angle absolu de l'AX-12 est désormais de 445steps
+54061ms : D,p47,len:5
+54080ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p47
+54105ms : Servo ID 1 en mode joint, moving...
+54090ms : FEED : D,p47
+POSITION : PointOriente : X=541.56575839677612; Y=-845.42029684328838; theta=19.96929375639715
+54168ms : Servomoteur : isMoving got bad return : no params returned...
+54177ms : WARNING !!! isMoving = false right after Servo.Move()...
+54189ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - Liberation balles cote vert (arriere)
+54199ms : ActionEnSerie - execute called. Desc : ServoGR - plateau petit retour en arriere
+54405ms : T,P-2129,len:8
+54414ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-2129
+54424ms : FEED : T,P-2129
+54474ms : D,p47,len:5
+54484ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p47
+54494ms : FEED : D,p47
+POSITION : PointOriente : X=541.56575839677612; Y=-845.42029684328838; theta=19.989764585465728
+54712ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - plateau petit retour en arriere
+54781ms : T,P-2128,len:8
+54790ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-2128
+54800ms : FEED : T,P-2128
+54850ms : D,p47,len:5
+54860ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p47
+54869ms : FEED : D,p47
+POSITION : PointOriente : X=541.56575839677612; Y=-845.42029684328838; theta=19.979529170931439
+54975ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - plateau petit retour en arriere
+55151ms : T,P-2128,len:8
+55161ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-2128
+55170ms : FEED : T,P-2128
+55221ms : D,p45,len:5
+55236ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p45
+55259ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - plateau petit retour en arriere
+55245ms : FEED : D,p45
+POSITION : PointOriente : X=541.54646629457113; Y=-845.42731078940267; theta=19.979529170931439
+55545ms : T,p-2127,len:8
+55554ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p-2127
+55564ms : FEED : T,p-2127
+55583ms : ActionEnSerie - After last action feedback, status = success. Desc : ServoGR - plateau petit retour en arriere
+55594ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - Liberation balles cote vert (arriere)
+55612ms : Executing action servo absolue; angle : 569; description : ServoGR - plateau slot 5
+55625ms : l'angle absolu de l'AX-12 est désormais de 569steps
+55655ms : D,p41,len:5
+55674ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p41
+55700ms : Servo ID 1 en mode joint, moving...
+55684ms : FEED : D,p41
+POSITION : PointOriente : X=541.50787958481055; Y=-845.44133178866025; theta=19.96929375639715
+55763ms : Servomoteur : isMoving got bad return : no params returned...
+55772ms : WARNING !!! isMoving = false right after Servo.Move()...
+55783ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - Liberation balles cote vert (arriere)
+55794ms : ActionEnSerie - execute called. Desc : ServoGR - plateau petit retour en arriere
+55998ms : T,P-2129,len:8
+56008ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-2129
+56018ms : FEED : T,P-2129
+56068ms : D,p43,len:5
+56077ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p43
+56087ms : FEED : D,p43
+POSITION : PointOriente : X=541.52717043372456; Y=-845.43431439628421; theta=19.989764585465728
+56308ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - plateau petit retour en arriere
+56378ms : T,P-2128,len:8
+56387ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-2128
+56397ms : FEED : T,P-2128
+56447ms : D,p43,len:5
+56456ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p43
+56465ms : FEED : D,p43
+POSITION : PointOriente : X=541.52717043372456; Y=-845.43431439628421; theta=19.979529170931439
+56572ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - plateau petit retour en arriere
+56747ms : T,P-2128,len:8
+56756ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-2128
+56766ms : FEED : T,P-2128
+56816ms : D,p43,len:5
+56832ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p43
+56855ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - plateau petit retour en arriere
+56841ms : FEED : D,p43
+POSITION : PointOriente : X=541.52717043372456; Y=-845.43431439628421; theta=19.979529170931439
+57141ms : T,P-2128,len:8
+57150ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-2128
+57160ms : FEED : T,P-2128
+57179ms : ActionEnSerie - After last action feedback, status = success. Desc : ServoGR - plateau petit retour en arriere
+57190ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - Liberation balles cote vert (arriere)
+57207ms : Executing action servo absolue; angle : 692; description : ServoGR - plateau slot 6
+57221ms : l'angle absolu de l'AX-12 est désormais de 692steps
+57251ms : D,p43,len:5
+57270ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p43
+57295ms : Servo ID 1 en mode joint, moving...
+57280ms : FEED : D,p43
+POSITION : PointOriente : X=541.52717043372456; Y=-845.43431439628421; theta=19.979529170931439
+57359ms : Servomoteur : isMoving got bad return : no params returned...
+57367ms : WARNING !!! isMoving = false right after Servo.Move()...
+57379ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - Liberation balles cote vert (arriere)
+57389ms : ActionEnSerie - execute called. Desc : ServoGR - plateau petit retour en arriere
+57595ms : T,P-2129,len:8
+57604ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-2129
+57613ms : FEED : T,P-2129
+57664ms : D,p43,len:5
+57673ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p43
+57683ms : FEED : D,p43
+POSITION : PointOriente : X=541.52717043372456; Y=-845.43431439628421; theta=19.989764585465728
+57903ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - plateau petit retour en arriere
+57972ms : T,P-2128,len:8
+57981ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-2128
+57991ms : FEED : T,P-2128
+58042ms : D,p43,len:5
+58051ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p43
+58061ms : FEED : D,p43
+POSITION : PointOriente : X=541.52717043372456; Y=-845.43431439628421; theta=19.979529170931439
+58166ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - plateau petit retour en arriere
+58343ms : T,P-2128,len:8
+58352ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-2128
+58362ms : FEED : T,P-2128
+58412ms : D,p43,len:5
+58427ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p43
+58450ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - plateau petit retour en arriere
+58437ms : FEED : D,p43
+POSITION : PointOriente : X=541.52717043372456; Y=-845.43431439628421; theta=19.979529170931439
+58737ms : T,P-2128,len:8
+58746ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-2128
+58756ms : FEED : T,P-2128
+58774ms : ActionEnSerie - After last action feedback, status = success. Desc : ServoGR - plateau petit retour en arriere
+58786ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - Liberation balles cote vert (arriere)
+58804ms : Executing action servo absolue; angle : 816; description : ServoGR - plateau slot 7
+58818ms : l'angle absolu de l'AX-12 est désormais de 816steps
+58848ms : D,p43,len:5
+58867ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p43
+58892ms : Servo ID 1 en mode joint, moving...
+58877ms : FEED : D,p43
+POSITION : PointOriente : X=541.52717043372456; Y=-845.43431439628421; theta=19.979529170931439
+58955ms : Servomoteur : isMoving got bad return : no params returned...
+58964ms : WARNING !!! isMoving = false right after Servo.Move()...
+58976ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - Liberation balles cote vert (arriere)
+58986ms : ActionEnSerie - execute called. Desc : ServoGR - plateau petit retour en arriere
+59192ms : T,P-2128,len:8
+59201ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-2128
+59210ms : FEED : T,P-2128
+59261ms : D,p45,len:5
+59270ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p45
+59280ms : FEED : D,p45
+POSITION : PointOriente : X=541.54646253592955; Y=-845.42730045016992; theta=19.979529170931439
+59500ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - plateau petit retour en arriere
+59570ms : T,P-2127,len:8
+59579ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-2127
+59589ms : FEED : T,P-2127
+59639ms : D,p45,len:5
+59648ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p45
+59658ms : FEED : D,p45
+POSITION : PointOriente : X=541.54646253592955; Y=-845.42730045016992; theta=19.96929375639715
+59763ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - plateau petit retour en arriere
+59941ms : T,P-2127,len:8
+59949ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-2127
+59960ms : FEED : T,P-2127
+10ms : D,p45,len:5
+24ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p45
+48ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - plateau petit retour en arriere
+34ms : FEED : D,p45
+POSITION : PointOriente : X=541.54646253592955; Y=-845.42730045016992; theta=19.96929375639715
+334ms : T,P-2127,len:8
+343ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-2127
+353ms : FEED : T,P-2127
+371ms : ActionEnSerie - After last action feedback, status = success. Desc : ServoGR - plateau petit retour en arriere
+382ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - Liberation balles cote vert (arriere)
+400ms : Executing action servo absolue; angle : 963; description : ServoGR - plateau slot 8
+413ms : l'angle absolu de l'AX-12 est désormais de 963steps
+443ms : D,p45,len:5
+462ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p45
+487ms : Servo ID 1 en mode joint, moving...
+472ms : FEED : D,p45
+POSITION : PointOriente : X=541.54646253592955; Y=-845.42730045016992; theta=19.96929375639715
+550ms : Servomoteur : isMoving got bad return : no params returned...
+559ms : WARNING !!! isMoving = false right after Servo.Move()...
+571ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - Liberation balles cote vert (arriere)
+581ms : ActionEnSerie - execute called. Desc : ServoGR - plateau petit retour en arriere
+787ms : T,P-2127,len:8
+796ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-2127
+806ms : FEED : T,P-2127
+856ms : D,p39,len:5
+865ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p39
+875ms : FEED : D,p39
+POSITION : PointOriente : X=541.48858247128874; Y=-845.4483319490563; theta=19.96929375639715
+1095ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - plateau petit retour en arriere
+1165ms : T,p-2127,len:8
+1174ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p-2127
+1184ms : FEED : T,p-2127
+1234ms : D,p41,len:5
+1243ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p41
+1253ms : FEED : D,p41
+POSITION : PointOriente : X=541.50787582616897; Y=-845.44132144942751; theta=19.96929375639715
+1359ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - plateau petit retour en arriere
+1535ms : T,p-2127,len:8
+1545ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p-2127
+1554ms : FEED : T,p-2127
+1604ms : D,p41,len:5
+1619ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p41
+1642ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - plateau petit retour en arriere
+1629ms : FEED : D,p41
+POSITION : PointOriente : X=541.50787582616897; Y=-845.44132144942751; theta=19.96929375639715
+1929ms : T,P-2128,len:8
+1938ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-2128
+1948ms : FEED : T,P-2128
+1967ms : ActionEnSerie - After last action feedback, status = success. Desc : ServoGR - plateau petit retour en arriere
+1978ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - Liberation balles cote vert (arriere)
+2004ms : D,p43,len:5
+2014ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p43
+2024ms : FEED : D,p43
+POSITION : PointOriente : X=541.52716792837396; Y=-845.43430750331322; theta=19.979529170931439
+2306ms : T,P-2128,len:8
+2315ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-2128
+2325ms : FEED : T,P-2128
+2375ms : D,p43,len:5
+2384ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p43
+2394ms : FEED : D,p43
+POSITION : PointOriente : X=541.52716792837396; Y=-845.43430750331322; theta=19.979529170931439
+2675ms : T,P-2128,len:8
+2684ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-2128
+2694ms : FEED : T,P-2128
+2745ms : D,p41,len:5
+2754ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p41
+2764ms : FEED : D,p41
+POSITION : PointOriente : X=541.50787582616897; Y=-845.44132144942751; theta=19.979529170931439
+3046ms : T,P-2129,len:8
+3055ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-2129
+3064ms : FEED : T,P-2129
+3115ms : D,p41,len:5
+3124ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p41
+3134ms : FEED : D,p41
+POSITION : PointOriente : X=541.50787582616897; Y=-845.44132144942751; theta=19.989764585465728
+3415ms : T,P-2129,len:8
+3425ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P-2129
+3434ms : FEED : T,P-2129
+3492ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : ServoGR - Liberation balles cote vert (arriere)
+3515ms : LanceurBalle : stopped all motors
+3526ms : ActionEnSerie - After last action feedback, status = success. Desc : ServoGR - Liberation balles cote vert (arriere)
+3538ms : ActionEnSerie - After last action feedback, status = success. Desc : Vider le tube uni
+3549ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Mother action - competition Gros Robot
+3560ms : ActionEnSerie - execute called. Desc : Activer l'abeille
+3572ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Activer l'abeille
+3485ms : D,p41,len:5
+3595ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p41
+3584ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Activer l'abeille
+3615ms : ActionBaseRoulante - execute called. Desc : Deplacement
+3605ms : FEED : D,p41
+3625ms : Mouvement - Start() called
+POSITION : PointOriente : X=541.50787582616897; Y=-845.44132144942751; theta=19.989764585465728
+3691ms : Started at541.50787582616897,-845.44132144942751,19.989764585465728
+3714ms : Going to 1060,-845
+
+3732ms : Angle before modulo : 109.94099653446644
+3747ms : J'ai deltaTheta = 0.04876805099928766
+3762ms : Donc angle = 109.94099653446644
+3783ms : Going (dir forced) to 1060,-845
+
+3794ms : Going en avant
+3813ms : Rotate, Angle demande : 19.940996534466422
+3867ms : Command sent: T,p1948s15000
+
+3879ms : Kangaroo - Turn : sent command, waiting for move completion
+3978ms : T,p1,len:4
+3987ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p1
+3997ms : FEED : T,p1
+4047ms : D,p19,len:5
+4056ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p19
+4080ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=True in direction=0
+4101ms : CapteurObstacleManager : obstacle=True in direction : 0
+4110ms : Mouvement - ObstacleListener - obstacle detected : pausing movement. 
+4120ms : Kangaroo - called stop()
+4143ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=True in direction=0
+4066ms : FEED : D,p19
+4164ms : Kangaroo - CheckMovingStatus - feedback : T,p1
+4199ms : Current position : PointOriente : X=541.69115079711628; Y=-845.37468896134146; theta=19.979529170931439
+4447ms : T,P1526,len:7
+4457ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1526
+4467ms : FEED : T,P1526
+4517ms : D,P88,len:5
+4526ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P88
+4536ms : FEED : D,P88
+POSITION : PointOriente : X=542.39729217347849; Y=-845.32071978149315; theta=4.3705220061412646
+4816ms : T,P1526,len:7
+4825ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1526
+4835ms : FEED : T,P1526
+4885ms : D,P88,len:5
+4895ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P88
+4904ms : FEED : D,P88
+POSITION : PointOriente : X=542.39729217347849; Y=-845.32071978149315; theta=4.3705220061412646
+5183ms : T,P1526,len:7
+5193ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1526
+5203ms : FEED : T,P1526
+5253ms : D,P90,len:5
+5263ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+5272ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3705220061412646
+5552ms : T,P1525,len:7
+5562ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+5572ms : FEED : T,P1525
+5622ms : D,P90,len:5
+5631ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+5641ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+5921ms : T,P1525,len:7
+5930ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+5940ms : FEED : T,P1525
+5990ms : D,P90,len:5
+6000ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+6009ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+6289ms : T,P1525,len:7
+6298ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+6308ms : FEED : T,P1525
+6358ms : D,P90,len:5
+6367ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+6377ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+6658ms : T,P1525,len:7
+6668ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+6678ms : FEED : T,P1525
+6728ms : D,P90,len:5
+6737ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+6746ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+7027ms : T,P1525,len:7
+7037ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+7046ms : FEED : T,P1525
+7096ms : D,P90,len:5
+7106ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+7115ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+7396ms : T,P1525,len:7
+7405ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+7415ms : FEED : T,P1525
+7466ms : D,P90,len:5
+7475ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+7485ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+7765ms : T,P1525,len:7
+7774ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+7784ms : FEED : T,P1525
+7834ms : D,P90,len:5
+7844ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+7853ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+8133ms : T,P1525,len:7
+8142ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+8152ms : FEED : T,P1525
+8202ms : D,P90,len:5
+8212ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+8221ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+8501ms : T,P1525,len:7
+8510ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+8520ms : FEED : T,P1525
+8570ms : D,P90,len:5
+8579ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+8589ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+8868ms : T,P1525,len:7
+8878ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+8888ms : FEED : T,P1525
+8938ms : D,P90,len:5
+8947ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+8957ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+9237ms : T,P1525,len:7
+9246ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+9256ms : FEED : T,P1525
+9306ms : D,P90,len:5
+9315ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+9325ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+9605ms : T,P1525,len:7
+9614ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+9623ms : FEED : T,P1525
+9674ms : D,P90,len:5
+9684ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+9693ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+9974ms : T,P1525,len:7
+9983ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+9993ms : FEED : T,P1525
+10043ms : D,P90,len:5
+10052ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+10062ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+10342ms : T,P1525,len:7
+10351ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+10361ms : FEED : T,P1525
+10411ms : D,P90,len:5
+10421ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+10431ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+10711ms : T,P1525,len:7
+10720ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+10730ms : FEED : T,P1525
+10780ms : D,P90,len:5
+10789ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+10799ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+11079ms : T,P1525,len:7
+11088ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+11098ms : FEED : T,P1525
+11148ms : D,P90,len:5
+11158ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+11168ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+11449ms : T,P1525,len:7
+11458ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+11468ms : FEED : T,P1525
+11518ms : D,P90,len:5
+11527ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+11537ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+11817ms : T,P1525,len:7
+11826ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+11836ms : FEED : T,P1525
+11886ms : D,P90,len:5
+11896ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+11905ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+12185ms : T,P1525,len:7
+12195ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+12205ms : FEED : T,P1525
+12255ms : D,P90,len:5
+12265ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+12274ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+12554ms : T,P1525,len:7
+12564ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+12574ms : FEED : T,P1525
+12624ms : D,P90,len:5
+12633ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+12643ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+12923ms : T,P1525,len:7
+12932ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+12942ms : FEED : T,P1525
+12992ms : D,P90,len:5
+13001ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+13011ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+13290ms : T,P1525,len:7
+13300ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+13309ms : FEED : T,P1525
+13360ms : D,P90,len:5
+13369ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+13379ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+13659ms : T,P1525,len:7
+13669ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+13679ms : FEED : T,P1525
+13729ms : D,P90,len:5
+13738ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+13748ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+14028ms : T,P1525,len:7
+14037ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+14047ms : FEED : T,P1525
+14097ms : D,P90,len:5
+14107ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+14116ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+14395ms : T,P1525,len:7
+14405ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+14414ms : FEED : T,P1525
+14465ms : D,P90,len:5
+14474ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+14484ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+14764ms : T,P1525,len:7
+14774ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+14784ms : FEED : T,P1525
+14834ms : D,P90,len:5
+14843ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+14853ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+15133ms : T,P1525,len:7
+15142ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+15152ms : FEED : T,P1525
+15203ms : D,P90,len:5
+15212ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+15222ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+15502ms : T,P1525,len:7
+15511ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+15521ms : FEED : T,P1525
+15572ms : D,P90,len:5
+15581ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+15591ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+15870ms : T,P1525,len:7
+15879ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+15889ms : FEED : T,P1525
+15939ms : D,P90,len:5
+15948ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+15958ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+16238ms : T,P1525,len:7
+16248ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+16257ms : FEED : T,P1525
+16308ms : D,P90,len:5
+16317ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+16327ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+16607ms : T,P1525,len:7
+16616ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+16626ms : FEED : T,P1525
+16676ms : D,P90,len:5
+16686ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+16696ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+16976ms : T,P1525,len:7
+16985ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+16994ms : FEED : T,P1525
+17045ms : D,P90,len:5
+17054ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+17064ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+17344ms : T,P1525,len:7
+17353ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+17363ms : FEED : T,P1525
+17413ms : D,P90,len:5
+17422ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+17432ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+17712ms : T,P1525,len:7
+17721ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+17731ms : FEED : T,P1525
+17781ms : D,P90,len:5
+17790ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+17800ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+18081ms : T,P1525,len:7
+18090ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+18100ms : FEED : T,P1525
+18150ms : D,P90,len:5
+18159ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+18169ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+18449ms : T,P1525,len:7
+18458ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+18468ms : FEED : T,P1525
+18518ms : D,P90,len:5
+18528ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+18538ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+18817ms : T,P1525,len:7
+18827ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+18836ms : FEED : T,P1525
+18887ms : D,P90,len:5
+18896ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+18906ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+19185ms : T,P1525,len:7
+19195ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+19204ms : FEED : T,P1525
+19254ms : D,P90,len:5
+19264ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+19274ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+19554ms : T,P1525,len:7
+19564ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+19573ms : FEED : T,P1525
+19624ms : D,P90,len:5
+19633ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+19643ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+19922ms : T,P1525,len:7
+19932ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+19941ms : FEED : T,P1525
+19992ms : D,P90,len:5
+20001ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+20011ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+20291ms : T,P1525,len:7
+20301ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+20311ms : FEED : T,P1525
+20361ms : D,P90,len:5
+20371ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+20380ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+20660ms : T,P1525,len:7
+20670ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+20679ms : FEED : T,P1525
+20729ms : D,P90,len:5
+20739ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+20748ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+21029ms : T,P1525,len:7
+21039ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+21048ms : FEED : T,P1525
+21098ms : D,P90,len:5
+21108ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+21118ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+21397ms : T,P1525,len:7
+21406ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+21416ms : FEED : T,P1525
+21466ms : D,P90,len:5
+21476ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+21486ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+21766ms : T,P1525,len:7
+21775ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+21785ms : FEED : T,P1525
+21836ms : D,P90,len:5
+21845ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+21855ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+22135ms : T,P1525,len:7
+22144ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+22154ms : FEED : T,P1525
+22204ms : D,P90,len:5
+22213ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+22223ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+22502ms : T,P1525,len:7
+22511ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+22521ms : FEED : T,P1525
+22571ms : D,P90,len:5
+22581ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+22590ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+22869ms : T,P1525,len:7
+22879ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+22889ms : FEED : T,P1525
+22939ms : D,P90,len:5
+22948ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+22958ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+23238ms : T,P1525,len:7
+23247ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+23257ms : FEED : T,P1525
+23308ms : D,P90,len:5
+23317ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+23327ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+23606ms : T,P1525,len:7
+23616ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+23625ms : FEED : T,P1525
+23676ms : D,P90,len:5
+23685ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+23695ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+23975ms : T,P1525,len:7
+23985ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+23994ms : FEED : T,P1525
+24045ms : D,P90,len:5
+24054ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+24064ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+24344ms : T,P1525,len:7
+24353ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+24363ms : FEED : T,P1525
+24413ms : D,P90,len:5
+24422ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+24432ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+24712ms : T,P1525,len:7
+24721ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+24731ms : FEED : T,P1525
+24781ms : D,P90,len:5
+24791ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+24800ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+25081ms : T,P1525,len:7
+25091ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+25100ms : FEED : T,P1525
+25150ms : D,P90,len:5
+25160ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+25170ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+25450ms : T,P1525,len:7
+25459ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+25469ms : FEED : T,P1525
+25519ms : D,P90,len:5
+25528ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+25538ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+25818ms : T,P1525,len:7
+25828ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+25837ms : FEED : T,P1525
+25888ms : D,P90,len:5
+25897ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+25907ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+26187ms : T,P1525,len:7
+26196ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+26206ms : FEED : T,P1525
+26256ms : D,P90,len:5
+26266ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+26275ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+26554ms : T,P1525,len:7
+26564ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+26574ms : FEED : T,P1525
+26624ms : D,P90,len:5
+26634ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+26643ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+26923ms : T,P1525,len:7
+26933ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+26942ms : FEED : T,P1525
+26993ms : D,P90,len:5
+27002ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+27012ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+27292ms : T,P1525,len:7
+27302ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+27311ms : FEED : T,P1525
+27361ms : D,P90,len:5
+27371ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+27381ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+27661ms : T,P1525,len:7
+27671ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+27680ms : FEED : T,P1525
+27731ms : D,P90,len:5
+27740ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+27750ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+28029ms : T,P1525,len:7
+28039ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+28049ms : FEED : T,P1525
+28099ms : D,P90,len:5
+28108ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+28118ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+28398ms : T,P1525,len:7
+28407ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+28417ms : FEED : T,P1525
+28467ms : D,P90,len:5
+28476ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+28486ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+28766ms : T,P1525,len:7
+28776ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+28785ms : FEED : T,P1525
+28836ms : D,P90,len:5
+28846ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+28856ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+29136ms : T,P1525,len:7
+29145ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+29155ms : FEED : T,P1525
+29205ms : D,P90,len:5
+29215ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+29224ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+29504ms : T,P1525,len:7
+29514ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+29523ms : FEED : T,P1525
+29574ms : D,P90,len:5
+29583ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+29593ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+29688ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=False in direction=0
+29873ms : T,P1525,len:7
+29882ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+29892ms : FEED : T,P1525
+29943ms : D,P90,len:5
+29952ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+29961ms : FEED : D,P90
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+30011ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=False in direction=0
+30031ms : CapteurObstacleManager : obstacle=False in direction : 0
+30041ms : Mouvement - ObstacleListener - obstacle removed : resuming movement. 
+30242ms : T,P1525,len:7
+30251ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P1525
+30261ms : FEED : T,P1525
+30311ms : D,P90,len:5
+30320ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P90
+30330ms : FEED : D,P90
+30356ms : Mouvement - Start() called
+30387ms : Started at542.41776003945995,-845.31915545743959,4.3807574206755531
+30409ms : Going to 1060,-845
+
+30426ms : Angle before modulo : 94.345427270236868
+30442ms : J'ai deltaTheta = 0.035330150438685488
+POSITION : PointOriente : X=542.41776003945995; Y=-845.31915545743959; theta=4.3807574206755531
+30456ms : Donc angle = 94.345427270236868
+30492ms : Going (dir forced) to 1060,-845
+
+30504ms : Going en avant
+30522ms : Rotate, Angle demande : 4.3454272702368826
+30576ms : Command sent: T,p424s15000
+
+30587ms : Kangaroo - Turn : sent command, waiting for move completion
+30709ms : T,p1,len:4
+30718ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p1
+30728ms : FEED : T,p1
+30775ms : D,P4,len:4
+30784ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,P4
+30794ms : FEED : D,P4
+30808ms : Kangaroo - CheckMovingStatus - feedback : T,p1
+30843ms : Current position : PointOriente : X=542.45869577142298; Y=-845.31602680933247; theta=4.3705220061412646
+31090ms : T,p402,len:6
+31100ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p402
+31110ms : FEED : T,p402
+31157ms : D,p6,len:4
+31166ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p6
+31175ms : FEED : D,p6
+31189ms : Kangaroo - CheckMovingStatus - feedback : T,p402
+31224ms : Current position : PointOriente : X=542.4792231082489; Y=-845.31593146565842; theta=0.26612077789152089
+31471ms : T,P424,len:6
+31481ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,P424
+31490ms : FEED : T,P424
+31538ms : D,p6,len:4
+31547ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p6
+31557ms : FEED : D,p6
+31570ms : Kangaroo - CheckMovingStatus - feedback : T,P424
+31581ms : Kangaroo - CheckMovingStatus detected end of move
+31613ms : Drive, Distance demande : 517
+31669ms : D,p50371s35000
+
+31678ms : Kangaroo - Drive : sent command, waiting for move completion
+31698ms : Current position : PointOriente : X=542.4792231082489; Y=-845.31593146565842; theta=0.040941658137170822
+31947ms : D,p3158,len:7
+31994ms : T,p-264,len:7
+32004ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-264
+32013ms : FEED : T,p-264
+32026ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p3158
+32036ms : FEED : D,p3158
+32050ms : Kangaroo - CheckMovingStatus - feedback : D,p3158
+32086ms : Current position : PointOriente : X=574.85509760000957; Y=-843.76471966477118; theta=2.7430910951893717
+32337ms : D,p18103,len:8
+32382ms : T,p-37,len:6
+32391ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-37
+32401ms : FEED : T,p-37
+32414ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p18103
+32424ms : FEED : D,p18103
+32438ms : Kangaroo - CheckMovingStatus - feedback : D,p18103
+32473ms : Current position : PointOriente : X=728.24316221841673; Y=-842.64123798630112; theta=0.41965199590585067
+32724ms : D,p31896,len:8
+32770ms : T,p18,len:5
+32780ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p18
+32789ms : FEED : T,p18
+32803ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p31896
+32812ms : FEED : D,p31896
+32827ms : Kangaroo - CheckMovingStatus - feedback : D,p31896
+32863ms : Current position : PointOriente : X=869.81102491958359; Y=-842.99529762387215; theta=-0.14329580348002446
+33114ms : D,p45439,len:8
+33160ms : T,p24,len:5
+33170ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p24
+33179ms : FEED : T,p24
+33192ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p45439
+33202ms : FEED : D,p45439
+33216ms : Kangaroo - CheckMovingStatus - feedback : D,p45439
+33253ms : Current position : PointOriente : X=1008.8124983973942; Y=-843.49192888287917; theta=-0.2047082906857563
+33505ms : D,p49992,len:8
+33552ms : T,p26,len:5
+33561ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p26
+33571ms : FEED : T,p26
+33584ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p49992
+33593ms : FEED : D,p49992
+33608ms : Kangaroo - CheckMovingStatus - feedback : D,p49992
+33644ms : Current position : PointOriente : X=1055.5431238478307; Y=-843.67558665613603; theta=-0.22517911975433358
+33895ms : D,p50349,len:8
+33942ms : T,p15,len:5
+33951ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p15
+33961ms : FEED : T,p15
+33973ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p50349
+33983ms : FEED : D,p50349
+33998ms : Kangaroo - CheckMovingStatus - feedback : D,p50349
+34034ms : Current position : PointOriente : X=1059.2072859204009; Y=-843.68278695831509; theta=-0.11258955987715855
+34286ms : D,p50377,len:8
+34332ms : T,p14,len:5
+34341ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p14
+34351ms : FEED : T,p14
+34364ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p50377
+34373ms : FEED : D,p50377
+34388ms : Kangaroo - CheckMovingStatus - feedback : D,p50377
+34425ms : Current position : PointOriente : X=1059.4946712772933; Y=-843.68330034890209; theta=-0.10235414534286991
+34676ms : D,p50377,len:8
+34722ms : T,p14,len:5
+34731ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p14
+34741ms : FEED : T,p14
+34754ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p50377
+34764ms : FEED : D,p50377
+34778ms : Kangaroo - CheckMovingStatus - feedback : D,p50377
+34815ms : Current position : PointOriente : X=1059.4946712772933; Y=-843.68330034890209; theta=-0.10235414534286991
+35067ms : D,P50372,len:8
+35113ms : T,p14,len:5
+35122ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p14
+35132ms : FEED : T,p14
+35145ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,P50372
+35154ms : FEED : D,P50372
+35169ms : Kangaroo - CheckMovingStatus - feedback : D,P50372
+35180ms : Kangaroo - CheckMovingStatus detected end of move
+35199ms : DOne with gotoForced dir.
+35208ms : Launch completed event
+35217ms : BaseRoulante : LaunchMovingInstructionCompletedEvent called
+35226ms : BaseRoulante - LaunchMovingInstructionCompletedEvent : listeners found !!!
+35236ms : ActionBaseRoulante : completed, status = success
+35245ms : ActionBaseRoulante : completed, status = success
+35255ms : ActionBaseRoulante : completed, status = success
+35264ms : ActionBaseRoulante : completed, status = success
+35274ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Activer l'abeille
+35285ms : ActionBaseRoulante - execute called. Desc : Deplacement
+35295ms : Mouvement - Start() called
+35316ms : Current position : PointOriente : X=1059.4433524635624; Y=-843.68320867201157; theta=-0.10235414534286991
+35354ms : Started at1059.4433524635624,-843.68320867201157,-0.10235414534286991
+35376ms : Going (dir forced) to 400,-1600
+
+35387ms : Going en avant
+35405ms : Rotate, Angle demande : 130.98328146703375
+35460ms : Command sent: T,p12797s15000
+
+35472ms : Kangaroo - Turn : sent command, waiting for move completion
+35582ms : T,p1,len:4
+35591ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p1
+35601ms : FEED : T,p1
+35651ms : D,P-4,len:5
+35660ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,P-4
+35670ms : FEED : D,P-4
+35683ms : Kangaroo - CheckMovingStatus - feedback : T,p1
+35720ms : Current position : PointOriente : X=1059.4022974263348; Y=-843.68312799635692; theta=-0.11258955987715855
+35968ms : T,p4085,len:7
+35978ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p4085
+35988ms : FEED : T,p4085
+36039ms : D,p-226,len:7
+36048ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p-226
+36058ms : FEED : D,p-226
+36072ms : Kangaroo - CheckMovingStatus - feedback : T,p4085
+36108ms : Current position : PointOriente : X=1057.7067121488838; Y=-842.16101711808744; theta=-41.91402251791196
+36359ms : T,p10349,len:8
+36368ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p10349
+36378ms : FEED : T,p10349
+36427ms : D,p107,len:6
+36436ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p107
+36446ms : FEED : D,p107
+36460ms : Kangaroo - CheckMovingStatus - feedback : T,p10349
+36497ms : Current position : PointOriente : X=1056.7629849494706; Y=-845.44598266288574; theta=-106.02865916069599
+36748ms : T,p12609,len:8
+36757ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p12609
+36767ms : FEED : T,p12609
+36818ms : D,p86,len:5
+36828ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p86
+36837ms : FEED : D,p86
+36851ms : Kangaroo - CheckMovingStatus - feedback : T,p12609
+36888ms : Current position : PointOriente : X=1056.8990975291993; Y=-845.27885821214466; theta=-129.16069600818832
+37138ms : T,p12776,len:8
+37147ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p12776
+37157ms : FEED : T,p12776
+37207ms : D,p32,len:5
+37217ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p32
+37226ms : FEED : D,p32
+37240ms : Kangaroo - CheckMovingStatus - feedback : T,p12776
+37276ms : Current position : PointOriente : X=1057.2617644196498; Y=-844.85974102249713; theta=-130.87001023541453
+37527ms : T,p12795,len:8
+37536ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p12795
+37546ms : FEED : T,p12795
+37593ms : D,p6,len:4
+37603ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p6
+37613ms : FEED : D,p6
+37626ms : Kangaroo - CheckMovingStatus - feedback : T,p12795
+37663ms : Current position : PointOriente : X=1057.4370657425141; Y=-844.65853770333126; theta=-131.06448311156601
+37914ms : T,P12798,len:8
+37923ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,P12798
+37933ms : FEED : T,P12798
+37980ms : D,p6,len:4
+37990ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p6
+38000ms : FEED : D,p6
+38013ms : Kangaroo - CheckMovingStatus - feedback : T,P12798
+38024ms : Kangaroo - CheckMovingStatus detected end of move
+38055ms : Drive, Distance demande : 1001
+38111ms : D,p97527s35000
+
+38121ms : Kangaroo - Drive : sent command, waiting for move completion
+38143ms : Current position : PointOriente : X=1057.4370657425141; Y=-844.65853770333126; theta=-131.09518935516888
+38393ms : D,p3551,len:7
+38440ms : T,p-315,len:7
+38449ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-315
+38459ms : FEED : T,p-315
+38472ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p3551
+38482ms : FEED : D,p3551
+38496ms : Kangaroo - CheckMovingStatus - feedback : D,p3551
+38533ms : Current position : PointOriente : X=1035.0629522247509; Y=-873.42934761678737; theta=-127.87103377686796
+38785ms : D,p18489,len:8
+38829ms : T,p-83,len:6
+38839ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-83
+38849ms : FEED : T,p-83
+38861ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p18489
+38871ms : FEED : D,p18489
+38885ms : Kangaroo - CheckMovingStatus - feedback : D,p18489
+38922ms : Current position : PointOriente : X=936.00789348968931; Y=-990.45592456042675; theta=-130.24564994882292
+39173ms : D,p32321,len:8
+39219ms : T,p-11,len:6
+39228ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-11
+39237ms : FEED : T,p-11
+39251ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p32321
+39260ms : FEED : D,p32321
+39275ms : Kangaroo - CheckMovingStatus - feedback : D,p32321
+39311ms : Current position : PointOriente : X=842.90065959600975; Y=-1097.6292624223602; theta=-130.98259979529169
+39564ms : D,p45901,len:8
+39610ms : T,p-3,len:5
+39619ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-3
+39629ms : FEED : T,p-3
+39641ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p45901
+39651ms : FEED : D,p45901
+39666ms : Kangaroo - CheckMovingStatus - feedback : D,p45901
+39702ms : Current position : PointOriente : X=751.33943019229037; Y=-1202.7193037405304; theta=-131.06448311156601
+39954ms : D,p59538,len:8
+39999ms : T,p-19,len:6
+40008ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-19
+40018ms : FEED : T,p-19
+40031ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p59538
+40041ms : FEED : D,p59538
+40055ms : Kangaroo - CheckMovingStatus - feedback : D,p59538
+40092ms : Current position : PointOriente : X=659.69589769379309; Y=-1308.5128181156408; theta=-130.90071647901738
+40343ms : D,p73086,len:8
+40386ms : T,p5,len:4
+40396ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p5
+40406ms : FEED : T,p5
+40418ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p73086
+40428ms : FEED : D,p73086
+40443ms : Kangaroo - CheckMovingStatus - feedback : D,p73086
+40480ms : Current position : PointOriente : X=568.20068330607739; Y=-1413.2245726834085; theta=-131.14636642784029
+40731ms : D,p86520,len:8
+40778ms : T,p30,len:5
+40787ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p30
+40797ms : FEED : T,p30
+40810ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p86520
+40819ms : FEED : D,p86520
+40834ms : Kangaroo - CheckMovingStatus - feedback : D,p86520
+40870ms : Current position : PointOriente : X=477.01255203766516; Y=-1516.6490102030166; theta=-131.4022517911975
+41122ms : D,p96325,len:8
+41165ms : T,p7,len:4
+41174ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p7
+41184ms : FEED : T,p7
+41197ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p96325
+41206ms : FEED : D,p96325
+41221ms : Kangaroo - CheckMovingStatus - feedback : D,p96325
+41257ms : Current position : PointOriente : X=410.76828408715761; Y=-1592.4076583670035; theta=-131.16683725690885
+41508ms : D,p97445,len:8
+41553ms : T,p-18,len:6
+41563ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-18
+41573ms : FEED : T,p-18
+41585ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p97445
+41595ms : FEED : D,p97445
+41610ms : Kangaroo - CheckMovingStatus - feedback : D,p97445
+41646ms : Current position : PointOriente : X=403.24009447156999; Y=-1601.0950821619731; theta=-130.91095189355164
+41897ms : D,P97524,len:8
+41942ms : T,p-21,len:6
+41951ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-21
+41961ms : FEED : T,p-21
+41974ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,P97524
+41984ms : FEED : D,P97524
+41998ms : Kangaroo - CheckMovingStatus - feedback : D,P97524
+42009ms : Kangaroo - CheckMovingStatus detected end of move
+42027ms : DOne with gotoForced dir.
+42036ms : Launch completed event
+42044ms : BaseRoulante : LaunchMovingInstructionCompletedEvent called
+42053ms : BaseRoulante - LaunchMovingInstructionCompletedEvent : listeners found !!!
+42063ms : ActionBaseRoulante : completed, status = success
+42072ms : ActionBaseRoulante : completed, status = success
+42081ms : ActionBaseRoulante : completed, status = success
+42091ms : ActionBaseRoulante : completed, status = success
+42100ms : ActionBaseRoulante : completed, status = success
+42111ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Activer l'abeille
+42123ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Activer l'abeille
+42154ms : ActionBaseRoulante - execute called. Desc : Deplacement
+42145ms : Current position : PointOriente : X=402.70941671674336; Y=-1601.7081402961835; theta=-130.88024564994876
+42164ms : Mouvement - Start() called
+42204ms : Started at402.70941671674336,-1601.7081402961835,-130.88024564994876
+42224ms : Going (dir forced) to 190,-1850
+
+42235ms : Going en avant
+42254ms : Rotate, Angle demande : -0.29387686274185398
+42310ms : Command sent: T,p-28s15000
+
+42322ms : Kangaroo - Turn : sent command, waiting for move completion
+42418ms : T,p0,len:4
+42428ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p0
+42438ms : FEED : T,p0
+42484ms : D,P0,len:4
+42493ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,P0
+42503ms : FEED : D,P0
+42516ms : Kangaroo - CheckMovingStatus - feedback : T,p0
+42553ms : Current position : PointOriente : X=402.70941671674336; Y=-1601.7081402961835; theta=-130.88024564994876
+42800ms : T,P-29,len:6
+42809ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,P-29
+42819ms : FEED : T,P-29
+42869ms : D,p41,len:5
+42878ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p41
+42888ms : FEED : D,p41
+42901ms : Kangaroo - CheckMovingStatus - feedback : T,P-29
+42912ms : Kangaroo - CheckMovingStatus detected end of move
+42942ms : Drive, Distance demande : 326
+42997ms : D,p31762s35000
+
+43007ms : Kangaroo - Drive : sent command, waiting for move completion
+43031ms : Current position : PointOriente : X=402.43565367920229; Y=-1602.0277322491838; theta=-130.58341862845438
+43281ms : D,p3339,len:7
+43326ms : T,p350,len:6
+43335ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p350
+43344ms : FEED : T,p350
+43357ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p3339
+43367ms : FEED : D,p3339
+43381ms : Kangaroo - CheckMovingStatus - feedback : D,p3339
+43418ms : Current position : PointOriente : X=378.55794052209109; Y=-1626.6110538736359; theta=-134.16581371545541
+43668ms : D,p18176,len:8
+43714ms : T,p83,len:5
+43724ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p83
+43733ms : FEED : T,p83
+43746ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p18176
+43756ms : FEED : D,p18176
+43770ms : Kangaroo - CheckMovingStatus - feedback : D,p18176
+43807ms : Current position : PointOriente : X=277.78523762069108; Y=-1740.7827878990026; theta=-131.43295803480035
+44058ms : D,p27042,len:8
+44107ms : T,p-1255,len:8
+44116ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-1255
+44126ms : FEED : T,p-1255
+44139ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p27042
+44150ms : FEED : D,p27042
+44164ms : Kangaroo - CheckMovingStatus - feedback : D,p27042
+44200ms : Current position : PointOriente : X=235.43184260270667; Y=-1821.3243739972218; theta=-117.73797338792215
+44446ms : D,E3,len:4
+44489ms : T,E3,len:4
+44498ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,E3
+44508ms : FEED : T,E3
+44517ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,E3
+44527ms : FEED : D,E3
+44537ms : Kangaroo - CheckMovingStatus - feedback : D,E3
+44547ms : Kangaroo - CheckMovingStatus detected end of move
+44558ms : Starting to adjust angle
+44576ms : Rotate, Angle demande : -27.737973387922153
+44632ms : Command sent: T,p-2709s15000
+
+44643ms : Kangaroo - Turn : sent command, waiting for move completion
+44681ms : Current position : PointOriente : X=235.43184260270667; Y=-1821.3243739972218; theta=-117.73797338792215
+44856ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=True in direction=0
+44877ms : CapteurObstacleManager : obstacle=True in direction : 0
+44886ms : Mouvement - ObstacleListener - !Map.MapInformation.isObstacleDetecteurOn(), no change on trajectory. 
+44937ms : T,p-1563,len:8
+44946ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-1563
+44956ms : FEED : T,p-1563
+45007ms : D,p-200,len:7
+45017ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p-200
+45027ms : FEED : D,p-200
+45040ms : Kangaroo - CheckMovingStatus - feedback : T,p-1563
+45077ms : Current position : PointOriente : X=235.84951933919137; Y=-1819.3145599213387; theta=-101.74002047082901
+45287ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=False in direction=0
+45308ms : CapteurObstacleManager : obstacle=False in direction : 0
+45317ms : Mouvement - ObstacleListener - !Map.MapInformation.isObstacleDetecteurOn(), no change on trajectory. 
+45368ms : T,p-2649,len:8
+45378ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-2649
+45387ms : FEED : T,p-2649
+45438ms : D,p69,len:5
+45447ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p69
+45457ms : FEED : D,p69
+45470ms : Kangaroo - CheckMovingStatus - feedback : T,p-2649
+45506ms : Current position : PointOriente : X=235.819433396698; Y=-1822.0753525785262; theta=-90.624360286591553
+45757ms : T,p-2701,len:8
+45766ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-2701
+45777ms : FEED : T,p-2701
+45825ms : D,p127,len:6
+45835ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p127
+45844ms : FEED : D,p127
+45858ms : Kangaroo - CheckMovingStatus - feedback : T,p-2701
+45895ms : Current position : PointOriente : X=235.81847628986401; Y=-1822.6706509982812; theta=-90.092118730808551
+46146ms : T,P-2709,len:8
+46155ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,P-2709
+46165ms : FEED : T,P-2709
+46214ms : D,p131,len:6
+46223ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p131
+46233ms : FEED : D,p131
+46247ms : Kangaroo - CheckMovingStatus - feedback : T,P-2709
+46258ms : Kangaroo - CheckMovingStatus detected end of move
+46278ms : DOne with gotoForced dir.
+46287ms : Launch completed event
+46296ms : BaseRoulante : LaunchMovingInstructionCompletedEvent called
+46305ms : BaseRoulante - LaunchMovingInstructionCompletedEvent : listeners found !!!
+46314ms : ActionBaseRoulante : completed, status = success
+46324ms : ActionBaseRoulante : completed, status = success
+46333ms : ActionBaseRoulante : completed, status = success
+46343ms : ActionBaseRoulante : completed, status = success
+46352ms : ActionBaseRoulante : completed, status = success
+46361ms : ActionBaseRoulante : completed, status = success
+46372ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Activer l'abeille
+46394ms : Current position : PointOriente : X=235.81846895570891; Y=-1822.71170611412; theta=-90.010235414534236
+46663ms : T,p30,len:5
+46672ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,p30
+46682ms : FEED : T,p30
+46708ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=True in direction=0
+46729ms : CapteurObstacleManager : obstacle=True in direction : 0
+46757ms : D,p3328,len:7
+46767ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,p3328
+46777ms : FEED : D,p3328
+POSITION : PointOriente : X=235.6293073931036; Y=-1856.8690392575293; theta=-90.317297850562895
+47055ms : T,E3,len:4
+47064ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,E3
+47074ms : FEED : T,E3
+47117ms : D,E3,len:4
+47126ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,E3
+47136ms : FEED : D,E3
+POSITION : PointOriente : X=235.6293073931036; Y=-1856.8690392575293; theta=-90.317297850562895
+47408ms : T,E3,len:4
+47417ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,E3
+47428ms : FEED : T,E3
+47471ms : D,E3,len:4
+47480ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,E3
+47490ms : FEED : D,E3
+POSITION : PointOriente : X=235.6293073931036; Y=-1856.8690392575293; theta=-90.317297850562895
+47763ms : T,E3,len:4
+47772ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,E3
+47782ms : FEED : T,E3
+47825ms : D,E3,len:4
+47835ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,E3
+47845ms : FEED : D,E3
+POSITION : PointOriente : X=235.6293073931036; Y=-1856.8690392575293; theta=-90.317297850562895
+48118ms : T,E3,len:4
+48127ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,E3
+48137ms : FEED : T,E3
+48180ms : D,E3,len:4
+48189ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,E3
+48199ms : FEED : D,E3
+POSITION : PointOriente : X=235.6293073931036; Y=-1856.8690392575293; theta=-90.317297850562895
+48472ms : T,E3,len:4
+48481ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,E3
+48491ms : FEED : T,E3
+48534ms : D,E3,len:4
+48544ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,E3
+48554ms : FEED : D,E3
+POSITION : PointOriente : X=235.6293073931036; Y=-1856.8690392575293; theta=-90.317297850562895
+48826ms : T,E3,len:4
+48835ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,E3
+48845ms : FEED : T,E3
+48888ms : D,E3,len:4
+48897ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,E3
+48907ms : FEED : D,E3
+POSITION : PointOriente : X=235.6293073931036; Y=-1856.8690392575293; theta=-90.317297850562895
+49180ms : T,E3,len:4
+49189ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,E3
+49198ms : FEED : T,E3
+49242ms : D,E3,len:4
+49251ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,E3
+49261ms : FEED : D,E3
+POSITION : PointOriente : X=235.6293073931036; Y=-1856.8690392575293; theta=-90.317297850562895
+49457ms : Kangaroo - called stop()
+49468ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Activer l'abeille
+49533ms : T,E3,len:4
+49543ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,E3
+49554ms : FEED : T,E3
+49597ms : D,E3,len:4
+49607ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,E3
+49617ms : FEED : D,E3
+POSITION : PointOriente : X=235.6293073931036; Y=-1860; theta=-90
+49886ms : T,E3,len:4
+49895ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,E3
+49905ms : FEED : T,E3
+49948ms : D,E3,len:4
+49957ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,E3
+49966ms : FEED : D,E3
+POSITION : PointOriente : X=235.6293073931036; Y=-1860; theta=-90
+50235ms : T,E3,len:4
+50244ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,E3
+50254ms : FEED : T,E3
+50298ms : D,E3,len:4
+50307ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,E3
+50317ms : FEED : D,E3
+POSITION : PointOriente : X=235.6293073931036; Y=-1860; theta=-90
+50586ms : T,E3,len:4
+50596ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,E3
+50606ms : FEED : T,E3
+50649ms : D,E3,len:4
+50658ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,E3
+50668ms : FEED : D,E3
+POSITION : PointOriente : X=235.6293073931036; Y=-1860; theta=-90
+50936ms : T,E3,len:4
+50946ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,E3
+50956ms : FEED : T,E3
+50999ms : D,E3,len:4
+51009ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,E3
+51018ms : FEED : D,E3
+POSITION : PointOriente : X=235.6293073931036; Y=-1860; theta=-90
+51108ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Activer l'abeille
+51125ms : Executing action servo absolue; angle : 425; description : ServoGR- declencher abeille
+51139ms : l'angle absolu de l'AX-12 est désormais de 425steps
+51169ms : CAX12, wrong ID returned. This.id = 3; id received : 1
+51199ms : CAX12, wrong ID returned. This.id = 3; id received : 1
+51213ms : Servo ID 3 en mode joint, moving...
+51242ms : CAX12, wrong ID returned. This.id = 3; id received : 1
+51254ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Activer l'abeille
+51299ms : T,E3,len:4
+51309ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,E3
+51318ms : FEED : T,E3
+51344ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=False in direction=0
+51365ms : CapteurObstacleManager : obstacle=False in direction : 0
+51388ms : D,E3,len:4
+51397ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,E3
+51423ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=True in direction=0
+51444ms : CapteurObstacleManager : obstacle=True in direction : 0
+51407ms : FEED : D,E3
+POSITION : PointOriente : X=235.6293073931036; Y=-1860; theta=-90
+51624ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=False in direction=0
+51644ms : CapteurObstacleManager : obstacle=False in direction : 0
+51730ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=True in direction=0
+51750ms : CapteurObstacleManager : obstacle=True in direction : 0
+51715ms : T,E3,len:4
+51762ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,E3
+51772ms : FEED : T,E3
+51816ms : D,E3,len:4
+51825ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,E3
+51835ms : FEED : D,E3
+51871ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=False in direction=0
+51891ms : CapteurObstacleManager : obstacle=False in direction : 0
+POSITION : PointOriente : X=235.6293073931036; Y=-1860; theta=-90
+52143ms : T,E3,len:4
+52152ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,E3
+52162ms : FEED : T,E3
+52205ms : D,E3,len:4
+52214ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,E3
+52224ms : FEED : D,E3
+POSITION : PointOriente : X=235.6293073931036; Y=-1860; theta=-90
+52268ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Activer l'abeille
+52285ms : Executing action servo absolue; angle : 210; description : ServoGR- replier abeille
+52299ms : l'angle absolu de l'AX-12 est désormais de 210steps
+52329ms : CAX12, wrong ID returned. This.id = 3; id received : 1
+52354ms : Servo ID 3 en mode joint, moving...
+BAD PACKET received !!! Header should be 0xFF 0XFF
+52383ms : Servomoteur : isMoving got bad return : no params returned...
+52392ms : WARNING !!! isMoving = false right after Servo.Move()...
+52403ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Activer l'abeille
+52418ms : Drive, Distance demande : -200
+52480ms : D,p-19486s30000
+
+52490ms : Kangaroo - Drive : sent command, waiting for move completion
+52560ms : T,P0,len:4
+52570ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,P0
+52579ms : FEED : T,P0
+52627ms : D,p-97,len:6
+52637ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p-97
+52647ms : FEED : D,p-97
+POSITION : PointOriente : X=235.6293073931036; Y=-1859.0044134250231; theta=-90
+52929ms : D,p-8564,len:8
+52974ms : T,p-40,len:6
+52983ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-40
+52993ms : FEED : T,p-40
+53006ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p-8564
+53015ms : FEED : D,p-8564
+53029ms : Kangaroo - CheckMovingStatus - feedback : D,p-8564
+53066ms : Current position : PointOriente : X=235.00832976163622; Y=-1772.1032142458109; theta=-89.590583418628455
+53319ms : D,p-18043,len:9
+53364ms : T,p-30,len:6
+53373ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-30
+53383ms : FEED : T,p-30
+53396ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p-18043
+53405ms : FEED : D,p-18043
+53420ms : Kangaroo - CheckMovingStatus - feedback : D,p-18043
+53456ms : Current position : PointOriente : X=234.48692883294959; Y=-1674.8142490968505; theta=-89.692937563971341
+53710ms : D,p-19381,len:9
+53753ms : T,P2,len:4
+53762ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,P2
+53772ms : FEED : T,P2
+53784ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p-19381
+53794ms : FEED : D,p-19381
+53808ms : Kangaroo - CheckMovingStatus - feedback : D,p-19381
+53845ms : Current position : PointOriente : X=234.49183538263679; Y=-1661.0813135061576; theta=-90.020470829068572
+54097ms : D,P-19484,len:9
+54140ms : T,p6,len:4
+54150ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p6
+54159ms : FEED : T,p6
+54172ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,P-19484
+54182ms : FEED : D,P-19484
+54196ms : Kangaroo - CheckMovingStatus - feedback : D,P-19484
+54207ms : Kangaroo - CheckMovingStatus detected end of move
+54230ms : ActionEnSerie - After last action feedback, status = success. Desc : Activer l'abeille
+54242ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Mother action - competition Gros Robot
+54253ms : ActionEnSerie - execute called. Desc : Vider le tube mixte
+54265ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Vider le tube mixte
+54277ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Vider le tube mixte
+54288ms : ActionBaseRoulante - execute called. Desc : Deplacement
+54297ms : Mouvement - Start() called
+54350ms : Started at234.49296850938964,-1660.0241448637109,-90.061412487205729
+54344ms : Current position : PointOriente : X=234.49296850938964; Y=-1660.0241448637109; theta=-90.061412487205729
+54375ms : Going to 400,-845
+
+54393ms : Angle before modulo : 281.41755772846676
+54408ms : J'ai deltaTheta = 78.521029784327482
+54423ms : Donc angle = 281.41755772846676
+54443ms : Going (dir forced) to 400,-845
+
+54453ms : Going en arriere
+54472ms : Rotate, Angle demande : 11.417557728466761
+54527ms : Command sent: T,p1115s15000
+
+54539ms : Kangaroo - Turn : sent command, waiting for move completion
+54641ms : T,p-1,len:5
+54650ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p-1
+54660ms : FEED : T,p-1
+54710ms : D,p17,len:5
+54719ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p17
+54729ms : FEED : D,p17
+54742ms : Kangaroo - CheckMovingStatus - feedback : T,p-1
+54779ms : Current position : PointOriente : X=234.49281265861356; Y=-1660.1986290392065; theta=-90.051177072671436
+55029ms : T,p1036,len:7
+55038ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p1036
+55048ms : FEED : T,p1036
+55097ms : D,p105,len:6
+55106ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p105
+55116ms : FEED : D,p105
+55129ms : Kangaroo - CheckMovingStatus - feedback : T,p1036
+55167ms : Current position : PointOriente : X=234.32565374062636; Y=-1661.0862386548911; theta=-100.66530194472875
+55416ms : T,p1111,len:7
+55426ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p1111
+55436ms : FEED : T,p1111
+55485ms : D,p101,len:6
+55494ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p101
+55504ms : FEED : D,p101
+55517ms : Kangaroo - CheckMovingStatus - feedback : T,p1111
+55554ms : Current position : PointOriente : X=234.33379173448171; Y=-1661.0459981821512; theta=-101.43295803480041
+55804ms : T,P1116,len:7
+55813ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,P1116
+55823ms : FEED : T,P1116
+55873ms : D,p97,len:5
+55883ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p97
+55892ms : FEED : D,p97
+55906ms : Kangaroo - CheckMovingStatus - feedback : T,P1116
+55916ms : Kangaroo - CheckMovingStatus detected end of move
+55947ms : Drive, Distance demande : -832
+56005ms : D,p-81061s65000
+
+56014ms : Kangaroo - Drive : sent command, waiting for move completion
+56038ms : Current position : PointOriente : X=234.34196566821501; Y=-1661.0057649943872; theta=-101.48413510747186
+56290ms : D,p-3689,len:8
+56336ms : T,p-194,len:7
+56346ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-194
+56356ms : FEED : T,p-194
+56369ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p-3689
+56379ms : FEED : D,p-3689
+56392ms : Kangaroo - CheckMovingStatus - feedback : D,p-3689
+56429ms : Current position : PointOriente : X=240.59017589209688; Y=-1623.6617857482875; theta=-99.498464687819862
+56683ms : D,p-29737,len:9
+56729ms : T,p-132,len:7
+56739ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-132
+56749ms : FEED : T,p-132
+56762ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p-29737
+56772ms : FEED : D,p-29737
+56786ms : Kangaroo - CheckMovingStatus - feedback : D,p-29737
+56822ms : Current position : PointOriente : X=287.62649763709334; Y=-1360.4810529478668; theta=-100.13306038894575
+57076ms : D,p-56051,len:9
+57121ms : T,p-54,len:6
+57130ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-54
+57140ms : FEED : T,p-54
+57154ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p-56051
+57163ms : FEED : D,p-56051
+57177ms : Kangaroo - CheckMovingStatus - feedback : D,p-56051
+57214ms : Current position : PointOriente : X=338.8430404191372; Y=-1095.3006283275956; theta=-100.93142272262027
+57467ms : D,p-77370,len:9
+57511ms : T,p-64,len:6
+57521ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-64
+57531ms : FEED : T,p-64
+57544ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p-77370
+57554ms : FEED : D,p-77370
+57584ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=True in direction=1
+57605ms : CapteurObstacleManager : obstacle=True in direction : 1
+57614ms : Mouvement - ObstacleListener - !Map.MapInformation.isObstacleDetecteurOn(), no change on trajectory. 
+57633ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=False in direction=1
+57654ms : CapteurObstacleManager : obstacle=False in direction : 1
+57663ms : Mouvement - ObstacleListener - !Map.MapInformation.isObstacleDetecteurOn(), no change on trajectory. 
+57568ms : Kangaroo - CheckMovingStatus - feedback : D,p-77370
+57702ms : Current position : PointOriente : X=379.95364476747369; Y=-880.38373947494904; theta=-100.82906857727738
+57956ms : D,p-80940,len:9
+58001ms : T,p-40,len:6
+58010ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-40
+58020ms : FEED : T,p-40
+58033ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,p-80940
+58042ms : FEED : D,p-80940
+58057ms : Kangaroo - CheckMovingStatus - feedback : D,p-80940
+58093ms : Current position : PointOriente : X=386.99210907788296; Y=-844.42440725099971; theta=-101.07471852610031
+58347ms : D,P-81061,len:9
+58391ms : T,p-35,len:6
+58401ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : T,p-35
+58410ms : FEED : T,p-35
+58423ms : Kangaroo - UpdatePositionFromFeedback - mode : D; feedback : D,P-81061
+58433ms : FEED : D,P-81061
+58447ms : Kangaroo - CheckMovingStatus - feedback : D,P-81061
+58458ms : Kangaroo - CheckMovingStatus detected end of move
+58476ms : DOne with gotoForced dir.
+58485ms : Launch completed event
+58494ms : BaseRoulante : LaunchMovingInstructionCompletedEvent called
+58503ms : BaseRoulante - LaunchMovingInstructionCompletedEvent : listeners found !!!
+58513ms : ActionBaseRoulante : completed, status = success
+58522ms : ActionBaseRoulante : completed, status = success
+58531ms : ActionBaseRoulante : completed, status = success
+58541ms : ActionBaseRoulante : completed, status = success
+58550ms : ActionBaseRoulante : completed, status = success
+58560ms : ActionBaseRoulante : completed, status = success
+58569ms : ActionBaseRoulante : completed, status = success
+58600ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Vider le tube mixte
+58595ms : Current position : PointOriente : X=387.23175621006334; Y=-843.20583112808049; theta=-101.12589559877176
+58612ms : ActionEnSerie - executing next action. Desc of ActionEnSerie : Vider le tube mixte
+58630ms : ActionBaseRoulante - execute called. Desc : Deplacement
+58640ms : Mouvement - Start() called
+58673ms : Started at387.23175621006334,-843.20583112808049,-101.12589559877176
+58694ms : Going to 2400,-860
+
+58713ms : Angle before modulo : -10.6478412223384
+58728ms : J'ai deltaTheta = 359.52194562356664
+58743ms : Donc angle = 349.3521587776616
+58764ms : Going (dir forced) to 2400,-860
+
+58776ms : Going en arriere
+58794ms : Rotate, Angle demande : 79.3521587776616
+58854ms : Command sent: T,p7752s15000
+
+58865ms : Kangaroo - Turn : sent command, waiting for move completion
+58894ms : T,P-1,len:5
+58904ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,P-1
+58915ms : FEED : T,P-1
+58968ms : D,P2,len:4
+58977ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,P2
+58987ms : FEED : D,P2
+POSITION : PointOriente : X=387.22779869866059; Y=-843.22597358947621; theta=-101.11566018423747
+59268ms : T,p3279,len:7
+59277ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : T,p3279
+59287ms : FEED : T,p3279
+59336ms : D,p286,len:6
+59345ms : Kangaroo - UpdatePositionFromFeedback - mode : T; feedback : D,p286
+59355ms : FEED : D,p286
+59369ms : Kangaroo - CheckMovingStatus - feedback : T,p3279
+59405ms : Current position : PointOriente : X=385.17790464693587; Y=-845.29832822962408; theta=-134.68781985670421
+59432ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=True in direction=0
+59453ms : CapteurObstacleManager : obstacle=True in direction : 0
+59463ms : Mouvement - ObstacleListener - obstacle in other direction : ignored. 
+59481ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=False in direction=0
+59501ms : CapteurObstacleManager : obstacle=False in direction : 0
+59511ms : Mouvement - ObstacleListener - obstacle in other direction : ignored. 
+59529ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=True in direction=1
+59550ms : CapteurObstacleManager : obstacle=True in direction : 1
+59559ms : Mouvement - ObstacleListener - obstacle detected : pausing movement. 
+59569ms : Kangaroo - called stop()
+59655ms : T,P7277,len:7
+59664ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P7277
+59674ms : FEED : T,P7277
+59723ms : D,P148,len:6
+59732ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P148
+59742ms : FEED : D,P148
+POSITION : PointOriente : X=386.59014874494051; Y=-845.18988529168928; theta=-175.60900716479017
+23ms : T,P7281,len:7
+32ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : T,P7281
+42ms : FEED : T,P7281
+91ms : D,P131,len:6
+101ms : Kangaroo - UpdatePositionFromFeedback - mode : ; feedback : D,P131
+111ms : FEED : D,P131
+POSITION : PointOriente : X=386.76413034538831; Y=-845.17665069712007; theta=-175.64994882292731
+193ms : Robot - called stop()
+215ms : LanceurBalle : stopped all motors
+Called servo stop
+BAD PACKET received !!! Header should be 0xFF 0XFF
+BAD PACKET received !!! Header should be 0xFF 0XFF
+263ms : CAX12, wrong ID returned. This.id = 1; id received : 3
+Called servo stop
+Called servo stop
+437ms : CAX12, wrong ID returned. This.id = 2; id received : 1
+468ms : CAX12, wrong ID returned. This.id = 2; id received : 1
+499ms : CAX12, wrong ID returned. This.id = 2; id received : 1
+The thread '<No Name>' (0x9) has exited with code 0 (0x0).
+968ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=False in direction=1
+989ms : CapteurObstacleManager : obstacle=False in direction : 1
+998ms : Mouvement - ObstacleListener - obstacle removed : resuming movement. 
+1016ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=True in direction=1
+1037ms : CapteurObstacleManager : obstacle=True in direction : 1
+1046ms : Mouvement - ObstacleListener - obstacle detected : pausing movement. 
+1055ms : Kangaroo - called stop()
+1108ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=False in direction=1
+1128ms : CapteurObstacleManager : obstacle=False in direction : 1
+1137ms : Mouvement - ObstacleListener - obstacle removed : resuming movement. 
+1150ms : Mouvement - Start() called
+1181ms : Started at386.76413034538831,-845.17665069712007,-175.64994882292731
+1202ms : Going to 2400,-860
+
+1221ms : Angle before modulo : -85.228090649909035
+1237ms : J'ai deltaTheta = 359.57814182698172
+1252ms : Donc angle = 274.77190935009094
+1273ms : Going (dir forced) to 2400,-860
+
+1283ms : Going en arriere
+1302ms : Rotate, Angle demande : 4.7719093500909366
+1358ms : Command sent: T,p466s15000
+
+1369ms : Kangaroo - Turn : sent command, waiting for move completion
+8091ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=True in direction=1
+8112ms : CapteurObstacleManager : obstacle=True in direction : 1
+8122ms : Mouvement - ObstacleListener - obstacle detected : pausing movement. 
+8131ms : Kangaroo - called stop()
+8455ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=False in direction=1
+8476ms : CapteurObstacleManager : obstacle=False in direction : 1
+8486ms : Mouvement - ObstacleListener - obstacle removed : resuming movement. 
+8558ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=True in direction=1
+8579ms : CapteurObstacleManager : obstacle=True in direction : 1
+8589ms : Mouvement - ObstacleListener - obstacle detected : pausing movement. 
+8598ms : Kangaroo - called stop()
+9283ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=True in direction=1
+9469ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=False in direction=1
+9590ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=True in direction=1
+10478ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=False in direction=1
+10500ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=False in direction=1
+10521ms : CapteurObstacleManager : obstacle=False in direction : 1
+10530ms : Mouvement - ObstacleListener - obstacle removed : resuming movement. 
+10575ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=True in direction=1
+10596ms : CapteurObstacleManager : obstacle=True in direction : 1
+10605ms : Mouvement - ObstacleListener - obstacle detected : pausing movement. 
+10615ms : Kangaroo - called stop()
+11497ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=False in direction=1
+11517ms : CapteurObstacleManager : obstacle=False in direction : 1
+11527ms : Mouvement - ObstacleListener - obstacle removed : resuming movement. 
+11587ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=True in direction=1
+11608ms : CapteurObstacleManager : obstacle=True in direction : 1
+11618ms : Mouvement - ObstacleListener - obstacle detected : pausing movement. 
+11627ms : Kangaroo - called stop()
+11645ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=True in direction=1
+14377ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=False in direction=1
+14491ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=False in direction=1
+14512ms : CapteurObstacleManager : obstacle=False in direction : 1
+14522ms : Mouvement - ObstacleListener - obstacle removed : resuming movement. 
+14663ms : Mouvement - Start() called
+14695ms : Started at386.76413034538831,-845.17665069712007,-175.64994882292731
+14716ms : Going to 2400,-860
+
+14735ms : Angle before modulo : -85.228090649909035
+14750ms : J'ai deltaTheta = 359.57814182698172
+14765ms : Donc angle = 274.77190935009094
+14786ms : Going (dir forced) to 2400,-860
+
+14797ms : Going en arriere
+14816ms : Rotate, Angle demande : 4.7719093500909366
+14872ms : Command sent: T,p466s15000
+
+14883ms : Kangaroo - Turn : sent command, waiting for move completion
+28002ms : CapteurObstacle - OnObstacleChange called , OBSTACLE=True in direction=1
+28023ms : CapteurObstacleManager : obstacle=True in direction : 1
+28033ms : Mouvement - ObstacleListener - obstacle detected : pausing movement. 
+28042ms : Kangaroo - called stop()
+The program '[8] Micro Framework application: Managed' has exited with code 0 (0x0).

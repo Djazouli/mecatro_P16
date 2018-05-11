@@ -36,7 +36,7 @@ namespace Robot_P16.Robot
                 new ActionBuilder("Test").Add(gestio.GR_TRAPPE_FERMER).Add(gestio.GR_PLATEAU_RECOLTE)
                 .Add(gestio.GR_PLATEAU_LIBERATION_BALLES_COULEUR_OPPOSEE()).BuildActionEnSerie());
 
-            setMotherAction(ModeOperatoire.HOMOLOGATION, TypeRobot.PETIT_ROBOT, CouleurEquipe.VERT, testRobots.TestPRAscenseurDroit());
+            //setMotherAction(ModeOperatoire.HOMOLOGATION, TypeRobot.PETIT_ROBOT, CouleurEquipe.VERT, testRobots.TestPRAscenseurDroit());
             
 
             //setMotherAction(ModeOperatoire.TEST1, TypeRobot.GRAND_ROBOT, CouleurEquipe.ORANGE, gestio.GR_PLATEAU_LIBERATION_BALLES_TUBE_MIXTE_NOTRE_COULEUR());

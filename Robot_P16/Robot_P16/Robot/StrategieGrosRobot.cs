@@ -28,9 +28,13 @@ namespace Robot_P16.Robot
             PointOriente point_tube_uni_intermediaire_1 = new PointOriente(positionInitialeGR_X + 170, positionInitialeGR_Y, 0);
             PointOriente point_tube_uni_intermediaire_2 = new PointOriente(200 + dimensionGR_X / 2, -845, 0);
             PointOriente point_tube_uni_final = new PointOriente(100, -845, 0); // direction arriere, adjust to angle
+            PointOriente point_tube_uni_lancement = new PointOriente(710 - 168, -845, 110 - 90);
+
             PointOriente point_abeille_intermediaire_1 = new PointOriente(1060, -845, -90);
             PointOriente point_abeille_intermediaire_2 = new PointOriente(400, -2000 + 400, -130);
             PointOriente point_abeille_final = new PointOriente(dimensionGR_Y / 2 + 40, 10 -2000 + dimensionGR_X / 2, -90);
+
+
             PointOriente point_tube_mixte_intermediaire_1 = new PointOriente(400, -845, 0); // Parcourir la map
             PointOriente point_tube_mixte_intermediaire_2 = new PointOriente(2400, -860, 180); // Parcourir la map => IR = on
             PointOriente point_tube_mixte_intermediaire_3 = new PointOriente(2420, -1600, 90); // Parcourir la map => IR = on
@@ -47,6 +51,11 @@ namespace Robot_P16.Robot
                 .Add(new ActionBuilder("Regler vitese drive").BuildActionDelegate(() => Robot.robot.BASE_ROULANTE.speedDrive = 200))
                 .Add(new ActionBuilder("Deplacement 2").BuildActionBaseRoulante_GOTO_ANGLE(point_tube_uni_final, OBSTACLE_DIRECTION.ARRIERE))
                 //.Add(new ActionBuilder("Recule un peu").BuildActionBaseRoulante_DRIVE(3, 100))
+                .Add(gestio.GR_TRAPPE_FERMER)
+                .Add(gestio.GR_PLATEAU_RECOLTE)
+                .Add(gestio.GR_PLATEAU_SLOT0)
+                .Add(new ActionWait("Wait a bit...", 500))
+                .Add(new ActionBuilder("piche").BuildActionBaseRoulante_GOTO_ANGLE(point_tube_uni_lancement, OBSTACLE_DIRECTION.AVANT))
                 .Add(gestio.GR_PLATEAU_LIBERATION_TUBE_UNICOULEUR())
                 //.Add(new ActionBuilder("Recule un peu").BuildActionBaseRoulante_DRIVE(50, 100 * 100))
                 .BuildActionEnSerie();
@@ -146,6 +155,7 @@ namespace Robot_P16.Robot
             PointOriente point_tube_uni_intermediaire_1 = new PointOriente(3000 - (positionInitialeGR_X + 170), positionInitialeGR_Y, 0);
             PointOriente point_tube_uni_intermediaire_2 = new PointOriente(3000 - (200 + dimensionGR_X / 2), -845, 0);
             PointOriente point_tube_uni_final = new PointOriente(3000 - 100, -845 - 30, 0); // direction arriere, adjust to angle
+            PointOriente point_tube_uni_lancement = new PointOriente(3000 - (710 - 168), -845, -(110 - 90 ));
 
             PointOriente point_abeille_intermediaire_1 = new PointOriente(3000-1060, -845, -90);
             PointOriente point_abeille_intermediaire_2 = new PointOriente(3000-400, -2000 + 400, -130);
@@ -167,6 +177,11 @@ namespace Robot_P16.Robot
                 .Add(gestio.GR_PLATEAU_AVANT_ORANGE)
                 .Add(new ActionBuilder("Regler vitese drive").BuildActionDelegate(() => Robot.robot.BASE_ROULANTE.speedDrive = 200))
                 .Add(new ActionBuilder("Deplacement 2").BuildActionBaseRoulante_GOTO_ANGLE(point_tube_uni_final, OBSTACLE_DIRECTION.AVANT))
+                .Add(gestio.GR_TRAPPE_FERMER)
+                .Add(gestio.GR_PLATEAU_RECOLTE)
+                .Add(gestio.GR_PLATEAU_SLOT0)
+                .Add(new ActionWait("Wait a bit...", 500))
+                .Add(new ActionBuilder("piche").BuildActionBaseRoulante_GOTO_ANGLE(point_tube_uni_lancement, OBSTACLE_DIRECTION.ARRIERE))
                 .Add(gestio.GR_PLATEAU_LIBERATION_TUBE_UNICOULEUR())
                 .Add(new ActionBuilder("Recule un peu").BuildActionBaseRoulante_DRIVE(-50, 100*50))
                 .BuildActionEnSerie();

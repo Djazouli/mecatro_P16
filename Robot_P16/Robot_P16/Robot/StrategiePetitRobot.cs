@@ -51,14 +51,14 @@ namespace Robot_P16.Robot
                 .Add(new ActionBuilder("pt2").BuildActionBaseRoulante_GOTO_ONLY(pt_homol_1, OBSTACLE_DIRECTION.AVANT))
                 .Add(new ActionBuilder("pt2").BuildActionBaseRoulante_GOTO_ONLY(pt_homol_2, OBSTACLE_DIRECTION.ARRIERE))
                 */
-
+                /*
                 .Add(new ActionBuilder("pt3").BuildActionBaseRoulante_GOTO_ONLY(pt3, OBSTACLE_DIRECTION.AVANT))
                 //).Add(new ActionBuilder("ptInter").BuildActionBaseRoulante_GOTO_ONLY(ptIntermediaire, OBSTACLE_DIRECTION.AVANT)
                 .Add(new ActionBuilder("pt4").BuildActionBaseRoulante_GOTO_ONLY(pt4, OBSTACLE_DIRECTION.AVANT))
                 .Add(new ActionRamasseCube())
                 .Add(new ActionBuilder("Zone").BuildActionBaseRoulante_GOTO_ONLY(zone, OBSTACLE_DIRECTION.AVANT))
                 //.Add(new ActionReleaseCube())
-                .Add(new ActionBuilder("pt5").BuildActionBaseRoulante_GOTO_ONLY(pt5, OBSTACLE_DIRECTION.ARRIERE))
+                .Add(new ActionBuilder("pt5").BuildActionBaseRoulante_GOTO_ONLY(pt5, OBSTACLE_DIRECTION.ARRIERE))*/
                 .BuildActionEnSerie();
 
             return MOTHER_ACTION;
