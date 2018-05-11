@@ -40,6 +40,7 @@ namespace Robot_P16.Actions
             else
                 delay = servomoteur.SetAngle(angle);*/
             servomoteur.SetAngle(angle);
+            Thread.Sleep(100);
             this.Status = ActionStatus.SUCCESS;
         }
 

@@ -16,19 +16,19 @@ namespace Robot_P16.Robot.composants.Servomoteurs
          * ***************** FIN DES REGLES DE NOMMAGE ****************** */
 
 
-        public const int ANGLE_PR_ASCENSEURDROIT_PARTIE_BASSE_MINIMUM = 170; // PRET A RAMASSER VENTOUSE 
-        public const int ANGLE_PR_ASCENSEURDROIT_PARTIE_BASSE_HAUTEUR_1_CUBE = 985;//Depose le 2eme cube
+        public const int ANGLE_PR_ASCENSEURDROIT_PARTIE_BASSE_MINIMUM = 78; // PRET A RAMASSER VENTOUSE 
+        public const int ANGLE_PR_ASCENSEURDROIT_PARTIE_BASSE_HAUTEUR_1_CUBE = 853;//Depose le 2eme cube
         public const int ANGLE_PR_ASCENSEURDROIT_PARTIE_BASSE_MAXIMUM = 1023;
         public const int ANGLE_PR_ASCENSEURDROIT_PARTIE_HAUTE_MINIMUM = 0;
-        public const int ANGLE_PR_ASCENSEURDROIT_PARTIE_HAUTE_HAUTEUR_2_CUBE = 408; // Depose le 3eme cube (2eme zone)
-        public const int ANGLE_PR_ASCENSEURDROIT_PARTIE_HAUTE_MAXIMUM = 550;
+        public const int ANGLE_PR_ASCENSEURDROIT_PARTIE_HAUTE_HAUTEUR_2_CUBE =325; // Depose le 3eme cube (2eme zone)
+        public const int ANGLE_PR_ASCENSEURDROIT_PARTIE_HAUTE_MAXIMUM = 400;
         public const int ANGLE_PR_ASCENSEURDROIT_COINCER = 494;
 
 
         public const int DELAI_PR_ASCENSEURDROIT_PARTIE_BASSE_VERS_HAUTE = 900; // TODO
         public const int VITESSE_PR_ASCENSEURDROIT_PARTIE_BASSE_VERS_HAUTE = 600;
 
-        public const int DELAI_PR_ASCENSEURDROIT_PARTIE_HAUTE_VERS_BASSE = 900;
+        public const int DELAI_PR_ASCENSEURDROIT_PARTIE_HAUTE_VERS_BASSE = 600;
         public const int VITESSE_PR_ASCENSEURDROIT_PARTIE_HAUTE_VERS_BASSE = 1600;
 
  	 public const int ANGLE_PR_POUSSOIRJOKER_POUSSER=160*1024/300;// = 90; //en degré, valeur approximative, odg moins d'un tour
@@ -40,20 +40,20 @@ namespace Robot_P16.Robot.composants.Servomoteurs
  	 public const int TEMPS_PR_ASCENSEURGAUCHE_DESCENDREUNITE=1400;// = -342.86;
      public const int TEMPS_PR_DESCENDREPOSERVENTOUSE = 500;
 
-     public const int DELAI_PR_ASCENSEURGAUCHE_PARTIE_BASSE_VERS_HAUTE = 900; // TODO
-     public const int VITESSE_PR_ASCENSEURGAUCHE_PARTIE_BASSE_VERS_HAUTE = 600;
+     public const int DELAI_PR_ASCENSEURGAUCHE_PARTIE_BASSE_VERS_HAUTE = 1500; // TODO
+     public const int VITESSE_PR_ASCENSEURGAUCHE_PARTIE_BASSE_VERS_HAUTE = 2000;
 
-     public const int DELAI_PR_ASCENSEURGAUCHE_PARTIE_HAUTE_VERS_BASSE = 900;
-     public const int VITESSE_PR_ASCENSEURGAUCHE_PARTIE_HAUTE_VERS_BASSE = 1400;
+     public const int DELAI_PR_ASCENSEURGAUCHE_PARTIE_HAUTE_VERS_BASSE = 1500;
+     public const int VITESSE_PR_ASCENSEURGAUCHE_PARTIE_HAUTE_VERS_BASSE = 1000;
 
-     public const int DELAI_PR_ASCENSEURGAUCHE_APPUYER_VENTOUZE = 900;
-     public const int VITESSE_PR_ASCENSEURGAUCHE_APPUYER_VENTOUZE = 1400;
+     public const int DELAI_PR_ASCENSEURGAUCHE_APPUYER_VENTOUZE = 300;
+     public const int VITESSE_PR_ASCENSEURGAUCHE_APPUYER_VENTOUZE = 700;
 
-     public const int DELAI_PR_ASCENSEURGAUCHE_ENLEVER_VENTOUZE = 900;
-     public const int VITESSE_PR_ASCENSEURGAUCHE_ENLEVER_VENTOUZE = 1400;
+     public const int DELAI_PR_ASCENSEURGAUCHE_ENLEVER_VENTOUZE = 1500;
+     public const int VITESSE_PR_ASCENSEURGAUCHE_ENLEVER_VENTOUZE = 1700;
 
      public const int ANGLE_PR_ASCENSEURGAUCHE_PARTIE_BASSE_MINIMUM = 1023; // PRET A RAMASSER VENTOUSE, doit aller un peu vers le bas
-     public const int ANGLE_PR_ASCENSEURGAUCHE_PARTIE_BASSE_HAUTEUR_1_CUBE = 1020;//TODO
+     public const int ANGLE_PR_ASCENSEURGAUCHE_PARTIE_HAUTE_HAUTEUR_1_CUBE = 1023;//TODO
      public const int ANGLE_PR_ASCENSEURGAUCHE_PARTIE_BASSE_MAXIMUM = 0;
      public const int ANGLE_PR_ASCENSEURGAUCHE_PARTIE_HAUTE_MINIMUM = 1023;
      public const int ANGLE_PR_ASCENSEURGAUCHE_PARTIE_HAUTE_HAUTEUR_2_CUBE = 0;
@@ -111,7 +111,7 @@ namespace Robot_P16.Robot.composants.Servomoteurs
      public const int ANGLE_GR_PLATEAU_SLOT_5 = 569; //573
      public const int ANGLE_GR_PLATEAU_SLOT_6 = 692; //697
      public const int ANGLE_GR_PLATEAU_SLOT_7 = 816; // 820
-     public const int ANGLE_GR_PLATEAU_SLOT_8 = 963; //939
+     public const int ANGLE_GR_PLATEAU_SLOT_8 = 950; //939
         // Si recole cote orange (avant) : commencer par slot 8 => slot le plus proche
         // Si recolt cote vert (arriere) : commencer par slot 0 => slot le plus proche
 

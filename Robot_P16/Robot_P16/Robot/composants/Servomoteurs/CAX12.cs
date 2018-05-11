@@ -149,6 +149,7 @@ namespace Robot_P16.Robot.composants.Servomoteurs
             int[] retour = new int[0];
             lock (locker)
             {
+                Thread.Sleep(50);
                 int length = 0;
                 if (parametres != null)
                 {
@@ -181,56 +182,56 @@ namespace Robot_P16.Robot.composants.Servomoteurs
                     //http://www.crustcrawler.com/products/bioloid/docs/AX-12.pdf
                     // OXFF 0XFF ID LENGTH ERROR PARAMETER1 PARAMETER2…PARAMETER N CHECK SUM
                     m_Direction.Write(false);
-                    Thread.Sleep(1);
-                    if (m_serial.BytesToRead <= 0)
+                    Thread.Sleep(10);
+                    while(m_serial.BytesToRead <= 0)
                     {
+                        Thread.Sleep(10);
                         Debug.Print("No feedback received from servo. Weird...");
+                    }
+                    
+                    /*
+                    int counter = 0;
+                    while (m_serial.BytesToRead > 0)
+                    {
+                        Debug.Print("Byte[" + counter + "] =" + m_serial.ReadByte());
+                    }*/
+
+                    if (m_serial.ReadByte() != 255 || m_serial.ReadByte() != 255)
+                    {
+                        Debug.Print("BAD PACKET received !!! Header should be 0xFF 0XFF");
+                        retour = null;
                     }
                     else
                     {
-                        /*
-                        int counter = 0;
-                        while (m_serial.BytesToRead > 0)
+                        int id = m_serial.ReadByte();
+                        int len = m_serial.ReadByte();
+                        //Debug.Print("ID "+id+", Long : "+len);
+                        retour = new int[len - 2];
+                        int erreur = m_serial.ReadByte();
+                        if (erreur != 0)
                         {
-                            Debug.Print("Byte[" + counter + "] =" + m_serial.ReadByte());
-                        }*/
-
-                        if (m_serial.ReadByte() != 255 || m_serial.ReadByte() != 255)
-                        {
-                            Debug.Print("BAD PACKET received !!! Header should be 0xFF 0XFF");
+                            Informations.printInformations(Priority.HIGH, "CAX12, error found : " + erreur);
                             retour = null;
                         }
                         else
                         {
-                            int id = m_serial.ReadByte();
-                            int len = m_serial.ReadByte();
-                            //Debug.Print("ID "+id+", Long : "+len);
-                            retour = new int[len - 2];
-                            int erreur = m_serial.ReadByte();
-                            if (erreur != 0)
+                            for (int i = 0; i < len - 2; i++)
                             {
-                                Informations.printInformations(Priority.HIGH, "CAX12, error found : " + erreur);
-                                retour = null;
+                                retour[i] = m_serial.ReadByte();
+                                // Debug.Print("retour[" + i + "] : " + retour[i]);
                             }
-                            else
-                            {
-                                for (int i = 0; i < len - 2; i++)
-                                {
-                                    retour[i] = m_serial.ReadByte();
-                                    // Debug.Print("retour[" + i + "] : " + retour[i]);
-                                }
 
-                            }
-                            int checkSum = m_serial.ReadByte();
-                            if (id != this.m_ID)
-                            {
-                                Informations.printInformations(Priority.HIGH, "CAX12, wrong ID returned. This.id = " + this.m_ID + "; id received : " + id);
-                                retour = null;
-                            }
-                            //Debug.Print("Check sum : " + checkSum);
                         }
+                        int checkSum = m_serial.ReadByte();
+                        if (id != this.m_ID)
+                        {
+                            Informations.printInformations(Priority.HIGH, "CAX12, wrong ID returned. This.id = " + this.m_ID + "; id received : " + id);
+                            retour = null;
+                        }
+                        //Debug.Print("Check sum : " + checkSum);
                     }
                 }
+                
                 //Thread.Sleep(50);
             }
 
@@ -266,7 +267,7 @@ namespace Robot_P16.Robot.composants.Servomoteurs
 
             if (sendCommand(m_ID, Instruction.AX_WRITE_DATA, buf) == null)
                 return true; // ERROR !!!
-
+            Thread.Sleep(10);
             bool currentMoving = isMoving();
             if (currentMoving != true)
             {
@@ -280,7 +281,7 @@ namespace Robot_P16.Robot.composants.Servomoteurs
             } while (isMoving());
 
             TEMPORAIRE_position = value;
-            //Thread.Sleep(80); // a commenter ou decommenter
+            Thread.Sleep(50); // a commenter ou decommenter
 
             return false;
 

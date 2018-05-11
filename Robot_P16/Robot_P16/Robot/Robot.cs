@@ -12,6 +12,7 @@ namespace Robot_P16.Robot
     public class Robot
     {
 
+        public int score;
         public bool isStopped = false;
 
         public static Robot robot;
@@ -44,7 +45,7 @@ namespace Robot_P16.Robot
         }
 
 
-        public string codeCouleur = "O-B-J";
+        public string codeCouleur = "B-N-J";
 
         /// <summary>
         /// Liste des composants
@@ -130,6 +131,7 @@ namespace Robot_P16.Robot
         /* ********************************** PETIT ROBOT ****************************** */
 
         public composants.Servomoteurs.AscenseurDroite PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW; // ID = 5
+        public composants.Servomoteurs.AscenseurGauche PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW; // ID = 4
 
         public composants.Servomoteurs.AX12 PR_SERVO_ASCENSEUR_BRAS_DROIT; // ID = 5
         public composants.Servomoteurs.AX12 PR_SERVO_ASCENSEUR_BRAS_GAUCHE; // ID = 4
@@ -259,6 +261,7 @@ namespace Robot_P16.Robot
         {
             Informations.printInformations(Priority.HIGH, "Robot - called stop()");
             isStopped = true;
+            IHM.AfficherInformation("Score : " + score, true);
             this.SWITCH_GLOBAL.Activate();
             if (this.typeRobot == TypeRobot.GRAND_ROBOT)
             {
@@ -351,7 +354,8 @@ namespace Robot_P16.Robot
                     PR_SERVO_DEPLOIEMENT_BRAS_GAUCHE = new composants.Servomoteurs.AX12(PR_SOCKET_SERVOS, PR_SERVO_ID_DEPLOIEMENT_BRAS_GAUCHE);
                     PR_SERVO_POUSSOIRJOKER = new composants.Servomoteurs.AX12(PR_SOCKET_SERVOS, PR_SERVO_ID_POUSSOIRJOKER);
                     PR_SERVO_AIGUILLAGE = new composants.Servomoteurs.AX12(PR_SOCKET_SERVOS, PR_SERVO_ID_AIGUILLAGE);
-                    //PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW = new composants.Servomoteurs.AscenseurDroite(PR_SOCKET_SERVOS, PR_SERVO_ID_ASCENSEUR_BRAS_DROIT); 
+                    PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW = new composants.Servomoteurs.AscenseurDroite(PR_SOCKET_SERVOS, PR_SERVO_ID_ASCENSEUR_BRAS_DROIT);
+                    PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW = new composants.Servomoteurs.AscenseurGauche(PR_SOCKET_SERVOS, PR_SERVO_ID_ASCENSEUR_BRAS_GAUCHE);
                     
                     BASE_ROULANTE = new composants.BaseRoulante.BaseRoulante(PR_SOCKET_BASE_ROUlANTE);
 

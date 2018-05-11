@@ -36,7 +36,12 @@ namespace Robot_P16.Robot
                 new ActionBuilder("Test").Add(gestio.GR_TRAPPE_FERMER).Add(gestio.GR_PLATEAU_RECOLTE)
                 .Add(gestio.GR_PLATEAU_LIBERATION_BALLES_COULEUR_OPPOSEE()).BuildActionEnSerie());
 
-            //setMotherAction(ModeOperatoire.HOMOLOGATION, TypeRobot.PETIT_ROBOT, CouleurEquipe.VERT, testRobots.TestPRAscenseurDroit());
+            if (Robot.robot.TypeRobot == TypeRobot.PETIT_ROBOT)
+            {
+                setMotherAction(ModeOperatoire.HOMOLOGATION, TypeRobot.PETIT_ROBOT, CouleurEquipe.ORANGE, new ActionBuilder("piche").Add(new ActionRamasseCube()).Add(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW.ActionGoToZoneBasse(true)).Add(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionGoToZoneBasse(true)).BuildActionEnSerie());
+                setMotherAction(ModeOperatoire.HOMOLOGATION, TypeRobot.PETIT_ROBOT, CouleurEquipe.VERT, new ActionBuilder("piche").Add(new ActionRamasseCube()).Add(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW.ActionGoToZoneBasse(true)).Add(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionGoToZoneBasse(true)).BuildActionEnSerie());
+            }
+                
             
 
             //setMotherAction(ModeOperatoire.TEST1, TypeRobot.GRAND_ROBOT, CouleurEquipe.ORANGE, gestio.GR_PLATEAU_LIBERATION_BALLES_TUBE_MIXTE_NOTRE_COULEUR());

@@ -15,18 +15,19 @@ namespace Robot_P16.Robot
         public Action TestPRAscenseurDroit()
         {
             return new ActionBuilder("Test asceneur droit PR")
-                .Add(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW.ActionHauteurPose_3emeCube())
+                .Add(new ActionBuilder("ventouzes").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true))
+                .Add(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionPoserVentouze())
                 .Add(new ActionWait("Wait", 3000))
-                .Add(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW.ActionPoserVentouze())
+                .Add(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionHauteurPose_3emeCube())
+                /*.Add(new ActionWait("Wait", 3000))
+                .Add(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionHauteurPose_3emeCube())
                 .Add(new ActionWait("Wait", 3000))
-                .Add(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW.ActionHauteurPose_3emeCube())
+                .Add(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionHauteurPose_2emeCube())
                 .Add(new ActionWait("Wait", 3000))
-                .Add(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW.ActionHauteurPose_2emeCube())
+                .Add(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionHauteurPose_3emeCube())
                 .Add(new ActionWait("Wait", 3000))
-                .Add(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW.ActionHauteurPose_3emeCube())
-                .Add(new ActionWait("Wait", 3000))
-                .Add(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW.ActionPoserVentouze())
-                .Add(new ActionWait("Wait", 3000))
+                .Add(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionPoserVentouze())
+                .Add(new ActionWait("Wait", 3000))*/
                 .BuildActionEnSerie();
         }
 

@@ -154,5 +154,12 @@ namespace Robot_P16.Actions
         {
             return new ActionDelegate(this.description, () => Map.MapInformation.isDetecteurOn = isOn);
         }
+        public ActionDelegate BuildActionAddScore(int scoreAdded)
+        {
+            return new ActionDelegate(this.description, () => Robot.Robot.robot.score += scoreAdded);
+        }
+
+
+
     }
 }

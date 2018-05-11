@@ -190,7 +190,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             if (this.currentMode == null)
             {
                 GetDynamicPosition();
-                Debug.Print("POSITION : "+this.position);
+                //Debug.Print("POSITION : "+this.position);
                 return;
             }
 
@@ -264,7 +264,7 @@ namespace Robot_P16.Robot.composants.BaseRoulante
             //T,P100
             if (/*this.currentMode == null || */ feedback == null || feedback.Length < 4) return;// this.position;
             char status = feedback[2];
-            Informations.printInformations(Priority.HIGH, "FEED : "+feedback);
+            Informations.printInformations(Priority.LOW, "FEED : "+feedback);
 
             if (feedback[2] == 'E')
             {

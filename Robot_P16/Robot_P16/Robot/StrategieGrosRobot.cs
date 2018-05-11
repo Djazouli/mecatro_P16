@@ -44,6 +44,7 @@ namespace Robot_P16.Robot
             GestionnaireServosGR gestio = new GestionnaireServosGR();
 
             ActionEnSerie ViderTubeUni = new ActionBuilder("Vider le tube uni")
+                .Add(new ActionBuilder("Ajouter score").BuildActionAddScore(20))
                 .Add(new ActionBuilder("Regler vitese drive").BuildActionDelegate(() => Robot.robot.BASE_ROULANTE.speedDrive = 300))
                 .Add(new ActionBuilder("Desactiver IR").BuildActionSetDetecteurObstacle(false))
                 .Add(new ActionBuilder("Deplacement").BuildActionBaseRoulante_GOTO_ONLY(point_tube_uni_intermediaire_2))
@@ -57,7 +58,8 @@ namespace Robot_P16.Robot
                 .Add(new ActionWait("Wait a bit...", 500))
                 .Add(new ActionBuilder("piche").BuildActionBaseRoulante_GOTO_ANGLE(point_tube_uni_lancement, OBSTACLE_DIRECTION.AVANT))
                 .Add(gestio.GR_PLATEAU_LIBERATION_TUBE_UNICOULEUR())
-                //.Add(new ActionBuilder("Recule un peu").BuildActionBaseRoulante_DRIVE(50, 100 * 100))
+                .Add(new ActionBuilder("Ajouter score").BuildActionAddScore(50))
+                .Add(new ActionBuilder("Recule un peu").BuildActionBaseRoulante_DRIVE(50, 100 * 100))
                 .BuildActionEnSerie();
 
             ActionEnSerie ActiverAbeille = new ActionBuilder("Activer l'abeille")
@@ -74,8 +76,9 @@ namespace Robot_P16.Robot
                 //.Add(new ActionBuilder("Deplacement").BuildActionBaseRoulante_GOTO_ONLY(point_abeille_final, OBSTACLE_DIRECTION.AVANT))
                 .Add(new ActionDelegate("Reinit kangaroo", () => { Thread.Sleep(50);  Robot.robot.SWITCH_GLOBAL.Activate(); Thread.Sleep(50); Robot.robot.SWITCH_GLOBAL.Desactivate(); Thread.Sleep(1500); }))
                 .Add(gestio.GR_ABEILLE_DECLENCHER)
-                .Add(new ActionWait("Wait a bit", 1000))
+                .Add(new ActionWait("Wait a bit", 200))
                 .Add(gestio.GR_ABEILLE_REPLIER)
+                .Add(new ActionBuilder("Ajouter score").BuildActionAddScore(50))
 
                 .Add(new ActionBuilder("Recule un peu").BuildActionBaseRoulante_DRIVE(-200, 300))
                 /* Ajouter servoMoteur */
@@ -99,7 +102,7 @@ namespace Robot_P16.Robot
                 .Add(new ActionBuilder("Regler vitese drive").BuildActionDelegate(() => Robot.robot.BASE_ROULANTE.speedDrive = 200))
                 .Add(gestio.GR_TRAPPE_FERMER)
                 .Add(gestio.GR_PLATEAU_AVANT_VERT)
-                .Add(new ActionBuilder("Deplacement").BuildActionBaseRoulante_GOTO_ANGLE(point_tube_mixte_final, OBSTACLE_DIRECTION.ARRIERE))
+                .Add(new ActionBuilder("Deplacement").BuildActionBaseRoulante_GOTO_ONLY(point_tube_mixte_final, OBSTACLE_DIRECTION.ARRIERE))
                 //.Add(new ActionBuilder("Recule un peu").BuildActionBaseRoulante_DRIVE(3, 100))
 
                 .Add(gestio.GR_PLATEAU_RECOLTE)
@@ -171,6 +174,7 @@ namespace Robot_P16.Robot
 
 
             ActionEnSerie ViderTubeUni = new ActionBuilder("Vider le tube uni")
+                .Add(new ActionBuilder("Ajouter score").BuildActionAddScore(20))
                 .Add(new ActionBuilder("Regler vitese drive").BuildActionDelegate(() => Robot.robot.BASE_ROULANTE.speedDrive = 500))
                 .Add(new ActionBuilder("Desactiver IR").BuildActionSetDetecteurObstacle(false))
                 .Add(new ActionBuilder("Deplacement").BuildActionBaseRoulante_GOTO_ONLY(point_tube_uni_intermediaire_2))
@@ -183,6 +187,7 @@ namespace Robot_P16.Robot
                 .Add(new ActionWait("Wait a bit...", 500))
                 .Add(new ActionBuilder("piche").BuildActionBaseRoulante_GOTO_ANGLE(point_tube_uni_lancement, OBSTACLE_DIRECTION.ARRIERE))
                 .Add(gestio.GR_PLATEAU_LIBERATION_TUBE_UNICOULEUR())
+                .Add(new ActionBuilder("Ajouter score").BuildActionAddScore(50))
                 .Add(new ActionBuilder("Recule un peu").BuildActionBaseRoulante_DRIVE(-50, 100*50))
                 .BuildActionEnSerie();
 
@@ -197,12 +202,13 @@ namespace Robot_P16.Robot
                 .Add(new ActionBuilder("Deplacement").BuildActionBaseRoulante_GOTO_ANGLE(point_abeille_final, OBSTACLE_DIRECTION.AVANT))
                 //.Add(new ActionDelegate("Reinit kangaroo", () => { Robot.robot.SWITCH_GLOBAL.Activate(); Thread.Sleep(300); Robot.robot.SWITCH_GLOBAL.Desactivate(); Thread.Sleep(300); }))
                 //.Add(new ActionBuilder("Recule un peu").BuildActionBaseRoulante_DRIVE(-200, 100 * 100))
-                .Add(new ActionBuilder("Deplacement").BuildActionRecallageAxeX(-2000 + dimensionGR_X / 2, 3000, 300 * 100, 600 * 100, -90))
+                .Add(new ActionBuilder("Deplacement").BuildActionRecallageAxeX(-2000 + dimensionGR_X / 2, 1500, 300 * 100, 600 * 100, -90))
                 //.Add(new ActionBuilder("Deplacement").BuildActionBaseRoulante_GOTO_ONLY(point_abeille_final, OBSTACLE_DIRECTION.AVANT))
-                .Add(new ActionDelegate("Reinit kangaroo", () => { Thread.Sleep(50); Robot.robot.SWITCH_GLOBAL.Activate(); Thread.Sleep(50); Robot.robot.SWITCH_GLOBAL.Desactivate(); Thread.Sleep(1500); }))
+                .Add(new ActionDelegate("Reinit kangaroo", () => { Thread.Sleep(50); Robot.robot.SWITCH_GLOBAL.Activate(); Thread.Sleep(50); Robot.robot.SWITCH_GLOBAL.Desactivate(); Thread.Sleep(100); }))
                 .Add(gestio.GR_ABEILLE_DECLENCHER)
-                .Add(new ActionWait("Wait a bit", 1000))
+                .Add(new ActionWait("Wait a bit", 200))
                 .Add(gestio.GR_ABEILLE_REPLIER)
+                .Add(new ActionBuilder("Ajouter score").BuildActionAddScore(50))
 
                 .Add(new ActionBuilder("Recule un peu").BuildActionBaseRoulante_DRIVE(-200, 300))
                 /* Ajouter servoMoteur */
@@ -227,12 +233,12 @@ namespace Robot_P16.Robot
                 .Add(new ActionBuilder("Regler vitese drive").BuildActionDelegate(() => Robot.robot.BASE_ROULANTE.speedDrive = 200))
                 .Add(gestio.GR_TRAPPE_FERMER)
                 .Add(gestio.GR_PLATEAU_AVANT_ORANGE)
-                .Add(new ActionBuilder("Deplacement").BuildActionBaseRoulante_GOTO_ANGLE(point_tube_mixte_final, OBSTACLE_DIRECTION.AVANT))
+                .Add(new ActionBuilder("Deplacement").BuildActionBaseRoulante_GOTO_ONLY(point_tube_mixte_final, OBSTACLE_DIRECTION.AVANT))
                 
 
                 .Add(gestio.GR_PLATEAU_RECOLTE)
                 .Add(gestio.GR_PLATEAU_LIBERATION_BALLES_COULEUR_OPPOSEE())
-
+                .Add(new ActionBuilder("Ajouter score").BuildActionAddScore(50))
                 .Add(new ActionBuilder("Deplacement").BuildActionBaseRoulante_GOTO_ANGLE(point_tube_mixte_envoi_balles_vertes, OBSTACLE_DIRECTION.ARRIERE))
                 .Add(gestio.GR_PLATEAU_LIBERATION_BALLES_TUBE_MIXTE_NOTRE_COULEUR())
                 .BuildActionEnSerie();
