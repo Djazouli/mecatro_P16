@@ -28,9 +28,9 @@ namespace Robot_P16.Robot.composants.BaseRoulante
         public OBSTACLE_DIRECTION direction = OBSTACLE_DIRECTION.AVANT;
 
         public int speedDrive = 150;// avance 10 cm par seconde
-        public int speedTurn = 150; //tourne 30 degrees par seconde
+        public int speedTurn = 200; //tourne 30 degrees par seconde
 
-        public int REFRESH_RATE_KANGAROO = 200;
+        public int REFRESH_RATE_KANGAROO = 350;
 
 
         int PARAMETER_FOR_XY = 1;//l'unite de la dist. = millimetre, on n'accepte QUE l'entier

@@ -149,7 +149,7 @@ namespace Robot_P16.Robot.composants.Servomoteurs
             int[] retour = new int[0];
             lock (locker)
             {
-                Thread.Sleep(50);
+                Thread.Sleep(30);
                 int length = 0;
                 if (parametres != null)
                 {
@@ -182,11 +182,11 @@ namespace Robot_P16.Robot.composants.Servomoteurs
                     //http://www.crustcrawler.com/products/bioloid/docs/AX-12.pdf
                     // OXFF 0XFF ID LENGTH ERROR PARAMETER1 PARAMETER2…PARAMETER N CHECK SUM
                     m_Direction.Write(false);
-                    Thread.Sleep(10);
+                    //Thread.Sleep(5);
                     while(m_serial.BytesToRead <= 0)
                     {
-                        Thread.Sleep(10);
-                        Debug.Print("No feedback received from servo. Weird...");
+                        Thread.Sleep(5);
+                        //Debug.Print("No feedback received from servo. Weird...");
                     }
                     
                     /*
@@ -277,11 +277,11 @@ namespace Robot_P16.Robot.composants.Servomoteurs
 
             do
             {
-                Thread.Sleep(130);
+                Thread.Sleep(10);
             } while (isMoving());
 
             TEMPORAIRE_position = value;
-            Thread.Sleep(50); // a commenter ou decommenter
+            Thread.Sleep(40); // a commenter ou decommenter
 
             return false;
 
