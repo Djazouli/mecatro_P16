@@ -75,7 +75,7 @@ namespace Robot_P16.Robot
                 .Add(new ActionBuilder("pt4").BuildActionBaseRoulante_GOTO_ONLY(pt4, OBSTACLE_DIRECTION.AVANT))
                 .Add(new ActionRamasseCube())
                 .Add(new ActionBuilder("Zone").BuildActionBaseRoulante_GOTO_ONLY(zone, OBSTACLE_DIRECTION.AVANT))
-                .Add(new ActionBuilder("ajouter point").BuildActionAddScore(2))
+                .Add(new ActionBuilder("ajouter point").BuildActionAddScore(40))
                 .Add(new ActionBuilder("Recule un peu").BuildActionBaseRoulante_DRIVE(100,100))
                 
                 //.Add(new ActionReleaseCube())
