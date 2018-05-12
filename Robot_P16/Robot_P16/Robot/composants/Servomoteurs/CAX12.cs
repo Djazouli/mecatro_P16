@@ -149,7 +149,10 @@ namespace Robot_P16.Robot.composants.Servomoteurs
             int[] retour = new int[0];
             lock (locker)
             {
-                Thread.Sleep(30);
+                if(Robot.robot.TypeRobot == TypeRobot.PETIT_ROBOT)
+                    Thread.Sleep(50);
+                else
+                    Thread.Sleep(30);
                 int length = 0;
                 if (parametres != null)
                 {
@@ -185,7 +188,7 @@ namespace Robot_P16.Robot.composants.Servomoteurs
                     //Thread.Sleep(5);
                     while(m_serial.BytesToRead <= 0)
                     {
-                        Thread.Sleep(5);
+                        Thread.Sleep(7);
                         //Debug.Print("No feedback received from servo. Weird...");
                     }
                     
@@ -232,7 +235,8 @@ namespace Robot_P16.Robot.composants.Servomoteurs
                     }
                 }
                 
-                //Thread.Sleep(50);
+                if (Robot.robot.TypeRobot == TypeRobot.PETIT_ROBOT)
+                    Thread.Sleep(50);
             }
 
             return retour;

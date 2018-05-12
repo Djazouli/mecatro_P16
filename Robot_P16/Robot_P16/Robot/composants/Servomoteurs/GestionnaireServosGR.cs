@@ -31,7 +31,7 @@ namespace Robot_P16.Robot.composants.Servomoteurs
     new ActionBuilder("ServoGR- trou du plateau vers l'arriere (sticker vert)").BuildActionServoAbsolue(Robot.robot.GR_SERVO_PLATEAU, DonneesServo.ANGLE_GR_PLATEAU_OUVERTURE_ARRIERE_VERT);
 
         public ActionServoRotation GR_PLATEAU_RECOLTE = new ActionBuilder("ServoGR - Tourne le plateau en continu").
-            BuildActionServoRotation(Robot.robot.GR_SERVO_PLATEAU, 700, 3000); // Rotation continu sens trigo
+            BuildActionServoRotation(Robot.robot.GR_SERVO_PLATEAU, 700, 2500); // Rotation continu sens trigo
 
         public ActionServoAbsolue GR_PLATEAU_SLOT0 = new ActionServoAbsolue("ServoGR - plateau slot 1", Robot.robot.GR_SERVO_PLATEAU, DonneesServo.ANGLE_GR_PLATEAU_SLOT_0); // rien sur la trappe
         public ActionServoAbsolue GR_PLATEAU_SLOT1 = new ActionServoAbsolue("ServoGR - plateau slot 1", Robot.robot.GR_SERVO_PLATEAU, DonneesServo.ANGLE_GR_PLATEAU_SLOT_1);
@@ -44,7 +44,7 @@ namespace Robot_P16.Robot.composants.Servomoteurs
         public ActionServoAbsolue GR_PLATEAU_SLOT8 = new ActionServoAbsolue("ServoGR - plateau slot 8", Robot.robot.GR_SERVO_PLATEAU, DonneesServo.ANGLE_GR_PLATEAU_SLOT_8);
 
         public ActionEnSerie GR_PLATEAU_PETIT_RETOUR_ARRIERE = new ActionBuilder("ServoGR - plateau petit retour en arriere")
-            .Add(new ActionWait("Wait a bit...", 500))
+            .Add(new ActionWait("Wait a bit...", 400))
             /*.Add(new ActionServoRotation("Plateau servo petit retour arriere", Robot.robot.GR_SERVO_PLATEAU, 250, 200))
             .Add(new ActionServoRotation("Plateau servo petit retour arriere", Robot.robot.GR_SERVO_PLATEAU, 1250, 200))*/
             //.Add(new ActionWait("Wait a bit...", 300))
@@ -55,7 +55,7 @@ namespace Robot_P16.Robot.composants.Servomoteurs
             return new ActionBuilder("ServoGR - Liberation balles cote vert (arriere)")
             .Add(new ActionBuilder("Demarrer lanceur").BuildActionLanceurBalle(/*0.618*/ 0.642 ))
             .Add(GR_TRAPPE_OUVRIR)
-            .Add(new ActionWait("Wait a bit...", 100))
+            .Add(new ActionWait("Wait a bit...", 50))
             .Add(GR_PLATEAU_SLOT1)
             .Add(GR_PLATEAU_PETIT_RETOUR_ARRIERE)
             .Add(GR_PLATEAU_SLOT2)
@@ -72,7 +72,7 @@ namespace Robot_P16.Robot.composants.Servomoteurs
             .Add(GR_PLATEAU_PETIT_RETOUR_ARRIERE)
             .Add(GR_PLATEAU_SLOT8)
             .Add(GR_PLATEAU_PETIT_RETOUR_ARRIERE)
-            .Add(new ActionWait("Wait a bit...", 500))
+            .Add(new ActionWait("Wait a bit...", 1000))
             .Add(new ActionBuilder("Stopper lanceur").BuildActionLanceurBalleStop())
             .BuildActionEnSerie();
         }
@@ -84,23 +84,27 @@ namespace Robot_P16.Robot.composants.Servomoteurs
             .Add(GR_PLATEAU_SLOT0)
             .Add(new ActionBuilder("Demarrer lanceur").BuildActionLanceurBalle(0.40))
             .Add(GR_PLATEAU_SLOT2)
-            .Add(new ActionWait("Wait a bit...", 200))
+            .Add(new ActionWait("Wait a bit...", 100))
             .Add(GR_TRAPPE_OUVRIR)
+            .Add(new ActionBuilder("Ajouter score").BuildActionAddScore(10))
             .Add(GR_PLATEAU_PETIT_RETOUR_ARRIERE)
             .Add(GR_TRAPPE_FERMER)
             .Add(GR_PLATEAU_SLOT4)
-            .Add(new ActionWait("Wait a bit...", 200))
+            .Add(new ActionWait("Wait a bit...", 100))
             .Add(GR_TRAPPE_OUVRIR)
+            .Add(new ActionBuilder("Ajouter score").BuildActionAddScore(10))
             .Add(GR_PLATEAU_PETIT_RETOUR_ARRIERE)
             .Add(GR_TRAPPE_FERMER)
             .Add(GR_PLATEAU_SLOT6)
-            .Add(new ActionWait("Wait a bit...", 200))
+            .Add(new ActionWait("Wait a bit...", 100))
             .Add(GR_TRAPPE_OUVRIR)
+            .Add(new ActionBuilder("Ajouter score").BuildActionAddScore(10))
             .Add(GR_PLATEAU_PETIT_RETOUR_ARRIERE)
             .Add(GR_TRAPPE_FERMER)
             .Add(GR_PLATEAU_SLOT8)
-            .Add(new ActionWait("Wait a bit...", 200))
+            .Add(new ActionWait("Wait a bit...", 100))
             .Add(GR_TRAPPE_OUVRIR)
+            .Add(new ActionBuilder("Ajouter score").BuildActionAddScore(10))
             .Add(GR_PLATEAU_PETIT_RETOUR_ARRIERE)
             .Add(new ActionWait("Wait a bit", 1500))
             .Add(GR_TRAPPE_FERMER)

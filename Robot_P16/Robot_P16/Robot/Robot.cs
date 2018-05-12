@@ -261,7 +261,6 @@ namespace Robot_P16.Robot
         {
             Informations.printInformations(Priority.HIGH, "Robot - called stop()");
             isStopped = true;
-            IHM.AfficherInformation("Score : " + score, true);
             this.SWITCH_GLOBAL.Activate();
             if (this.typeRobot == TypeRobot.GRAND_ROBOT)
             {
@@ -291,6 +290,7 @@ namespace Robot_P16.Robot
                 this.PR_SERVO_ROTATION_BRAS_GAUCHE.Stop();
                 Thread.Sleep(50);
             }
+            IHM.AfficherInformation("Score : " + score, true);
         }
 
         public void loadComponents()
