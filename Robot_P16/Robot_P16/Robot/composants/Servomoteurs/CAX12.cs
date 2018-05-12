@@ -150,7 +150,7 @@ namespace Robot_P16.Robot.composants.Servomoteurs
             lock (locker)
             {
                 if(Robot.robot.TypeRobot == TypeRobot.PETIT_ROBOT)
-                    Thread.Sleep(50);
+                    Thread.Sleep(150);
                 else
                     Thread.Sleep(30);
                 int length = 0;
@@ -189,6 +189,8 @@ namespace Robot_P16.Robot.composants.Servomoteurs
                     while(m_serial.BytesToRead <= 0)
                     {
                         Thread.Sleep(7);
+                        if (Robot.robot.TypeRobot == TypeRobot.PETIT_ROBOT)
+                            Thread.Sleep(20);
                         //Debug.Print("No feedback received from servo. Weird...");
                     }
                     
@@ -236,7 +238,7 @@ namespace Robot_P16.Robot.composants.Servomoteurs
                 }
                 
                 if (Robot.robot.TypeRobot == TypeRobot.PETIT_ROBOT)
-                    Thread.Sleep(50);
+                    Thread.Sleep(150);
             }
 
             return retour;

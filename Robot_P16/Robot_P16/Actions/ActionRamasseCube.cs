@@ -38,25 +38,25 @@ namespace Robot_P16.Actions
                 {
                     case "J-N-B"://Cas de base du bras gauche : hauteur 1 cube bien aligne sur le cube gauche
                     case "B-N-J":
-                       action = new ActionBuilder("J-N-B Vert").Add(
+                       action = new ActionBuilder("J-N-B Vert").Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIMENT_SORTIR_CUBE_GAUCHE
+                           ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_MILIEU
+                           ).Add(new ActionBuilder("Ventouze gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true)
+                           ).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionPoserVentouze()
+                           ).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionHauteurPose_2emeCube()
+                           ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_INTERIEUR
+                           ).Add(new ActionBuilder("ventouze gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false)
+                           ).Add(new ActionBuilder("wait").BuildActionWait(200)
+                           ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_MILIEU).Add(
                            gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU
-                           ).Add(
+                           )
+                           .Add(
                            new ActionBuilder("Ventouze droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, true)
                            ).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW.ActionPoserVentouze()
-                           ).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW.ActionHauteurPose_2emeCube()
+                           ).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW.ActionHauteurPose_3emeCube()
                            ).Add(gestionnaire.PR_BRAS_DROIT_ROTATION_INTERIEUR
                            ).Add(new ActionBuilder("desactive ventouze droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, false)
                            ).Add(new ActionBuilder("wait venouze").BuildActionWait(200)
                            ).Add(gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU
-                           ).Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIMENT_SORTIR_CUBE_GAUCHE
-                           ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_MILIEU
-                           ).Add(new ActionBuilder("Ventouze gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true)
-                           ).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionPoserVentouze()
-                           ).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionHauteurPose_3emeCube()
-                           ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_INTERIEUR
-                           ).Add(new ActionBuilder("ventouze gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false)
-                           ).Add(new ActionBuilder("wait").BuildActionWait(200)
-                           ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_MILIEU
                            ).Add(gestionnaire.PR_POUSSOIRJOKER_POUSSER
                            ).Add(gestionnaire.PR_POUSSOIRJOKER_RETOUR
                            /*).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW.ActionHauteurPose_2emeCube()
@@ -82,7 +82,7 @@ namespace Robot_P16.Actions
                             ).Add(
                             Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW.ActionHauteurPose_2emeCube()
                             ).Add(
-                            new ActionBuilder("Avancer d'un cube").BuildActionBaseRoulante_DRIVE(-65, 30 * 100)
+                            new ActionBuilder("Avancer d'un cube").BuildActionBaseRoulante_DRIVE(-65, 100)
                             ).Add(
                             new ActionBuilder("desactiver ventouse droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, false)
                             ).Add(
@@ -121,7 +121,7 @@ namespace Robot_P16.Actions
                             ).Add(
                             Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW.ActionHauteurPose_2emeCube()
                             ).Add(
-                            new ActionBuilder("Avancer d'un cube").BuildActionBaseRoulante_DRIVE(-65, 30 * 100)
+                            new ActionBuilder("Avancer d'un cube").BuildActionBaseRoulante_DRIVE(-65, 100)
                             ).Add(
                             new ActionBuilder("desactiver ventouse droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, false)
                             ).Add(
@@ -158,7 +158,7 @@ namespace Robot_P16.Actions
                             ).Add(
                             Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionHauteurPose_2emeCube()
                             ).Add(
-                            new ActionBuilder("Avancer d'un cube").BuildActionBaseRoulante_DRIVE(-65, 30 * 100)
+                            new ActionBuilder("Avancer d'un cube").BuildActionBaseRoulante_DRIVE(-65, 100)
                             ).Add(
                             new ActionBuilder("descative ventouze gauche / Activer ventouse droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, true)
                             ).Add(new ActionBuilder("wait").BuildActionWait(200)
@@ -276,7 +276,7 @@ namespace Robot_P16.Actions
                                    ).Add(gestionnaire.PR_BRAS_DROIT_ROTATION_INTERIEUR
                                    ).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW.ActionPoserVentouze()
                                    ).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW.ActionHauteurPose_3emeCube()
-                                   ).Add(new ActionBuilder("Avancer d'un cube").BuildActionBaseRoulante_DRIVE(-65, 30 * 100)
+                                   ).Add(new ActionBuilder("Avancer d'un cube").BuildActionBaseRoulante_DRIVE(-65, 100)
                                    ).Add(new ActionBuilder("ventouze").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, false)
                                    ).Add(new ActionBuilder("wait").BuildActionWait(200)
                                    ).Add(gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU
@@ -300,7 +300,7 @@ namespace Robot_P16.Actions
                             ).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionHauteurPose_2emeCube()
                             ).Add(new ActionBuilder("Avancer et ramener bras"
                                 ).Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIMENT_SORTIR_CUBE_GAUCHE
-                                ).Add(new ActionBuilder("Avancer d'un cube").BuildActionBaseRoulante_DRIVE(-65, 30 * 100)
+                                ).Add(new ActionBuilder("Avancer d'un cube").BuildActionBaseRoulante_DRIVE(-65, 100)
                                 ).BuildActionEnSerie()
                             ).Add(new ActionBuilder("ventouse").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false)
                             ).Add(new ActionBuilder("wait").BuildActionWait(200)
@@ -439,46 +439,6 @@ namespace Robot_P16.Actions
                                 ).BuildActionEnSerie();
                         return action;
                         //return new int[] {4,12,5};
-                    case "B-V-O":
-                    case "O-V-B":
-                               action = new ActionBuilder("Action B-V-O Orange").Add(
-                            new ActionBuilder("Tourner bras droit et avancer bras gauche paralle").Add(
-                                gestionnaire.PR_BRAS_DROIT_ROTATION_INTERIEUR).Add(
-                                gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_SORTIR_CUBE_CENTRAL)
-                                .BuildActionEnSerie()
-                            ).Add(
-                            new ActionBuilder("Ventouse droit").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, true)
-                            ).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW.ActionPoserVentouze()
-                            ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_INTERIEUR
-                            ).Add(
-                            Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW.ActionHauteurPose_2emeCube()
-                            ).Add(
-                            new ActionBuilder("Avancer d'un cube").BuildActionBaseRoulante_DRIVE(-65, 30 * 100)
-                            ).Add(
-                            new ActionBuilder("desactiver ventouse droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, false)
-                            ).Add(
-                            new ActionBuilder("Wait ventouze").BuildActionWait(200)
-                            ).Add(
-                            new ActionBuilder("Rotationner droit /ventouse + descendre gauche").Add(gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU).Add(
-                                    new ActionBuilder("Ventouse + descendregauche").Add(new ActionBuilder("ventouze").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true)).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionPoserVentouze()).BuildActionEnSerie()
-                                    ).BuildActionEnSerie()
-                            ).Add(
-                            Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionHauteurPose_3emeCube()).Add(
-                            gestionnaire.PR_BRAS_GAUCHE_DEPLOIMENT_SORTIR_CUBE_GAUCHE
-                            ).Add(
-                            new ActionBuilder("Desactive ventouze gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false)
-                            ).Add(
-                           gestionnaire.PR_BRAS_GAUCHE_ROTATION_MILIEU
-                           ).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionHauteurPose_2emeCube()
-                            ).Add(
-                            gestionnaire.PR_POUSSOIRJOKER_POUSSER
-                            ).Add(
-                            gestionnaire.PR_POUSSOIRJOKER_RETOUR
-                            ).Add(gestionnaire.PR_BRAS_DROIT_ROTATION_COINCER
-                            ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_COINCER
-                                ).BuildActionEnSerie();
-                        return action;
-                               
                         //return new int[] {1,13,5};
                     case "V-O-J":
                     case "J-O-V":
@@ -497,7 +457,7 @@ namespace Robot_P16.Actions
                      ).Add(
                      Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW.ActionHauteurPose_2emeCube()
                      ).Add(
-                     new ActionBuilder("Avancer d'un cube").BuildActionBaseRoulante_DRIVE(-65, 30 * 100)
+                     new ActionBuilder("Avancer d'un cube").BuildActionBaseRoulante_DRIVE(-65, 100)
                      ).Add(
                      new ActionBuilder("desactiver ventouse droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, false)
                      ).Add(
@@ -529,7 +489,7 @@ namespace Robot_P16.Actions
                             ).Add(new ActionBuilder("ventouze droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, true)
                             ).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW.ActionPoserVentouze()
                             ).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW.ActionHauteurPose_2emeCube()
-                            ).Add(new ActionBuilder("Avancer d'un cube").BuildActionBaseRoulante_DRIVE(-65, 30 * 100)
+                            ).Add(new ActionBuilder("Avancer d'un cube").BuildActionBaseRoulante_DRIVE(-65, 100)
                             ).Add(new ActionBuilder("ventouze droite").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true)
                             ).Add(new ActionBuilder("wait").BuildActionWait(200)
                             ).Add(gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU
@@ -580,24 +540,23 @@ namespace Robot_P16.Actions
                     case "N-J-O":
                     case "O-J-N":
                                action = new ActionBuilder("NJO Orange"
-                            ).Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_SORTIR_CUBE_CENTRAL
-                            ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_INTERIEUR
-                            ).Add(new ActionBuilder("Ventouze").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true)
-                            ).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionPoserVentouze()
-                            ).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionHauteurPose_2emeCube()
-                            ).Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIMENT_SORTIR_CUBE_GAUCHE
-                            ).Add(new ActionBuilder("ventouze").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false)
-                            ).Add(new ActionBuilder("wait").BuildActionWait(200)
-                            ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_MILIEU
+                                   ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_MILIEU
                             ).Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIMENT_SORTIR_CUBE_GAUCHE
                             ).Add(new ActionBuilder("ventouze").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true)
                             ).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionPoserVentouze()
-                            ).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionHauteurPose_3emeCube()
+                            ).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionHauteurPose_2emeCube()
                             ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_INTERIEUR
                             ).Add(new ActionBuilder("ventouze gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false)
                             ).Add(new ActionBuilder("wait").BuildActionWait(200)
                             ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_MILIEU
-                            ).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionHauteurPose_2emeCube()
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_SORTIR_CUBE_CENTRAL
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_INTERIEUR
+                            ).Add(new ActionBuilder("Ventouze").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true)
+                            ).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionPoserVentouze()
+                            ).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionHauteurPose_3emeCube()
+                            ).Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIMENT_SORTIR_CUBE_GAUCHE
+                            ).Add(new ActionBuilder("ventouze").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false)
+                            ).Add(new ActionBuilder("wait").BuildActionWait(200)
                             ).Add(gestionnaire.PR_POUSSOIRJOKER_POUSSER
                             ).Add(gestionnaire.PR_POUSSOIRJOKER_RETOUR
                             ).Add(gestionnaire.PR_BRAS_DROIT_ROTATION_COINCER
@@ -605,67 +564,7 @@ namespace Robot_P16.Actions
                                 ).BuildActionEnSerie();
                                return action;
                         //return new int[] {3,12,5};
-                    case "B-O-N":
-                    case "N-O-B":
-                               action = new ActionBuilder("BON Orange"
-                                   ).Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIMENT_SORTIR_CUBE_GAUCHE
-                                   ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_MILIEU
-                                   ).Add(gestionnaire.PR_BRAS_DROIT_ROTATION_INTERIEUR //c'est important de le faire avant car ca bloquera sinon
-                                   ).Add(new ActionBuilder("Ventouze").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true)
-                                   ).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionPoserVentouze()
-                                   ).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionHauteurPose_2emeCube()
-                                   ).Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_SORTIR_CUBE_CENTRAL
-                                   ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_INTERIEUR
-                                   ).Add(new ActionBuilder("ventouze").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, true)
-                                   ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_MILIEU
-                                   ).Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_RENTRER
-                                   ).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW.ActionPoserVentouze()
-                                   ).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW.ActionHauteurPose_3emeCube()
-                                   ).Add(new ActionBuilder("Avancer d'un cube").BuildActionBaseRoulante_DRIVE(-65, 30 * 100)
-                                   ).Add(new ActionBuilder("ventouze").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, false)
-                                   ).Add(new ActionBuilder("wait").BuildActionWait(200)
-                                   ).Add(gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU
-                                   ).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW.ActionHauteurPose_2emeCube()
-                                   ).Add(gestionnaire.PR_POUSSOIRJOKER_POUSSER
-                                   ).Add(gestionnaire.PR_POUSSOIRJOKER_RETOUR
-                                   ).Add(gestionnaire.PR_BRAS_DROIT_ROTATION_COINCER
-                            ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_COINCER
-                                ).BuildActionEnSerie();
-                               return action;
-
                         //return new int[] {7,11,5}; // Le cube tombe lors du replacage au milieu (changer la speed du deploiement interieur ?
-                    case "J-V-N":
-                    case "N-V-J":
-                               action = new ActionBuilder("J-V-N Orange").Add(
-                            new ActionBuilder("Deploiyer et tourner"
-                                ).Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_SORTIR_CUBE_CENTRAL
-                                ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_INTERIEUR
-                                ).BuildActionEnSerie()
-                            ).Add(new ActionBuilder("Ventouse").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true)
-                            ).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionPoserVentouze()
-                            ).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionHauteurPose_2emeCube()
-                            ).Add(new ActionBuilder("Avancer et ramener bras"
-                                ).Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIMENT_SORTIR_CUBE_GAUCHE
-                                ).Add(new ActionBuilder("Avancer d'un cube").BuildActionBaseRoulante_DRIVE(-65, 30 * 100)
-                                ).BuildActionEnSerie()
-                            ).Add(new ActionBuilder("ventouse").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false)
-                            ).Add(new ActionBuilder("wait").BuildActionWait(200)
-                            ).Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_SORTIR_CUBE_CENTRAL // puis go to hauteur et recalle le cube
-                            ).Add(new ActionBuilder("ventouse").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true)
-                            ).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionPoserVentouze()
-                            ).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionHauteurPose_3emeCube()
-                            ).Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIMENT_SORTIR_CUBE_GAUCHE
-                            ).Add(new ActionBuilder("ventouse").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false)
-                            ).Add(new ActionBuilder("wait").BuildActionWait(200)
-                            ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_MILIEU
-                            ).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionHauteurPose_2emeCube()
-                            ).Add(gestionnaire.PR_POUSSOIRJOKER_POUSSER
-                            ).Add(gestionnaire.PR_POUSSOIRJOKER_RETOUR
-                            ).Add(gestionnaire.PR_BRAS_DROIT_ROTATION_COINCER
-                            ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_COINCER
-                                ).BuildActionEnSerie();
-                               return action;
-                        //return new int[] {3,6,3};
                     case "N-B-V":
                     case "V-B-N":
                         action = new ActionBuilder("N-B-V  Orange"
@@ -696,24 +595,23 @@ namespace Robot_P16.Actions
                     case "O-B-J":
                     case "J-B-O":
                         action = new ActionBuilder("O-B-J Orange"
-                            ).Add(new ActionBuilder("Ventouze droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, true)
-                            ).Add(gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU
-                            ).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW.ActionPoserVentouze()
-                            ).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW.ActionHauteurPose_2emeCube()
-                            ).Add(gestionnaire.PR_BRAS_DROIT_ROTATION_INTERIEUR
-                            ).Add(new ActionBuilder("desactive ventouze droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE,false)
-                            ).Add(new ActionBuilder("wait venouze").BuildActionWait(200)
-                            ).Add(gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU
                             ).Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIEMENT_SORTIR_CUBE_CENTRAL
                             ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_INTERIEUR
                             ).Add(new ActionBuilder("Ventouze gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true)
                             ).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionPoserVentouze()
-                            ).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionHauteurPose_3emeCube()
+                            ).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionHauteurPose_2emeCube()
                             ).Add(gestionnaire.PR_BRAS_GAUCHE_DEPLOIMENT_SORTIR_CUBE_GAUCHE
                             ).Add(new ActionBuilder("ventouze gauche").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, false)
                             ).Add(new ActionBuilder("wait").BuildActionWait(200)
                             ).Add(gestionnaire.PR_BRAS_GAUCHE_ROTATION_MILIEU
-                            ).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionHauteurPose_2emeCube()
+                            ).Add(new ActionBuilder("Ventouze droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE, true)
+                            ).Add(gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU
+                            ).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW.ActionPoserVentouze()
+                            ).Add(Robot.Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW.ActionHauteurPose_3emeCube()
+                            ).Add(gestionnaire.PR_BRAS_DROIT_ROTATION_INTERIEUR
+                            ).Add(new ActionBuilder("desactive ventouze droite").BuildActionVentouze(VENTOUZES.VENTOUZE_DROITE,false)
+                            ).Add(new ActionBuilder("wait venouze").BuildActionWait(200)
+                            ).Add(gestionnaire.PR_BRAS_DROIT_ROTATION_MILIEU
                             ).Add(gestionnaire.PR_POUSSOIRJOKER_POUSSER
                             ).Add(gestionnaire.PR_POUSSOIRJOKER_RETOUR
                             ).Add(gestionnaire.PR_BRAS_DROIT_ROTATION_COINCER

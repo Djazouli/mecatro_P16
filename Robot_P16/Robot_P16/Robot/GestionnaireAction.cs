@@ -25,8 +25,8 @@ namespace Robot_P16.Robot
             setMotherAction(ModeOperatoire.COMPETITION, TypeRobot.PETIT_ROBOT, CouleurEquipe.ORANGE, strategiePR.GetMotherActionPRCompetitionForCouleurOrange());
 
             TestRobots testRobots = new TestRobots();
-            setMotherAction(ModeOperatoire.TEST1, TypeRobot.PETIT_ROBOT, CouleurEquipe.VERT, testRobots.GetActionCalibragePR());
-            setMotherAction(ModeOperatoire.TEST1, TypeRobot.PETIT_ROBOT, CouleurEquipe.ORANGE, testRobots.GetActionCalibragePR2());
+            setMotherAction(ModeOperatoire.TEST1, TypeRobot.PETIT_ROBOT, CouleurEquipe.VERT, testRobots.TestPRAscenseurDroit());
+            setMotherAction(ModeOperatoire.TEST1, TypeRobot.PETIT_ROBOT, CouleurEquipe.ORANGE, testRobots.TestPRAscenseurDroit());
             setMotherAction(ModeOperatoire.TEST1, TypeRobot.GRAND_ROBOT, CouleurEquipe.VERT, testRobots.GetActionTestScore());
             setMotherAction(ModeOperatoire.TEST1, TypeRobot.GRAND_ROBOT, CouleurEquipe.ORANGE, testRobots.TestRecallage());
 
@@ -38,8 +38,8 @@ namespace Robot_P16.Robot
 
             if (Robot.robot.TypeRobot == TypeRobot.PETIT_ROBOT)
             {
-                setMotherAction(ModeOperatoire.HOMOLOGATION, TypeRobot.PETIT_ROBOT, CouleurEquipe.ORANGE, new ActionBuilder("piche").Add(new ActionRamasseCube()).Add(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW.ActionGoToZoneBasse(true)).Add(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionGoToZoneBasse(true)).BuildActionEnSerie());
-                setMotherAction(ModeOperatoire.HOMOLOGATION, TypeRobot.PETIT_ROBOT, CouleurEquipe.VERT, new ActionBuilder("piche").Add(new ActionRamasseCube()).Add(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_DROIT_NEW.ActionGoToZoneBasse(true)).Add(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionGoToZoneBasse(true)).BuildActionEnSerie());
+                setMotherAction(ModeOperatoire.HOMOLOGATION, TypeRobot.PETIT_ROBOT, CouleurEquipe.ORANGE, testRobots.TestCodesCouleurs());
+                setMotherAction(ModeOperatoire.HOMOLOGATION, TypeRobot.PETIT_ROBOT, CouleurEquipe.VERT, testRobots.TestCodesCouleurs());
             }
                 
             

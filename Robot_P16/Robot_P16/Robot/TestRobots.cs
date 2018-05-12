@@ -12,13 +12,18 @@ namespace Robot_P16.Robot
     public class TestRobots
     {
 
+        public Action TestCodesCouleurs()
+        {
+            return new ActionBuilder("Recallage bras droit")
+                .Add(new ActionBuilder("Regler vitese drive").BuildActionDelegate(() => Robot.robot.StartCountdown()))
+                .Add(new ActionWait("piche", 5000))
+            .Add(new ActionRamasseCube()).BuildActionEnSerie();
+        }
+
         public Action TestPRAscenseurDroit()
         {
-            return new ActionBuilder("Test asceneur droit PR")
-                .Add(new ActionBuilder("ventouzes").BuildActionVentouze(VENTOUZES.VENTOUZE_GAUCHE, true))
-                .Add(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionPoserVentouze())
-                .Add(new ActionWait("Wait", 3000))
-                .Add(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionHauteurPose_3emeCube())
+            return new ActionBuilder("Recallage bras droit")
+            .Add(new ActionBuilder("Regler vitese drive").BuildActionDelegate(() => Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.RotateForever(500)))
                 /*.Add(new ActionWait("Wait", 3000))
                 .Add(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW.ActionHauteurPose_3emeCube())
                 .Add(new ActionWait("Wait", 3000))

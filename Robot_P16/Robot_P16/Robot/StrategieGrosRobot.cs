@@ -60,8 +60,7 @@ namespace Robot_P16.Robot
                 //.Add(new ActionWait("Wait a bit...", 500))
                 .Add(new ActionBuilder("piche").BuildActionBaseRoulante_GOTO_ANGLE(point_tube_uni_lancement, OBSTACLE_DIRECTION.AVANT))
                 .Add(gestio.GR_PLATEAU_LIBERATION_TUBE_UNICOULEUR())
-                .Add(new ActionBuilder("Ajouter score").BuildActionAddScore(50))
-                .Add(new ActionBuilder("Recule un peu").BuildActionBaseRoulante_DRIVE(50, 100 * 100))
+                .Add(new ActionBuilder("Ajouter score").BuildActionAddScore(45))
                 .BuildActionEnSerie();
 
             ActionEnSerie ActiverAbeille = new ActionBuilder("Activer l'abeille")
@@ -109,6 +108,7 @@ namespace Robot_P16.Robot
                 //.Add(new ActionBuilder("Recule un peu").BuildActionBaseRoulante_DRIVE(3, 100))
 
                 .Add(gestio.GR_PLATEAU_RECOLTE)
+                .Add(new ActionBuilder("ouverture recolte mixte").BuildActionAddScore(10))
                 .Add(gestio.GR_PLATEAU_LIBERATION_BALLES_COULEUR_OPPOSEE())
 
                 .Add(new ActionBuilder("Deplacement").BuildActionBaseRoulante_GOTO_ANGLE(point_tube_mixte_envoi_balles_vertes, OBSTACLE_DIRECTION.AVANT))
@@ -163,7 +163,7 @@ namespace Robot_P16.Robot
 
             ActionEnSerie ViderTubeUni = new ActionBuilder("Vider le tube uni")
                 .Add(new ActionBuilder("Ajouter score").BuildActionAddScore(10))
-                .Add(new ActionBuilder("Regler vitese drive").BuildActionDelegate(() => Robot.robot.BASE_ROULANTE.speedDrive = 500))
+                .Add(new ActionBuilder("Regler vitese drive").BuildActionDelegate(() => Robot.robot.BASE_ROULANTE.speedDrive = 300))
                 .Add(new ActionBuilder("Desactiver IR").BuildActionSetDetecteurObstacle(false))
                 .Add(new ActionBuilder("Deplacement").BuildActionBaseRoulante_GOTO_ONLY(point_tube_uni_intermediaire_2))
                 .Add(gestio.GR_PLATEAU_AVANT_ORANGE)
@@ -175,8 +175,7 @@ namespace Robot_P16.Robot
                 .Add(new ActionWait("Wait a bit...", 500))
                 .Add(new ActionBuilder("piche").BuildActionBaseRoulante_GOTO_ANGLE(point_tube_uni_lancement, OBSTACLE_DIRECTION.ARRIERE))
                 .Add(gestio.GR_PLATEAU_LIBERATION_TUBE_UNICOULEUR())
-                .Add(new ActionBuilder("Ajouter score").BuildActionAddScore(50))
-                .Add(new ActionBuilder("Recule un peu").BuildActionBaseRoulante_DRIVE(-50, 100*50))
+                .Add(new ActionBuilder("Ajouter score").BuildActionAddScore(45))
                 .BuildActionEnSerie();
 
 
@@ -226,8 +225,8 @@ namespace Robot_P16.Robot
                 
 
                 .Add(gestio.GR_PLATEAU_RECOLTE)
+                .Add(new ActionBuilder("ouverture recolte mixte").BuildActionAddScore(10))
                 .Add(gestio.GR_PLATEAU_LIBERATION_BALLES_COULEUR_OPPOSEE())
-                .Add(new ActionBuilder("Ajouter score").BuildActionAddScore(50))
                 .Add(new ActionBuilder("Deplacement").BuildActionBaseRoulante_GOTO_ANGLE(point_tube_mixte_envoi_balles_vertes, OBSTACLE_DIRECTION.ARRIERE))
                 .Add(gestio.GR_PLATEAU_LIBERATION_BALLES_TUBE_MIXTE_NOTRE_COULEUR())
                 .BuildActionEnSerie();

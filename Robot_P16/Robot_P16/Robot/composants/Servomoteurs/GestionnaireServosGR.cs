@@ -82,7 +82,7 @@ namespace Robot_P16.Robot.composants.Servomoteurs
             return new ActionBuilder("ServoGR - Liberation balles cote vert (arriere)")
             .Add(GR_TRAPPE_FERMER)
             .Add(GR_PLATEAU_SLOT0)
-            .Add(new ActionBuilder("Demarrer lanceur").BuildActionLanceurBalle(0.40))
+            .Add(new ActionBuilder("Demarrer lanceur").BuildActionLanceurBalle(0.38))
             .Add(GR_PLATEAU_SLOT2)
             .Add(new ActionWait("Wait a bit...", 100))
             .Add(GR_TRAPPE_OUVRIR)

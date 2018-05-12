@@ -78,8 +78,8 @@ namespace Robot_P16.Robot.composants.Servomoteurs
 
         //AJOUTER PR_SERVO_ROTATION_BRAS_GAUCHE dans Robot.robot et ANGLE_PR_ROTATIONGAUCHE_HORAIRE dans Donnees Servo
 
-        public ActionServoAbsolue PR_BRAS_DROIT_ROTATION_COINCER =
-            new ActionBuilder("ServoPR- rotation bras droit pour coincer cube").BuildActionServoAbsolue(Robot.robot.PR_SERVO_ROTATION_BRAS_DROIT, DonneesServo.ANGLE_PR_ROTATIONDROIT_COINCER);
+        public ActionServoAbsolue PR_BRAS_DROIT_ROTATION_COINCER = null;
+            //new ActionBuilder("ServoPR- rotation bras droit pour coincer cube").BuildActionServoAbsolue(Robot.robot.PR_SERVO_ROTATION_BRAS_DROIT, DonneesServo.ANGLE_PR_ROTATIONDROIT_COINCER);
 
         //AJOUTER ANGLE_PR_ROTATIONDROITE_COINCER dans Donnees Servo
 
@@ -88,8 +88,8 @@ namespace Robot_P16.Robot.composants.Servomoteurs
 
         //AJOUTER ANGLE_PR_ROTATIONDROITE_DECOINCER dans Donnees Servo
 
-        public ActionServoAbsolue PR_BRAS_GAUCHE_ROTATION_COINCER =
-        new ActionBuilder("ServoPR- rotation bras gauche pour coincer cube").BuildActionServoAbsolue(Robot.robot.PR_SERVO_ROTATION_BRAS_GAUCHE,  DonneesServo.ANGLE_PR_ROTATIONGAUCHE_COINCER);
+        public ActionServoAbsolue PR_BRAS_GAUCHE_ROTATION_COINCER = null;
+        //new ActionBuilder("ServoPR- rotation bras gauche pour coincer cube").BuildActionServoAbsolue(Robot.robot.PR_SERVO_ROTATION_BRAS_GAUCHE,  DonneesServo.ANGLE_PR_ROTATIONGAUCHE_COINCER);
 
 
         public ActionServoAbsolue PR_BRAS_GAUCHE_DEPLOIEMENT_SORTIR_CUBE_CENTRAL =

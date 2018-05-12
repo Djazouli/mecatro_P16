@@ -186,6 +186,9 @@ namespace Robot_P16.Robot.composants.Servomoteurs
                 .Add(
                     new ActionBuilder("Hauteur pose 2eme cube").BuildActionServoAbsolue(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW,
                     DonneesServo.ANGLE_PR_ASCENSEURGAUCHE_PARTIE_HAUTE_HAUTEUR_1_CUBE)
+                ).Add(
+                    new ActionBuilder("Descendre un peu").BuildActionServoRotation(Robot.robot.PR_SERVO_ASCENSEUR_BRAS_GAUCHE_NEW,
+                    DonneesServo.VITESSE_PR_ASCENSEURGAUCHE_PARTIE_HAUTE_VERS_BASSE, 500)
                 ).BuildActionEnSerie();
         }
         public override Action ActionHauteurPose_3emeCube()
