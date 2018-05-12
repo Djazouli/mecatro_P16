@@ -51,7 +51,7 @@ namespace Robot_P16.Robot
                 .Add(new ActionBuilder("set init").BuildActionSetPositionInitiale(ptInit.x, ptInit.y, ptInit.theta))
                 .Add(new ActionBuilder("Regler vitese drive").BuildActionDelegate(() => Robot.robot.BASE_ROULANTE.speedDrive = 200))
                 .Add(new ActionBuilder("pt0").BuildActionBaseRoulante_GOTO_ONLY(pt0))
-                .Add(new ActionBuilder("Activer IR").BuildActionSetDetecteurObstacle(true))
+                .Add(new ActionBuilder("Activer IR").BuildActionSetDetecteurObstacle(false))
                 .Add(new ActionBuilder("pt1").BuildActionBaseRoulante_GOTO_ONLY(pt1))
                 .Add(new ActionBuilder("Activer IR").BuildActionSetDetecteurObstacle(false))
                 .Add(new ActionBuilder("pt2").BuildActionBaseRoulante_GOTO_ONLY(pt2, OBSTACLE_DIRECTION.ARRIERE))
@@ -68,6 +68,7 @@ namespace Robot_P16.Robot
                 .Add(new ActionBuilder("pt2").BuildActionBaseRoulante_GOTO_ONLY(pt_homol_1, OBSTACLE_DIRECTION.AVANT))
                 .Add(new ActionBuilder("pt2").BuildActionBaseRoulante_GOTO_ONLY(pt_homol_2, OBSTACLE_DIRECTION.ARRIERE))
                 */
+                //.Add(new ActionBuilder("Activer IR").BuildActionSetDetecteurObstacle(true))
                 .Add(new ActionBuilder("Recule un peu").BuildActionBaseRoulante_DRIVE(-100, 100))
                 .Add(new ActionBuilder("pt3").BuildActionBaseRoulante_GOTO_ONLY(pt3, OBSTACLE_DIRECTION.AVANT))
                 //).Add(new ActionBuilder("ptInter").BuildActionBaseRoulante_GOTO_ONLY(ptIntermediaire, OBSTACLE_DIRECTION.AVANT)

@@ -66,8 +66,9 @@ namespace Robot_P16.Robot
             ActionEnSerie ActiverAbeille = new ActionBuilder("Activer l'abeille")
                 .Add(new ActionBuilder("Regler vitese drive").BuildActionDelegate(() => Robot.robot.BASE_ROULANTE.speedDrive = 800))
                 //.Add(new ActionBuilder("Recule un peu").BuildActionBaseRoulante_DRIVE(200, 100 * 200))
-                .Add(new ActionBuilder("Activer IR").BuildActionSetDetecteurObstacle(true))
+                .Add(new ActionBuilder("Activer IR").BuildActionSetDetecteurObstacle(false))
                 .Add(new ActionBuilder("Deplacement").BuildActionBaseRoulante_GOTO_ONLY(point_abeille_intermediaire_1))
+                .Add(new ActionBuilder("Activer IR").BuildActionSetDetecteurObstacle(true))
                 .Add(new ActionBuilder("Deplacement").BuildActionBaseRoulante_GOTO_ONLY(point_abeille_intermediaire_2, OBSTACLE_DIRECTION.AVANT)) // change orange
                 .Add(new ActionBuilder("Activer IR").BuildActionSetDetecteurObstacle(false))
                 .Add(new ActionBuilder("Regler vitese drive").BuildActionDelegate(() => Robot.robot.BASE_ROULANTE.speedDrive = 350))
@@ -182,8 +183,9 @@ namespace Robot_P16.Robot
             ActionEnSerie ActiverAbeille = new ActionBuilder("Activer l'abeille")
                 .Add(new ActionBuilder("Regler vitese drive").BuildActionDelegate(() => Robot.robot.BASE_ROULANTE.speedDrive = 800))
                 //.Add(new ActionBuilder("Recule un peu").BuildActionBaseRoulante_DRIVE(200, 100 * 200))
-                .Add(new ActionBuilder("Activer IR").BuildActionSetDetecteurObstacle(true))
+                .Add(new ActionBuilder("Activer IR").BuildActionSetDetecteurObstacle(false))
                 .Add(new ActionBuilder("Deplacement").BuildActionBaseRoulante_GOTO_ONLY(point_abeille_intermediaire_1))
+                .Add(new ActionBuilder("Activer IR").BuildActionSetDetecteurObstacle(true))
                 .Add(new ActionBuilder("Deplacement").BuildActionBaseRoulante_GOTO_ONLY(point_abeille_intermediaire_2, OBSTACLE_DIRECTION.AVANT)) // change orange
                 .Add(new ActionBuilder("Activer IR").BuildActionSetDetecteurObstacle(false))
                 .Add(new ActionBuilder("Regler vitese drive").BuildActionDelegate(() => Robot.robot.BASE_ROULANTE.speedDrive = 350))
